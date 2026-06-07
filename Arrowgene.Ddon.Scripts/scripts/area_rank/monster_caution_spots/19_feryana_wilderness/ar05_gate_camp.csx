@@ -1,12 +1,15 @@
-// Gate Camp — stageid463 GroupId80 MaxPos4 (positions 0-4)
-// Monster Caution Spot — Feryana Wilderness, Lv88, AR0
+/**
+ * @brief Enemy Spot in "Feryana Wilderness" for "Gate Camp"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
     public override StageLayoutId StageLayoutId => Stage.FeryanaWilderness.AsStageLayoutId(80);
     public override QuestAreaId AreaId => QuestAreaId.FeryanaWilderness;
-    public override uint RequiredAreaRank => 5;
+    public override uint RequiredAreaRank => 2;
+    public override QuestId QuestUnlockId => QuestId.FeryanaWildernessRescueRequest;
 
     public override void Initialize()
     {
@@ -16,7 +19,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 1),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 2),
             LibDdon.Enemy.Create(EnemyId.WarReadyGoremanticoreLightArmor, 88, 105000, 3)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
         };
 
         // Available Items (4): BattleArmorFragment, UnrefinedAlloyLump, GiantKillerStoneShard, GiantKillerStone

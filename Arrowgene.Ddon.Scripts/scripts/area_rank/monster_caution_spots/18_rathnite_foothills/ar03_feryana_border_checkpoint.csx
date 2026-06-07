@@ -1,26 +1,25 @@
-// Feryana Border Checkpoint — stageid462 GroupId32 MaxPos6 (positions 0-6)
-// Rathnite Foothills Lakeside, Lv83, AR3
+/**
+ * @brief Enemy Spot in "Rathnite Foothills Lakeside" for "Feryana Border Checkpoint"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.RathniteFoothillsLakeside0.AsStageLayoutId(32);
+    public override StageLayoutId StageLayoutId => Stage.RathniteFoothillsLakeside0.AsStageLayoutId(31);
     public override QuestAreaId AreaId => QuestAreaId.RathniteFoothills;
-    public override uint RequiredAreaRank => 3;
+    public override uint RequiredAreaRank => 5;
+    public override QuestId QuestUnlockId => QuestId.RathniteFoothillsPursueAndDefeatEnemies;
 
     public override void Initialize()
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.BlackGriffin0, 83, 0, isBoss: true),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 1),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 2),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 3),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 4),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 5),
-            LibDdon.Enemy.CreateAuto(EnemyId.HeavySoldierDwarfOrc, 83, 6),
+            LibDdon.Enemy.Create(EnemyId.BlackGriffin0, 83, 105000, 0)
+                .SetIsBoss(true),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 83, 4200, 1),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 83, 4200, 2),
         };
-
 
         var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
             .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.UNCOMMON)
@@ -39,30 +38,6 @@ public class MonsterSpotInfo : IMonsterSpotInfo
             .AddDrop(ItemId.DemonExpellerStoneShard, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.DemonExpellerStone, 1, 1, DropRate.VERY_RARE);
         enemies[2].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[3]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStone, 1, 1, DropRate.VERY_RARE);
-        enemies[3].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[4]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStone, 1, 1, DropRate.VERY_RARE);
-        enemies[4].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[5]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStone, 1, 1, DropRate.VERY_RARE);
-        enemies[5].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[6]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.DemonExpellerStone, 1, 1, DropRate.VERY_RARE);
-        enemies[6].SetDropsTable(dropsTable);
 
         AddEnemies(enemies);
     }

@@ -25,10 +25,15 @@ namespace Arrowgene.Ddon.GameServer.Enemies.Generators
                 var areaRank = server.AreaRankManager.GetEffectiveRank(client.Party.Leader.Client.Character, match.AreaId);
                 if (areaRank >= match.RequiredAreaRank)
                 {
+                    if (match.QuestUnlockId != QuestId.None && !client.Character.HasQuestCompleted(match.QuestUnlockId))
+                    {
+                        continue;
+                    }
+
                     cautionSpots.Add(match);
                 }
             }
-            
+
             if (cautionSpots.Count > 0)
             {
                 instancedEnemySet.AddRange(cautionSpots[0].GetInstanceEnemies());

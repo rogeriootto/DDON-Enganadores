@@ -1,29 +1,26 @@
-// Deserted Village of Denisyr — stageid461 GroupId8 MaxPos9 (positions 0-9)
-// Rathnite Foothills, Lv83, AR3
+/**
+ * @brief Enemy Spot in "Rathnite Foothills" for "Deserted Village of Denisyr"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
     public override StageLayoutId StageLayoutId => Stage.RathniteFoothills.AsStageLayoutId(8);
     public override QuestAreaId AreaId => QuestAreaId.RathniteFoothills;
-    public override uint RequiredAreaRank => 3;
+    public override uint RequiredAreaRank => 2;
+    public override QuestId QuestUnlockId => QuestId.RathniteFoothillsRescueRequest;
 
     public override void Initialize()
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 0),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 1),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 2),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 3),
-            LibDdon.Enemy.CreateAuto(EnemyId.RangedSoldierDwarfOrc, 83, 4),
-            LibDdon.Enemy.CreateAuto(EnemyId.RangedSoldierDwarfOrc, 83, 5),
-            LibDdon.Enemy.CreateAuto(EnemyId.RangedSoldierDwarfOrc, 83, 6),
-            LibDdon.Enemy.CreateAuto(EnemyId.SquadLeaderDwarfOrc, 83, 7),
-            LibDdon.Enemy.CreateAuto(EnemyId.SquadLeaderDwarfOrc, 83, 8),
-            LibDdon.Enemy.CreateAuto(EnemyId.SquadLeaderDwarfOrc, 83, 9),
+            LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 83, 4200, 4),
+            LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 83, 4200, 5),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 83, 4200, 6),
+            LibDdon.Enemy.Create(EnemyId.SquadLeaderDwarfOrc, 83, 4200, 7),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 83, 4200, 8),
         };
-
 
         var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
             .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
@@ -54,36 +51,6 @@ public class MonsterSpotInfo : IMonsterSpotInfo
             .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
         enemies[4].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[5]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
-        enemies[5].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[6]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
-        enemies[6].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[7]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
-        enemies[7].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[8]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
-        enemies[8].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[9]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GustyWindsStone, 1, 1, DropRate.VERY_RARE);
-        enemies[9].SetDropsTable(dropsTable);
 
         AddEnemies(enemies);
     }

@@ -152,6 +152,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         LivingWithThePartnerPawn = 60200000,
         SkillAugmentationGuidanceOfARenewedWhiteDragon = 60200001,
         RoadToMastery = 60200014,
+        SupremeRadiance = 60200004,
         SpiritLancerTacticsTrialASpiritLance = 60200050,
         SeekingTheMasterSpiritLancer = 60200051,
 
@@ -229,6 +230,33 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         SummerBeachFestival1 = 60200033,
         SummerBeachFestival2 = 60200034,
         SummerBeachFestivalDecorations = 60200035,
+
+        // Episodic Personal Quests
+        WhoIsTheBest = 60200200,
+        StoryOfMayleafAndTheSongbird = 60200201,
+        KlausAndJoseph = 60200202,
+        LeosLegacy = 60200203,
+
+        // Rathnite Personal Quests
+        RathniteFoothillsRescueRequest = 60318001,
+        RathniteFoothillsLiberationArmySupport = 60318002,
+        RathniteFoothillsPursueAndDefeatEnemies = 60318003,
+        RathniteFoothillsPreventEnemyAttack = 60318004,
+        DemonArmyTankCatoblepas = 60318011,
+
+        // Feryana Personal Quests
+        FeryanaWildernessPursueAndDefeatEnemies = 60319001,
+        FeryanaWildernessLiberationArmySupport = 60319002,
+        FeryanaWildernessRescueRequest = 60319003,
+        FeryanaWildernessPreventEnemyAttack = 60319004,
+        IntoTheAncientDarkness = 60319011,
+
+        // Megadosys Personal Quests
+        MegadosysPlateauRescueRequest = 60320001,
+        MegadosysPlateauLiberationArmySupport = 60320002,
+        MegadosysPlateauPursueAndDefeatEnemies = 60320003,
+        MegadosysPlateauPreventEnemyAttack = 60320004,
+        TheRulerOverwhelmedByPower = 60320011,
 
         // Substory Quests
         TasteOfBitterMemories = 10300100,

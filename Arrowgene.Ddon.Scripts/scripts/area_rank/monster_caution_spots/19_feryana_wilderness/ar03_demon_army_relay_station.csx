@@ -1,12 +1,15 @@
-// Demon Army Relay Station — stageid463 GroupId1 MaxPos8 (positions 0-8)
-// Monster Caution Spot — Feryana Wilderness, Lv88, AR0
+/**
+ * @brief Enemy Spot in "Feryana Wilderness" for "Demon Army Relay Station"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
     public override StageLayoutId StageLayoutId => Stage.FeryanaWilderness.AsStageLayoutId(1);
     public override QuestAreaId AreaId => QuestAreaId.FeryanaWilderness;
-    public override uint RequiredAreaRank => 3;
+    public override uint RequiredAreaRank => 5;
+    public override QuestId QuestUnlockId => QuestId.FeryanaWildernessPursueAndDefeatEnemies;
 
     public override void Initialize()
     {
@@ -14,7 +17,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
         {
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 0),
             LibDdon.Enemy.Create(EnemyId.WarReadyGorecyclopsLightArmor0, 88, 105000, 1)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 2),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 3),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 88, 4200, 8),
