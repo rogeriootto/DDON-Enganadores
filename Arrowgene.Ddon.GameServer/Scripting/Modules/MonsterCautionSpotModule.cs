@@ -37,6 +37,11 @@ namespace Arrowgene.Ddon.GameServer.Scripting
             }
 
             var leaderClient = party.Leader.Client;
+            if (cautionSpot.QuestUnlockId != QuestId.None && !leaderClient.Character.HasQuestCompleted(cautionSpot.QuestUnlockId))
+            {
+                return false;
+            }
+
             return server.AreaRankManager.GetEffectiveRank(leaderClient.Character, areaId) >= cautionSpot.RequiredAreaRank;
         }
 

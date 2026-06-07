@@ -1,25 +1,28 @@
-// Wailing Wetland — stageid463 GroupId2 MaxPos8 (positions 0-8)
-// Monster Caution Spot — Feryana Wilderness, Lv88, AR0
+/**
+ * @brief Enemy Spot in "Feryana Wilderness" for "Wailing Wetland"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
     public override StageLayoutId StageLayoutId => Stage.FeryanaWilderness.AsStageLayoutId(2);
     public override QuestAreaId AreaId => QuestAreaId.FeryanaWilderness;
-    public override uint RequiredAreaRank => 5;
+    public override uint RequiredAreaRank => 2;
+    public override QuestId QuestUnlockId => QuestId.FeryanaWildernessLiberationArmySupport;
 
     public override void Initialize()
     {
         var enemies = new List<InstancedEnemy>()
         {
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 88, 4200, 0)
-				.SetInfectionType(3),
+                .SetInfectionType(3),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 88, 4200, 1)
-				.SetInfectionType(3),
+                .SetInfectionType(3),
             LibDdon.Enemy.Create(EnemyId.Lindwurm0, 88, 105000, 2)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 88, 4200, 3)
-				.SetInfectionType(3),
+                .SetInfectionType(3),
         };
 
         // Available Items (5): FeryanaSweetMushroom, ScarredLizardscalePelt, UnrefinedAlloyLump, UndeadDestroyerStoneShard, UndeadDestroyerStone

@@ -1,12 +1,15 @@
-// Silver Hermit's Stronghold — stageid463 GroupId8 MaxPos3 (positions 0-3)
-// Monster Caution Spot — Feryana Wilderness, Lv88, AR0
+/**
+ * @brief Enemy Spot in "Feryana Wilderness" for "Silver Hermit's Stronghold"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
     public override StageLayoutId StageLayoutId => Stage.FeryanaWilderness.AsStageLayoutId(8);
     public override QuestAreaId AreaId => QuestAreaId.FeryanaWilderness;
-    public override uint RequiredAreaRank => 7;
+    public override uint RequiredAreaRank => 5;
+    public override QuestId QuestUnlockId => QuestId.FeryanaWildernessPreventEnemyAttack;
 
     public class NamedParamId
     {
@@ -19,7 +22,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
         {
             LibDdon.Enemy.Create(EnemyId.Goremanticore, 88, 105000, 0)
                 .SetNamedEnemyParams(NamedParamId.BrutalHermit)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
             LibDdon.Enemy.Create(EnemyId.SnowHarpy, 88, 4200, 1),
             LibDdon.Enemy.Create(EnemyId.SnowHarpy, 88, 4200, 2),
             LibDdon.Enemy.Create(EnemyId.SnowHarpy, 88, 4200, 3),

@@ -12,6 +12,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
         public abstract QuestAreaId AreaId { get; }
         public virtual bool CautionPlayer { get; } = true;
         public abstract uint RequiredAreaRank { get; }
+        public virtual QuestId QuestUnlockId { get; } = QuestId.None;
         protected Dictionary<uint, List<InstancedEnemy>> Enemies { get; set; }
 
         public IMonsterSpotInfo()
