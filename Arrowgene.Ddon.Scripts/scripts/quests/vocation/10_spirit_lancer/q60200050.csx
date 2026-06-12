@@ -61,7 +61,7 @@ public class ScriptedQuest : IQuest
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.SpiritLancer, 1));
         AddQuestOrderCondition(QuestOrderCondition.Solo());
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.ReliableSourceOfInformation));
+        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.TheArisensAbilities));
     }
 
     protected override void InitializeRewards()

@@ -1,5 +1,7 @@
-// Beastmaster's Garden — stageid462 GroupId7 MaxPos7 (positions 0-7)
-// Monster Gathering Spot — Rathnite Foothills Lakeside, Lv83, IR80, AR6
+/**
+ * @brief Monster Gathering Spot in "Rathnite Foothills Lakeside" for "Beastmaster's Garden"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
@@ -17,18 +19,13 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.WarReadyGoremanticoreLightArmor, 83, 0, isBoss: true)
-                .SetNamedEnemyParams(NamedParamId.Subordinate),
-            LibDdon.Enemy.CreateAuto(EnemyId.WarReadyGoremanticoreLightArmor, 83, 1, isBoss: true)
-                .SetNamedEnemyParams(NamedParamId.Subordinate),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 2),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 3),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 4),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 5),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 6),
-            LibDdon.Enemy.CreateAuto(EnemyId.BluntSoldierDwarfOrc, 83, 7),
+            LibDdon.Enemy.Create(EnemyId.WarReadyGoremanticoreLightArmor, 83, 105000, 1)
+                .SetNamedEnemyParams(NamedParamId.Subordinate)
+                .SetIsBoss(true),
+            LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 83, 4200, 2),
+            LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 83, 4200, 3),
+            LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 83, 4200, 4),
         };
-
 
         var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
             .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.UNCOMMON)
@@ -37,9 +34,9 @@ public class MonsterSpotInfo : IMonsterSpotInfo
         enemies[0].SetDropsTable(dropsTable);
 
         dropsTable = LibDdon.Enemy.GetDropsTable(enemies[1]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.UNCOMMON)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.UNCOMMON)
-            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.RARE);
+            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
         enemies[1].SetDropsTable(dropsTable);
 
         dropsTable = LibDdon.Enemy.GetDropsTable(enemies[2]).Clone()
@@ -53,30 +50,6 @@ public class MonsterSpotInfo : IMonsterSpotInfo
             .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
         enemies[3].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[4]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
-        enemies[4].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[5]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
-        enemies[5].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[6]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
-        enemies[6].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[7]).Clone()
-            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.CampaignBattleArmor, 1, 1, DropRate.VERY_RARE);
-        enemies[7].SetDropsTable(dropsTable);
 
         AddEnemies(enemies);
     }

@@ -27,8 +27,8 @@ public class ScriptedQuest : IQuest
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumLevel(10));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.CraftedTokenOfTheHeart));
-        // AddQuestOrderCondition(QuestOrderCondition.ArisenTactics());
+        AddQuestOrderCondition(QuestOrderCondition.PrepareEquipment());
+        AddQuestOrderCondition(QuestOrderCondition.ArisenTactics());
     }
 
     protected override void InitializeRewards()

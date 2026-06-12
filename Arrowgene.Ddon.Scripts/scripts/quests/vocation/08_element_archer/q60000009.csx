@@ -62,7 +62,6 @@ public class ScriptedQuest : IQuest
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.ElementArcher, 1));
         AddQuestOrderCondition(QuestOrderCondition.Solo());
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.ReliableSourceOfInformation));
     }
 
     protected override void InitializeRewards()

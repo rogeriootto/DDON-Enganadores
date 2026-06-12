@@ -1,5 +1,7 @@
-// Demon Army War Machine Garrison — stageid462 GroupId5 Pos5 (position 5 only)
-// Rathnite Foothills Lakeside, Lv85, AR10
+/**
+ * @brief Enemy Spot in "Rathnite Foothills Lakeside" for "Demon Army War Machine Garrison"
+ */
+
 #load "libs.csx"
 
 public class MonsterSpotInfo : IMonsterSpotInfo
@@ -12,15 +14,39 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.Catoblepas, 85, 5, isBoss: true),
+            LibDdon.Enemy.Create(EnemyId.Catoblepas, 85, 105000, 13)
+                .SetIsBoss(true),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 85, 4200, 14),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 85, 4200, 15),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 85, 4200, 16),
+            LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 85, 4200, 17),
         };
-
 
         var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
             .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.DepthOpalRing, 1, 1, DropRate.RARE);
         enemies[0].SetDropsTable(dropsTable);
+
+        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[1]).Clone()
+            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE);
+        enemies[1].SetDropsTable(dropsTable);
+
+        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[2]).Clone()
+            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE);
+        enemies[2].SetDropsTable(dropsTable);
+
+        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[3]).Clone()
+            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE);
+        enemies[3].SetDropsTable(dropsTable);
+
+        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[4]).Clone()
+            .AddDrop(ItemId.BeastLuringMeat, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE);
+        enemies[4].SetDropsTable(dropsTable);
 
         AddEnemies(enemies);
     }

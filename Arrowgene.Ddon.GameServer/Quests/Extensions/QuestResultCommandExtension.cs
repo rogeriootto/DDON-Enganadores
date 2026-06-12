@@ -491,5 +491,17 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             resultCommands.Add(QuestManager.ResultCommand.LinkageEnemyFlagOff(stageInfo.StageNo, groupNo, setNo, (int)flagNo));
             return resultCommands;
         }
+
+        public static List<CDataQuestCommand> AddResultCmdSetDiePlayerReturnPos(this List<CDataQuestCommand> resultCommands, StageInfo stageInfo, int startPos, int outSceNo)
+        {
+            resultCommands.Add(QuestManager.ResultCommand.SetDiePlayerReturnPos(stageInfo.StageNo, startPos, outSceNo));
+            return resultCommands;
+        }
+
+        public static List<CDataQuestCommand> AddResultCmdResetDiePlayerReturnPos(this List<CDataQuestCommand> resultCommands, StageInfo stageInfo, int startPos)
+        {
+            resultCommands.Add(QuestManager.ResultCommand.ResetDiePlayerReturnPos(stageInfo.StageNo, startPos));
+            return resultCommands;
+        }
     }
 }

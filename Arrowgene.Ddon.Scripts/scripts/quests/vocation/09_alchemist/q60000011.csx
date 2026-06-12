@@ -59,7 +59,6 @@ public class ScriptedQuest : IQuest
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Alchemist, 1));
         AddQuestOrderCondition(QuestOrderCondition.Solo());
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.ReliableSourceOfInformation));
     }
 
     protected override void InitializeRewards()
