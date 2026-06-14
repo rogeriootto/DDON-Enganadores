@@ -79,24 +79,40 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// </summary>
             public static QuestFlagInfo Q70000001Unk1 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1150, QuestId.Q70000001, StageInfo);
 
-            // st0200\scr\st0200\etc\st0200_n.gpl.json
-            public static QuestFlagInfo Q70020001Unk0 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(3805, QuestId.Q70020001, StageInfo);
-            public static QuestFlagInfo Q70034001Unk0 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8486, QuestId.Q70034001, StageInfo);
+            /// <summary>
+            /// Controls if Travers appears or not in the stage.
+            /// </summary>
+            public static QuestFlagInfo Travers { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8486, QuestId.Q70034001, StageInfo);
 
             /// <summary>
             /// Controls if Mayleaf appears or not in the stage.
             /// </summary>
-            public static QuestFlagInfo Mayleaf { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2245, QuestId.Q70000001, StageInfo);
+            public static QuestFlagInfo Mayleaf { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1223, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if a messenger spawns in Mayleaf's absence or not.
+            /// </summary>
+            public static QuestFlagInfo MessengerMayleaf { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2245, QuestId.Q70000001, StageInfo);
 
             /// <summary>
             /// Controls if Fabio appears or not in the stage.
             /// </summary>
-            public static QuestFlagInfo Fabio { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2246, QuestId.Q70000001, StageInfo);
+            public static QuestFlagInfo Fabio { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1222, QuestId.Q70000001, StageInfo);
 
             /// <summary>
-            /// Controls if Heniz appears or not in the stage.
+            /// Controls if a messenger spawns in Fabio's absence or not.
             /// </summary>
-            public static QuestFlagInfo Heniz { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2247, QuestId.Q70000001, StageInfo);
+            public static QuestFlagInfo MessengerFabio { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2246, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if Heinz appears or not in the stage.
+            /// </summary>
+            public static QuestFlagInfo Heinz { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1220, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if a messenger spawns in Heinz's absence or not.
+            /// </summary>
+            public static QuestFlagInfo MessengerHeinz { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2247, QuestId.Q70000001, StageInfo);
 
             /// <summary>
             /// Controls if Julia appears or not in the stage in Group 6.
@@ -134,6 +150,26 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Controls if Iris appears or not in the stage.
             /// </summary>
             public static QuestFlagInfo Iris { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1219, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if Klaus appears or not in the stage.
+            /// </summary>
+            public static QuestFlagInfo Klaus { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1216, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if a messenger spawns in Klaus's absence or not.
+            /// </summary>
+            public static QuestFlagInfo MessengerKlaus { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2243, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if Joseph appears or not in the stage.
+            /// </summary>
+            public static QuestFlagInfo Joseph { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1217, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Controls if a messenger spawns in Joseph's absence or not.
+            /// </summary>
+            public static QuestFlagInfo MessengerJoseph { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(2244, QuestId.Q70000001, StageInfo);
 
             /// Season 1 White Dragon flags
 
@@ -188,6 +224,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Spawns Gurdolin, Lise, Elliot after Clearing (クリア後)
             /// </summary>
             public static QuestFlagInfo TheCrewEndSeason32 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7169, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
+            /// Spawns Gurdolin, Lise, Elliot after Clearing (クリア後)
+            /// </summary>
+            public static QuestFlagInfo TheCrewEndSeason33 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7916, QuestId.Q70033001, StageInfo);
 
             /// <summary>
             /// Spawns Gurdolin, Lise, Elliot after Clearing
@@ -263,6 +304,21 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Allows the player to enter "Temple of Purification: South Chamber" when set
             /// </summary>
             public static QuestFlagInfo TempleOfPurificationSouthChamber { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(926, QuestId.Q70000001);
+
+            /// <summary>
+            /// Spawns boulders blocking access to Temple of Purification from the side paths
+            /// </summary>
+            public static QuestFlagInfo TempleOfPurificationLakesideBoulders { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1658, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Closes the gate between Hidell Plains and Dowe Valley
+            /// </summary>
+            public static QuestFlagInfo HidellCheckpointClosed { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1297, QuestId.Q70000001, StageInfo);
+
+            /// <summary>
+            /// Opens the gate between Hidell Plains and Dowe Valley
+            /// </summary>
+            public static QuestFlagInfo HidellCheckpointOpen { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1309, QuestId.Q70000001, StageInfo);
         }
 
         public static class GardnoxFortress0
@@ -340,6 +396,16 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             public static QuestFlagInfo OpenLeverDoor { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1672, QuestId.Q70000001, StageInfo);
         }
 
+        public static class BloodbaneIsle0
+        {
+            private static StageInfo StageInfo = Stage.BloodbaneIsle0;
+
+            /// <summary>
+            /// Unlocks the door to Sage Tower Ruins
+            /// </summary>
+            public static QuestFlagInfo SageTowerRuins { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4312, QuestId.Q70032001);
+        }
+
         public static class ExpeditionGarrison
         {
             private static StageInfo StageInfo = Stage.ExpeditionGarrison;
@@ -361,7 +427,6 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             public static QuestFlagInfo Unk0 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(3954, QuestId.Q70022001, StageInfo);
             public static QuestFlagInfo Unk1 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(4033, QuestId.Q70022001, StageInfo);
             public static QuestFlagInfo Unk2 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(4968, QuestId.Q70022001, StageInfo);
-
         }
 
         public static class FaranaPlains
@@ -382,6 +447,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Unlocks the southern "Vegasa Corridor" entrance when set
             /// </summary>
             public static QuestFlagInfo VegasaCorridorSouth { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(1997, QuestId.Q70023001);
+
+            /// <summary>
+            /// Unlocks the door to Tarie Small Tower
+            /// </summary>
+            public static QuestFlagInfo TarieSmallTower { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4311, QuestId.Q70032001);
         }
 
         public static class MorrowForest
@@ -526,7 +596,6 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// </summary>
             public static QuestFlagInfo OrcEncampmentGate { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(2914, QuestId.Q70030001);
 
-
             /// <summary>
             /// Spawns Debris and Barries for the 4th MSQ in 3.0.
             /// </summary>
@@ -566,7 +635,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Opens the entrance to the cave of hells descent.
             /// </summary>
             public static QuestFlagInfo CaveOfHellsDescent { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3414, QuestId.Q70030001);
-            
+
+            /// <summary>
+            /// Activates gate warp to Megadosys Plateau (133)
+            /// </summary>
+            public static QuestFlagInfo MegadosysPlateauWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7498, QuestId.Q70032001, StageInfo);
         }
 
         public static class PiremothTravelersInn
@@ -633,6 +706,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Enables the Dacrium Fortress Entrance which teleports the player to st0443.
             /// </summary>
             public static QuestFlagInfo DacriumFortressEntrance { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(6291, QuestId.Q70030001, StageInfo);
+
+            /// <summary>
+            /// Activates gate warp to Feryana Wilderness (132) (Unclearable once set)
+            /// </summary>
+            public static QuestFlagInfo FeryanaWildernessWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(5658, QuestId.Q70030001, StageInfo);
         }
 
         public static class LakesideGrotto
@@ -738,6 +816,225 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Opens the gate to Epitaph Road: Feryana Wilderness
             /// </summary>
             public static QuestFlagInfo EpitaphRoadFeryanaWilderness { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3520, QuestId.Q70031001);
+
+            /// <summary>
+            /// Activates the door to Lookout Castle harbour
+            /// </summary>
+            public static QuestFlagInfo HarborDoor { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3403, QuestId.Q70030001);
+
+            /// <summary>
+            /// Activates warp to Megadosys Plateau (133)
+            /// </summary>
+            public static QuestFlagInfo MegadosysPlateauWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7438, QuestId.Q70032001, StageInfo);
+        }
+
+        public static class MegadosysPlateau
+        {
+            private static StageInfo StageInfo = Stage.MegadosysPlateau;
+
+            /// <summary>
+            /// Enables several field area markers for Megadosys Plateau
+            /// </summary>
+            public static QuestFlagInfo FieldAreaMarkers1 { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4834, QuestId.Q70032001);
+
+            /// <summary>
+            /// Enables several field area markers for Megadosys Plateau
+            /// </summary>
+            public static QuestFlagInfo FieldAreaMarkers2 { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4835, QuestId.Q70032001);
+
+            /// <summary>
+            /// Enables several field area markers for Megadosys Plateau
+            /// </summary>
+            public static QuestFlagInfo FieldAreaMarkers3 { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4836, QuestId.Q70032001);
+
+            /// <summary>
+            /// Opens gates leading to The King's Hidden Chamber
+            /// </summary>
+            public static QuestFlagInfo TheKingsHiddenChamberGates { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4402, QuestId.Q70032001);
+
+            /// <summary>
+            /// Unknown what it does, but a world quest checks for it
+            /// </summary>
+            public static QuestFlagInfo Q70032001Unk1 { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4580, QuestId.Q70032001);
+
+            /// <summary>
+            /// Spawns closed well for Eli Guard Tower
+            /// </summary>
+            public static QuestFlagInfo EliGuardTowerWellClosed { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7240, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
+            /// Spawns open well for Eli Guard Tower
+            /// </summary>
+            public static QuestFlagInfo EliGuardTowerWellOpen { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7241, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
+            /// Spawns the High Scepter job trainer Kirsty
+            /// </summary>
+            public static QuestFlagInfo Kirsty { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7336, QuestId.Q70032001, StageInfo);
+        }
+
+        public static class EliGuardTower
+        {
+            private static StageInfo StageInfo = Stage.EliGuardTower;
+
+            /// <summary>
+            /// Spawns the area master Doris
+            /// </summary>
+            public static QuestFlagInfo Doris { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7496, QuestId.Q70032001, StageInfo);
+        }
+
+        public static class FortressCityMegadoResidentialLevel
+        {
+            private static StageInfo StageInfo = Stage.FortressCityMegadoResidentialLevel1;
+
+            /// <summary>
+            /// Spawns the area master Doris
+            /// </summary>
+            public static QuestFlagInfo Doris { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7497, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
+            /// Activates warp to Megado Corridor
+            /// </summary>
+            public static QuestFlagInfo MegadoCorridor { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(5185, QuestId.Q70034001);
+        }
+
+        public static class FortressCityMegadoRoyalPalaceLevel
+        {
+            private static StageInfo StageInfo = Stage.FortressCityMegadoRoyalPalaceLevel;
+
+            /// <summary>
+            /// Activates warp to Megado Detached Palace
+            /// </summary>
+            public static QuestFlagInfo MegadoDetachedPalaceWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7826, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Activates warp to Urteca Mountains
+            /// </summary>
+            public static QuestFlagInfo UrtecaMountainsWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7827, QuestId.Q70033001, StageInfo);
+        }
+
+        public static class UrtecaMountains
+        {
+            private static StageInfo StageInfo = Stage.UrtecaMountains;
+
+            /// <summary>
+            /// Activates warp to Megado Detached Palace
+            /// </summary>
+            public static QuestFlagInfo MegadoDetachedPalaceWarp { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(5095, QuestId.Q70033001);
+
+            /// <summary>
+            /// Activates warp to Fortress City Megado Royal Palace Level
+            /// </summary>
+            public static QuestFlagInfo RoyalPalaceLevelWarp { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4975, QuestId.Q70033001);
+
+            /// <summary>
+            /// Opens the entrance to "The Royal Family Mausoleum"
+            /// </summary>
+            public static QuestFlagInfo TheRoyalFamilyMausoleum { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4814, QuestId.Q70033001);
+
+            /// <summary>
+            /// Spawns boulders on both sides of the narrow passage leading to Eastern Urteca from Northern Urteca.
+            /// Also spawns a light barrier on the bridge near the Depot caution spot.
+            /// </summary>
+            public static QuestFlagInfo EasternUrtecaBarriers { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7889, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns a boulder blocking entry to the Crumbling Entrance Path.
+            /// The actual door and warp is set by another flag, nothing shows up if both flags are off.
+            /// </summary>
+            public static QuestFlagInfo CrumblingEntrancePathBoulder { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7973, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns door to "Crumbling Entrance Path"
+            /// </summary>
+            public static QuestFlagInfo CrumblingEntrancePath { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7972, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns Cyril outside the Northern Bandit Hideout
+            /// </summary>
+            public static QuestFlagInfo Cyril { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8036, QuestId.Q70033001, StageInfo);
+        }
+
+        public static class NorthernBanditHideout
+        {
+            private static StageInfo StageInfo = Stage.NorthernBanditHideout;
+
+            /// <summary>
+            /// Spawns Randolf and Baris inside the hideout, also spawns Zef outside
+            /// </summary>
+            public static QuestFlagInfo HideoutNpcs { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8033, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns the area master Bacias
+            /// </summary>
+            public static QuestFlagInfo Bacias { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8037, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns Ashe
+            /// </summary>
+            public static QuestFlagInfo Ashe { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8131, QuestId.Q70033001, StageInfo);
+        }
+
+        public static class TheRoyalFamilyMausoleum
+        {
+            private static StageInfo StageInfo = Stage.TheRoyalFamilyMausoleum;
+
+            /// <summary>
+            /// Spawns a locked gate that opens after defeating enemies in the room
+            /// </summary>
+            public static QuestFlagInfo RotundaGate { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8133, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns a rock bridge at the lava room. Used by Nedo for a cutscene, then despawns.
+            /// The bridge has an invisible barrier, so players can't cross it to the other side
+            /// </summary>
+            public static QuestFlagInfo RockBridge { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7888, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Opens gate to the lava room in the middle of the map
+            /// </summary>
+            public static QuestFlagInfo LavaRoomGateOpen { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4914, QuestId.Q70033001);
+        }
+
+        public static class FirefallMountainCampsite
+        {
+            private static StageInfo StageInfo = Stage.FirefallMountainCampsite;
+
+            /// <summary>
+            /// Activates warps to Sacred Flame Path and Eastern Urteca Mountains
+            /// </summary>
+            public static QuestFlagInfo CampsiteWarps { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7954, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns Cory, Sema and Youssef
+            /// </summary>
+            public static QuestFlagInfo CampsiteNpcs { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8034, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns the area master Bacias
+            /// </summary>
+            public static QuestFlagInfo Bacias { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8038, QuestId.Q70033001, StageInfo);
+        }
+
+        public static class SacredFlamePath
+        {
+            private static StageInfo StageInfo = Stage.SacredFlamePath0;
+
+            /// <summary>
+            /// Activates warp to Sacred Flame Path Upper Level.
+            /// Seems unclearable once set?
+            /// </summary>
+            public static QuestFlagInfo UpperLevelWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7955, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns boulder blocking the path to Hall of the Magic Horns
+            /// </summary>
+            public static QuestFlagInfo HallOfTheMagicHornsBoulder { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8066, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Spawns barriers at Ushumgal's room and a portcrystal to let you in
+            /// </summary>
+            public static QuestFlagInfo HallOfTheMagicHornsWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(8159, QuestId.Q70033001, StageInfo);
         }
 
         public static class NpcFunctions
@@ -870,6 +1167,16 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Unlocks the NPC option "Area Information" for the NPC Nayajiku in Feryana Wilderness
             /// </summary>
             public static QuestFlagInfo FeryanaWildernessAreaInfo { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3241, QuestId.Q70030001);
+
+            /// <summary>
+            /// Unlocks the NPC option "Area Information" for the NPC Doris in Megadosys Plateau
+            /// </summary>
+            public static QuestFlagInfo MegadosysPlateauAreaInfo { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4408, QuestId.Q70032001);
+
+            /// <summary>
+            /// Unlocks the NPC option "Area Information" for the NPC Bacias in Urteca Mountains
+            /// </summary>
+            public static QuestFlagInfo UrtecaMountainsAreaInfo { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4940, QuestId.Q70033001);
 
             /// <summary>
             /// Adds the NPC option "Extreme Mission" for the NPC Seneka

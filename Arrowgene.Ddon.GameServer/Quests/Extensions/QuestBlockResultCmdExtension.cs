@@ -270,6 +270,12 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
+        public static QuestBlock AddResultCmdEventExecCont(this QuestBlock questBlock, StageInfo stageInfo, uint eventNo, StageInfo destStageInfo, uint jumpPos)
+        {
+            questBlock.ResultCommands.AddResultCmdEventExecCont(stageInfo, eventNo, destStageInfo, jumpPos);
+            return questBlock;
+        }
+
         public static QuestBlock AddResultCmdExeEventAfterStageJump(this QuestBlock questBlock, StageInfo stageInfo, uint eventNo, uint startPos)
         {
             questBlock.ResultCommands.AddResultCmdExeEventAfterStageJump(stageInfo, eventNo, startPos);

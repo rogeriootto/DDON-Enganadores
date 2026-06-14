@@ -273,6 +273,12 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return resultCommands;
         }
 
+        public static List<CDataQuestCommand> AddResultCmdEventExecCont(this List<CDataQuestCommand> resultCommands, StageInfo stageInfo, uint eventNo, StageInfo destStageInfo, uint jumpPos)
+        {
+            resultCommands.Add(QuestManager.ResultCommand.EventExecCont(stageInfo.StageNo, (int)eventNo, destStageInfo.StageNo, (int) jumpPos));
+            return resultCommands;
+        }
+
         public static List<CDataQuestCommand> AddResultCmdExeEventAfterStageJump(this List<CDataQuestCommand> resultCommands, StageInfo stageInfo, uint eventNo, uint startPos)
         {
             resultCommands.Add(QuestManager.ResultCommand.ExeEventAfterStageJump(stageInfo.StageNo, (int)eventNo, (int)startPos));
