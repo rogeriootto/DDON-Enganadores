@@ -2852,9 +2852,9 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             /** @brief Direct kill-group completion check (no content-mode guard). Checks flagNo against kill-group list entry+0x14. */
-            public static CDataQuestCommand IsKillGroupCompleteInRadius(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
+            public static CDataQuestCommand IsWildHuntEnemyKilled(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsKillGroupCompleteInRadius, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsWildHuntEnemyKilled, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Checks if a player has reached a chain number from a Chain Dungeon (Extreme Mission). */
@@ -2870,9 +2870,9 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             /** @brief Wild Hunt system: checks if a target enemy in the zone-entry list has been killed. markerFlag is passed to the kill checker. */
-            public static CDataQuestCommand IsWildHuntTargetEnemyKilled(int zoneLinkageId, int param02 = 0, int param03 = 0, int markerFlag = 0)
+            public static CDataQuestCommand IsWildHuntEnemyFound(int flagNo, int param02 = 0, int param03 = 0, int markerFlag = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsWildHuntTargetEnemyKilled, Param01 = zoneLinkageId, Param02 = param02, Param03 = param03, Param04 = markerFlag };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsWildHuntEnemyFound, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = markerFlag };
             }
 
             /** @brief Checks if contents/dungeon mode is active (area context mode 0xc, byte at +0x3b non-zero). */

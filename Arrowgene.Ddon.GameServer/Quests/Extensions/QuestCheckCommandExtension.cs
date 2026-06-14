@@ -858,9 +858,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsKillGroupCompleteInRadius(this List<CDataQuestCommand> checkCommands, int flagNo)
+        public static List<CDataQuestCommand> AddCheckCmdIsWildHuntEnemyKilled(this List<CDataQuestCommand> checkCommands, int flagNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsKillGroupCompleteInRadius(flagNo));
+            checkCommands.Add(QuestManager.CheckCommand.IsWildHuntEnemyKilled(flagNo));
             return checkCommands;
         }
 
@@ -870,9 +870,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsWildHuntTargetEnemyKilled(this List<CDataQuestCommand> checkCommands, int zoneLinkageId, int markerFlag = 0)
+        public static List<CDataQuestCommand> AddCheckCmdIsWildHuntEnemyFound(this List<CDataQuestCommand> checkCommands, int flagNo, int markerFlag = 0)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsWildHuntTargetEnemyKilled(zoneLinkageId, markerFlag: markerFlag));
+            checkCommands.Add(QuestManager.CheckCommand.IsWildHuntEnemyFound(flagNo, markerFlag: markerFlag));
             return checkCommands;
         }
 
