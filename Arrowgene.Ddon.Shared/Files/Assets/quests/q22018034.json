@@ -7,7 +7,7 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "MegadosysPlateau",
-  "news_image": 330,
+  "news_image": 338,
   "rewards": [
     {
       "type": "wallet",
@@ -71,7 +71,7 @@
       "comment": "GroupId: 33 - Ghost Mail, Dark Corpse Torturers, Grudge Ghosts",
       "stage_id": {
         "id": 464,
-        "group_id": 33
+        "group_id": 31
       },
       "enemies": [
         {
@@ -122,7 +122,7 @@
       "comment": "GroupId: 34 - Dark Skeleton Brute, Dark Corpse Punishers, Grudge Ghosts",
       "stage_id": {
         "id": 464,
-        "group_id": 34
+        "group_id": 33
       },
       "enemies": [
         {
@@ -234,7 +234,7 @@
       "stage_id": {
         "id": 584
       },
-      "npc_id": "Yumit",
+      "npc_id": "Umit",
       "message_id": 27836
     },
     {
@@ -276,7 +276,7 @@
         "id": 584
       },
       "announce_type": "Update",
-      "npc_id": "Yumit",
+      "npc_id": "Umit",
       "message_id": 27838
     }
   ]

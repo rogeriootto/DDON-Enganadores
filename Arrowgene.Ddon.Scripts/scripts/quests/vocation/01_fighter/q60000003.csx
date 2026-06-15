@@ -75,7 +75,6 @@ public class ScriptedQuest : IQuest
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Fighter, 1));
         AddQuestOrderCondition(QuestOrderCondition.Solo());
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.ReliableSourceOfInformation));
     }
 
     protected override void InitializeRewards()

@@ -231,6 +231,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         SummerBeachFestival2 = 60200034,
         SummerBeachFestivalDecorations = 60200035,
 
+        CrownAndScepterI = 60300200,
+        CrownAndScepterII = 60300201,
+        CrownAndScepterIII = 60300202,
+        CrownAndScepterIV = 60300203,
+
         // Episodic Personal Quests
         WhoIsTheBest = 60200200,
         StoryOfMayleafAndTheSongbird = 60200201,
@@ -238,25 +243,53 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         LeosLegacy = 60200203,
 
         // Rathnite Personal Quests
+        AdventureSpotGuideRathniteFoothillsI = 60300100,
+        AdventureSpotGuideRathniteFoothillsII = 60300101,
+        AdventureSpotGuideRathniteFoothillsIII = 60300102,
+        AdventureSpotGuideRathniteFoothillsIV = 60300103,
+        RathniteFoothillsTrialPrisonerRetrieval = 60318000,
         RathniteFoothillsRescueRequest = 60318001,
         RathniteFoothillsLiberationArmySupport = 60318002,
         RathniteFoothillsPursueAndDefeatEnemies = 60318003,
         RathniteFoothillsPreventEnemyAttack = 60318004,
+        RathniteFoothillsTrialDetectDemonArmyRaid = 60318010,
         DemonArmyTankCatoblepas = 60318011,
 
         // Feryana Personal Quests
+        AdventureSpotGuideFeryanaWildernessI = 60300104,
+        AdventureSpotGuideFeryanaWildernessII = 60300105,
+        AdventureSpotGuideFeryanaWildernessIII = 60300106,
+        FeryanaWildernessTrialSupplyUnitSupport = 60319000,
         FeryanaWildernessPursueAndDefeatEnemies = 60319001,
         FeryanaWildernessLiberationArmySupport = 60319002,
         FeryanaWildernessRescueRequest = 60319003,
         FeryanaWildernessPreventEnemyAttack = 60319004,
+        FeryanaWildernessTrialInvestigateSealedEvil = 60319010,
         IntoTheAncientDarkness = 60319011,
 
         // Megadosys Personal Quests
+        AdventureSpotGuideMegadosysPlateauI = 60300107,
+        AdventureSpotGuideMegadosysPlateauII = 60300108,
+        AdventureSpotGuideMegadosysPlateauIII = 60300109,
+        MegadosysPlateauTrialMaterialProcurement = 60320000,
         MegadosysPlateauRescueRequest = 60320001,
         MegadosysPlateauLiberationArmySupport = 60320002,
         MegadosysPlateauPursueAndDefeatEnemies = 60320003,
         MegadosysPlateauPreventEnemyAttack = 60320004,
+        MegadosysPlateauTrialShadowOfHeresy = 60320010,
         TheRulerOverwhelmedByPower = 60320011,
+
+        // Urteca Personal Quests
+        AdventureSpotGuideUrtecaMountainsI = 60300110,
+        AdventureSpotGuideUrtecaMountainsII = 60300111,
+        AdventureSpotGuideUrtecaMountainsIII = 60300112,
+        UrtecaMountainsTrialAncestralTerritory = 60321000,
+        UrtecaMountainsTrialCaveOfSuffering = 60321001,
+        UrtecaMountainsTrialSilentResistanceBattleSite = 60321002,
+        UrtecaMountainsTrialPrimitiveSettlement = 60321003,
+        UrtecaMountainsTrialConstructionMaterialDepot = 60321004,
+        UrtecaMountainsTrialATrickleInTheDarkness = 60321010,
+        MagickCalledToTheDeepestDepths = 60321011,
 
         // Substory Quests
         TasteOfBitterMemories = 10300100,

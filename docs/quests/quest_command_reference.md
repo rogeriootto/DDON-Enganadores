@@ -316,7 +316,8 @@ NpcTalkAndOrderUi(StageNo stageNo, NpcId npcId, int noOrderGroupSerial, int para
 
 ```
 /**
- * @brief Orders a quest from an NPC with no additional talking options (touch/proximity only).
+ * @brief Orders a quest from an NPC with no talking options after order (touch/proximity only).
+ * Sets TalkData to (npcId, noOrderGroupSerial) and plays dialogue when the quest is not ordered.
  * @param stageNo
  * @param npcId
  * @param noOrderGroupSerial
@@ -3376,7 +3377,7 @@ AddFsmTalkNpc(int npcId, int param02 = 0, int param03 = 0, int param04 = 0);
  * @param categoryNo  Achievement category
  * @param bannerNo    Banner number (1 to 16, 15 is empty/unused)
  */
-AchievementAnnounce(int category, int flagValue, int param03 = 0, int param04 = 0);
+AchievementBanner(int category, int flagValue, int param03 = 0, int param04 = 0);
 ```
 
 ### EnableSubstoryElementB (109)
@@ -4501,7 +4502,7 @@ IsKilledTargetEnemySetGroupMode15NoMarker(int flagNo, int param03 = 0, int param
 IsContentsTimerBElapsed(int timerNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
-### IsKillGroupCompleteInRadius (248)
+### IsWildHuntEnemyKilled (248)
 
 | Field | Value |
 |-------|-------|
@@ -4521,7 +4522,7 @@ IsContentsTimerBElapsed(int timerNo, int param02_unused = 0, int param03_unused 
  * @note Only 2 parameters are used (this, flagNo); params 3-4 are ignored.
  * @param flagNo Kill-group flag identifier
  */
-IsKillGroupCompleteInRadius(int flagNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
+IsWildHuntEnemyKilled(int flagNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
 ### IsContentsTimerAZero (251)
@@ -4545,27 +4546,27 @@ IsKillGroupCompleteInRadius(int flagNo, int param02_unused = 0, int param03_unus
 IsContentsTimerAZero(int timerNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
-### IsWildHuntTargetEnemyKilled (252)
+### IsWildHuntEnemyFound (252)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x006376E0` |
 | Table index | 252 |
 | System | **Wild Hunt** (`cMobHuntQuestManager` — "MobHunt" is the internal engine name for Wild Hunt) |
-| Key callees | `FUN_00a39f80(entry)` reads `entry+0x14` (zone/linkage ID); `FUN_00a3c2b0(sub)` reads `sub+4` (em ID field 1); `FUN_00a3a000(sub)` reads `sub+8` (em ID field 2); `FUN_00636c20(id1, id2, -1, param04)` — generic OM enemy killed-state checker |
+| Key callees | `FUN_00a39f80(entry)` reads `entry+0x14` (flag ID); `FUN_00a3c2b0(sub)` reads `sub+4` (em ID field 1); `FUN_00a3a000(sub)` reads `sub+8` (em ID field 2); `FUN_00636c20(id1, id2, -1, param04)` — generic OM enemy discovered-state checker |
 | Kill state | vtable+0x2ec returns `0xc` (killed); fallback via `FUN_00c82ac0` |
 
 ```
 /**
- * @brief Checks whether a Wild Hunt target enemy has been killed.
+ * @brief Checks whether a Wild Hunt target enemy has been found.
  * "MobHunt" is the internal engine name for the Wild Hunt system (cMobHuntQuestManager).
  * Iterates the check-command object's zone-entry list (this[2] = count, this[5] = entry array).
- * Finds the entry where entry+0x14 == param01 (zone/linkage ID), then for each sub-entry calls
- * FUN_00636c20(em_id1, em_id2, -1, markerFlag) which checks vtable+0x2ec for kill state 0xc,
+ * Finds the entry where entry+0x14 == param01 (flag ID), then for each sub-entry calls
+ * FUN_00636c20(em_id1, em_id2, -1, markerFlag) which checks vtable+0x2ec for discover state 0xc,
  * with FUN_00c82ac0 as an alternate confirmation path.
  * @note param02 and param03 are unused.
- * @param zoneLinkageId Zone/linkage ID matched against entry+0x14 (param01)
+ * @param flagId Enemy flag ID matched against entry+0x14 (param01)
  * @param markerFlag    Passed directly to FUN_00636c20 as its 4th arg (param04)
  */
-IsWildHuntTargetEnemyKilled(int zoneLinkageId, int param02_unused = 0, int param03_unused = 0, int markerFlag = 0);
+IsWildHuntEnemyFound(int flagId, int param02_unused = 0, int param03_unused = 0, int markerFlag = 0);
 ```

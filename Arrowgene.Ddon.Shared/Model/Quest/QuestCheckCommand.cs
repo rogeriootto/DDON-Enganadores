@@ -464,7 +464,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         /// @note Previous description "shape type 4 radius" was incorrect - no shape-type filtering in this function.
         /// The "radius" framing comes from the kill zone's visual representation, not the code.
         /// </summary>
-        IsKillGroupCompleteInRadius = 248, // 0x00637430 (cQuestProcess* this, s32 flagNo, s32 param02_unused, s32 param03_unused, s32 param04_unused)
+        IsWildHuntEnemyKilled = 248, // 0x00637430 (cQuestProcess* this, s32 flagNo, s32 param02_unused, s32 param03_unused, s32 param04_unused)
 
         /// <summary>
         /// Checks if a player has reached a chain number from a Chain Dungeon (Extreme Mission).
@@ -490,7 +490,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         /// @note "MobHunt" is the internal engine name for the Wild Hunt system (cMobHuntQuestManager).
         /// @note param02 and param03 are unused. param01 = zone/linkage ID filter, param04 = markerFlag passed to FUN_00636c20.
         /// </summary>
-        IsWildHuntTargetEnemyKilled = 252, // 0x006376E0 (cQuestProcess* this, s32 zoneLinkageId, s32 param02_unused, s32 param03_unused, s32 markerFlag)
+        IsWildHuntEnemyFound = 252, // 0x006376E0 (cQuestProcess* this, s32 flagNo, s32 param02_unused, s32 param03_unused, s32 markerFlag)
 
         /// <summary>
         /// Checks if contents/dungeon mode is active. Calls FUN_00bdee50(0xc) to get area context (mode 0xc),

@@ -119,7 +119,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
             new CDataCharacterReleaseElement(ContentsRelease.PawnTacticalTraining),
             new CDataCharacterReleaseElement(ContentsRelease.ShieldSageVocationEmblem),
             new CDataCharacterReleaseElement(ContentsRelease.UrtecaMountainsWorldQuests),
-            new CDataCharacterReleaseElement(ContentsRelease.Unknown85), // Was in packet capture but no mention anywhere
+            new CDataCharacterReleaseElement(ContentsRelease.WildHuntQuests),
             new CDataCharacterReleaseElement(ContentsRelease.WildHunt),
             new CDataCharacterReleaseElement(ContentsRelease.DismantlingofDragonArms),
             new CDataCharacterReleaseElement(ContentsRelease.SynthesisofDragonAbilities),

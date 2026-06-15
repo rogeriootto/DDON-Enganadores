@@ -81,7 +81,7 @@ namespace Arrowgene.Ddon.Shared.Model
         PawnsNewSpecialSkills = 80, // Pawn's New Special Skills
         HighScepterWarSkillAugmentation = 81, // High Scepter War Skill Augmentation
         UrtecaMountainsWorldQuests = 84, // Urteca Mountains World Quests
-        Unknown85 = 85,
+        WildHuntQuests = 85,
         WildHunt = 86, // Wild Hunt
         DismantlingofDragonArms = 87, // Dismantling of Dragon Arms
         SynthesisofDragonAbilities = 88, // Synthesis of Dragon Abilities
