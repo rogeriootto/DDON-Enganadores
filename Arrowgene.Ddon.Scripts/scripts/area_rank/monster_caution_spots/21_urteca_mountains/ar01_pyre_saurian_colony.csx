@@ -14,12 +14,12 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 0),
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 1),
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 2),
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 3),
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 4),
-            LibDdon.Enemy.Create(EnemyId.PyreSaurian, 95, 4200, 5),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 0),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 1),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 2),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 3),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 4),
+            LibDdon.Enemy.Create(EnemyId.PyreSaurianSalamander, 95, 4200, 5),
         };
 
         var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
