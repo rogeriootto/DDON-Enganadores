@@ -112,15 +112,34 @@
                     "message_id": 8203
                 },
                 {
-                    "type": "IsStageNo",
+                    "type": "Raw",
                     "checkpoint": true,
                     "announce_type": "Update",
+                    "hand_items": [
+                        {"id": 7578, "amount": 1, "comment": "Lake Cera Detached Pavillion Key"}
+                    ],
+                    "check_commands": [
+                        {"type": "HasUsedKey", "Param1": 100, "Param2": 3, "Param3": 1, "Param4": 70002001}
+                    ]
+                },
+                {
+                    "type": "IsStageNo",
+                    "checkpoint": true,
                     "stage_id": {
-                        "id": 61
+                        "id": 81
                     },
                     "contents_release": [
                         {"flag_info": "Lestania.TempleOfPurificationSouthChamber"}
+                    ],
+                    "consume_items": [
+                        {"id": 7578, "amount": 1, "comment": "Lake Cera Detached Pavillion Key"}
                     ]
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 61
+                    }
                 },
                 {
                     "type": "TalkToNpc",
