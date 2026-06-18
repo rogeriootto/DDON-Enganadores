@@ -4190,7 +4190,7 @@ IsTutorialSequenceActive(int param01 = 0, int param02 = 0, int param03 = 0, int 
 IsSubstoryStateBit19(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsPartyMemberHasItem (235)
+### IsPartyMemberWearingSummerAttire (235)
 
 | Field | Value |
 |-------|-------|
@@ -4200,11 +4200,14 @@ IsSubstoryStateBit19(int param01 = 0, int param02 = 0, int param03 = 0, int para
 
 ```
 /**
- * @brief Checks if any party member (up to 15) has an item matching a list entry.
- * Checks both main pawn and hired pawn item lists.
- * @param itemListIdx Index into the item ID list at PTR_LAB_02141040
+ * @brief Checks if party members are wearing summer attire on their clothing/legwear slots. Doesn't seem to check pawn gear.
+ * Iterates party equipment and checks against an item ID list at PTR_LAB_02141040. Returns 1 if any match found. 
+ * Equipment list:
+ * 14151-14162, 17954-17955, 19135-19146: Various Swimsuits
+ * 507, 2119, 3142, 4165, 5188: Fisherman's Pants
+ * 995, 2607, 3630, 4653, 5676, 8708-8712, 8723-8727 - Various lingeries
  */
-IsPartyMemberHasItem(int itemListIdx, int param02 = 0, int param03 = 0, int param04 = 0);
+IsPartyMemberWearingSummerAttire(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### IsSubstoryStateBit20 (236)

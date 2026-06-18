@@ -2774,9 +2774,9 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             /** @brief Checks if any party member has an item from the list at PTR_LAB_02141040[itemListIdx]. */
-            public static CDataQuestCommand IsPartyMemberHasItem(int itemListIdx, int param02 = 0, int param03 = 0, int param04 = 0)
+            public static CDataQuestCommand IsPartyMemberWearingSummerAttire(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsPartyMemberHasItem, Param01 = itemListIdx, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsPartyMemberWearingSummerAttire, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Returns bit 20 of the substory state word at ctx+0x5c+0x20c. */

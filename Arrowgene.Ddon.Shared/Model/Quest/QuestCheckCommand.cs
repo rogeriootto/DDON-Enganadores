@@ -375,10 +375,10 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsSubstoryStateBit19 = 234, // 0x00636980 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Iterates up to 15 party members and checks main/hired pawn item lists against an item ID list
-        /// at PTR_LAB_02141040[itemListIdx] via FUN_004dadf0/FUN_004df8d0. Returns 1 if any match found.
+        /// Checks if party members are wearing summer attire on their clothing/legwear slots. Doesn't seem to check pawn gear?
+        /// Iterates party equipment and checks against an item ID list at PTR_LAB_02141040. Returns 1 if any match found. 
         /// </summary>
-        IsPartyMemberHasItem = 235, // 0x006369F0 (cQuestProcess* this, s32 itemListIdx, s32 param02, s32 param03, s32 param04)
+        IsPartyMemberWearingSummerAttire = 235, // 0x006369F0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Returns bit 20 of the substory state word at this→substory+0x20c.
