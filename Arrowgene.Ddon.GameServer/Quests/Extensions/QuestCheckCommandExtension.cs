@@ -780,9 +780,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsPartyMemberHasItem(this List<CDataQuestCommand> checkCommands, int itemListIdx)
+        public static List<CDataQuestCommand> AddCheckCmdIsPartyMemberWearingSummerAttire(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsPartyMemberHasItem(itemListIdx));
+            checkCommands.Add(QuestManager.CheckCommand.IsPartyMemberWearingSummerAttire());
             return checkCommands;
         }
 

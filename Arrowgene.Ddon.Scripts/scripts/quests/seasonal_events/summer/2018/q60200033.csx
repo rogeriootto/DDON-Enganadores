@@ -45,47 +45,11 @@ public class ScriptedQuest : IQuest
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
-
-        var equipItems = new List<ItemId>
-        {
-            ItemId.VividGreenSwimsuitTop,
-            ItemId.VividGreenSwimsuitBottom,
-            ItemId.IndigoBlueSwimsuitTop,
-            ItemId.IndigoBlueSwimsuitBottom,
-            ItemId.BluishPurpleSwimsuitTop,
-            ItemId.BluishPurpleSwimsuitBottom,
-            ItemId.NightBlackSwimsuitTop,
-            ItemId.NightBlackSwimsuitBottom,
-            ItemId.SilverGraySwimsuitTop,
-            ItemId.SilverGraySwimsuitBottom,
-            ItemId.SettingSunSwimsuitTop,
-            ItemId.SettingSunSwimsuitBottom,
-            ItemId.AlluringSwimsuitTopGlitteringGold,
-            ItemId.AlluringSwimsuitBottomGlitteringGold,
-            ItemId.AlluringSwimsuitTopVividGreen,
-            ItemId.AlluringSwimsuitTopIndigoBlue,
-            ItemId.AlluringSwimsuitTopBluishPurple,
-            ItemId.AlluringSwimsuitTopSilverGray,
-            ItemId.AlluringSwimsuitTopSettingSun,
-            ItemId.AlluringSwimsuitBottomVividGreen,
-            ItemId.AlluringSwimsuitBottomIndigoBlue,
-            ItemId.AlluringSwimsuitBottomBluishPurple,
-            ItemId.AlluringSwimsuitBottomNightBlack,
-            ItemId.AlluringSwimsuitBottomSilverGray,
-            ItemId.AlluringSwimsuitBottomSettingSun,
-            ItemId.StrongBanded0,
-            ItemId.FishermansPants0,
-            ItemId.CoquettishBacks0,
-        };
-
         process0.AddNewNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, 1, 0, NpcId.Ray1, 25550)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.RayAndSamantha0)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.RayAndSamantha1);
-        var block = process0.AddRawBlock(QuestAnnounceType.Accept);
-        for (var i = 0; i < equipItems.Count; i++)
-        {
-            block = block.AddCheckCmdIsEquip(equipItems[i], i);
-        }
+        process0.AddRawBlock(QuestAnnounceType.Accept)
+			.AddCheckCmdIsPartyMemberWearingSummerAttire();
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, 1, 0, NpcId.Ray1, 25552);
         process0.AddIsStageNoBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.BreyaCoast);
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.BreyaCoast, 1, 1, NpcId.Ray1, 25554);

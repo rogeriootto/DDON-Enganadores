@@ -861,10 +861,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsPartyMemberHasItem(this QuestBlock questBlock, int itemListIdx, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsPartyMemberWearingSummerAttire(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsPartyMemberHasItem(itemListIdx);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsPartyMemberWearingSummerAttire();
             return questBlock;
         }
 
