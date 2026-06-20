@@ -780,15 +780,15 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsPartyMemberWearingSummerAttire(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdIsEquipSeasonal(this List<CDataQuestCommand> checkCommands, int listNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsPartyMemberWearingSummerAttire());
+            checkCommands.Add(QuestManager.CheckCommand.IsEquipSeasonal(listNo));
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryStateBit20(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdDoLimitBreak(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryStateBit20());
+            checkCommands.Add(QuestManager.CheckCommand.DoLimitBreak());
             return checkCommands;
         }
 
@@ -876,9 +876,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsContentsModeStateFlag(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdIsWildHuntClear(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsContentsModeStateFlag());
+            checkCommands.Add(QuestManager.CheckCommand.IsWildHuntClear());
             return checkCommands;
         }
 

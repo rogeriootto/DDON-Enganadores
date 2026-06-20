@@ -49,7 +49,7 @@ public class ScriptedQuest : IQuest
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.RayAndSamantha0)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.RayAndSamantha1);
         process0.AddRawBlock(QuestAnnounceType.Accept)
-			.AddCheckCmdIsPartyMemberWearingSummerAttire();
+			.AddCheckCmdIsEquipSeasonal(0);
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, 1, 0, NpcId.Ray1, 25552);
         process0.AddIsStageNoBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.BreyaCoast);
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.BreyaCoast, 1, 1, NpcId.Ray1, 25554);
