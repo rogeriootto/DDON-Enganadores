@@ -861,17 +861,17 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsPartyMemberWearingSummerAttire(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsEquipSeasonal(this QuestBlock questBlock, int listNo, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsPartyMemberWearingSummerAttire();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsEquipSeasonal(listNo);
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryStateBit20(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdDoLimitBreak(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryStateBit20();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdDoLimitBreak();
             return questBlock;
         }
 
@@ -973,10 +973,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsContentsModeStateFlag(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsWildHuntClear(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsContentsModeStateFlag();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsWildHuntClear();
             return questBlock;
         }
 

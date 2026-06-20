@@ -2773,16 +2773,16 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit19, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Checks if any party member has an item from the list at PTR_LAB_02141040[itemListIdx]. */
-            public static CDataQuestCommand IsPartyMemberWearingSummerAttire(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Checks player equipment against a seasonal gear item list. 0 = Summer, 1 = Christmas. */
+            public static CDataQuestCommand IsEquipSeasonal(int listNo, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsPartyMemberWearingSummerAttire, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsEquipSeasonal, Param01 = listNo, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Returns bit 20 of the substory state word at ctx+0x5c+0x20c. */
-            public static CDataQuestCommand IsSubstoryStateBit20(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Checks if player has performed a limit break on an equipment. */
+            public static CDataQuestCommand DoLimitBreak(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit20, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.DoLimitBreak, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Returns bit 21 of the substory state word at ctx+0x5c+0x20c. */
@@ -2875,10 +2875,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsWildHuntEnemyFound, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = markerFlag };
             }
 
-            /** @brief Checks if contents/dungeon mode is active (area context mode 0xc, byte at +0x3b non-zero). */
-            public static CDataQuestCommand IsContentsModeStateFlag(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Checks if player has accepted and cleared a wild hunt quest. */
+            public static CDataQuestCommand IsWildHuntClear(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsContentsModeStateFlag, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsWildHuntClear, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Checks if a quest layout's HP-lost% <= hpLostPct (i.e., layout HP >= threshold). */

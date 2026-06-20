@@ -3648,7 +3648,7 @@ SetEnemyExpeditionState(int mode, int param02 = 0, int param03 = 0, int param04 
  * Updates the purpose message of the quest.
  * @note Seen inside chain dungeon packet capture
  * Sends world-manager NPC messages 0x25f and 0x260.
- * @param 
+ * @param
  */
 EndContentsPurposePhaseChange(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
@@ -4190,27 +4190,25 @@ IsTutorialSequenceActive(int param01 = 0, int param02 = 0, int param03 = 0, int 
 IsSubstoryStateBit19(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsPartyMemberWearingSummerAttire (235)
+### IsEquipSeasonal (235)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x006369F0` |
 | Table index | 235 |
-| Key callees | `FUN_00b956a0` (iterate up to 15 party members), `FUN_004dadf0` / `FUN_004df8d0` (check item lists), item ID list at `PTR_LAB_02141040[itemListIdx]` |
+| Key callees | `FUN_00b956a0` (iterate up to 15 equipment slots), `FUN_004dadf0` / `FUN_004df8d0` (check item lists), item ID list at `PTR_LAB_02141040[itemListIdx]` |
 
 ```
 /**
- * @brief Checks if party members are wearing summer attire on their clothing/legwear slots. Doesn't seem to check pawn gear.
- * Iterates party equipment and checks against an item ID list at PTR_LAB_02141040. Returns 1 if any match found. 
- * Equipment list:
- * 14151-14162, 17954-17955, 19135-19146: Various Swimsuits
- * 507, 2119, 3142, 4165, 5188: Fisherman's Pants
- * 995, 2607, 3630, 4653, 5676, 8708-8712, 8723-8727 - Various lingeries
+ * @brief Iterates 15 player equipment slots and checks against a seasonal item ID list (param01). Returns 1 if any match is found.
+ * 0 = Summer, 1 = Christmas. Lists are not comprehensive.
+ * Summer equipment ID list: 14151-14162, 17954-17955, 19135-19146, 507, 2119, 3142, 4165, 5188, 995, 2607, 3630, 4653, 5676, 8708-8712, 8723-8727
+ * Christmas equipment ID list: 19568, 19570, 19572, 19574, 19576, 19578, 19580, 19582, 19584, 19586, 19588, 19590, 16788-16799
  */
-IsPartyMemberWearingSummerAttire(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+IsEquipSeasonal(int listNo = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsSubstoryStateBit20 (236)
+### DoLimitBreak (236)
 
 | Field | Value |
 |-------|-------|
@@ -4220,9 +4218,10 @@ IsPartyMemberWearingSummerAttire(int param01 = 0, int param02 = 0, int param03 =
 
 ```
 /**
- * @brief Returns bit 20 of the substory state word at *(cQuestProcess+0x5c)+0x20c.
+ * @brief Checks if player has performed a limit break on an equipment.
+ * @brief Equipping limit broken equipment does not quality; the command checks notice bit 20 that signals the limit break action.
  */
-IsSubstoryStateBit20(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+DoLimitBreak(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### IsSubstoryStateBit21 (237)
@@ -4374,7 +4373,7 @@ IsTriggerFlagSetAndClear(int param01 = 0, int param02 = 0, int param03 = 0, int 
 ChainNotLess(int chainNo, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsContentsModeStateFlag (253)
+### IsWildHuntClear (253)
 
 | Field | Value |
 |-------|-------|
@@ -4384,10 +4383,11 @@ ChainNotLess(int chainNo, int param02 = 0, int param03 = 0, int param04 = 0);
 
 ```
 /**
- * @brief Checks if contents/dungeon mode is currently active.
+ * @brief Checks if player has accepted and cleared a wild hunt quest.
  * Reads byte at +0x3b from the mode-0xc area context; returns true if non-zero.
+ * Does not actually check for the accept (progression may be added to the database), only for the notice at quest completion moment.
  */
-IsContentsModeStateFlag(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+IsWildHuntClear(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### IsQuestLayoutHpNotGreater (255)
@@ -4446,17 +4446,18 @@ IsExtremeMissionClear(int questId, int param02_unused = 0, int param03_unused = 
 
 ```
 /**
- * @brief Kill-group completion check, gated on content mode. Verifies content mode via counter equality
+ * @brief Kill-group completion check, gated on content mode. Verifies content mode via counter equality.
+ * Content guard is also present in several transition check commands: most likely a player readiness check.
  * (ctx+0x4654 == ctx+0x45cc) and FUN_009d07f0(). If not in content mode and this+0x82 != 0, returns early.
- * Delegates to FUN_0063a5e0 which iterates the kill-group list, matches flagNo at entry+0x14,
+ * Calls check command IsKilledTargetEnemySetGroup (FUN_0063a5e0) which iterates the kill-group list, matches flagNo at entry+0x14,
  * checks entry+0x18 (valid byte) and entry+4 == 0 (all kills done).
  * The marker vs no-marker distinction (vs ID 243) is a runtime property of this+0x82, not code structure.
  * @note "mode=15" is not a literal constant in the code.
  * @note 5 total parameters (not 4).
  * @param flagNo  Kill-group flag identifier
- * @param param03 Passed to FUN_0063a5e0
- * @param param04 Passed to FUN_0063a5e0
- * @param param05 Passed to FUN_0063a5e0
+ * @param param03 Passed to IsKilledTargetEnemySetGroup
+ * @param param04 Passed to IsKilledTargetEnemySetGroup
+ * @param param05 Passed to IsKilledTargetEnemySetGroup
  */
 IsKilledTargetEnemySetGroupMode15(int flagNo, int param03 = 0, int param04 = 0, int param05 = 0);
 ```
@@ -4516,7 +4517,7 @@ IsContentsTimerBElapsed(int timerNo, int param02_unused = 0, int param03_unused 
 
 ```
 /**
- * @brief Direct thunk to FUN_0063a5e0 with no content-mode guard (unlike IDs 242/243).
+ * @brief Direct thunk to IsKilledTargetEnemySetGroup (FUN_0063a5e0) with no content-mode guard (unlike IDs 242/243).
  * Iterates the kill-group list on this, finds entry matching flagNo at entry+0x14,
  * checks entry+0x18 (valid) and entry+4 == 0 (kill complete). Only flagNo is used.
  * @note Formerly named "IsKilledTargetEnemySetGroupInRadius". Previous description "shape type 4 radius"
@@ -4557,7 +4558,7 @@ IsContentsTimerAZero(int timerNo, int param02_unused = 0, int param03_unused = 0
 | Table index | 252 |
 | System | **Wild Hunt** (`cMobHuntQuestManager` — "MobHunt" is the internal engine name for Wild Hunt) |
 | Key callees | `FUN_00a39f80(entry)` reads `entry+0x14` (flag ID); `FUN_00a3c2b0(sub)` reads `sub+4` (em ID field 1); `FUN_00a3a000(sub)` reads `sub+8` (em ID field 2); `FUN_00636c20(id1, id2, -1, param04)` — generic OM enemy discovered-state checker |
-| Kill state | vtable+0x2ec returns `0xc` (killed); fallback via `FUN_00c82ac0` |
+| Kill state | vtable+0x2ec returns `0xc` (found); fallback via `FUN_00c82ac0` |
 
 ```
 /**

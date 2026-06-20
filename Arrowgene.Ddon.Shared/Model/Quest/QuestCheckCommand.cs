@@ -375,15 +375,15 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsSubstoryStateBit19 = 234, // 0x00636980 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Checks if party members are wearing summer attire on their clothing/legwear slots. Doesn't seem to check pawn gear?
-        /// Iterates party equipment and checks against an item ID list at PTR_LAB_02141040. Returns 1 if any match found. 
+        /// Iterates 15 player equipment slots and checks against a seasonal item ID list (param01). Returns 1 if any match is found.
+        /// 0 = Summer, 1 = Christmas. Lists are not comprehensive.
         /// </summary>
-        IsPartyMemberWearingSummerAttire = 235, // 0x006369F0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        IsEquipSeasonal = 235, // 0x006369F0 (cQuestProcess* this, s32 listNo, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Returns bit 20 of the substory state word at this→substory+0x20c.
+        /// Checks if player has performed a limit break on an equipment (notice bit 20).
         /// </summary>
-        IsSubstoryStateBit20 = 236, // 0x00636B10 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        DoLimitBreak = 236, // 0x00636B10 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Returns bit 21 of the substory state word at this→substory+0x20c.
@@ -493,10 +493,10 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsWildHuntEnemyFound = 252, // 0x006376E0 (cQuestProcess* this, s32 flagNo, s32 param02_unused, s32 param03_unused, s32 markerFlag)
 
         /// <summary>
-        /// Checks if contents/dungeon mode is active. Calls FUN_00bdee50(0xc) to get area context (mode 0xc),
+        /// Checks if player has accepted and cleared a wild hunt quest. Calls FUN_00bdee50(0xc) to get area context (mode 0xc),
         /// reads byte at +0x3b; returns true if non-zero.
         /// </summary>
-        IsContentsModeStateFlag = 253, // 0x00637820 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        IsWildHuntClear = 253, // 0x00637820 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         Padding254 = 254, // 0x00637860 stub/nop - always returns 0
 

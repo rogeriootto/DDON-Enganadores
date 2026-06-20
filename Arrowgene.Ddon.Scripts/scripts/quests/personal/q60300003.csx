@@ -31,9 +31,10 @@ public class ScriptedQuest : IQuest
     {
         var process0 = AddNewProcess(0);
         process0.AddNpcTalkAndOrderBlock(Stage.CraftRoom, NpcId.Craig0, 26368);
-        process0.AddIsStageNoBlock(QuestAnnounceType.Accept, Stage.CraftRoom, false)
+        process0.AddRawBlock(QuestAnnounceType.Accept)
             .AddResultCmdTutorialDialog(TutorialId.LimitBreakingArms)
-            .AddAnnotation("TODO: Detect weapon has been limit broken");
+            .AddResultCmdQstTalkChg(NpcId.Craig0, 26369)
+            .AddCheckCmdDoLimitBreak();
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.CraftRoom, NpcId.Craig0, 26370);
         process0.AddProcessEndBlock(true);
     }
