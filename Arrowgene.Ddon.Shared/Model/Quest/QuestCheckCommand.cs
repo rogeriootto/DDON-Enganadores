@@ -391,9 +391,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsSubstoryStateBit21 = 237, // 0x00636B70 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Returns bit 22 of the substory state word at this→substory+0x20c.
+        /// Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter.
         /// </summary>
-        IsSubstoryStateBit22 = 238, // 0x00636BA0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        GetHighOrb = 238, // 0x00636BA0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Returns bit 23 of the substory state word at this→substory+0x20c.

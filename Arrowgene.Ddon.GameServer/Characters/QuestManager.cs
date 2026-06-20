@@ -2791,10 +2791,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit21, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Returns bit 22 of the substory state word at ctx+0x5c+0x20c. */
-            public static CDataQuestCommand IsSubstoryStateBit22(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter. */
+            public static CDataQuestCommand GetHighOrb(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit22, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.GetHighOrb, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Returns bit 23 of the substory state word at ctx+0x5c+0x20c. */

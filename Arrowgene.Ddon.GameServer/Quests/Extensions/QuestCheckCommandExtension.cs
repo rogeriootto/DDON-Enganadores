@@ -798,9 +798,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryStateBit22(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdGetHighOrb(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryStateBit22());
+            checkCommands.Add(QuestManager.CheckCommand.GetHighOrb());
             return checkCommands;
         }
 
