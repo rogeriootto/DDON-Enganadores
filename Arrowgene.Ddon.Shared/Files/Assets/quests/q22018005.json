@@ -1,12 +1,13 @@
 ﻿{
     "state_machine": "GenericStateMachine",
     "type": "World",
-    "comment": "Serve from Above",
+    "comment": "Superior Service Provider",
     "quest_id": 22018005,
     "base_level": 80,
     "minimum_item_rank": 0,
     "discoverable": true,
     "area_id": "RathniteFoothills",
+    "order_conditions": [{"type": "AreaRank", "Param1": 18, "Param2": 2}],
     "news_image": 330,
     "rewards": [
         {

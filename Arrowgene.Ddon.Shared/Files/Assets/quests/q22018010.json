@@ -1,7 +1,7 @@
 ﻿{
   "state_machine": "GenericStateMachine",
   "type": "World",
-  "comment": "Ambush of the Armed Demon Army",
+  "comment": "Demon Army's Surprise Attack",
   "quest_id": 22018010,
   "base_level": 83,
   "minimum_item_rank": 0,
@@ -203,12 +203,11 @@
   "blocks": [
     {
       "type": "DiscoverEnemy",
-      "announce_type": "Accept",
       "groups": [0]
     },
     {
       "type": "KillGroup",
-      "announce_type": "Update",
+      "announce_type": "Accept",
       "reset_group": false,
       "groups": [0]
     },

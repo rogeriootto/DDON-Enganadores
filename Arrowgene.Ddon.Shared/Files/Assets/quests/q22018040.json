@@ -7,7 +7,8 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "MegadosysPlateau",
-  "news_image": 330,
+  "order_conditions": [{"type": "MainQuestCompleted", "Param1": 30200}],
+  "news_image": 338,
   "rewards": [
     {
       "type": "wallet",
@@ -68,6 +69,10 @@
   ],
   "enemy_groups": [],
   "blocks": [
+    {
+      "type": "Raw",
+      "check_commands": [{"type": "IsMainQuestClear", "Param1": 30200}]
+    },
     {
       "type": "NpcTalkAndOrder",
       "stage_id": {
