@@ -151,10 +151,12 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         SeekingTheMasterAlchemist = 60000058,
         LivingWithThePartnerPawn = 60200000,
         SkillAugmentationGuidanceOfARenewedWhiteDragon = 60200001,
+        SingingPraisesOfSuccess = 60200013,
         RoadToMastery = 60200014,
         SupremeRadiance = 60200004,
         SpiritLancerTacticsTrialASpiritLance = 60200050,
         SeekingTheMasterSpiritLancer = 60200051,
+        InformationOnWildHunt = 61000000,
 
         SkillAugmentationFighterTrialI = 60200100,
         SkillAugmentationFighterTrialII = 60200101,
@@ -197,6 +199,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         SkillAugmentationSpiritLancerTrialIII = 60200138,
         SkillAugmentationSpiritLancerTrialIV = 60200139,
         ExtendGarden = 60300000,
+        StrangeCreatureInvestigation = 60300001,
         CustomMadeWorkshop1SearchersReturn = 60300002,
         CustomMadeWorkshop2LimitBreak = 60300003,
         CustomMadeWorkshop3UltimateArmsSynthesis = 60300004,
@@ -222,6 +225,8 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
 
         HerosRestRathniteRegion = 60300020,
         HerosRestFeryanaRegion = 60300021,
+        EpitaphRoadMegadosysRegion = 60300022,
+        EpitaphRoadUrtecaRegion = 60300023,
 
         SaveTheRoyalFamilyCook = 60300030,
         RescueTheGeniusCommander = 60300031,

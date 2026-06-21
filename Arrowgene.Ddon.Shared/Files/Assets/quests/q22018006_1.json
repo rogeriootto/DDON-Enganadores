@@ -8,8 +8,7 @@
   "discoverable": true,
   "area_id": "RathniteFoothills",
   "news_image": 330,
-  "order_conditions": [{"type": "MainQuestCompleted", "Param1": 30050}],
-  "variant_index": 1,
+  "order_conditions": [{"type": "ClearPersonalQuest", "Param1": 60318004}, {"type": "MainQuestCompleted", "Param1": 30050}],
   "rewards": [
     {
       "type": "wallet",

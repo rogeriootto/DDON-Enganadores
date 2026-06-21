@@ -4239,7 +4239,7 @@ DoLimitBreak(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
 IsSubstoryStateBit21(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsSubstoryStateBit22 (238)
+### GetHighOrb (238)
 
 | Field | Value |
 |-------|-------|
@@ -4249,7 +4249,8 @@ IsSubstoryStateBit21(int param01 = 0, int param02 = 0, int param03 = 0, int para
 
 ```
 /**
- * @brief Returns bit 22 of the substory state word at *(cQuestProcess+0x5c)+0x20c.
+ * @brief Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter.
+ * @brief High Orbs already in the player's wallet do not count: they must obtain orbs from a new source.
  */
 IsSubstoryStateBit22(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```

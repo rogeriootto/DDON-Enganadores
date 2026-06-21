@@ -7,7 +7,8 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "FeryanaWilderness",
-  "news_image": 330,
+  "order_conditions": [{"type": "ClearPersonalQuest", "Param1": 60319001}],
+  "news_image": 334,
   "rewards": [
     {
       "type": "wallet",

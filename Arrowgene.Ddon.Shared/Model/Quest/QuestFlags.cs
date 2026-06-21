@@ -73,9 +73,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Spawns a red/white flags around the stage.
             /// </summary>
             public static QuestFlagInfo RedWhiteFlagDecoration { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1149, QuestId.Q70000001, StageInfo);
-            
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public static QuestFlagInfo Q70000001Unk1 { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1150, QuestId.Q70000001, StageInfo);
 
@@ -140,12 +140,12 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Controls if Mysial appears or not in the stage.
             /// </summary>
             public static QuestFlagInfo Mysial { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1215, QuestId.Q70000001, StageInfo);
-            
+
             /// <summary>
             /// Controls if Season 1 Leo appears or not in the stage.
             /// </summary>
             public static QuestFlagInfo Leo { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1218, QuestId.Q70000001, StageInfo);
-            
+
             /// <summary>
             /// Controls if Iris appears or not in the stage.
             /// </summary>
@@ -590,7 +590,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Spawns the flags of the kingdom inside the orc settlement.
             /// </summary>
             public static QuestFlagInfo OrcCampSettlementFlags { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(5706, QuestId.Q70030001, StageInfo);
-            
+
             /// <summary>
             /// Toggles the gate for Orc Encampment after being populated with shops.
             /// </summary>
@@ -605,7 +605,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Spawns the NPCs in the area outside Fort Thines.
             /// </summary>
             public static QuestFlagInfo FortThinesNpcs { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(6197, QuestId.Q70030001, StageInfo);
-            
+
             /// <summary>
             /// Spawns the buildings for the NPCs outside Fort Thines
             /// </summary>
@@ -766,7 +766,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         public static class BeforetheSecretSpring
         {
             private static StageInfo StageInfo = Stage.BeforetheSecretSpring;
-            
+
             /// <summary>
             /// Spawns the gate for the key monster enemy.
             /// </summary>
@@ -911,6 +911,20 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Activates warp to Urteca Mountains
             /// </summary>
             public static QuestFlagInfo UrtecaMountainsWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7827, QuestId.Q70033001, StageInfo);
+
+            /// <summary>
+            /// Unlocks door to Old Epitaph Road Shrine
+            /// </summary>
+            public static QuestFlagInfo OldEpitaphRoadShrine { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4451, QuestId.Q70032001);
+        }
+
+        public static class OldHeroicSpiritShrine
+        {
+            private static StageInfo StageInfo = Stage.OldHeroicSpiritShrine;
+            /// <summary>
+            /// Unlocks door leading to Salim and Memory of Urteca
+            /// </summary>
+            public static QuestFlagInfo MemoryOfUrteca { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4734, QuestId.Q70032001);
         }
 
         public static class UrtecaMountains

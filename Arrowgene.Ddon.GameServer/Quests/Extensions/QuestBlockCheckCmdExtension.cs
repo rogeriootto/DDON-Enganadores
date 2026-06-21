@@ -882,10 +882,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryStateBit22(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdGetHighOrb(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryStateBit22();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdGetHighOrb();
             return questBlock;
         }
 
