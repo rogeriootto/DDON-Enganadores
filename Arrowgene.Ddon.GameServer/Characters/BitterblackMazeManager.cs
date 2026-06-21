@@ -1,3 +1,5 @@
+using Arrowgene.Ddon.GameServer.Handler;
+using Arrowgene.Ddon.GameServer.Quests.LightQuests;
 using Arrowgene.Ddon.GameServer.Scripting.Interfaces;
 using Arrowgene.Ddon.Server.Network;
 using Arrowgene.Ddon.Shared.Asset;
@@ -445,6 +447,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
                         var items = BitterblackMazeManager.SelectGearType(assets.HighQualityWeapons[jobId], DetermineEquipClass(assets.HighQualityArmors, jobId), assets.HighQualityOther);
                         itemId = BitterblackMazeManager.SelectGear(server, items, chestType, stageId);
                         quality = 0;
+
                     }
                     results.Add(new InstancedGatheringItem()
                     {
@@ -452,6 +455,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
                         ItemNum = 1,
                         Quality = quality
                     });
+                    //If we rolled a weapon and the current vocation is Fighter/ShieldSage, roll for an additional subweapon
+                    if(assets.HighQualityWeapons[jobId].Contains(itemId) && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
+                    {
+                        AddSubWeaponToChest(server, jobId, assets.HighQualitySubWeapons, chestType, stageId, results);
+                    }
                 }
             }
             else
@@ -478,6 +486,15 @@ namespace Arrowgene.Ddon.GameServer.Characters
                             ItemNum = 1,
                         });
                     }
+                    //Add a subweapon to the rolls if we rolled a weapon as Fighter or Shield Sage
+                    if(assets.LowQualityWeapons[jobId].Contains(itemId) && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
+                    {
+                        AddSubWeaponToChest(server, jobId, assets.LowQualitySubWeapons, chestType, stageId, results);
+                    }
+                    else if(assets.HighQualityWeapons[jobId].Contains(itemId) && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
+                    {
+                        AddSubWeaponToChest(server, jobId, assets.HighQualitySubWeapons, chestType, stageId, results);
+                    }
                 }
             }
 
@@ -491,6 +508,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
                     ItemId = (ItemId) itemId,
                     ItemNum = 1,
                 });
+                //Add a subweapon to the rolls if we rolled a weapon as Fighter or Shield Sage
+                if(items == assets.HighQualityWeapons[jobId] && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
+                {
+                    AddSubWeaponToChest(server, jobId, assets.HighQualitySubWeapons, chestType, stageId, results);
+                }
             }
 
             if (chestType != ChestType.Earring && chestType != ChestType.Bracelet)
@@ -570,6 +592,24 @@ namespace Arrowgene.Ddon.GameServer.Characters
             return weapons;
         }
 
+        private static void AddSubWeaponToChest(DdonGameServer server, JobId jobId, Dictionary<JobId, List<uint>> subWeapons, 
+            ChestType chestType, StageLayoutId stageId, List<InstancedGatheringItem> results)
+        {
+            List<uint> jobSubweapons;
+            if (subWeapons.TryGetValue(jobId, out jobSubweapons))
+            {
+                uint subWeaponId = SelectGear(server, jobSubweapons, chestType, stageId);
+                if (subWeaponId > 0)
+                {
+                    results.Add(new InstancedGatheringItem()
+                    {
+                        ItemId = (ItemId)subWeaponId,
+                        ItemNum = 1,
+                        Quality = 0
+                    });
+                }
+            }
+        }
         private static (uint Min, uint Max) DetermineItemTier(DdonGameServer server, ChestType chestType, StageLayoutId stageId)
         {
             var lootRange = server.AssetRepository.BitterblackMazeAsset.LootRanges[stageId.Id];
