@@ -1090,6 +1090,7 @@
     "loot_ranges": [
         {
             "comment": "Rotunda 1",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1115,6 +1116,7 @@
         },
         {
             "comment": "Rotunda 2",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1140,6 +1142,7 @@
         },
         {
             "comment": "Rotunda 3",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1168,6 +1171,7 @@
         },
         {
             "comment": "Abyss 1",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1193,6 +1197,7 @@
         },
         {
             "comment": "Abyss 2",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1218,6 +1223,7 @@
         },
         {
             "comment": "Abyss 3",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,
@@ -1243,6 +1249,7 @@
         },
         {
             "comment": "Abyss 4",
+            "end_chest_jewelry_count": 1,
             "jewelry_chance": 1.0,
             "sealed_chest_jewelry_chance": 0.0,
             "rare_chance": 0.01,

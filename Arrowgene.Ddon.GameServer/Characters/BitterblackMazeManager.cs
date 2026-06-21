@@ -435,30 +435,34 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 var isNewChest = server.Database.InsertBBMContentTreasure(character.CharacterId, stageId.Id, stageId.GroupId, pos);
                 if (isNewChest)
                 {
-                    uint itemId;
-                    uint quality;
-                    if (RollRewardChance(DetermineJewelryChance(assets, stageId)))
+                    var jewelry_count = assets.LootRanges[stageId.Id].EndChestJewelryCount;
+                    for(uint i = 0 ; i < jewelry_count; i++)
                     {
-                        itemId = (chestType == ChestType.Bracelet) ? BitterblackMazeManager.BitterblackBraceletItemId : BitterblackMazeManager.BitterblackEarringItemId;
-                        quality = 1;
-                    }
-                    else
-                    {
-                        var items = BitterblackMazeManager.SelectGearType(assets.HighQualityWeapons[jobId], DetermineEquipClass(assets.HighQualityArmors, jobId), assets.HighQualityOther);
-                        itemId = BitterblackMazeManager.SelectGear(server, items, chestType, stageId);
-                        quality = 0;
+                        uint itemId;
+                        uint quality;
+                        if (RollRewardChance(DetermineJewelryChance(assets, stageId)))
+                        {
+                            itemId = (chestType == ChestType.Bracelet) ? BitterblackMazeManager.BitterblackBraceletItemId : BitterblackMazeManager.BitterblackEarringItemId;
+                            quality = 1;
+                        }
+                        else
+                        {
+                            var items = BitterblackMazeManager.SelectGearType(assets.HighQualityWeapons[jobId], DetermineEquipClass(assets.HighQualityArmors, jobId), assets.HighQualityOther);
+                            itemId = BitterblackMazeManager.SelectGear(server, items, chestType, stageId);
+                            quality = 0;
 
-                    }
-                    results.Add(new InstancedGatheringItem()
-                    {
-                        ItemId = (ItemId) itemId,
-                        ItemNum = 1,
-                        Quality = quality
-                    });
-                    //If we rolled a weapon and the current vocation is Fighter/ShieldSage, roll for an additional subweapon
-                    if(assets.HighQualityWeapons[jobId].Contains(itemId) && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
-                    {
-                        AddSubWeaponToChest(server, jobId, assets.HighQualitySubWeapons, chestType, stageId, results);
+                        }
+                        results.Add(new InstancedGatheringItem()
+                        {
+                            ItemId = (ItemId) itemId,
+                            ItemNum = 1,
+                            Quality = quality
+                        });
+                        //If we rolled a weapon and the current vocation is Fighter/ShieldSage, roll for an additional subweapon
+                        if(assets.HighQualityWeapons[jobId].Contains(itemId) && (jobId == JobId.Fighter || jobId == JobId.ShieldSage))
+                        {
+                            AddSubWeaponToChest(server, jobId, assets.HighQualitySubWeapons, chestType, stageId, results);
+                        }   
                     }
                 }
             }

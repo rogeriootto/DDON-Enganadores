@@ -38,6 +38,7 @@ namespace Arrowgene.Ddon.Shared.Asset
             public (uint Min, uint Max) NormalRange;
             public (uint Min, uint Max) SealedRange;
             public double RareChance { get; set; }
+            public uint EndChestJewelryCount { get; set; }
             public double JewelryChance { get; set; }
             public double SealedChestJewelryChance { get; set; }
             public (uint Gold, uint Silver, uint Red) Marks { get; set; }
