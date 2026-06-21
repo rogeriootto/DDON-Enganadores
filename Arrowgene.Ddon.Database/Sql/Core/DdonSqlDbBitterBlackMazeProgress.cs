@@ -8,7 +8,7 @@ public partial class DdonSqlDb : SqlDb
 {
     protected static readonly string[] BitterBlackMazeProgressFields =
     [
-        "character_id", "start_time", "content_id", "content_mode", "tier", "killed_death", "last_ticket_time"
+        "character_id", "start_time", "content_id", "content_mode", "tier", "killed_death", "last_ticket_time", "is_paid_reset"
     ];
 
     private readonly string SqlDeleteBBMProgress = "DELETE FROM \"ddon_bbm_progress\" WHERE \"character_id\"=@character_id;";
@@ -20,14 +20,14 @@ public partial class DdonSqlDb : SqlDb
 
     private readonly string SqlUpdateBBMProgress = $"UPDATE \"ddon_bbm_progress\" SET {BuildQueryUpdate(BitterBlackMazeProgressFields)} WHERE \"character_id\"=@character_id;";
 
-    public override bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime)
+    public override bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime, bool isPaidReset)
     {
         using DbConnection connection = OpenNewConnection();
-        return InsertBBMProgress(connection, characterId, startTime, contentId, contentMode, tier, killedDeath, lastTicketTime);
+        return InsertBBMProgress(connection, characterId, startTime, contentId, contentMode, tier, killedDeath, lastTicketTime, isPaidReset);
     }
 
     public bool InsertBBMProgress(DbConnection connection, uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath,
-        ulong lastTicketTime)
+        ulong lastTicketTime, bool isPaidReset)
     {
         return ExecuteNonQuery(connection, SqlInsertBBMProgress, command =>
         {
@@ -38,16 +38,17 @@ public partial class DdonSqlDb : SqlDb
             AddParameter(command, "tier", tier);
             AddParameter(command, "killed_death", killedDeath);
             AddParameter(command, "last_ticket_time", lastTicketTime);
+            AddParameter(command, "is_paid_reset", isPaidReset);
         }) == 1;
     }
 
     public override bool UpdateBBMProgress(uint characterId, BitterblackMazeProgress progress, DbConnection? connectionIn = null)
     {
-        return UpdateBBMProgress(characterId, progress.StartTime, progress.ContentId, progress.ContentMode, progress.Tier, progress.KilledDeath, progress.LastTicketTime,
+        return UpdateBBMProgress(characterId, progress.StartTime, progress.ContentId, progress.ContentMode, progress.Tier, progress.KilledDeath, progress.LastTicketTime, progress.IsPaidReset,
             connectionIn);
     }
 
-    public bool UpdateBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime,
+    public bool UpdateBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime, bool isPaidReset,
         DbConnection? connectionIn = null)
     {
         return ExecuteQuerySafe(connectionIn, connection =>
@@ -61,6 +62,7 @@ public partial class DdonSqlDb : SqlDb
                 AddParameter(command, "tier", tier);
                 AddParameter(command, "killed_death", killedDeath);
                 AddParameter(command, "last_ticket_time", lastTicketTime);
+                AddParameter(command, "is_paid_reset", isPaidReset);
             }) == 1;
         });
     }
@@ -98,6 +100,7 @@ public partial class DdonSqlDb : SqlDb
                     result.Tier = GetUInt32(reader, "tier");
                     result.KilledDeath = GetBoolean(reader, "killed_death");
                     result.LastTicketTime = GetUInt64(reader, "last_ticket_time");
+                    result.IsPaidReset = GetBoolean(reader, "is_paid_reset");
                 }
             });
         });

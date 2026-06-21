@@ -70,6 +70,7 @@ namespace Arrowgene.Ddon.Shared.AssetReader
                     NormalRange = (lootRange.GetProperty("normal").GetProperty("min").GetUInt32(), lootRange.GetProperty("normal").GetProperty("max").GetUInt32()),
                     SealedRange = (lootRange.GetProperty("sealed").GetProperty("min").GetUInt32(), lootRange.GetProperty("sealed").GetProperty("max").GetUInt32()),
                     JewelryChance  = lootRange.GetProperty("jewelry_chance").GetDouble(),
+                    SealedChestJewelryChance = lootRange.GetProperty("sealed_chest_jewelry_chance").GetDouble(),
                     RareChance = lootRange.GetProperty("rare_chance").GetDouble(),
                     Marks = (lootRange.GetProperty("marks").GetProperty("gold").GetUInt32(), lootRange.GetProperty("marks").GetProperty("silver").GetUInt32(), lootRange.GetProperty("marks").GetProperty("red").GetUInt32())
                 };

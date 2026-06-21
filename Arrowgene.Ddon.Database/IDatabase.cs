@@ -447,7 +447,8 @@ public interface IDatabase
         BattleContentMode contentMode,
         uint tier,
         bool killedDeath,
-        ulong lastTicketTime
+        ulong lastTicketTime,
+        bool isPaidReset
     );
 
     bool UpdateBBMProgress(uint characterId, BitterblackMazeProgress progress, DbConnection? connectionIn = null);

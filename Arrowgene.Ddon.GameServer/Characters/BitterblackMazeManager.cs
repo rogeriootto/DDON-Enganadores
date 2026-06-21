@@ -464,6 +464,23 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
             else
             {
+                //Sealed Orange chests can have a chance at giving an earring/bracelet if the JSON is configured to do so and the character is doing a Paid Reset of BBM
+                if( character.BbmProgress.IsPaidReset &&
+                    chestType == ChestType.Orange  && 
+                    assets.LootRanges[stageId.Id].SealedChestJewelryChance > 0 &&
+                    RollRewardChance(assets.LootRanges[stageId.Id].SealedChestJewelryChance))
+                {
+                    uint itemId = (character.BbmProgress.ContentMode == BattleContentMode.Rotunda) 
+                                    ? BitterblackMazeManager.BitterblackBraceletItemId 
+                                    : BitterblackMazeManager.BitterblackEarringItemId;
+                    results.Add(new InstancedGatheringItem()
+                    {
+                        ItemId = (ItemId)itemId,
+                        ItemNum = 1,
+                        Quality = 1,
+                    });
+                }
+
                 uint picks = (uint)Random.Shared.Next(4);
                 for (int i = 0; i < picks; i++)
                 {
