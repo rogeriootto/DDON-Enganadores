@@ -738,9 +738,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsRewardPointNotLess(this List<CDataQuestCommand> checkCommands, int playerId, int rewardId, int expectedValue)
+        public static List<CDataQuestCommand> AddCheckCmdDieEnemyNoMarker(this List<CDataQuestCommand> checkCommands, int stageNo, int groupNo, int setNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsRewardPointNotLess(playerId, rewardId, expectedValue));
+            checkCommands.Add(QuestManager.CheckCommand.DieEnemyNoMarker(stageNo, groupNo, setNo));
             return checkCommands;
         }
 
@@ -810,9 +810,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsFsmNpcTalkComplete(this List<CDataQuestCommand> checkCommands, int npcId)
+        public static List<CDataQuestCommand> AddCheckCmdIsReleaseWarpPointAnyoneNoMarker(this List<CDataQuestCommand> checkCommands, int waypointId)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsFsmNpcTalkComplete(npcId));
+            checkCommands.Add(QuestManager.CheckCommand.IsReleaseWarpPointAnyoneNoMarker(waypointId));
             return checkCommands;
         }
 
@@ -822,15 +822,15 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsKilledTargetEnemySetGroupMode15(this List<CDataQuestCommand> checkCommands, int flagNo)
+        public static List<CDataQuestCommand> AddCheckCmdIsKilledTargetEnemySetGroup2(this List<CDataQuestCommand> checkCommands, int flagNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsKilledTargetEnemySetGroupMode15(flagNo));
+            checkCommands.Add(QuestManager.CheckCommand.IsKilledTargetEnemySetGroup2(flagNo));
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsKilledTargetEnemySetGroupMode15NoMarker(this List<CDataQuestCommand> checkCommands, int flagNo)
+        public static List<CDataQuestCommand> AddCheckCmdIsKilledTargetEnemySetGroup2NoMarker(this List<CDataQuestCommand> checkCommands, int flagNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsKilledTargetEnemySetGroupMode15NoMarker(flagNo));
+            checkCommands.Add(QuestManager.CheckCommand.IsKilledTargetEnemySetGroup2NoMarker(flagNo));
             return checkCommands;
         }
 
@@ -864,9 +864,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsContentsTimerAZero(this List<CDataQuestCommand> checkCommands, int timerNo)
+        public static List<CDataQuestCommand> AddCheckCmdIsEndTimer2(this List<CDataQuestCommand> checkCommands, int timerNo)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsContentsTimerAZero(timerNo));
+            checkCommands.Add(QuestManager.CheckCommand.IsEndTimer2(timerNo));
             return checkCommands;
         }
 

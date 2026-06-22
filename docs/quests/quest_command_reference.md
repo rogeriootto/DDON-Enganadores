@@ -4059,24 +4059,24 @@ OmReleaseTouchRadius(StageNo stageNo, int groupNo, int setNo, int param04 = 0);
 IsNpcInteractionComplete(StageNo stageNo, int npcId, int choiceId, int param04 = 0);
 ```
 
-### IsRewardPointNotLess (225)
+### DieEnemyNoMarker (225)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x00636390` |
 | Table index | 225 |
-| Key callees | `FUN_00bfc5d0(rewardId)` (checks flag at +0x274); `FUN_00bfc5a0(rewardId, expectedValue)` (queues reward collection) |
+| Key callees | `FUN_00bfc5d0: isKilledEnemyGroup(groupNo)` (checks flag at +0x274); `FUN_00bfc5a0(groupNo, setNo)` (group death check) |
 
 ```
 /**
- * @brief Reward point check / collection trigger. Guards on GM mode and player ID match.
- * If expectedValue < 0, checks flag at reward entry +0x274 via FUN_00bfc5d0.
- * If expectedValue >= 0, queues a reward collection action via FUN_00bfc5a0.
- * @param playerId      Player identifier
- * @param rewardId      Reward table entry identifier
- * @param expectedValue Comparison value or collection trigger (< 0 = flag-check only)
+ * @brief Enemy group death checker. Guards on GM mode and stage number match. Does not place quest markers on enemies.
+ * If groupNo < 0, checks flag at entry +0x274 via FUN_00bfc5d0.
+ * If groupNo >= 0, calls FUN_00bfc5a0 and checks if setNo matches a dead enemy (-1: check all positions)
+ * @param stageNo      Stage identifier
+ * @param groupNo      Group identifier
+ * @param setNo        Enemy position identifier
  */
-IsRewardPointNotLess(int playerId, int rewardId, int expectedValue, int param04 = 0);
+DieEnemyNoMarker(int stageNo, int groupNo, int setNo, int param04 = 0);
 ```
 
 ### IsEnemyFoundForOrderRadius (230)
@@ -4270,21 +4270,20 @@ IsSubstoryStateBit22(int param01 = 0, int param02 = 0, int param03 = 0, int para
 IsSubstoryStateBit23(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsFsmNpcTalkComplete (240)
+### IsReleaseWarpPointAnyoneNoMarker (240)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x00636C10` |
 | Table index | 240 |
-| Key callees | Thunks to `FUN_00634090`; checks completed-talk list at `DAT_022044a0+0x7678`; FSM mode validation of current stage |
+| Key callees | Thunks to `FUN_00634090` (IsReleaseWarpPointAnyone) |
 
 ```
 /**
- * @brief Checks if an FSM NPC talk event has been completed.
- * Validates the NPC against the completed-talk list and, in FSM mode, confirms the episode matches the active stage.
- * @param npcId NPC identifier to look up in the completed-talk list
+ * @brief Jumps to IsReleaseWarpPointAnyone and therefore works in the same way; no quest markers.
+ * @param waypointId Waypoint identifier
  */
-IsFsmNpcTalkComplete(int npcId, int param02 = 0, int param03 = 0, int param04 = 0);
+IsReleaseWarpPointAnyoneNoMarker(int waypointId, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### IsSubstoryIngameHourInRange (241)
@@ -4436,13 +4435,13 @@ IsQuestLayoutHpNotGreater(StageNo stageNo, int groupNo, int setNo, int hpPct);
 IsExtremeMissionClear(int questId, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
-### IsKilledTargetEnemySetGroupMode15 (242)
+### IsKilledTargetEnemySetGroup2 (242)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x00636FE0` |
 | Table index | 242 |
-| Key callees | Content-mode guard: `DAT_0220456c+0x9f4+0x4654` vs `+0x45cc`, `FUN_009d07f0()`, `*(this+0x82)` byte; delegates to `FUN_0063a5e0` |
+| Key callees | Content-mode guard: `DAT_0220456c+0x9f4+0x4654` vs `+0x45cc`, `FUN_009d07f0()`, `*(this+0x82)` byte; delegates to `FUN_0063a5e0` (IsKilledTargetEnemySetGroup) |
 | Key fields | Kill-group entries: `entry+0x14`=flagNo, `entry+0x18`=valid, `entry+4`=kill-completion counter (0=done) |
 
 ```
@@ -4453,17 +4452,16 @@ IsExtremeMissionClear(int questId, int param02_unused = 0, int param03_unused = 
  * Calls check command IsKilledTargetEnemySetGroup (FUN_0063a5e0) which iterates the kill-group list, matches flagNo at entry+0x14,
  * checks entry+0x18 (valid byte) and entry+4 == 0 (all kills done).
  * The marker vs no-marker distinction (vs ID 243) is a runtime property of this+0x82, not code structure.
- * @note "mode=15" is not a literal constant in the code.
  * @note 5 total parameters (not 4).
  * @param flagNo  Kill-group flag identifier
  * @param param03 Passed to IsKilledTargetEnemySetGroup
  * @param param04 Passed to IsKilledTargetEnemySetGroup
  * @param param05 Passed to IsKilledTargetEnemySetGroup
  */
-IsKilledTargetEnemySetGroupMode15(int flagNo, int param03 = 0, int param04 = 0, int param05 = 0);
+IsKilledTargetEnemySetGroup2(int flagNo, int param03 = 0, int param04 = 0, int param05 = 0);
 ```
 
-### IsKilledTargetEnemySetGroupMode15NoMarker (243)
+### IsKilledTargetEnemySetGroup2NoMarker (243)
 
 | Field | Value |
 |-------|-------|
@@ -4473,16 +4471,16 @@ IsKilledTargetEnemySetGroupMode15(int flagNo, int param03 = 0, int param04 = 0, 
 
 ```
 /**
- * @brief Identical implementation to IsKilledTargetEnemySetGroupMode15 (242).
+ * @brief Identical implementation to IsKilledTargetEnemySetGroup2 (242).
  * The no-marker variant is distinguished at runtime by this+0x82 being non-zero, not by code structure.
- * See IsKilledTargetEnemySetGroupMode15 for full documentation.
+ * See IsKilledTargetEnemySetGroup2 for full documentation.
  * @note Original name had a mixed-case typo ("IsKIlled...ENemy") — corrected here.
  * @param flagNo  Kill-group flag identifier
- * @param param03 Passed to FUN_0063a5e0
- * @param param04 Passed to FUN_0063a5e0
- * @param param05 Passed to FUN_0063a5e0
+ * @param param03 Passed to IsKilledTargetEnemySetGroup
+ * @param param04 Passed to IsKilledTargetEnemySetGroup
+ * @param param05 Passed to IsKilledTargetEnemySetGroup
  */
-IsKilledTargetEnemySetGroupMode15NoMarker(int flagNo, int param03 = 0, int param04 = 0, int param05 = 0);
+IsKilledTargetEnemySetGroup2NoMarker(int flagNo, int param03 = 0, int param04 = 0, int param05 = 0);
 ```
 
 ### IsContentsTimerBElapsed (244)
@@ -4530,7 +4528,7 @@ IsContentsTimerBElapsed(int timerNo, int param02_unused = 0, int param03_unused 
 IsWildHuntEnemyKilled(int flagNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
-### IsContentsTimerAZero (251)
+### IsEndTimer2 (251)
 
 | Field | Value |
 |-------|-------|
@@ -4542,13 +4540,14 @@ IsWildHuntEnemyKilled(int flagNo, int param02_unused = 0, int param03_unused = 0
 ```
 /**
  * @brief Checks if a Timer List A entry's state value equals zero. Content-mode gated (same guard as 242/243).
- * Calls FUN_0064d130(timerNo) to find the entry in Timer List A (ctx+0xf0) and checks if entry+8 == 0.
+ * Checks ctx+0x4654 == ctx+0x45cc (content mode counter), calls isSoloQuest (solo quest or tutorial guide check) and checks for leader only.
+ * If all checks pass, the command behaves identically to IsEndTimer.
  * @note Formerly named "IsEndContentsTimer1". Previous description "byte-flag at +0x1e95" was INCORRECT
  *       — offset +0x1e95 does not appear in the decompilation. Timer List A is correct.
  * @note Only timerNo (param01) is used; param02-04 are ignored.
  * @param timerNo Timer identifier to look up in Timer List A
  */
-IsContentsTimerAZero(int timerNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
+IsEndTimer2(int timerNo, int param02_unused = 0, int param03_unused = 0, int param04_unused = 0);
 ```
 
 ### IsWildHuntEnemyFound (252)
