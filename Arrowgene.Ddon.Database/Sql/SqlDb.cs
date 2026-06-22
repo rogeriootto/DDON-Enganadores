@@ -566,7 +566,7 @@ public abstract class SqlDb : IDatabase
     public abstract bool InsertBBMCharacterId(uint characterId, uint bbmCharacterId);
     public abstract uint SelectBBMCharacterId(uint characterId, DbConnection? connectionIn = null);
     public abstract uint SelectBBMNormalCharacterId(uint bbmCharacterId);
-    public abstract bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime);
+    public abstract bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime, bool isPaidReset);
     public abstract bool UpdateBBMProgress(uint characterId, BitterblackMazeProgress progress, DbConnection? connectionIn = null);
     public abstract BitterblackMazeProgress SelectBBMProgress(uint characterId);
     public abstract bool RemoveBBMProgress(uint characterId);

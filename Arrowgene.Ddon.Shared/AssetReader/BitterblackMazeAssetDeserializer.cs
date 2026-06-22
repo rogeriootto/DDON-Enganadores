@@ -69,7 +69,9 @@ namespace Arrowgene.Ddon.Shared.AssetReader
                 {
                     NormalRange = (lootRange.GetProperty("normal").GetProperty("min").GetUInt32(), lootRange.GetProperty("normal").GetProperty("max").GetUInt32()),
                     SealedRange = (lootRange.GetProperty("sealed").GetProperty("min").GetUInt32(), lootRange.GetProperty("sealed").GetProperty("max").GetUInt32()),
+                    EndChestJewelryCount = lootRange.GetProperty("end_chest_jewelry_count").GetUInt32(),
                     JewelryChance  = lootRange.GetProperty("jewelry_chance").GetDouble(),
+                    SealedChestJewelryChance = lootRange.GetProperty("sealed_chest_jewelry_chance").GetDouble(),
                     RareChance = lootRange.GetProperty("rare_chance").GetDouble(),
                     Marks = (lootRange.GetProperty("marks").GetProperty("gold").GetUInt32(), lootRange.GetProperty("marks").GetProperty("silver").GetUInt32(), lootRange.GetProperty("marks").GetProperty("red").GetUInt32())
                 };
@@ -181,6 +183,31 @@ namespace Arrowgene.Ddon.Shared.AssetReader
                     }
 
                     Dictionary<JobId, List<uint>> items = quality.NameEquals("low_quality") ? asset.LowQualityWeapons : asset.HighQualityWeapons;
+
+                    if (!items.ContainsKey(jobId))
+                    {
+                        items[jobId] = new List<uint>();
+                    }
+
+                    foreach (var itemId in equipmentCategory.Value.EnumerateArray())
+                    {
+                        items[jobId].Add(itemId.GetUInt32());
+                    }
+                }
+            }
+
+            var jSubWeaponLoot = document.RootElement.GetProperty("chest_loot").GetProperty("subweapons");
+            foreach (var quality in jSubWeaponLoot.EnumerateObject())
+            {
+                foreach (var equipmentCategory in quality.Value.EnumerateObject())
+                {
+                    if (!Enum.TryParse(equipmentCategory.Name, true, out JobId jobId))
+                    {
+                        Logger.Error($"Unexpected JobId {equipmentCategory.Name}");
+                        return null;
+                    }
+
+                    Dictionary<JobId, List<uint>> items = quality.NameEquals("low_quality") ? asset.LowQualitySubWeapons : asset.HighQualitySubWeapons;
 
                     if (!items.ContainsKey(jobId))
                     {

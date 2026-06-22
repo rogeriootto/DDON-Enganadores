@@ -118,6 +118,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 client.Character.BbmProgress.ContentId = 0;
                 client.Character.BbmProgress.Tier = 0;
                 client.Character.BbmProgress.KilledDeath = false;
+                client.Character.BbmProgress.IsPaidReset = isPaidRequest;
                 Server.Database.UpdateBBMProgress(client.Character.CharacterId, client.Character.BbmProgress, connection);
 
                 // Update the situation information

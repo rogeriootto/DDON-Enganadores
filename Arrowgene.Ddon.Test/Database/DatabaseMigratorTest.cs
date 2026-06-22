@@ -428,7 +428,7 @@ namespace Arrowgene.Ddon.Test.Database
         public bool InsertBBMCharacterId(uint characterId, uint bbmCharacterId) { return false; }
         public uint SelectBBMCharacterId(uint characterId, DbConnection? connectionIn = null) { return 0; }
         public uint SelectBBMNormalCharacterId(uint bbmCharacterId) { return 0; }
-        public bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime) { return true;  }
+        public bool InsertBBMProgress(uint characterId, ulong startTime, uint contentId, BattleContentMode contentMode, uint tier, bool killedDeath, ulong lastTicketTime, bool isPaidReset) { return true;  }
         public bool UpdateBBMProgress(uint characterId, BitterblackMazeProgress progress, DbConnection? connectionIn = null) { return true; }
         public bool RemoveBBMProgress(uint characterId) { return true; }
         public BitterblackMazeProgress SelectBBMProgress(uint characterId) { return new BitterblackMazeProgress(); }
