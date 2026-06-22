@@ -18,5 +18,6 @@ namespace Arrowgene.Ddon.Shared.Model.BattleContent
         public uint Tier {  get; set; }
         public bool KilledDeath { get; set; }
         public ulong LastTicketTime {  get; set; }
+        public bool IsPaidReset { get; set; }
     }
 }

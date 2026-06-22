@@ -22,6 +22,8 @@ namespace Arrowgene.Ddon.Shared.Asset
 
             LowQualityWeapons = new Dictionary<JobId, List<uint>>();
             HighQualityWeapons = new Dictionary<JobId, List<uint>>();
+            LowQualitySubWeapons = new Dictionary<JobId, List<uint>>();
+            HighQualitySubWeapons = new Dictionary<JobId, List<uint>>();
             LowQualityArmors = new Dictionary<BitterblackMazeEquipmentClass, List<uint>>();
             HighQualityArmors = new Dictionary<BitterblackMazeEquipmentClass, List<uint>>();
             LowQualityOther = new List<uint>();
@@ -36,7 +38,9 @@ namespace Arrowgene.Ddon.Shared.Asset
             public (uint Min, uint Max) NormalRange;
             public (uint Min, uint Max) SealedRange;
             public double RareChance { get; set; }
+            public uint EndChestJewelryCount { get; set; }
             public double JewelryChance { get; set; }
+            public double SealedChestJewelryChance { get; set; }
             public (uint Gold, uint Silver, uint Red) Marks { get; set; }
         }
 
@@ -52,6 +56,8 @@ namespace Arrowgene.Ddon.Shared.Asset
 
         public Dictionary<JobId, List<uint>> LowQualityWeapons {  get; set; }
         public Dictionary<JobId, List<uint>> HighQualityWeapons { get; set; }
+        public Dictionary<JobId, List<uint>> LowQualitySubWeapons { get; set; }
+        public Dictionary<JobId, List<uint>> HighQualitySubWeapons { get; set; }
         public Dictionary<BitterblackMazeEquipmentClass, List<uint>> LowQualityArmors { get; set; }
         public Dictionary<BitterblackMazeEquipmentClass, List<uint>> HighQualityArmors { get; set; }
         public List<uint> LowQualityOther {  get; set; }

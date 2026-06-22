@@ -518,7 +518,7 @@ namespace Arrowgene.Ddon.LoginServer.Handler
                 Logger.Error("Failed to seed first MSQ for player");
             }
 
-            if (!Database.InsertBBMProgress(character.CharacterId, 0, 0, 0, 0, false, 0))
+            if (!Database.InsertBBMProgress(character.CharacterId, 0, 0, 0, 0, false, 0, true))
             {
                 Logger.Error("Failed to insert BBM progress");
             }
