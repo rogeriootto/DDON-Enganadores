@@ -23,7 +23,7 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 42000);
+        AddPointReward(PointType.ExperiencePoints, 105000);
         AddWalletReward(WalletType.Gold, 11000);
         AddWalletReward(WalletType.RiftPoints, 2000);
 
@@ -38,11 +38,10 @@ public class ScriptedQuest : IQuest
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdCheckAreaRank(QuestAreaId.FeryanaWilderness, 9);
         process0.AddNpcTalkAndOrderBlock(Stage.LookoutCastle1, NpcId.Nayajiku, 25706);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.LookoutCastle1, NpcId.Nayajiku, 0);
-		process0.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdStageJump(Stage.OldTekiaGrotto0, 1)
-			.AddCheckCmdIsStageNo(Stage.OldTekiaGrotto0);
-		process0.AddEventExecBlock(QuestAnnounceType.None, Stage.OldTekiaGrotto0, 0, Stage.LookoutCastle1, 17);
+        process0.AddRawBlock(QuestAnnounceType.Accept)
+			.AddCheckCmdTouchActToNpc(Stage.LookoutCastle1, NpcId.Nayajiku);
+        process0.AddEventAfterJumpContinueBlock(QuestAnnounceType.None, Stage.OldTekiaGrotto0, 0, 1);
+        process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.LookoutCastle1, 17);
         process0.AddTalkToNpcBlock(QuestAnnounceType.Update, Stage.LookoutCastle1, NpcId.Nayajiku, 23892);
 		process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
             .AddResultCmdQstTalkChg(NpcId.Nayajiku, 23893)
@@ -64,7 +63,8 @@ public class ScriptedQuest : IQuest
 			]);
         process0.AddProcessEndBlock(true)
 			.AddResultCommands([
-				QuestManager.ResultCommand.WorldManageLayoutFlagOn(1216, 70000001)
+				QuestManager.ResultCommand.WorldManageLayoutFlagOn(1216, 70000001),
+				QuestManager.ResultCommand.AchievementBanner(6, 5)
 			]);
 
 		// Branch 1 - Gerald

@@ -385,9 +385,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         DoLimitBreak = 236, // 0x00636B10 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Returns bit 21 of the substory state word at this→substory+0x20c.
+        /// Checks if the player has performed extreme synthesis on an equipment (notice bit 21).
         /// </summary>
-        IsSubstoryStateBit21 = 237, // 0x00636B70 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        DoExtremeSynthesis = 237, // 0x00636B70 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter.

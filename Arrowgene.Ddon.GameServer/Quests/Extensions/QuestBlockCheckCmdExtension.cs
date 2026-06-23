@@ -875,10 +875,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryStateBit21(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdDoExtremeSynthesis(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryStateBit21();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdDoExtremeSynthesis();
             return questBlock;
         }
 
@@ -1054,6 +1054,20 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
             questBlock.CheckCommands[commandListIndex].AddCheckCmdChainNotLess(chainNo);
+            return questBlock;
+        }
+
+        public static QuestBlock AddCheckCmdIsSearchClan(this QuestBlock questBlock, int commandListIndex = 0)
+        {
+            ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSearchClan();
+            return questBlock;
+        }
+
+        public static QuestBlock AddCheckCmdTouchClanBoard(this QuestBlock questBlock, int commandListIndex = 0)
+        {
+            ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdTouchClanBoard();
             return questBlock;
         }
     }

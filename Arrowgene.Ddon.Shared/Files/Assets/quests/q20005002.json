@@ -7,7 +7,7 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "HidellPlains",
-  "news_image": 501,
+  "news_image": 505,
   "rewards": [
     {
       "type": "wallet",
@@ -32,9 +32,9 @@
           "num": 1
         },
         {
-          "comment": "Absorbent Cloth",
-          "item_id": 9368,
-          "num": 2
+          "comment": "Trooper's Vest",
+          "item_id": 9604,
+          "num": 1
         }
       ]
     }

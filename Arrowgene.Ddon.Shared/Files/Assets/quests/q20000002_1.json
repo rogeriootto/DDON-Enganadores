@@ -7,7 +7,7 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "HidellPlains",
-  "news_image": 5,
+  "news_image": 1,
   "variant_index": 1,
   "rewards": [
     {
@@ -33,9 +33,9 @@
           "num": 1
         },
         {
-          "comment": "Superior Gala Extract",
-          "item_id": 61,
-          "num": 2
+          "comment": "Smart Boots",
+          "item_id": 448,
+          "num": 1
         },
         {
           "comment": "Lumber Knife",

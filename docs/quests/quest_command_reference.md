@@ -4224,7 +4224,7 @@ IsEquipSeasonal(int listNo = 0, int param02 = 0, int param03 = 0, int param04 = 
 DoLimitBreak(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsSubstoryStateBit21 (237)
+### DoExtremeSynthesis (237)
 
 | Field | Value |
 |-------|-------|
@@ -4234,9 +4234,9 @@ DoLimitBreak(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
 
 ```
 /**
- * @brief Returns bit 21 of the substory state word at *(cQuestProcess+0x5c)+0x20c.
+ * @brief Checks if the player has performed extreme synthesis on an equipment (notice bit 21).
  */
-IsSubstoryStateBit21(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+DoExtremeSynthesis(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### GetHighOrb (238)

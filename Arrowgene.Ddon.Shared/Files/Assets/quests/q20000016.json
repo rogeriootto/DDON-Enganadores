@@ -28,14 +28,14 @@
       "type": "select",
       "loot_pool": [
         {
-          "comment": "Saintly Hood",
-          "item_id": 734,
+          "comment": "Atonement Cap",
+          "item_id": 737,
           "num": 1
         },
         {
-          "comment": "Enhanced Pickaxe",
-          "item_id": 737,
-          "num": 2
+          "comment": "Fiend's Helmet",
+          "item_id": 527,
+          "num": 1
         },
         {
           "comment": "Fortifier",

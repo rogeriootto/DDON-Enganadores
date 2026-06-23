@@ -10,7 +10,8 @@ public class ScriptedQuest : IQuest
     public override QuestId QuestId => (QuestId)60200006; // Schedule ID: 1652556544
     public override ushort RecommendedLevel => 60;
     public override byte MinimumItemRank => 0;
-    public override bool IsDiscoverable => true;
+    public override bool IsDiscoverable => false;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
@@ -21,14 +22,17 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 1891);
-        AddWalletReward(WalletType.Gold, 990);
-        AddWalletReward(WalletType.RiftPoints, 125);
+        AddPointReward(PointType.ExperiencePoints, 18915);
+        AddWalletReward(WalletType.Gold, 3960);
+        AddWalletReward(WalletType.RiftPoints, 500);
     }
 
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
+		process0.AddRawBlock(QuestAnnounceType.None)
+			.AddCheckCmdIsTutorialQuestClear((QuestId)60200012)
+			.AddCheckCmdIsTutorialQuestClear((QuestId)60200002);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Isaac, 18056);
         process0.AddRawBlock(QuestAnnounceType.Accept)
             .AddResultCmdQstTalkChg(NpcId.Isaac, 18057)

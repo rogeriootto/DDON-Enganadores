@@ -35,7 +35,7 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 42000);
+        AddPointReward(PointType.ExperiencePoints, 105000);
         AddWalletReward(WalletType.Gold, 11000);
         AddWalletReward(WalletType.RiftPoints, 2000);
 
@@ -67,20 +67,14 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeBlocks()
     {
-        // 0. Order quest from Endale
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdCheckAreaRank(QuestAreaId.RathniteFoothills, 9);
         process0.AddNpcTalkAndOrderBlock(Stage.FortThines1, NpcId.Endale, 25366);
-
-        // 1. Check Endale's message
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.FortThines1, NpcId.Endale, 0);
-		process0.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdStageJump(Stage.RathniteFoothillsLakeside0, 0)
-			.AddCheckCmdIsStageNo(Stage.RathniteFoothillsLakeside0);
-		process0.AddEventExecBlock(QuestAnnounceType.None, Stage.RathniteFoothillsLakeside0, 10, Stage.FortThines1, 7);
-
-        // 2. Check on the new movements of the demon army
+        process0.AddRawBlock(QuestAnnounceType.Accept)
+			.AddCheckCmdTouchActToNpc(Stage.FortThines1, NpcId.Endale);
+        process0.AddEventAfterJumpContinueBlock(QuestAnnounceType.None, Stage.RathniteFoothillsLakeside0, 10, 0);
+        process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.FortThines1, 7);
 		process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
             .AddResultCmdQstTalkChg(NpcId.Endale, 23663)
 			.AddCheckCommands([
@@ -93,16 +87,10 @@ public class ScriptedQuest : IQuest
 				QuestManager.CheckCommand.TalkNpc(443, NpcId.Endale),
 				QuestManager.CheckCommand.DummyNotProgress()
 			]);
-
-		// 3. Head to Bertha's Bandits and gather information about the Demon Army
         process0.AddTalkToNpcBlock(QuestAnnounceType.Update, Stage.BerthasBanditGroupHideout, NpcId.Joaquim, 23666)
             .AddResultCmdQstTalkChg(NpcId.Endale, 26224);
-
-		// 4. Deliver Marks of Brute Courage to Joaquim
 		process0.AddDeliverItemsBlock(QuestAnnounceType.Update, Stage.BerthasBanditGroupHideout, NpcId.Joaquim, ItemId.MarkOfBruteCourage, 3, 23667)
             .AddResultCmdQstTalkChg(NpcId.Joaquim, 25359);
-
-		// 5. Hear about the Demon Army's attack plan from Joaquim
 		process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
             .AddResultCmdQstTalkChg(NpcId.Joaquim, 25360)
 			.AddCheckCommands([
@@ -115,10 +103,6 @@ public class ScriptedQuest : IQuest
 				QuestManager.CheckCommand.TalkNpc(1001, NpcId.Joaquim),
 				QuestManager.CheckCommand.DummyNotProgress()
 			]);
-
-		// 6. Search for Demon Army messengers in designated locations
-		// 7. Defeat the Demon Army's messenger soldiers
-		// 8. Collect the command document lost by the messenger
         process0.AddRawBlock(QuestAnnounceType.Update)
 			.AddResultCommands([
 				QuestManager.ResultCommand.QstTalkChg(NpcId.Joaquim, 25364),
@@ -128,13 +112,10 @@ public class ScriptedQuest : IQuest
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(2)
 			]);
-
-		// 9. Show instructions to Joaquim
         process0.AddTalkToNpcBlock(QuestAnnounceType.Update, Stage.BerthasBanditGroupHideout, NpcId.Joaquim, 25363);
-
-		// 10. Tell Victor about the Demon Army's attack plan
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.RathniteFoothillsLakeside0, NpcId.Victor, 25365);
-        process0.AddProcessEndBlock(true);
+        process0.AddProcessEndBlock(true)
+			.AddResultCmdAchievementBanner(6, 1);
 
 		var process1 = AddNewProcess(1);
 		process1.AddRawBlock(QuestAnnounceType.None)
@@ -143,7 +124,7 @@ public class ScriptedQuest : IQuest
 			]);
 		process1.AddRawBlock(QuestAnnounceType.None)
 			.AddCheckCommands([
-				QuestManager.CheckCommand.Unknown(230, 131, 40, -1, 1)
+				QuestManager.CheckCommand.IsEnemyFoundRadius(131, 40, -1, 1)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(1)
@@ -168,7 +149,7 @@ public class ScriptedQuest : IQuest
 			]);
 		process2.AddRawBlock(QuestAnnounceType.None)
 			.AddCheckCommands([
-				QuestManager.CheckCommand.Unknown(230, 131, 41, -1, 1)
+				QuestManager.CheckCommand.IsEnemyFoundRadius(131, 41, -1, 1)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(1)
@@ -193,7 +174,7 @@ public class ScriptedQuest : IQuest
 			]);
 		process3.AddRawBlock(QuestAnnounceType.None)
 			.AddCheckCommands([
-				QuestManager.CheckCommand.Unknown(230, 131, 42, -1, 1)
+				QuestManager.CheckCommand.IsEnemyFoundRadius(131, 42, -1, 1)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(1)

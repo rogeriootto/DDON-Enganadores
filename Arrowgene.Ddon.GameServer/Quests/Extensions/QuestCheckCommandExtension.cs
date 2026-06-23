@@ -792,9 +792,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryStateBit21(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdDoExtremeSynthesis(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryStateBit21());
+            checkCommands.Add(QuestManager.CheckCommand.DoExtremeSynthesis());
             return checkCommands;
         }
 
@@ -945,6 +945,18 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
         public static List<CDataQuestCommand> AddCheckCmdChainNotLess(this List<CDataQuestCommand> checkCommands, int chainNo)
         {
             checkCommands.Add(QuestManager.CheckCommand.ChainNotLess(chainNo));
+            return checkCommands;
+        }
+
+        public static List<CDataQuestCommand> AddCheckCmdIsSearchClan(this List<CDataQuestCommand> checkCommands)
+        {
+            checkCommands.Add(QuestManager.CheckCommand.IsSearchClan());
+            return checkCommands;
+        }
+
+        public static List<CDataQuestCommand> AddCheckCmdTouchClanBoard(this List<CDataQuestCommand> checkCommands)
+        {
+            checkCommands.Add(QuestManager.CheckCommand.TouchClanBoard());
             return checkCommands;
         }
     }

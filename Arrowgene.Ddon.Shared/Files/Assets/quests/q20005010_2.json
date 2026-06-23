@@ -7,7 +7,7 @@
     "minimum_item_rank": 0,
     "discoverable": true,
     "area_id": "HidellPlains",
-    "news_image": 5,
+    "news_image": 2,
     "variant_index": 2,
     "rewards": [
         {
@@ -28,14 +28,14 @@
             "type": "select",
             "loot_pool": [
                 {
-                    "comment": "Soldier's Ring",
-                    "item_id": 8947,
-                    "num": 1
+                    "comment": "Superior Healing Potion",
+                    "item_id": 35,
+                    "num": 3
                 },
                 {
                     "comment": "Herb Salad",
                     "item_id": 9407,
-                    "num": 1
+                    "num": 2
                 },
                 {
                     "comment": "Lestania Wine",

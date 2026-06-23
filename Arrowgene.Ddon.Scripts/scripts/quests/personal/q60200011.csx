@@ -31,19 +31,18 @@ public class ScriptedQuest : IQuest
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
-		process0.AddRawBlock(QuestAnnounceType.None)
+        process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdIsMainQuestClear(QuestId.TheNewGeneration)
             .AddCheckCmdIsTutorialQuestClear((QuestId)60200010);
         process0.AddNpcTalkAndOrderBlock(Stage.AudienceChamber, NpcId.Joseph, 18657)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, 4039);
         process0.AddRawBlock(QuestAnnounceType.Accept)
-			.AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
-		process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.BranchofContemplation, 8)
-			.AddCheckCmdIsStageNo(Stage.BranchofContemplation);
-        process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.BranchofContemplation, 0, 6, QuestJumpType.After, Stage.AudienceChamber);
+            .AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
+        process0.AddEventAfterJumpContinueBlock(QuestAnnounceType.None, Stage.BranchofContemplation, 0, 8);
+        process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.AudienceChamber, 6);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, NpcId.Isaac, 18659)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, 4039)
-			.AddResultCmdQstTalkChg(NpcId.Joseph, 18658);
+            .AddResultCmdQstTalkChg(NpcId.Joseph, 18658);
         process0.AddProcessEndBlock(true)
             .AddResultCmdTutorialDialog(TutorialId.OnsetofDarkness);
     }

@@ -10,7 +10,8 @@ public class ScriptedQuest : IQuest
     public override QuestId QuestId => (QuestId)60200009; // Schedule ID: 1652556928
     public override ushort RecommendedLevel => 65;
     public override byte MinimumItemRank => 0;
-    public override bool IsDiscoverable => true;
+    public override bool IsDiscoverable => false;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
@@ -21,9 +22,9 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 1970);
-        AddWalletReward(WalletType.Gold, 1072);
-        AddWalletReward(WalletType.RiftPoints, 137);
+        AddPointReward(PointType.ExperiencePoints, 19702);
+        AddWalletReward(WalletType.Gold, 4288);
+        AddWalletReward(WalletType.RiftPoints, 550);
     }
 
     protected override void InitializeBlocks()

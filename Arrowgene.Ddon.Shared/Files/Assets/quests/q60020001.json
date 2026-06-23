@@ -9,17 +9,10 @@
     "discoverable": false,
     "stage_id": { "id": 2 },
     "area_id": "HidellPlains",
-    "order_conditions": [
-        {
-            "comment": "A Servant's Pledge",
-            "type": "MainQuestCompleted",
-            "Param1": 26
-        }
-    ],
     "rewards": [
         {
             "type": "exp",
-            "amount": 700
+            "amount": 2500
         },
         {
             "type": "wallet",
@@ -85,6 +78,10 @@
         }
     ],
     "blocks": [
+        {
+            "type": "Raw",
+            "check_commands": [{"type": "IsTutorialQuestClear", "Param1": 60000016}]
+        },
         {
             "type": "NpcTalkAndOrder",
             "stage_id": {

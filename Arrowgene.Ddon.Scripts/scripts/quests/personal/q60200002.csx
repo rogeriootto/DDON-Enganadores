@@ -10,7 +10,7 @@ public class ScriptedQuest : IQuest
     public override QuestId QuestId => (QuestId)60200002; // Schedule ID: 1652556032
     public override ushort RecommendedLevel => 57;
     public override byte MinimumItemRank => 0;
-    public override bool IsDiscoverable => true;
+    public override bool IsDiscoverable => false;
     public override StageInfo StageInfo => Stage.AudienceChamber;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
@@ -33,16 +33,16 @@ public class ScriptedQuest : IQuest
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
-		process0.AddRawBlock(QuestAnnounceType.None)
+        process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdIsMainQuestClear(QuestId.TheFateOfLestania);
         process0.AddNpcTalkAndOrderBlock(Stage.AudienceChamber, NpcId.Joseph, 18044)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, 3737);
         process0.AddRawBlock(QuestAnnounceType.Accept)
-			.AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
-        process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.BloodbaneIsle1, 0, 0, QuestJumpType.Before, Stage.AudienceChamber);
-        process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.AudienceChamber, 160, 6, QuestJumpType.Before, Stage.BloodbaneIsle1);
+            .AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
+        process0.AddEventAfterJumpContinueBlock(QuestAnnounceType.None, Stage.BloodbaneIsle1, 0, 0);
+        process0.AddEventAfterJumpBlock(QuestAnnounceType.None, Stage.AudienceChamber, 160, 6);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, NpcId.Isaac, 18046)
-			.AddResultCmdQstTalkChg(NpcId.Joseph, 18045)
+            .AddResultCmdQstTalkChg(NpcId.Joseph, 18045)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, 3737);
         process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.ExtremeMissions, flagInfo: QuestFlags.NpcFunctions.IsaacExm)
