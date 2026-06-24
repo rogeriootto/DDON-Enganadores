@@ -889,10 +889,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryStateBit23(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdGetDominionPoint(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryStateBit23();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdGetDominionPoint();
             return questBlock;
         }
 

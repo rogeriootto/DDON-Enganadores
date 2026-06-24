@@ -395,9 +395,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         GetHighOrb = 238, // 0x00636BA0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Returns bit 23 of the substory state word at this→substory+0x20c.
+        /// Checks if player has obtained a Dominion Point from any source (notice bit 23). Quantity does not matter.
         /// </summary>
-        IsSubstoryStateBit23 = 239, // 0x00636BD0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        GetDominionPoint = 239, // 0x00636BD0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Directly jumps to IsReleaseWarpPointAnyone, but cannot place quest markers.

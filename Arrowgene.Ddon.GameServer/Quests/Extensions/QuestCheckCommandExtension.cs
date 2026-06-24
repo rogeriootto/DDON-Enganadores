@@ -804,9 +804,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryStateBit23(this List<CDataQuestCommand> checkCommands)
+        public static List<CDataQuestCommand> AddCheckCmdGetDominionPoint(this List<CDataQuestCommand> checkCommands)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryStateBit23());
+            checkCommands.Add(QuestManager.CheckCommand.GetDominionPoint());
             return checkCommands;
         }
 

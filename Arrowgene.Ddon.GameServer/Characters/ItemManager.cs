@@ -78,6 +78,9 @@ namespace Arrowgene.Ddon.GameServer.Characters
             {ItemId.SilverTicket, (WalletType.SilverTickets, 1) },
             {ItemId.CustomMadeServiceTicket, (WalletType.CustomMadeServiceTickets, 1) },
             {ItemId.GoldenGemstone, (WalletType.GoldenGemstones, 1) },
+            {ItemId.DominionPoint0, (WalletType.DominionPoints, 1) },
+            {ItemId.DominionPoint1, (WalletType.DominionPoints, 10) },
+            {ItemId.DominionPoint2, (WalletType.DominionPoints, 100) },
             // TODO: Find all items that add wallet points
         };
 
