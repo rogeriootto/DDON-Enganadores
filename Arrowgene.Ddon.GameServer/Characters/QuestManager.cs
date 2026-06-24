@@ -2731,10 +2731,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.QuestOmEndAnimationNoMarker, Param01 = (int)stageNo, Param02 = groupNo, Param03 = setNo, Param04 = param04 };
             }
 
-            /** @brief Reward point check guarded on playerId. Checks flag at +0x274 (param03 < 0) or queues collection action. */
-            public static CDataQuestCommand IsRewardPointNotLess(int playerId, int rewardId, int expectedValue, int param04 = 0)
+            /** @brief Identical function to DieEnemy in all counts; despite that, it is unable to place markers on enemies at all. */
+            public static CDataQuestCommand DieEnemyNoMarker(int stageNo, int groupNo, int setNo, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsRewardPointNotLess, Param01 = playerId, Param02 = rewardId, Param03 = expectedValue, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.DieEnemyNoMarker, Param01 = stageNo, Param02 = groupNo, Param03 = setNo, Param04 = param04 };
             }
 
             /** @brief Checks if an NPC interaction with a specific choice/event has completed. */
@@ -2785,10 +2785,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.DoLimitBreak, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Returns bit 21 of the substory state word at ctx+0x5c+0x20c. */
-            public static CDataQuestCommand IsSubstoryStateBit21(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Checks if the player has performed extreme synthesis on an equipment (notice bit 21). */
+            public static CDataQuestCommand DoExtremeSynthesis(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit21, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.DoExtremeSynthesis, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter. */
@@ -2803,10 +2803,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryStateBit23, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Checks if an FSM NPC talk event is complete. Validates against the completed-talk-NPC list. */
-            public static CDataQuestCommand IsFsmNpcTalkComplete(int npcId, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Directly jumps to IsReleaseWarpPointAnyone, but cannot place quest markers. */
+            public static CDataQuestCommand IsReleaseWarpPointAnyoneNoMarker(int waypointId, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsFsmNpcTalkComplete, Param01 = npcId, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsReleaseWarpPointAnyoneNoMarker, Param01 = waypointId, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Checks if the substory clock is within [minHour, maxHour]. Min/max order does not matter. */
@@ -2816,15 +2816,15 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             /** @brief Kill-group completion check gated on content mode. Marker vs no-marker determined by this+0x82 at runtime. */
-            public static CDataQuestCommand IsKilledTargetEnemySetGroupMode15(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
+            public static CDataQuestCommand IsKilledTargetEnemySetGroup2(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsKilledTargetEnemySetGroupMode15, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsKilledTargetEnemySetGroup2, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Identical to IsKilledTargetEnemySetGroupMode15; no-marker variant determined at runtime via this+0x82. */
-            public static CDataQuestCommand IsKilledTargetEnemySetGroupMode15NoMarker(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
+            public static CDataQuestCommand IsKilledTargetEnemySetGroup2NoMarker(int flagNo, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsKilledTargetEnemySetGroupMode15NoMarker, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsKilledTargetEnemySetGroup2NoMarker, Param01 = flagNo, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Checks if a contents timer (Timer List B) has elapsed past its stored boundary. */
@@ -2864,9 +2864,9 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             /** @brief Checks if a Timer List A entry's state value equals zero. Content-mode gated. */
-            public static CDataQuestCommand IsContentsTimerAZero(int timerNo, int param02 = 0, int param03 = 0, int param04 = 0)
+            public static CDataQuestCommand IsEndTimer2(int timerNo, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsContentsTimerAZero, Param01 = timerNo, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsEndTimer2, Param01 = timerNo, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Wild Hunt system: checks if a target enemy in the zone-entry list has been killed. markerFlag is passed to the kill checker. */

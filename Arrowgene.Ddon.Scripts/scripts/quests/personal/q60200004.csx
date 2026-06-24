@@ -10,7 +10,8 @@ public class ScriptedQuest : IQuest
     public override QuestId QuestId => (QuestId)60200004; // Schedule ID: 1652556288
     public override ushort RecommendedLevel => 70;
     public override byte MinimumItemRank => 0;
-    public override bool IsDiscoverable => true;
+    public override bool IsDiscoverable => false;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
@@ -21,7 +22,7 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 15350);
+        AddPointReward(PointType.ExperiencePoints, 38375);
         AddWalletReward(WalletType.Gold, 4618);
         AddWalletReward(WalletType.RiftPoints, 600);
         AddFixedItemReward(ItemId.SupremeMeritMedal, 1);
@@ -36,7 +37,7 @@ public class ScriptedQuest : IQuest
         process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.CraftRoom, NpcId.Sonia, 24396)
 			.AddResultCmdQstTalkChg(NpcId.Renton0, 24395);
         process0.AddProcessEndBlock(true)
-            .AddResultCmdPlayMessage(24397, 1026);
+            .AddResultCmdPlayMessage(24397, 0);
     }
 }
 

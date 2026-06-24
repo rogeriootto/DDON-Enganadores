@@ -21,9 +21,9 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeRewards()
     {
-        AddPointReward(PointType.ExperiencePoints, 3337);
-        AddWalletReward(WalletType.Gold, 1154);
-        AddWalletReward(WalletType.RiftPoints, 150);
+        AddPointReward(PointType.ExperiencePoints, 38375);
+        AddWalletReward(WalletType.Gold, 4618);
+        AddWalletReward(WalletType.RiftPoints, 600);
     }
 
     protected override void InitializeBlocks()

@@ -68,16 +68,30 @@
       "message_id": 11379
     },
     {
-      "type": "KillGroup",
+      "type": "Raw",
       "announce_type": "Accept",
       "result_commands": [
-        {
-          "comment": "Idle dialogue",
-          "type": "QstTalkChg",
-          "Param1": 4500,
-          "Param2": 11883
-        }
+        {"type": "QstTalkChg", "Param1": 4500, "Param2": 11883, "comment": "Extra dialogue - Rudolfo"}
       ],
+      "check_commands": [
+        [
+          {"type": "StageNoWithoutMarker", "Param1": 100},
+          {"type": "IngameTimeRangeNotEq", "Param1": 6, "Param2": 18}
+        ],
+        [
+          {"type": "IsEnemyFound", "Param1": 100, "Param2": 91, "Param3": -1},
+          {"type": "DummyNotProgress"}
+        ]
+      ]
+    },
+    {
+      "type": "DiscoverEnemy",
+      "groups": [ 0 ]
+    },
+    {
+      "type": "KillGroup",
+      "announce_type": "Update",
+      "reset_group": false,
       "groups": [ 0 ]
     },
     {

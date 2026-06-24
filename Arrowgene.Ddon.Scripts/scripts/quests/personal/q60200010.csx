@@ -31,19 +31,18 @@ public class ScriptedQuest : IQuest
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
-		process0.AddRawBlock(QuestAnnounceType.None)
+        process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdIsMainQuestClear(QuestId.TheDarknessOfTheHeart)
             .AddCheckCmdIsTutorialQuestClear((QuestId)60200003);
         process0.AddNpcTalkAndOrderBlock(Stage.AudienceChamber, NpcId.Joseph, 18651)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, 4038);
         process0.AddRawBlock(QuestAnnounceType.Accept)
-			.AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
-		process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.FaranaPlains1, 0)
-			.AddCheckCmdIsStageNo(Stage.FaranaPlains1);
-        process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.FaranaPlains1, 0, 6, QuestJumpType.After, Stage.AudienceChamber);
+            .AddCheckCmdTouchActToNpc(Stage.AudienceChamber, NpcId.ArisenCorpsRegimentalSoldier8);
+        process0.AddEventAfterJumpContinueBlock(QuestAnnounceType.None, Stage.FaranaPlains1, 0, 0);
+        process0.AddStageJumpBlock(QuestAnnounceType.None, Stage.AudienceChamber, 6);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, NpcId.Isaac, 18655)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, 4038)
-			.AddResultCmdQstTalkChg(NpcId.Joseph, 18654);
+            .AddResultCmdQstTalkChg(NpcId.Joseph, 18654);
         process0.AddProcessEndBlock(true)
             .AddResultCmdTutorialDialog(TutorialId.EarthsFury);
     }

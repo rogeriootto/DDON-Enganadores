@@ -812,10 +812,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsRewardPointNotLess(this QuestBlock questBlock, int playerId, int rewardId, int expectedValue, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdDieEnemyNoMarker(this QuestBlock questBlock, int stageNo, int groupNo, int setNo, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsRewardPointNotLess(playerId, rewardId, expectedValue);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdDieEnemyNoMarker(stageNo, setNo, setNo);
             return questBlock;
         }
 
@@ -875,10 +875,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryStateBit21(this QuestBlock questBlock, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdDoExtremeSynthesis(this QuestBlock questBlock, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryStateBit21();
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdDoExtremeSynthesis();
             return questBlock;
         }
 
@@ -896,10 +896,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsFsmNpcTalkComplete(this QuestBlock questBlock, int npcId, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsReleaseWarpPointAnyoneNoMarker(this QuestBlock questBlock, int waypointId, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsFsmNpcTalkComplete(npcId);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsReleaseWarpPointAnyoneNoMarker(waypointId);
             return questBlock;
         }
 
@@ -910,17 +910,17 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsKilledTargetEnemySetGroupMode15(this QuestBlock questBlock, int flagNo, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsKilledTargetEnemySetGroup2(this QuestBlock questBlock, int flagNo, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsKilledTargetEnemySetGroupMode15(flagNo);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsKilledTargetEnemySetGroup2(flagNo);
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsKilledTargetEnemySetGroupMode15NoMarker(this QuestBlock questBlock, int flagNo, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsKilledTargetEnemySetGroup2NoMarker(this QuestBlock questBlock, int flagNo, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsKilledTargetEnemySetGroupMode15NoMarker(flagNo);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsKilledTargetEnemySetGroup2NoMarker(flagNo);
             return questBlock;
         }
 
@@ -959,10 +959,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsContentsTimerAZero(this QuestBlock questBlock, int timerNo, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsEndTimer2(this QuestBlock questBlock, int timerNo, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsContentsTimerAZero(timerNo);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsEndTimer2(timerNo);
             return questBlock;
         }
 
@@ -1054,6 +1054,20 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
             questBlock.CheckCommands[commandListIndex].AddCheckCmdChainNotLess(chainNo);
+            return questBlock;
+        }
+
+        public static QuestBlock AddCheckCmdIsSearchClan(this QuestBlock questBlock, int commandListIndex = 0)
+        {
+            ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSearchClan();
+            return questBlock;
+        }
+
+        public static QuestBlock AddCheckCmdTouchClanBoard(this QuestBlock questBlock, int commandListIndex = 0)
+        {
+            ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdTouchClanBoard();
             return questBlock;
         }
     }

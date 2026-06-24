@@ -306,10 +306,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         QuestOmEndAnimationNoMarker = 224, // 0x00636110 (cQuestProcess* this, s32 stageNo, s32 groupNo, s32 setNo, s32 param04)
 
         /// <summary>
-        /// Reward point collection check. Guards on playerId. If param03 &lt; 0 calls FUN_00bfc5d0(rewardId) to check
-        /// flag at +0x274; otherwise calls FUN_00bfc5a0(rewardId, param03) to queue a reward collection action.
+        /// Identical function to DieEnemy in all counts; despite that, it is unable to place markers on enemies at all.
         /// </summary>
-        IsRewardPointNotLess = 225, // 0x00636390 (cQuestProcess* this, s32 playerId, s32 rewardId, s32 expectedValue, s32 param04)
+        DieEnemyNoMarker = 225, // 0x00636390 (cQuestProcess* this, s32 stageNo, s32 groupNo, s32 setNo, s32 param04)
 
         /// <summary>
         /// Displays a radius marker around an OM object and progresses when a player enters and interacts with it.
@@ -386,9 +385,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         DoLimitBreak = 236, // 0x00636B10 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Returns bit 21 of the substory state word at this→substory+0x20c.
+        /// Checks if the player has performed extreme synthesis on an equipment (notice bit 21).
         /// </summary>
-        IsSubstoryStateBit21 = 237, // 0x00636B70 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        DoExtremeSynthesis = 237, // 0x00636B70 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Checks if player has obtained a High Orb from any source (notice bit 22). Quantity does not matter.
@@ -401,11 +400,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsSubstoryStateBit23 = 239, // 0x00636BD0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Checks if an FSM NPC talk event is complete. Validates against the completed-talk-NPC list at
-        /// DAT_022044a0+0x7678 and, if in FSM mode, checks that the current NPC talk episode matches the active stage.
-        /// Thunks to FUN_00634090.
+        /// Directly jumps to IsReleaseWarpPointAnyone, but cannot place quest markers.
         /// </summary>
-        IsFsmNpcTalkComplete = 240, // 0x00636C10 (cQuestProcess* this, s32 npcId, s32 param02, s32 param03, s32 param04)
+        IsReleaseWarpPointAnyoneNoMarker = 240, // 0x00636C10 (cQuestProcess* this, s32 waypointId, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Checks if the substory clock (via FUN_00597d20) is within [minHour, maxHour]. Converts raw time to hours
@@ -414,21 +411,18 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsSubstoryIngameHourInRange = 241, // 0x00636EF0 (cQuestProcess* this, s32 minHour, s32 maxHour, s32 param03, s32 param04)
 
         /// <summary>
-        /// Kill-group completion check gated on content mode. Checks ctx+0x4654 == ctx+0x45cc (content mode counter);
-        /// if not in content mode, also checks FUN_009d07f0() and *(this+0x82) byte - if that byte is non-zero,
-        /// returns early. Forwards all four params to FUN_0063a5e0(param01, param02, param03, param04) which iterates
-        /// the kill-group list, matches param01 against entry+0x14, checks entry+0x18 (valid) and entry+4 == 0 (done).
-        /// The marker/no-marker distinction vs ID 243 is a runtime property of the this+0x82 byte.
-        /// @note "mode=15" is not a literal constant in the code.
+        /// Kill-group completion check gated on content mode.
+        /// Checks ctx+0x4654 == ctx+0x45cc (content mode counter), calls isSoloQuest (solo quest or tutorial guide check) and checks for leader only.
+        /// If all checks pass, forward all parameters to IsKilledTargetEnemySetGroup.
         /// </summary>
-        IsKilledTargetEnemySetGroupMode15 = 242, // 0x00636FE0 (cQuestProcess* this, s32 flagNo, s32 param02, s32 param03, s32 param04)
+        IsKilledTargetEnemySetGroup2 = 242, // 0x00636FE0 (cQuestProcess* this, s32 flagNo, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Identical decompilation to IsKilledTargetEnemySetGroupMode15 (242). The no-marker distinction is
+        /// Identical decompilation to IsKilledTargetEnemySet2 (242). The no-marker distinction is
         /// a runtime property of the this object (this+0x82 == 0 for marker, non-zero for no-marker),
         /// not structural code difference. See ID 242 for full description.
         /// </summary>
-        IsKilledTargetEnemySetGroupMode15NoMarker = 243, // 0x006370B0 (cQuestProcess* this, s32 flagNo, s32 param02, s32 param03, s32 param04)
+        IsKilledTargetEnemySetGroup2NoMarker = 243, // 0x006370B0 (cQuestProcess* this, s32 flagNo, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Checks if a contents timer (Timer List B) has elapsed past a stored 64-bit time boundary.
@@ -474,12 +468,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
 
         /// <summary>
         /// Checks if a contents timer (Timer List A) has reached state zero. Content-mode gated (same guard as 242/243).
-        /// Calls FUN_0064d130(timerNo) which searches Timer List A at offset +0xf0 for entry with +4 == timerNo,
-        /// returns its +8 field (state value). Returns true if that state value == 0.
-        /// Only two parameters used (this, timerNo); params 3-4 ignored.
-        /// @note Previous description "byte-flag at +0x1e95" was incorrect - offset +0x1e95 does not appear in decompilation.
+        /// Checks ctx+0x4654 == ctx+0x45cc (content mode counter), calls isSoloQuest (solo quest or tutorial guide check) and checks for leader only.
+        /// If all checks pass, the command behaves identically to IsEndTimer.
+        /// @note Several S3 commands are turning out to be old commands with these additional checks; what are their use cases?
         /// </summary>
-        IsContentsTimerAZero = 251, // 0x006375E0 (cQuestProcess* this, s32 timerNo, s32 param02_unused, s32 param03_unused, s32 param04_unused)
+        IsEndTimer2 = 251, // 0x006375E0 (cQuestProcess* this, s32 timerNo, s32 param02_unused, s32 param03_unused, s32 param04_unused)
 
         /// <summary>
         /// Checks if a player has entered a proximity zone associated with a wild hunt target set.

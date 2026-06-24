@@ -7,6 +7,7 @@
   "minimum_item_rank": 0,
   "discoverable": true,
   "area_id": "HidellPlains",
+  "news_image": 163,
   "rewards": [
     {
       "type": "exp",
@@ -33,7 +34,7 @@
         {
           "comment": "Healing Remedy",
           "item_id": 7554,
-          "num": 2
+          "num": 3
         },
         {
           "comment": "Strong Gala Extract",
