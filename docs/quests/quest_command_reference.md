@@ -3410,7 +3410,7 @@ EnableSubstoryElementB(int param01 = 0, int param02 = 0, int param03 = 0, int pa
 DisableSubstoryElementB(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### SetWorldManageBarrierOn (111)
+### SetEnvironmentalEffect (111)
 
 | Field | Value |
 |-------|-------|
@@ -3420,15 +3420,15 @@ DisableSubstoryElementB(int param01 = 0, int param02 = 0, int param03 = 0, int p
 
 ```
 /**
- * @brief Enables a world-management barrier gate.
+ * @brief Overrides lighting and clouds on current map. Effects are purely visual and not persistent.
  * Calls FUN_00c19920 then sets bit 0 at DAT_021c1250+0x850.
- * @param param01 Barrier identifier / parameter A
- * @param param02 Parameter B passed to FUN_00c19920
+ * @param param01 Time of day
+ * @param param02 Cloud type passed to FUN_00c19920
  */
-SetWorldManageBarrierOn(int param01, int param02, int param03 = 0, int param04 = 0);
+SetEnvironmentalEffect(int param01, int param02, int param03 = 0, int param04 = 0);
 ```
 
-### SetWorldManageBarrierOff (112)
+### ResetEnvironmentalEffect (112)
 
 | Field | Value |
 |-------|-------|
@@ -3438,9 +3438,9 @@ SetWorldManageBarrierOn(int param01, int param02, int param03 = 0, int param04 =
 
 ```
 /**
- * @brief Disables the world-management barrier gate. Paired with SetWorldManageBarrierOn.
+ * @brief Resets environmental effects set by SetEnvironmentalEffect.
  */
-SetWorldManageBarrierOff(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+ResetEnvironmentalEffect(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### SetFsmNpcSchedule (113)
@@ -3472,6 +3472,7 @@ SetFsmNpcSchedule(int param01 = 0, int param02 = 0, int param03 = 0, int schedul
 /**
  * @brief Sets the level tier (bits controlling level) of a quest enemy group (type 3).
  * Phase-gated: checks DAT_0220456c offsets 0x4654 vs 0x45cc.
+ * @note FUN_00bc0670 checks for OMs 503136 and 503143 - destructible flag objects found in War Missions
  * @param stageNo  Stage number
  * @param groupNo  Enemy group number
  * @param setNo    Enemy set number
@@ -3492,6 +3493,7 @@ SetQuestEnemyLevel(StageNo stageNo, int groupNo, int setNo, int level);
 /**
  * @brief Area-aware variant of SetQuestEnemyLevel.
  * Uses FUN_00a41890 when an area instance is active (FUN_009cff70 != 0).
+ * @note FUN_00bc0670 checks for OMs 503136 and 503143 - destructible flag objects found in War Missions
  * @param stageNo  Stage number
  * @param groupNo  Enemy group number
  * @param setNo    Enemy set number
@@ -3512,6 +3514,7 @@ SetQuestEnemyLevelEx(StageNo stageNo, int groupNo, int setNo, int level);
 /**
  * @brief Sets the danger tier (bits 23–21) of a quest enemy group.
  * Phase-gated like SetQuestEnemyLevel.
+ * @note FUN_00bc0670 checks for OMs 503136 and 503143 - destructible flag objects found in War Missions
  * @param stageNo  Stage number
  * @param groupNo  Enemy group number
  * @param setNo    Enemy set number
@@ -3531,6 +3534,7 @@ SetQuestEnemyTierUp(StageNo stageNo, int groupNo, int setNo, int tier);
 ```
 /**
  * @brief Area-aware variant of SetQuestEnemyTierUp.
+ * @note FUN_00bc0670 checks for OMs 503136 and 503143 - destructible flag objects found in War Missions
  * @param stageNo  Stage number
  * @param groupNo  Enemy group number
  * @param setNo    Enemy set number
@@ -3592,6 +3596,7 @@ SetQuestOmMontagueFixEx(StageNo stageNo, int groupNo, int setNo, int montagueNo)
  * @brief Sets the level of a layout enemy (type 2) via a thread-safe queue.
  * Guarded by GM mode check (FUN_00b19cc0) and player ID comparison.
  * Buffer at this+0xe48 holds up to 10 entries.
+ * @note Calls getQuestId and compares against 90040004 (Acre Selund War Chronicles), checks stage number if this fails.
  * @param stageNo  Stage number
  * @param groupNo  Layout enemy group number
  * @param setNo    Layout enemy set number

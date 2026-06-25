@@ -368,15 +368,15 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddResultCmdSetWorldManageBarrierOn(this QuestBlock questBlock, int param01 = 0, int param02 = 0)
+        public static QuestBlock AddResultCmdSetEnvironmentalEffect(this QuestBlock questBlock, int param01 = 0, int param02 = 0)
         {
-            questBlock.ResultCommands.AddResultCmdSetWorldManageBarrierOn(param01, param02);
+            questBlock.ResultCommands.AddResultCmdSetEnvironmentalEffect(param01, param02);
             return questBlock;
         }
 
-        public static QuestBlock AddResultCmdSetWorldManageBarrierOff(this QuestBlock questBlock)
+        public static QuestBlock AddResultCmdResetEnvironmentalEffect(this QuestBlock questBlock)
         {
-            questBlock.ResultCommands.AddResultCmdSetWorldManageBarrierOff();
+            questBlock.ResultCommands.AddResultCmdResetEnvironmentalEffect();
             return questBlock;
         }
 
