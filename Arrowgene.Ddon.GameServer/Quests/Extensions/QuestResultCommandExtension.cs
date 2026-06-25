@@ -371,15 +371,15 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return resultCommands;
         }
 
-        public static List<CDataQuestCommand> AddResultCmdSetWorldManageBarrierOn(this List<CDataQuestCommand> resultCommands, int param01 = 0, int param02 = 0)
+        public static List<CDataQuestCommand> AddResultCmdSetEnvironmentalEffect(this List<CDataQuestCommand> resultCommands, int param01 = 0, int param02 = 0)
         {
-            resultCommands.Add(QuestManager.ResultCommand.SetWorldManageBarrierOn(param01, param02));
+            resultCommands.Add(QuestManager.ResultCommand.SetEnvironmentalEffect(param01, param02));
             return resultCommands;
         }
 
-        public static List<CDataQuestCommand> AddResultCmdSetWorldManageBarrierOff(this List<CDataQuestCommand> resultCommands)
+        public static List<CDataQuestCommand> AddResultCmdResetEnvironmentalEffect(this List<CDataQuestCommand> resultCommands)
         {
-            resultCommands.Add(QuestManager.ResultCommand.SetWorldManageBarrierOff());
+            resultCommands.Add(QuestManager.ResultCommand.ResetEnvironmentalEffect());
             return resultCommands;
         }
 

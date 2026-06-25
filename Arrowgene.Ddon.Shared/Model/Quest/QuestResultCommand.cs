@@ -183,14 +183,15 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         DisableSubstoryElementB = 110, // 0x00633BF0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Enables a world-management barrier. Calls FUN_00c19920(param01, param02) then sets bit 0 of DAT_021c1250+0x850.
+        /// Overrides lighting and clouds on current map. Effects are purely visual and not persistent.
+        /// param01 = Time of day (0-23), param02 = clouds (0 = unchanged, 1 = fair clouds, 2 = heavy clouds, there may be more?)
         /// </summary>
-        SetWorldManageBarrierOn = 111, // 0x00633CE0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        SetEnvironmentalEffect = 111, // 0x00633CE0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Disables the world-management barrier. Calls FUN_00c1baa0() then clears bit 0 of DAT_021c1250+0x850.
+        /// Resets environmental effects set by SetEnvironmentalEffect.
         /// </summary>
-        SetWorldManageBarrierOff = 112, // 0x00633D20 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        ResetEnvironmentalEffect = 112, // 0x00633D20 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
         /// Schedules an FSM NPC behavior by calling FUN_009d1a60(param04). param04 is read from stack at +0x10.

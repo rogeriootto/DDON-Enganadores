@@ -3887,16 +3887,16 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.DisableSubstoryElementB, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Enables a world-management barrier via FUN_00c19920 and sets bit 0 of the barrier flag. */
-            public static CDataQuestCommand SetWorldManageBarrierOn(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Overrides lighting and clouds on current map. Effects are purely visual and not persistent. */
+            public static CDataQuestCommand SetEnvironmentalEffect(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.SetWorldManageBarrierOn, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.SetEnvironmentalEffect, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Disables the world-management barrier via FUN_00c1baa0 and clears the barrier flag bit. */
-            public static CDataQuestCommand SetWorldManageBarrierOff(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Resets environmental effects set by SetEnvironmentalEffect. */
+            public static CDataQuestCommand ResetEnvironmentalEffect(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.SetWorldManageBarrierOff, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.ResetEnvironmentalEffect, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Schedules an FSM NPC behavior by calling FUN_009d1a60(scheduleId). scheduleId = param04. */
