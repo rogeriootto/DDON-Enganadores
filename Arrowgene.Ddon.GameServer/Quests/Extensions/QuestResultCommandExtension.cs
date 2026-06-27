@@ -449,9 +449,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return resultCommands;
         }
 
-        public static List<CDataQuestCommand> AddResultCmdCheckSubstoryCondition(this List<CDataQuestCommand> resultCommands, int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+        public static List<CDataQuestCommand> AddResultCmdEndChain(this List<CDataQuestCommand> resultCommands)
         {
-            resultCommands.Add(QuestManager.ResultCommand.CheckSubstoryCondition(param01, param02, param03, param04));
+            resultCommands.Add(QuestManager.ResultCommand.EndChain());
             return resultCommands;
         }
 

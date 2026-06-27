@@ -2006,8 +2006,8 @@ namespace Arrowgene.Ddon.Shared.Network
         public static readonly PacketId S2C_63_1_16_NTC = new PacketId(63, 1, 16, "S2C_63_1_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_63_2_16_NTC = new PacketId(63, 2, 16, "S2C_63_2_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_63_3_16_NTC = new PacketId(63, 3, 16, "S2C_63_3_16_NTC", ServerType.Game, PacketSource.Server);
-        public static readonly PacketId S2C_63_5_16_NTC = new PacketId(63, 5, 16, "S2C_63_5_16_NTC", ServerType.Game, PacketSource.Server);
-        public static readonly PacketId S2C_63_6_16_NTC = new PacketId(63, 6, 16, "S2C_63_6_16_NTC", ServerType.Game, PacketSource.Server);
+        public static readonly PacketId C2S_CHAIN_DUNGEON_END_CHAIN_NTC = new PacketId(63, 5, 16, "C2S_CHAIN_DUNGEON_END_CHAIN_NTC", ServerType.Game, PacketSource.Client);
+        public static readonly PacketId S2C_CHAIN_DUNGEON_REWARD_CHEST_APPEAR_NTC = new PacketId(63, 6, 16, "S2C_CHAIN_DUNGEON_REWARD_CHEST_APPEAR_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_63_7_16_NTC = new PacketId(63, 7, 16, "S2C_63_7_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_63_10_16_NTC = new PacketId(63, 10, 16, "S2C_63_10_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId C2S_63_11_16_NTC = new PacketId(63, 11, 16, "S2C_63_11_16_NTC", ServerType.Game, PacketSource.Server);
@@ -3938,8 +3938,8 @@ namespace Arrowgene.Ddon.Shared.Network
             AddPacketIdEntry(packetIds, S2C_63_1_16_NTC);
             AddPacketIdEntry(packetIds, S2C_63_2_16_NTC);
             AddPacketIdEntry(packetIds, S2C_63_3_16_NTC);
-            AddPacketIdEntry(packetIds, S2C_63_5_16_NTC);
-            AddPacketIdEntry(packetIds, S2C_63_6_16_NTC);
+            AddPacketIdEntry(packetIds, C2S_CHAIN_DUNGEON_END_CHAIN_NTC);
+            AddPacketIdEntry(packetIds, S2C_CHAIN_DUNGEON_REWARD_CHEST_APPEAR_NTC);
             AddPacketIdEntry(packetIds, S2C_63_7_16_NTC);
             AddPacketIdEntry(packetIds, S2C_63_10_16_NTC);
             AddPacketIdEntry(packetIds, C2S_63_11_16_NTC);

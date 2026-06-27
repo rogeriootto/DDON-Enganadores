@@ -446,9 +446,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddResultCmdCheckSubstoryCondition(this QuestBlock questBlock, int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+        public static QuestBlock AddResultCmdEndChain(this QuestBlock questBlock)
         {
-            questBlock.ResultCommands.AddResultCmdCheckSubstoryCondition(param01, param02, param03, param04);
+            questBlock.ResultCommands.AddResultCmdEndChain();
             return questBlock;
         }
 

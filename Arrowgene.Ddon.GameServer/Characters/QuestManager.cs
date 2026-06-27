@@ -3965,10 +3965,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.TriggerSubstoryEndSequence, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Checks if a pawn has OM state == 4 and a specific animation condition via FUN_0087dc50. */
-            public static CDataQuestCommand CheckSubstoryCondition(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
+            /** @brief Sends packet 63.5.16 (C2S_CHAIN_DUNGEON_END_CHAIN_NTC) kickstarting the rewards phase of chain dungeons. */
+            public static CDataQuestCommand EndChain(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.CheckSubstoryCondition, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestResultCommand.EndChain, Param01 = param01, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Controls pawn expedition. mode=1: starts; mode=2: stops. */
