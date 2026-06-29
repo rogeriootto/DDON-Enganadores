@@ -3658,19 +3658,21 @@ SetEnemyExpeditionState(int mode, int param02 = 0, int param03 = 0, int param04 
 EndContentsPurposePhaseChange(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### CheckSubstoryCondition (130)
+### EndChain (130)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x006346B0` |
 | Table index | 130 |
-| Key callees | `FUN_0087dc50()` — checks pawn OM state == 4 and animation condition |
+| Key callees | `FUN_0087dc50()` — checks OM state == 4 and animation condition |
 
 ```
 /**
- * @brief Checks if a pawn has OM state == 4 and a specific animation condition (via FUN_0087dc50).
+ * Sends packet 63.5.16 (C2S_CHAIN_DUNGEON_END_CHAIN_NTC) kickstarting the rewards phase of chain dungeons.
+ * In the dumps, packet was responded by 63.2.16 (situation data update) and 63.6.16 (spawns chests based on progress tracked by 63.2.16).
+ * Should have conditions: OM state == 4 and a specific animation condition via FUN_0087dc50, but always sends the packet regardless?
  */
-CheckSubstoryCondition(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
+EndChain(int param01 = 0, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
 ### SetPawnExpeditionFlag (133)

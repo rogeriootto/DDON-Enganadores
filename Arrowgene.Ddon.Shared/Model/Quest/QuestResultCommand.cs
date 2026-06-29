@@ -264,9 +264,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         Padding129 = 129, // 0x00634690 stub/nop - always returns 0
 
         /// <summary>
-        /// Checks if a pawn has OM state == 4 and a specific animation condition via FUN_0087dc50.
+        /// Sends packet 63.5.16 (C2S_CHAIN_DUNGEON_END_CHAIN_NTC) kickstarting the rewards phase of chain dungeons.
+        /// In the dumps, packet was responded by 63.2.16 (situation data update) and 63.6.16 (spawns chests based on progress tracked by 63.2.16).
+        /// Should have conditions: OM state == 4 and a specific animation condition via FUN_0087dc50, but always sends the packet regardless?
         /// </summary>
-        CheckSubstoryCondition = 130, // 0x006346B0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
+        EndChain = 130, // 0x006346B0 (cQuestProcess* this, s32 param01, s32 param02, s32 param03, s32 param04)
 
         Padding131 = 131, // 0x00634720 stub/nop - always returns 0
         Padding132 = 132, // 0x00634750 stub/nop - always returns 0

@@ -477,6 +477,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new CDataStageInfo.Serializer());
             Create(new CDataStageLayoutEnemyPresetEnemyInfoClient.Serializer());
             Create(new CDataStageLayoutId.Serializer());
+            Create(new CDataStageLayoutInfo.Serializer());
             Create(new CDataStageTicketDungeonCategory.Serializer());
             Create(new CDataStageTicketDungeonCategoryInfo.Serializer());
             Create(new CDataStageTicketDungeonItemInfo.Serializer());
@@ -587,6 +588,8 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new C2SBlackListRemoveBlackListReq.Serializer());
 
             Create(new C2SCertClientChallengeReq.Serializer());
+
+            Create(new C2SChainDungeonEndChainNtc.Serializer());
 
             Create(new C2SCharacterCharacterDeadNtc.Serializer());
             Create(new C2SCharacterCharacterDownCancelNtc.Serializer());
@@ -1851,6 +1854,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new S2C_63_0_16_NTC.Serializer());
             Create(new S2C_63_10_16_NTC.Serializer());
             Create(new C2S_63_11_16_NTC.Serializer());
+            Create(new S2CChainDungeonRewardChestAppearNtc.Serializer());
             Create(new S2C_63_7_16_NTC.Serializer());
             Create(new S2C_BATTLE_71_13_16_NTC.Serializer());
             Create(new S2C_SEASON_62_22_16_NTC.Serializer());
