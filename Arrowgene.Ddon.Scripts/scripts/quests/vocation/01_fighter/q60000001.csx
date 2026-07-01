@@ -22,52 +22,30 @@ public class ScriptedQuest : IQuest
 
     private class EnemyGroupId
     {
-        public const uint Encounter = 10;
+        public const uint Set162 = 162;
     }
 
     private class NamedParamId
     {
-        public const uint Training = 47; // Training <name>
         public const uint CaptiveCyclops = 48; // Captive Cyclops
     }
 
     private class QstLayoutFlag
     {
-        // Lestania
-        // GroupNo=1, UnitNo=1
-        public const uint WhiteKnight1 = 937;
-
         // Training Chapel
         // Wilson: GroupNo=1, UnitNo=1
         public const uint NpcWilson = 163;
         public const uint ArisenCorpsRegimentalSoldier = 947;
 
         // GroupNo = 3, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm0 = 939;
-
-        // GroupNo = 4, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm1 = 926;
-
-        // GroupNo = 5, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm2 = 1635;
-
-        // GroupNo = 6, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm3 = 956;
-
-        // GroupNo = 7, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm4 = 1637;
-
-        // GroupNo = 8, UnitNo = 1
-        public const uint QuestSpecifiedMessageOm5 = 1638;
+        public const uint MarkOfBreaking = 939;
     }
 
     private class MyQstFlag
     {
         // NPC State Machine
-        public const uint Unk0 = 494;
-        public const uint Unk1 = 559;
-
-        public const uint DespawnGroup0 = 1;
+        public const uint EndFsm = 494;
+        public const uint StartFsm = 559;
     }
 
     public override bool AcceptRequirementsMet(GameClient client)
@@ -77,8 +55,9 @@ public class ScriptedQuest : IQuest
 
     protected override void InitializeState()
     {
-        AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Fighter, 1));
         AddQuestOrderCondition(QuestOrderCondition.Solo());
+        AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Fighter, 1));
+        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.TheArisensAbilities));
     }
 
     protected override void InitializeRewards()
@@ -88,11 +67,12 @@ public class ScriptedQuest : IQuest
         AddWalletReward(WalletType.RiftPoints, 150);
 
         AddFixedItemReward(ItemId.SuperiorHealingPotion, 3);
+        AddFixedItemReward(ItemId.Mace4, 1);
     }
 
     protected override void InitializeEnemyGroups()
     {
-        AddEnemies(EnemyGroupId.Encounter + 0, Stage.TrainingChapel, 1, QuestEnemyPlacementType.Manual, new()
+        AddEnemies(EnemyGroupId.Set162, Stage.TrainingChapel, 1, QuestEnemyPlacementType.Manual, new()
         {
             LibDdon.Enemy.Create(EnemyId.Cyclops0, 3, 0, 0, assignDefaultDrops: false)
                 .SetIsBoss(true)
@@ -108,39 +88,56 @@ public class ScriptedQuest : IQuest
             .AddCheckCmdIsTutorialQuestClear(QuestId.FighterTacticsTrialAStubbornShield);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 11575);
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.Accept, Stage.TrainingChapel, 1, 1, NpcId.Wilson, 11585)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 11579)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.NpcWilson)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.ArisenCorpsRegimentalSoldier);
-        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 0)
+        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Set162)
+            .AddResultCmdQstTalkChg(NpcId.Wilson, 11587)
+            .AddResultCmdPlayMessage(14687, 0)
             .AddResultCmdResetTutorialFlag()
             .AddResultCmdTutorialEnemyInvincibility(true)
             .AddResultCmdTutorialDialog(TutorialId.FightingLargeEnemies)
-            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.Unk1);
+            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.StartFsm);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddResultCmdResetTutorialFlag()
-            .AddCheckCmdIsTutorialFlagOn(45); // Cling to the enemy, and strike at it with Gouge
+            .AddCheckCmdIsTutorialFlagOn(45, 0)  // Cling to the enemy, and strike at it with Gouge (not enraged)
+            .AddCheckCmdIsTutorialFlagOn(57, 1); // Cling to the enemy, and strike at it with Gouge (enraged)
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(14688, 0)
+            .AddResultCmdButtonGuideFlagOn(0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(55); // Use Resist to endure the enemy's swing (yellow icon) while climbing them
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(14689, 0)
+            .AddResultCmdButtonGuideFlagOff(0)
+            .AddResultCmdButtonGuideFlagOn(2)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(56); // While climbing the enemy, jump off during their knock-away attack (red icon)
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(14690, 0)
+            .AddResultCmdButtonGuideFlagOff(2)
             .AddResultCmdResetTutorialFlag()
-            .AddCheckCmdIsTutorialFlagOn(57); // Attack and enrage the enemy
+            .AddCheckCmdIsTutorialFlagOn(53); // Attack and enrage the enemy
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(14691, 0)
+            .AddResultCmdButtonGuideFlagOn(3)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(54); // Shake the enemy while they are enraged and tire them out!
-        process0.AddDestroyGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 0, false)
+        process0.AddDestroyGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Set162, false)
+            .AddResultCmdPlayMessage(14692, 0)
+            .AddResultCmdButtonGuideFlagOff(3)
             .AddResultCmdTutorialEnemyInvincibility(false)
-            .AddResultCmdTutorialDialog(TutorialId.TacticalRoleoftheFighter)
-            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.DespawnGroup0);
+            .AddResultCmdTutorialDialog(TutorialId.TacticalRoleoftheFighter);
         process0.AddOmInteractEventBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TrainingChapel, 3, 1, OmQuestType.MyQuest, OmInteractType.Touch)
-            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.QuestSpecifiedMessageOm0);
+            .AddResultCmdPlayMessage(14693, 0)
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.MarkOfBreaking);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, NpcId.Renton0, 11578)
-            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.QuestSpecifiedMessageOm0);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.TheWhiteDragonTemple0)
+            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.EndFsm)
+            .AddResultCmdQstTalkChg(NpcId.ArisenCorpsRegimentalSoldier6, 14694)
+            .AddResultCmdQstTalkChg(NpcId.Wilson, 11592)
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.MarkOfBreaking);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdTutorialDialog(TutorialId.Clinging);
-        process0.AddProcessEndBlock(true);
     }
 }
 
