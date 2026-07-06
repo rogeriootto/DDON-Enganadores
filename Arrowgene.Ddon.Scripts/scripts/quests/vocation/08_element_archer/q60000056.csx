@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Element Archer
+ * @brief Seeking the Master: Element Archer
  */
 
 #load "libs.csx"
@@ -11,20 +11,19 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
     {
-        return client.Character.HasQuestCompleted(QuestId.ElementArcherTacticsTrialAMagickBow) &&
+        return client.Character.AreaRanks[QuestAreaId.DeenanWoods].Rank == 5 &&
                client.Character.ActiveCharacterJobData.Job == JobId.ElementArcher;
     }
 
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.ElementArcher, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.ElementArcherTacticsTrialAMagickBow));
-        AddQuestOrderCondition(QuestOrderCondition.HasAreaRank(QuestAreaId.DeenanWoods, 5));
     }
 
     protected override void InitializeRewards()
@@ -41,12 +40,13 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.ElementArcher)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.ElementArcherTacticsTrialAMagickBow);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18)
+            .AddCheckCmdCheckAreaRank(QuestAreaId.DeenanWoods, 5);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 14031);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.SecretBowmakersHome, NpcId.Ringdeel0, 14033);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.SecretBowmakersHome)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.SecretBowmakersHome, NpcId.Ringdeel0, 14033)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 14032);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.ElementArcherJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 

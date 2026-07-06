@@ -14,11 +14,6 @@ public class ScriptedQuest : IQuest
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
-    public override bool AcceptRequirementsMet(GameClient client)
-    {
-        return client.Character.CharacterJobDataList.Any(x => x.Lv >= 70);
-    }
-
     protected override void InitializeRewards()
     {
         AddPointReward(PointType.ExperiencePoints, 38375);
@@ -29,6 +24,8 @@ public class ScriptedQuest : IQuest
     protected override void InitializeBlocks()
     {
         var process0 = AddNewProcess(0);
+		process0.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Any, 70);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Archibald0, 20221);
         process0.AddRawBlock(QuestAnnounceType.Accept)
             .AddCheckCmdOpenPpMode()
