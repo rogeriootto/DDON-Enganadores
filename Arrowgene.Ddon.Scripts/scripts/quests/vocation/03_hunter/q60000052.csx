@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Hunter
+ * @brief Seeking the Master: Hunter
  */
 
 #load "libs.csx"
@@ -11,16 +11,11 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
-    {
-        return client.Character.HasQuestCompleted(QuestId.HunterTacticsTrialBreakAttack) &&
-               client.Character.ActiveCharacterJobData.Job == JobId.Hunter;
-    }
-
-    public override bool AcceptRequirementsMet(GameClient client)
     {
         return client.Character.ActiveCharacterJobData.Job == JobId.Hunter;
     }
@@ -28,7 +23,6 @@ public class ScriptedQuest : IQuest
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Hunter, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.HunterTacticsTrialBreakAttack));
     }
 
     protected override void InitializeRewards()
@@ -45,12 +39,12 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.Hunter)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.HunterTacticsTrialBreakAttack);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 14018);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.IvansLodge, NpcId.Ivan, 14020);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.IvansLodge)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.IvansLodge, NpcId.Ivan, 14020)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 14019);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.HunterJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 

@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Sorcerer
+ * @brief Seeking the Master: Sorcerer
  */
 
 #load "libs.csx"
@@ -11,20 +11,19 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
     {
-        return client.Character.HasQuestCompleted(QuestId.SorcerTacticsTrialAMagickAttack) &&
+        return client.Character.AreaRanks[QuestAreaId.MysreeForest].Rank == 5 &&
                client.Character.ActiveCharacterJobData.Job == JobId.Sorcerer;
     }
 
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Sorcerer, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.SorcerTacticsTrialAMagickAttack));
-        AddQuestOrderCondition(QuestOrderCondition.HasAreaRank(QuestAreaId.MysreeForest, 5));
     }
 
     protected override void InitializeRewards()
@@ -41,12 +40,13 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.Sorcerer)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.SorcerTacticsTrialAMagickAttack);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18)
+            .AddCheckCmdCheckAreaRank(QuestAreaId.MysreeForest, 5);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 14028);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.LoneHouseintheForest, NpcId.Emerada0, 14030);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.LoneHouseintheForest)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.LoneHouseintheForest, NpcId.Emerada0, 14030)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 14029);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.SorcererJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 
