@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS "account"
     "state"               INTEGER                           NOT NULL,
     "last_login"          DATETIME DEFAULT NULL,
     "created"             DATETIME                          NOT NULL,
+    "locale"              VARCHAR(10) DEFAULT "en-US"       NOT NULL,
     CONSTRAINT "uq_account_name" UNIQUE ("name"),
     CONSTRAINT "uq_account_normal_name" UNIQUE ("normal_name"),
     CONSTRAINT "uq_account_login_token" UNIQUE ("login_token"),

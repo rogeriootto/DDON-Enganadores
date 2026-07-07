@@ -73,6 +73,7 @@ namespace Arrowgene.Ddon.Shared
 
         public const string QuestAssestKey = "quests";
         public const string EpitaphAssestKey = "epitaph";
+        public const string LocalizationKey = "localization";
 
         private static readonly ILogger Logger = LogProvider.Logger(typeof(AssetRepository));
 
@@ -141,6 +142,7 @@ namespace Arrowgene.Ddon.Shared
             CraftAddStatusAsset = new();
             SkillData = new([], [], []);
             TrainingRoomAsset = [];
+            LocalizationAssets = new LocalizationAsset();
         }
 
         public Dictionary<ErrorCode, ClientErrorCode> ClientErrorCodes { get; private set; }
@@ -193,6 +195,7 @@ namespace Arrowgene.Ddon.Shared
         public Dictionary<QuestId, uint> QuestScheduleIdAsset { get; private set; }
         public CraftAddStatusAsset CraftAddStatusAsset { get; private set; }
         public List<TrainingRoomEntry> TrainingRoomAsset { get; private set; }
+        public LocalizationAsset LocalizationAssets { get; private set; }
 
         public void Initialize()
         {
@@ -255,6 +258,10 @@ namespace Arrowgene.Ddon.Shared
             var epitaphTrialDeserializer = new EpitaphTrialAssetDeserializer(commonEnemyDeserializer, QuestDropItemAsset, EpitaphTrialAssets);
             epitaphTrialDeserializer.LoadTrialsFromDirectory(Path.Combine(_directory.FullName, EpitaphAssestKey), EpitaphTrialAssets);
             RegisterDirectoryWatcher(epitaphTrialDeserializer);
+
+            var localizationDeserializer = new LocalizationAssetDeserializer(LocalizationAssets);
+            localizationDeserializer.LoadLocalizationsFromDirectory(Path.Combine(_directory.FullName, LocalizationKey), LocalizationAssets);
+            RegisterDirectoryWatcher(localizationDeserializer);
         }
 
         private void RegisterDirectoryWatcher(IDirectoryAssetHandler handler)
