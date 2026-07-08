@@ -43,7 +43,7 @@
                     "level": 70,
                     "is_boss": true,
                     "named_enemy_params_id": 901,
-                    "exp_scheme": "automatic"
+                    "exp": 6840
                 }
             ]
         }

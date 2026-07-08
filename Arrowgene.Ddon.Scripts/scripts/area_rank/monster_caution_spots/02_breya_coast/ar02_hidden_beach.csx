@@ -23,19 +23,19 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.RogueFighter, 10, 100, 0)
+            LibDdon.Enemy.Create(EnemyId.RogueFighter, 10, 62, 17)
                 .SetDropsTable(dropsTable)
                 .SetHmPresetNo(HmPresetId.RogueFighter)
                 .SetNamedEnemyParams(NamedParamId.HiddenBeachRogue),
-            LibDdon.Enemy.Create(EnemyId.RogueSeeker, 10, 100, 1)
+            LibDdon.Enemy.Create(EnemyId.RogueSeeker, 10, 62, 18)
                 .SetDropsTable(dropsTable)
                 .SetHmPresetNo(HmPresetId.RogueSeeker)
                 .SetNamedEnemyParams(NamedParamId.HiddenBeachRogue),
-            LibDdon.Enemy.Create(EnemyId.RogueHunter, 10, 100, 2)
+            LibDdon.Enemy.Create(EnemyId.RogueHunter, 10, 62, 19)
                 .SetDropsTable(dropsTable)
                 .SetHmPresetNo(HmPresetId.RogueHunter)
                 .SetNamedEnemyParams(NamedParamId.HiddenBeachRogue),
-            LibDdon.Enemy.Create(EnemyId.RogueMage, 10, 100, 3)
+            LibDdon.Enemy.Create(EnemyId.RogueMage, 10, 62, 20)
                 .SetDropsTable(dropsTable)
                 .SetHmPresetNo(HmPresetId.RogueMage)
                 .SetNamedEnemyParams(NamedParamId.HiddenBeachRogue),

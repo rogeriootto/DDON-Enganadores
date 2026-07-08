@@ -19,7 +19,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.MoleTroll0, 43, 2)
+            LibDdon.Enemy.Create(EnemyId.MoleTroll0, 43, 4080, 2)
                 .SetIsBoss(true)
                 .SetNamedEnemyParams(NamedParamId.JotunTheReturned),
         };

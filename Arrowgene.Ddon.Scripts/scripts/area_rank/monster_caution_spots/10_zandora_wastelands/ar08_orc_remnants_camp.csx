@@ -21,24 +21,20 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.GeneralOrc, 56, 3)
-                .SetNamedEnemyParams(NamedParamId.OrcRemnants1)
+            LibDdon.Enemy.Create(EnemyId.GeneralOrc, 56, 1526, 0)
+                .SetNamedEnemyParams(NamedParamId.OrcGeneralRemnant)
                 .AddDrop(ItemId.RousingSteak, 1, 3, DropRate.UNCOMMON),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcBattler, 56, 0)
+            LibDdon.Enemy.Create(EnemyId.OrcBattler, 56, 356, 1)
+                .SetRepopConditions(1, 10)
                 .SetNamedEnemyParams(NamedParamId.OrcRemnants0),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcBattler, 56, 1)
+            LibDdon.Enemy.Create(EnemyId.OrcBattler, 56, 356, 2)
+                .SetRepopConditions(1, 10)
                 .SetNamedEnemyParams(NamedParamId.OrcRemnants0),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcBattler, 56, 2)
-                .SetNamedEnemyParams(NamedParamId.OrcRemnants0),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcBattler, 56, 4)
-                .SetNamedEnemyParams(NamedParamId.OrcRemnants0),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcTrooper, 56, 5)
+            LibDdon.Enemy.Create(EnemyId.OrcTrooper, 56, 307, 3)
+                .SetRepopConditions(1, 10)
                 .SetNamedEnemyParams(NamedParamId.OrcRemnants1),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcTrooper, 56, 6)
-                .SetNamedEnemyParams(NamedParamId.OrcRemnants1),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcTrooper, 56, 8)
-                .SetNamedEnemyParams(NamedParamId.OrcRemnants1),
-            LibDdon.Enemy.CreateAuto(EnemyId.OrcTrooper, 56, 9)
+            LibDdon.Enemy.Create(EnemyId.OrcTrooper, 56, 307, 4)
+                .SetRepopConditions(1, 10)
                 .SetNamedEnemyParams(NamedParamId.OrcRemnants1),
         });
     }

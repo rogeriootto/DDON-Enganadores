@@ -24,11 +24,17 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.Wight0, 23, 874, 0)
+            LibDdon.Enemy.Create(EnemyId.Wight0, 23, 1336, 3)
                 .SetIsBoss(true)
                 .SetScale(115)
                 .SetDropsTable(namedEnemyDrops)
                 .SetNamedEnemyParams(NamedParamId.SpecterOfRuflow)
+                .SetSpawnTime(GameTimeManager.NightTime),
+            LibDdon.Enemy.Create(EnemyId.SkeletonKnight, 21, 95, 4)
+                .SetNamedEnemyParams(NamedParamId.FormerVillager)
+                .SetSpawnTime(GameTimeManager.NightTime),
+            LibDdon.Enemy.Create(EnemyId.SkeletonKnight, 21, 95, 5)
+                .SetNamedEnemyParams(NamedParamId.FormerVillager)
                 .SetSpawnTime(GameTimeManager.NightTime),
         });
     }

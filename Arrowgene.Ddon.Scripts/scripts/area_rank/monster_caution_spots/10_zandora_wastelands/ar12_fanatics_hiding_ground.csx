@@ -6,7 +6,7 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(364);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(361);
     public override QuestAreaId AreaId => QuestAreaId.ZandoraWastelands;
     public override uint RequiredAreaRank => 12;
 
@@ -19,7 +19,8 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.BlackGriffin0, 70, 0, isBoss: true)
+            LibDdon.Enemy.Create(EnemyId.BlackGriffin0, 70, 6840, 6)
+                .SetIsBoss(true)
                 .SetNamedEnemyParams(NamedParamId.BlackSeaEagleOfTheRuinedSite)
         });
     }

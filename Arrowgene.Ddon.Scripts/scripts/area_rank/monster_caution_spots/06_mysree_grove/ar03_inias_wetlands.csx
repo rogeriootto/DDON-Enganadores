@@ -6,7 +6,7 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(147);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(142);
     public override QuestAreaId AreaId => QuestAreaId.MysreeGrove;
     public override uint RequiredAreaRank => 3;
 
@@ -23,16 +23,13 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         var enemies = new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.BlueNewt, 35, 0)
+            LibDdon.Enemy.Create(EnemyId.BlueNewt, 35, 173, 10)
                 .SetDropsTable(dropsTable)
                 .SetNamedEnemyParams(NamedParamId.CobaltNewt),
-            LibDdon.Enemy.CreateAuto(EnemyId.BlueNewt, 35, 1)
+            LibDdon.Enemy.Create(EnemyId.BlueNewt, 35, 173, 11)
                 .SetDropsTable(dropsTable)
                 .SetNamedEnemyParams(NamedParamId.CobaltNewt),
-            LibDdon.Enemy.CreateAuto(EnemyId.BlueNewt, 35, 2)
-                .SetDropsTable(dropsTable)
-                .SetNamedEnemyParams(NamedParamId.CobaltNewt),
-            LibDdon.Enemy.CreateAuto(EnemyId.BlueNewt, 35, 3)
+            LibDdon.Enemy.Create(EnemyId.BlueNewt, 35, 173, 12)
                 .SetDropsTable(dropsTable)
                 .SetNamedEnemyParams(NamedParamId.CobaltNewt),
         };

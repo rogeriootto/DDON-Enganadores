@@ -6,26 +6,22 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(360);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(439);
     public override QuestAreaId AreaId => QuestAreaId.ZandoraWastelands;
     public override uint RequiredAreaRank => 4;
 
     public class NamedParamId
     {
         public const uint RustedIronGiantWarrior = 249; // Rusted Iron Giant Warrior
-        public const uint RustedAlchemizedGoblin = 250; // Rusted Alchemized Goblin
     }
 
     public override void Initialize()
     {
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.DamnedGolem, 49, 2, isBoss: true)
+            LibDdon.Enemy.Create(EnemyId.DamnedGolem, 49, 4617, 1)
+                .SetIsBoss(true)
                 .SetNamedEnemyParams(NamedParamId.RustedIronGiantWarrior),
-            LibDdon.Enemy.CreateAuto(EnemyId.DamnedGoblin, 49, 0)
-                .SetNamedEnemyParams(NamedParamId.RustedAlchemizedGoblin),
-            LibDdon.Enemy.CreateAuto(EnemyId.DamnedSlingGoblinFlask, 49, 1)
-                .SetNamedEnemyParams(NamedParamId.RustedAlchemizedGoblin),
         });
     }
 }
