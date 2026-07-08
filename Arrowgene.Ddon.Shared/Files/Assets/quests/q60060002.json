@@ -33,8 +33,9 @@
         {
             "stage_id": {
                 "id": 1,
-                "group_id": 146
+                "group_id": 138
             },
+            "starting_index": 2,
             "enemies": [
                 {
                     "comment": "Jotun the Returned (Mole Troll)",
@@ -42,7 +43,7 @@
                     "level": 43,
                     "is_boss": true,
                     "named_enemy_params_id": 232,
-                    "exp_scheme": "automatic"
+                    "exp": 4080
                 }
             ]
         }

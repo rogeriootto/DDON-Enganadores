@@ -28,7 +28,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
     public override void Initialize()
     {
-        var namedEnemyDrops = LibDdon.Enemy.GetDropsTable(EnemyId.HobgoblinLeader, 20).Clone()
+        var namedEnemyDrops = LibDdon.Enemy.GetDropsTable(EnemyId.HobgoblinLeader, 19).Clone()
             .AddDrop(ItemId.BronzeScale0, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.HematiteSand, 1, 3, DropRate.VERY_COMMON)
             .AddDrop(ItemId.LeatherCord, 1, 1, DropRate.UNCOMMON)
@@ -36,20 +36,14 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.HobgoblinLeader, 20, 706, 2)
+            LibDdon.Enemy.Create(EnemyId.HobgoblinLeader, 19, 105, 0)
                 .SetDropsTable(namedEnemyDrops)
                 .SetNamedEnemyParams(NamedParamId.GyumulTheSpikedHorn),
-            CreateRandomHobgoblin(18, 510, 0)
+            CreateRandomHobgoblin(18, 96, 1)
                 .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
-            CreateRandomHobgoblin(18, 510, 1)
+            CreateRandomHobgoblin(18, 96, 2)
                 .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
-            CreateRandomHobgoblin(18, 510, 3)
-                .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
-            CreateRandomHobgoblin(18, 510, 4)
-                .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
-            CreateRandomHobgoblin(18, 510, 5)
-                .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
-            CreateRandomHobgoblin(18, 510, 6)
+            CreateRandomHobgoblin(18, 96, 3)
                 .SetNamedEnemyParams(NamedParamId.GyumulsMinion),
         });
     }

@@ -6,7 +6,7 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(373);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(375);
     public override QuestAreaId AreaId => QuestAreaId.ZandoraWastelands;
     public override uint RequiredAreaRank => 9;
 
@@ -19,7 +19,8 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.Nightmare, 58, 0, isBoss: true)
+            LibDdon.Enemy.Create(EnemyId.Nightmare, 58, 8831, 1)
+                .SetIsBoss(true)
                 .SetNamedEnemyParams(NamedParamId.WailingMora)
                 .AddDrop(ItemId.TitanBracelet, 1, 1, DropRate.RARE)
                 .AddDrop(ItemId.MephistoBracelet, 1, 1, DropRate.RARE)

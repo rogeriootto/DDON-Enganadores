@@ -12,7 +12,6 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
     public class NamedParamId
     {
-        public const uint MergodaPatrolCorps = 251; // Mergoda Patrol Corps
         public const uint MergodaFemaleOfficer = 252; // Mergoda Female Officer
     }
 
@@ -20,11 +19,10 @@ public class MonsterSpotInfo : IMonsterSpotInfo
     {
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.CreateAuto(EnemyId.Witch, 47, 0, isBoss: true)
+            LibDdon.Enemy.Create(EnemyId.Witch, 47, 3024, 1)
+                .SetIsBoss(true)
                 .SetNamedEnemyParams(NamedParamId.MergodaFemaleOfficer)
                 .AddDrop(ItemId.CrestOfGreaterMagick0, 1, 3, DropRate.UNCOMMON),
-            LibDdon.Enemy.CreateAuto(EnemyId.AlchemizedSkeleton, 46, 1)
-                .SetNamedEnemyParams(NamedParamId.MergodaPatrolCorps),
         });
     }
 }
