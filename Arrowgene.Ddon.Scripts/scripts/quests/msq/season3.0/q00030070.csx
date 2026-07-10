@@ -51,7 +51,7 @@ public class ScriptedQuest : IQuest
         // Dacreim Fortress
         public const uint Allies0 = 5405; // Gillian, Lise, Gurdolin, Elliot
         public const uint Allies1 = 5412; // Nedo, Meirova, Gillian, Gurdolin, Lise, Elliot, Bertha
-        public const uint Nedo = 6532; // Nedo, 
+        public const uint Nedo = 6532; // Nedo,
         public const uint Blockade = 5643;
 
         // Rathnite Foothills Lakeside
@@ -80,7 +80,7 @@ public class ScriptedQuest : IQuest
     {
         AddEnemies(EnemyGroupId.Encounter + 0, Stage.RathniteFoothillsLakeside0, 25, QuestEnemyPlacementType.Manual, new()
         {
-            // 0, 2, 3, 4 
+            // 0, 2, 3, 4
             LibDdon.Enemy.CreateAuto(EnemyId.SquadLeaderDwarfOrc, 84, 0)
                 .SetNamedEnemyParams(NamedParamId.FortGuard),
             LibDdon.Enemy.CreateAuto(EnemyId.SwordSoldierDwarfOrc, 84, 2)
@@ -159,7 +159,7 @@ public class ScriptedQuest : IQuest
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.RathniteFoothillsLakeside0, 0, 0, NpcId.RothgillSoldier0, 24170) // Head to the soldier before Dacreim Fortress
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.RothgillSoldiers)
             .AddQuestFlag(QuestFlagAction.Clear, QuestFlags.RathniteFoothillsLakeside.FortDacriumWallBreach);
-        process0.AddDestroyGroupBlock(QuestAnnounceType.CheckpointAndUpdate, EnemyGroupId.Encounter + 0); // Defeat the obstructing Orcs to storm into Dacreim Fortress            
+        process0.AddDestroyGroupBlock(QuestAnnounceType.CheckpointAndUpdate, EnemyGroupId.Encounter + 0); // Defeat the obstructing Orcs to storm into Dacreim Fortress
         process0.AddDiscoverGroupBlock(QuestAnnounceType.CheckpointAndUpdate, EnemyGroupId.Encounter + 1)  // Raid Dacreim Fortress
             .AddQuestFlag(QuestFlagAction.Set, QuestFlags.RathniteFoothillsLakeside.DacriumFortressEntrance);
         process0.AddDestroyGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 1, resetGroup: false); // Eliminate the War-Ready Manticore and the War-Ready Grimwarg
@@ -167,6 +167,8 @@ public class ScriptedQuest : IQuest
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.Nedo);
         process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.DacreimFortress0, 0, 4);
         process0.AddSpawnGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 2) // Eliminate the enemy
+            .AddResultCmdMyQstFlagOn(3605)
+            .AddResultCmdSetDiePlayerReturnPos(Stage.DacreimFortress0, 4, 0)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.Allies0)
             .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.StartAdds)
             .AddCheckCmdEmHpLess(Stage.DacreimFortress0, 1, 0, 65)
@@ -174,6 +176,8 @@ public class ScriptedQuest : IQuest
         process0.AddPlayEventBlock(QuestAnnounceType.None, Stage.DacreimFortress0, 5, 1)
             .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.EndAdds);
         process0.AddNewTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.DacreimFortress0, 1, 0, NpcId.Nedo0, 23223) // Speak with Nedo
+            .AddResultCmdResetDiePlayerReturnPos(Stage.Invalid, 0)
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.Blockade)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.Nedo)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.Allies0)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.Allies1);
