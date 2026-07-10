@@ -1,3 +1,5 @@
+using Arrowgene.Ddon.Shared.Model.Localization;
+
 public class ChatCommand : IChatCommand
 {
     public override AccountStateType AccountState => AccountStateType.Muted;
@@ -6,29 +8,28 @@ public class ChatCommand : IChatCommand
 
     public override void Execute(DdonGameServer server, string[] command, GameClient client, ChatMessage message, List<ChatResponse> responses)
     {
+        string T(Translated key, string locale, params object[] args) => server.AssetRepository.LocalizationAssets.GetLocalizedString(key, locale, args);
+        Dictionary<string,string> Locales = new(server.AssetRepository.LocalizationAssets.NotFound);
+
         if (command.Length >= 1)
         {
-            if (LocaleDictionary.TryGetValue(command[0], out string localeCode))
+            if (Locales.ContainsKey(command[0]))
             {
+                string localeCode = command[0];
                 client.Account.Locale = localeCode;
                 server.Database.UpdateAccount(client.Account);
-                responses.Add(ChatResponse.ServerChat(client, $"Locale updated to {localeCode}"));
+                responses.Add(ChatResponse.ServerChat(client, T(Translated.LocaleUpdated, localeCode, localeCode)));
+                return;
             }
             else
             {
-                responses.Add(ChatResponse.CommandError(client, $"Invalid locale. It must be one of the following: {string.Join(", ", LocaleDictionary.Keys)}"));
+                responses.Add(ChatResponse.CommandError(client, T(Translated.InvalidLocale, client.Account.Locale,  string.Join(", ", Locales.Keys))));
                 return;
             }
-        } 
+        }
+        responses.Add(ChatResponse.ServerChat(client, T(Translated.CurrentLocale, client.Account.Locale, client.Account.Locale)));
+        responses.Add(ChatResponse.ServerChat(client, T(Translated.AvailableLocales, client.Account.Locale, string.Join(", ", Locales.Keys))));
     }
-
-    private static readonly Dictionary<string, string> LocaleDictionary = new Dictionary<string, string>()
-    {
-        {"EN", "en-US"},
-        {"JP", "ja-JP"},
-        {"DE", "de"},
-        {"ES", "es"}
-    };
 }
 
 return new ChatCommand();

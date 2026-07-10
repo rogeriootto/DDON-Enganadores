@@ -1,4 +1,5 @@
 using Arrowgene.Ddon.Shared.Asset;
+using Arrowgene.Ddon.Shared.Model.Localization;
 using Arrowgene.Logging;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,7 @@ namespace Arrowgene.Ddon.Shared.AssetReader
 
         public bool OnFileChanged(string filePath)
         {
-            if (!LoadLocalizationFromFile(filePath))
+            if (!LoadLocalizationFromFile(filePath, _liveAsset))
                 return false;
             return true;
         }
@@ -44,13 +45,13 @@ namespace Arrowgene.Ddon.Shared.AssetReader
             Logger.Info($"Reading localization files from {path}");
             foreach (var file in info.EnumerateFiles())
             {
-                LoadLocalizationFromFile(file.FullName);
+                LoadLocalizationFromFile(file.FullName, asset);
             }
 
             return true;
         }
 
-        public bool LoadLocalizationFromFile(string filePath)
+        public bool LoadLocalizationFromFile(string filePath, LocalizationAsset asset)
         {
             Logger.Info($"{filePath}");
 
@@ -58,17 +59,30 @@ namespace Arrowgene.Ddon.Shared.AssetReader
             JsonDocument document = JsonDocument.Parse(json);
             JsonElement root = document.RootElement;
 
-            if (root.TryGetProperty("language", out JsonElement language) == false)
+            if (root.TryGetProperty("locale", out JsonElement language) == false)
             {
-                Logger.Info("Missing language property!");
+                Logger.Error("Missing locale property, aborting asset load.");
                 return false;
             }
 
-            string culture = language.ToString();
+            if (root.TryGetProperty("NotFound", out JsonElement notFound) == false)
+            {
+                Logger.Error("Missing NotFound property, aborting asset load.");
+                return false;
+            }
+
+            string locale = language.ToString();
             JsonElement translations = root.GetProperty("translations");
             Dictionary<string, string> toAdd = JsonSerializer.Deserialize<Dictionary<string, string>>(translations) ?? [];
 
-            _liveAsset.Translations.AddOrUpdate(culture, toAdd, (key, existingDict) => {
+            CheckKeys(toAdd, locale);
+
+            if (!asset.NotFound.ContainsKey(locale))
+            {
+                asset.NotFound.Add(locale, notFound.ToString());
+            }
+
+            _liveAsset.Translations.AddOrUpdate(locale, toAdd, (key, existingDict) => {
                 foreach (var kvp in toAdd)
                 {
                     existingDict[kvp.Key] = kvp.Value;
@@ -77,6 +91,17 @@ namespace Arrowgene.Ddon.Shared.AssetReader
             });
 
             return true;
+        }
+
+        private void CheckKeys(Dictionary<string,string> dict, string locale)
+        {
+            foreach (string name in System.Enum.GetNames(typeof(Translated)))
+            {
+                if (!dict.ContainsKey(name))
+                {
+                    Logger.Error($"Missing translation for {name} in {locale}");
+                }
+            }
         }
     }
 }

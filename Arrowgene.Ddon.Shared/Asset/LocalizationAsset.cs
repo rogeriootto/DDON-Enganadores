@@ -1,11 +1,8 @@
-using Arrowgene.Ddon.Shared.AssetReader;
 using Arrowgene.Logging;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Arrowgene.Ddon.Shared.Asset
 {
@@ -14,6 +11,7 @@ namespace Arrowgene.Ddon.Shared.Asset
         private static readonly ILogger Logger = LogProvider.Logger(typeof(LocalizationAsset));
 
         public ConcurrentDictionary<string, Dictionary<string, string>> Translations = new();
+        public Dictionary<string, string> NotFound = new();
         private const string FallbackLocale = "en-US";
 
         public LocalizationAsset()
@@ -28,9 +26,11 @@ namespace Arrowgene.Ddon.Shared.Asset
                 var localizationData = Translations[locale];
                 if (localizationData.TryGetValue(key, out var value))
                 {
-                    return string.Format(value,args);
+                    return SafeFormat(value,args);
                 }
             }
+
+            Logger.Error($"Missing {locale} translation for: {key}");
 
             if (locale != FallbackLocale)
             {
@@ -39,13 +39,48 @@ namespace Arrowgene.Ddon.Shared.Asset
                     var fallbackData = Translations[FallbackLocale];
                     if (fallbackData.TryGetValue(key, out var fallbackValue))
                     {
-                        return string.Format(fallbackValue,args);
+                        return SafeFormat(fallbackValue,args);
                     }
                 }
             }
 
-            Logger.Error($"Missing {locale} translation for: {key}");
-            return string.Format(key,args);
+            //Handle cases where even en-US isn't loaded
+            string missing = "MISSING";
+            if (NotFound.ContainsKey(locale))
+            {
+                missing = NotFound[locale];
+            }
+            return $"[{missing}:{key}:{locale}]";
+        }
+
+        public string GetLocalizedString(Enum key, string locale, params object[] args)
+        {
+            return GetLocalizedString(key.ToString(), locale, args);
+        }
+
+        private string SafeFormat(string format, params object[] args)
+        {
+            if (string.IsNullOrEmpty(format)) return string.Empty;
+            if (args == null || args.Length == 0) return format;
+
+            // Find the indexes used in the provided string
+            int maxIndex = -1;
+            var matches = Regex.Matches(format, @"\{([0-9]+)(?:,.*?)?(?::.*?)?\}");
+
+            foreach (Match match in matches)
+            {
+                if (int.TryParse(match.Groups[1].Value, out int index))
+                {
+                    maxIndex = Math.Max(maxIndex, index);
+                }
+            }
+
+            if (maxIndex >= args.Length)
+            {
+                Array.Resize(ref args, maxIndex + 1);
+            }
+
+            return string.Format(format, args);
         }
     }
 }
