@@ -13,7 +13,7 @@ public partial class DdonSqlDb : SqlDb
     private static readonly string[] AccountFields =
     [
         "name", "normal_name", "hash", "mail", "mail_verified", "mail_verified_at", "mail_token", "password_token", "login_token", "login_token_created", "state", "last_login",
-        "created"
+        "created", "locale"
     ];
 
     private static readonly string SqlInsertAccount = $"INSERT INTO \"account\" ({BuildQueryField(AccountFields)}) VALUES ({BuildQueryInsert(AccountFields)});";
@@ -50,6 +50,7 @@ public partial class DdonSqlDb : SqlDb
         account.LoginTokenCreated = DateTime.UtcNow;
         account.MailVerifiedAt = DateTime.SpecifyKind(DateTime.MinValue, DateTimeKind.Utc);
         account.LastAuthentication = DateTime.UtcNow;
+        account.Locale = "en-US";
         Logger.Info($"Creating account: {account}");
         int rowsAffected = ExecuteNonQuery(SqlInsertAccount, command =>
         {
@@ -66,6 +67,7 @@ public partial class DdonSqlDb : SqlDb
             AddParameterEnumInt32(command, "@state", account.State);
             AddParameter(command, "@last_login", account.LastAuthentication);
             AddParameter(command, "@created", account.Created);
+            AddParameter(command, "@locale", account.Locale);
         }, out long autoIncrement);
         if (rowsAffected <= NoRowsAffected || autoIncrement <= NoAutoIncrement)
         {
@@ -186,6 +188,7 @@ public partial class DdonSqlDb : SqlDb
             AddParameter(command, "@last_login", account.LastAuthentication);
             AddParameter(command, "@created", account.Created);
             AddParameter(command, "@id", account.Id);
+            AddParameter(command, "@locale", account.Locale);
         });
         return rowsAffected > NoRowsAffected;
     }
@@ -214,6 +217,7 @@ public partial class DdonSqlDb : SqlDb
         account.State = (AccountStateType)GetInt32(reader, "state");
         account.LastAuthentication = GetDateTimeNullable(reader, "last_login");
         account.Created = GetDateTime(reader, "created");
+        account.Locale = GetString(reader, "locale");
         return account;
     }
 

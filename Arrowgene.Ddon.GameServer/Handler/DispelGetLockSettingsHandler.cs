@@ -59,7 +59,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 .Select(x => new CDataDispelLockSealData()
                 {
                     SealIndex = x.SealIndex,
-                    DisplayText = x.SealName,
+                    DisplayText = Server.AssetRepository.LocalizationAssets.GetLocalizedString(x.SealName, client.Account.Locale),
                     LockStatus = client.Character.DispelSeals.Contains(x.SealIndex)
                 })];
 

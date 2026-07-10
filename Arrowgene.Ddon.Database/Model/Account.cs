@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Arrowgene.Ddon.Database.Model
 {
@@ -18,6 +18,7 @@ namespace Arrowgene.Ddon.Database.Model
         public AccountStateType State { get; set; }
         public DateTime? LastAuthentication { get; set; }
         public DateTime Created { get; set; }
+        public string Locale { get; set; }
 
         public Account()
         {
