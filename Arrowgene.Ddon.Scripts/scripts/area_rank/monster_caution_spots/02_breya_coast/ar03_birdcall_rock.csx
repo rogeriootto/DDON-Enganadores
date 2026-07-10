@@ -23,13 +23,21 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 384, 1)
+            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 52, 10)
                 .SetDropsTable(namedEnemyDrops)
                 .SetNamedEnemyParams(NamedParamId.MotherHarpy),
-            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 276, 0),
-            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 276, 2),
-            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 276, 3),
-            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 276, 4),
+            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 52, 11)
+                .SetDropsTable(namedEnemyDrops)
+                .SetNamedEnemyParams(NamedParamId.MotherHarpy),
+            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 52, 12)
+                .SetDropsTable(namedEnemyDrops)
+                .SetNamedEnemyParams(NamedParamId.MotherHarpy),
+            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 52, 13)
+                .SetDropsTable(namedEnemyDrops)
+                .SetNamedEnemyParams(NamedParamId.MotherHarpy),
+            LibDdon.Enemy.Create(EnemyId.Harpy, 13, 52, 14)
+                .SetDropsTable(namedEnemyDrops)
+                .SetNamedEnemyParams(NamedParamId.MotherHarpy),
         });
     }
 }

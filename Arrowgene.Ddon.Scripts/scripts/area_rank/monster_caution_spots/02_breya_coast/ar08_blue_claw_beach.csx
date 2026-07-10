@@ -6,7 +6,7 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(103);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(98);
     public override QuestAreaId AreaId => QuestAreaId.BreyaCoast;
     public override uint RequiredAreaRank => 8;
 
@@ -25,7 +25,7 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
         AddEnemies(new List<InstancedEnemy>()
         {
-            LibDdon.Enemy.Create(EnemyId.ArmoredCyclops, 27, 1126, 0)
+            LibDdon.Enemy.Create(EnemyId.ArmoredCyclops, 27, 2756, 2)
                 .SetIsBoss(true)
                 .SetScale(135)
                 .SetDropsTable(namedEnemyDrops)

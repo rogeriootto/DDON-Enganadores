@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Spirit Lancer
+ * @brief Seeking the Master: Spirit Lancer
  */
 
 #load "libs.csx"
@@ -11,19 +11,18 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.DanaCentrum;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
     {
-        return client.Character.HasQuestCompleted(QuestId.SpiritLancerTacticsTrialASpiritLance) &&
-               client.Character.ActiveCharacterJobData.Job == JobId.SpiritLancer;
+        return client.Character.ActiveCharacterJobData.Job == JobId.SpiritLancer;
     }
 
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.SpiritLancer, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.SpiritLancerTacticsTrialASpiritLance));
     }
 
     protected override void InitializeRewards()
@@ -40,12 +39,12 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.SpiritLancer)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.SpiritLancerTacticsTrialASpiritLance);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18);
         process0.AddNpcTalkAndOrderBlock(Stage.DanaCentrum, NpcId.Razanailt, 19699);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.SpiritArtsHut, NpcId.AdairDonnchadh0, 19701);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.SpiritArtsHut)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.SpiritArtsHut, NpcId.AdairDonnchadh0, 19701)
+            .AddResultCmdQstTalkChg(NpcId.Razanailt, 19700);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.SpiritLancerJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 

@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Alchemist
+ * @brief Seeking the Master: Alchemist
  */
 
 #load "libs.csx"
@@ -11,20 +11,19 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
     {
-        return client.Character.HasQuestCompleted(QuestId.AlchemistTacticsTrialAlchemy) &&
+        return client.Character.AreaRanks[QuestAreaId.MergodaRuins].Rank == 6 &&
                client.Character.ActiveCharacterJobData.Job == JobId.Alchemist;
     }
 
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Alchemist, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.AlchemistTacticsTrialAlchemy));
-        AddQuestOrderCondition(QuestOrderCondition.HasAreaRank(QuestAreaId.MergodaRuins, 6));
     }
 
     protected override void InitializeRewards()
@@ -41,12 +40,13 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.Alchemist)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.AlchemistTacticsTrialAlchemy);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18)
+            .AddCheckCmdCheckAreaRank(QuestAreaId.MergodaRuins, 6);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 14037);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.TheodorsAlchemyWorkshop, NpcId.Theodor, 14039);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.TheodorsAlchemyWorkshop)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.TheodorsAlchemyWorkshop, NpcId.Theodor, 14039)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 14038);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.AlchemistJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 

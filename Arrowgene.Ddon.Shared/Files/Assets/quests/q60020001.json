@@ -46,7 +46,7 @@
                     "comment": "Hidden Beach Rogue (Fighter)",
                     "enemy_id": "0x011000",
                     "level": 11,
-                    "exp": 55,
+                    "exp": 62,
                     "named_enemy_params_id": 195,
                     "hm_present_no": 45
                 },
@@ -54,7 +54,7 @@
                     "comment": "Hidden Beach Rogue (Seeker)",
                     "enemy_id": "0x011001",
                     "level": 11,
-                    "exp": 55,
+                    "exp": 62,
                     "named_enemy_params_id": 195,
                     "hm_present_no": 46
                 },
@@ -62,7 +62,7 @@
                     "comment": "Hidden Beach Rogue (Hunter)",
                     "enemy_id": "0x011002",
                     "level": 11,
-                    "exp": 55,
+                    "exp": 62,
                     "named_enemy_params_id": 195,
                     "hm_present_no": 47
                 },
@@ -70,7 +70,7 @@
                     "comment": "Hidden Beach Rogue (Mage)",
                     "enemy_id": "0x011005",
                     "level": 11,
-                    "exp": 55,
+                    "exp": 62,
                     "named_enemy_params_id": 195,
                     "hm_present_no": 50
                 }

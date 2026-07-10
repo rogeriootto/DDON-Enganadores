@@ -6,7 +6,7 @@
 
 public class MonsterSpotInfo : IMonsterSpotInfo
 {
-    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(410);
+    public override StageLayoutId StageLayoutId => Stage.Lestania.AsStageLayoutId(409);
     public override QuestAreaId AreaId => QuestAreaId.ZandoraWastelands;
     public override uint RequiredAreaRank => 5;
 
@@ -31,14 +31,27 @@ public class MonsterSpotInfo : IMonsterSpotInfo
                 .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian0)
                 .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
                 .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
-            LibDdon.Enemy.Create(EnemyId.BandedFighter, 48, 238, 1)
-                .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian0)
+            LibDdon.Enemy.Create(EnemyId.BandedHunter, 48, 238, 1)
+                .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian2)
                 .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
                 .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
             LibDdon.Enemy.Create(EnemyId.BandedMage, 48, 238, 2)
                 .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian5)
                 .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
                 .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
+            LibDdon.Enemy.Create(EnemyId.BandedHealer, 48, 238, 3)
+                .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian3)
+                .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
+                .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
+            LibDdon.Enemy.Create(EnemyId.BandedFighter, 48, 238, 4)
+                .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian0)
+                .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
+                .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
+            LibDdon.Enemy.Create(EnemyId.BandedHunter, 48, 238, 5)
+                .SetNamedEnemyParams(NamedParamId.ZandoraBarbarian2)
+                .AddDrop(ItemId.HighVitalityRing, 1, 1, DropRate.RARE)
+                .AddDrop(ItemId.SacredTreeRing, 1, 1, DropRate.VERY_RARE),
+
         });
     }
 }

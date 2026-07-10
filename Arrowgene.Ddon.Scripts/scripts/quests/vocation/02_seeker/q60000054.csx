@@ -1,5 +1,5 @@
 /**
- * @brief Seeking the Master Seeker
+ * @brief Seeking the Master: Seeker
  */
 
 #load "libs.csx"
@@ -11,20 +11,19 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 18;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
     public override bool ShowInAdventureGuide(GameClient client)
     {
-        return client.Character.HasQuestCompleted(QuestId.SeekerTacticsTrialAWhirlwind) &&
+        return client.Character.AreaRanks[QuestAreaId.DoweValley].Rank == 5 &&
                client.Character.ActiveCharacterJobData.Job == JobId.Seeker;
     }
 
     protected override void InitializeState()
     {
         AddQuestOrderCondition(QuestOrderCondition.MinimumVocationLevel(JobId.Seeker, 18));
-        AddQuestOrderCondition(QuestOrderCondition.PersonalQuestCleared(QuestId.SeekerTacticsTrialAWhirlwind));
-        AddQuestOrderCondition(QuestOrderCondition.HasAreaRank(QuestAreaId.DoweValley, 5));
     }
 
     protected override void InitializeRewards()
@@ -41,12 +40,13 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.Seeker)
-            .AddCheckCmdIsTutorialQuestClear(QuestId.SeekerTacticsTrialAWhirlwind);
+            .AddCheckCmdJobLevelNotLess(QuestLevelCheckType.Current, 18)
+            .AddCheckCmdCheckAreaRank(QuestAreaId.DoweValley, 5);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 14025);
-        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.LoneHouseintheValley, NpcId.Chester0, 14027);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.LoneHouseintheValley)
+        process0.AddTalkToNpcBlock(QuestAnnounceType.Accept, Stage.LoneHouseintheValley, NpcId.Chester0, 14027)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 14026);
+        process0.AddProcessEndBlock(true)
             .AddResultCmdReleaseAnnounce(ContentsRelease.SeekerJobTraining, TutorialId.JobTrainingLog);
-        process0.AddProcessEndBlock(true);
     }
 }
 
