@@ -1,4 +1,5 @@
 using Arrowgene.Ddon.Shared.Model.Localization;
+using System.Collections.Concurrent;
 
 public class ChatCommand : IChatCommand
 {
@@ -9,7 +10,7 @@ public class ChatCommand : IChatCommand
     public override void Execute(DdonGameServer server, string[] command, GameClient client, ChatMessage message, List<ChatResponse> responses)
     {
         string T(Translated key, string locale, params object[] args) => server.AssetRepository.LocalizationAssets.GetLocalizedString(key, locale, args);
-        Dictionary<string,string> Locales = new(server.AssetRepository.LocalizationAssets.NotFound);
+        ConcurrentDictionary<string,string> Locales = new(server.AssetRepository.LocalizationAssets.NotFound);
 
         if (command.Length >= 1)
         {

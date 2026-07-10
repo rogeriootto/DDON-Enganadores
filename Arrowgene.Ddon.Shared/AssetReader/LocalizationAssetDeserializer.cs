@@ -77,10 +77,9 @@ namespace Arrowgene.Ddon.Shared.AssetReader
 
             CheckKeys(toAdd, locale);
 
-            if (!asset.NotFound.ContainsKey(locale))
-            {
-                asset.NotFound.Add(locale, notFound.ToString());
-            }
+
+            asset.NotFound.AddOrUpdate(locale, notFound.ToString(), (key, val) => notFound.ToString());
+
 
             _liveAsset.Translations.AddOrUpdate(locale, toAdd, (key, existingDict) => {
                 foreach (var kvp in toAdd)
