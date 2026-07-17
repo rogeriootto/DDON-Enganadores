@@ -118,6 +118,14 @@
                             "comment": "The White Dragon (Full)"
                         }
                     ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 1, "Param2": 16343, "comment": "White Dragon"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16344, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16345, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16346, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16557, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16558, "comment": "Lise"}
+                    ],
                     "npc_id": "Klaus0",
                     "message_id": 15148
                 },
@@ -127,6 +135,13 @@
                     "stage_id": {
                         "id": 5
                     },
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16347, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16348, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16349, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16559, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16560, "comment": "Lise"}
+                    ],
                     "npc_id": "Zerkin",
                     "message_id": 15149
                 },
@@ -135,6 +150,16 @@
                     "announce_type": "Update",
                     "stage_id": {
                         "id": 335
+                    }
+                },
+                {
+                    "type": "NewTalkToNpc",
+                    "checkpoint": true,
+                    "announce_type": "Update",
+                    "stage_id": {
+                        "id": 335,
+                        "group_id": 1,
+                        "layer_no": 1
                     },
                     "flags": [
                         {
@@ -149,17 +174,12 @@
                             "value": 2476,
                             "comment": "Spawns Cecily, Gurdolin, Lise and Elliot"
                         }
-                    ]
-                },
-                {
-                    "type": "NewTalkToNpc",
-                    "checkpoint": true,
-                    "announce_type": "Update",
-                    "stage_id": {
-                        "id": 335,
-                        "group_id": 1,
-                        "layer_no": 1
-                    },
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 15151, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 15152, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 15153, "comment": "Cecily"}
+                    ],
                     "npc_id": "Gurdolin3",
                     "message_id": 15150
                 },
@@ -172,6 +192,10 @@
                             "type": "IsReleaseWarpPointAnyone",
                             "Param1": 16
                         }
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16350, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 549, "Param2": 16893, "comment": "Bertrand"}
                     ]
                 },
                 {
@@ -196,6 +220,16 @@
                             "value": 2855,
                             "comment": "Spawns Cecily, Gurdolin, Lise and Elliot"
                         }
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 2400, "Param2": 16894, "comment": "Clarissa"},
+                        {"type": "QstTalkChg", "Param1": 2401, "Param2": 16895, "comment": "Gunther"},
+                        {"type": "QstTalkChg", "Param1": 2402, "Param2": 16896, "comment": "Rolf"},
+                        {"type": "QstTalkChg", "Param1": 2403, "Param2": 16897, "comment": "Sven"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16898, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16899, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16900, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16901, "comment": "Elliot"}
                     ]
                 },
                 {
@@ -248,7 +282,7 @@
                             "type": "QstLayout",
                             "action": "Set",
                             "value": 3441,
-                            "comment": "Spawns Cecily, Gurdolin, Lise and Elliot"
+                            "comment": "Spawns Gurdolin"
                         }
                     ]
                 },
@@ -260,7 +294,22 @@
                         "id": 3
                     },
                     "npc_id": "Joseph",
-                    "message_id": 15175
+                    "message_id": 15175,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16351, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 1, "Param2": 16352, "comment": "White Dragon"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16353, "comment": "Klaus"}
+                    ]
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 1, "Param2": 696, "comment": "Area Master for Bloodbane Isle has been unlocked."},
+                        {"type": "PlayMessage", "Param1": 18174, "Param2": 0, "comment": "Area Master for Bloodbane Isle has been unlocked. Talk to Bertrand at the Expedition Garrison."}
+                    ]
                 }
             ]
         }

@@ -50,36 +50,51 @@
                 "id": 335,
                 "group_id": 3
             },
+            "starting_index": 13,
             "enemies": [
                 {
                     "comment": "Infected Hobgoblin",
                     "enemy_id": "0x010160",
                     "level": 55,
-                    "exp": 6476,
+                    "exp": 320,
                     "named_enemy_params_id": 920
                 },
                 {
                     "comment": "Infected Hobgoblin",
                     "enemy_id": "0x010160",
                     "level": 55,
-                    "exp": 6476,
+                    "exp": 320,
                     "named_enemy_params_id": 920
                 },
                 {
                     "comment": "Infected Hobgoblin",
                     "enemy_id": "0x010160",
                     "level": 55,
-                    "exp": 6476,
+                    "exp": 320,
                     "named_enemy_params_id": 920
                 },
                 {
                     "comment": "Infected Hobgoblin",
                     "enemy_id": "0x010160",
                     "level": 55,
-                    "exp": 6476,
+                    "exp": 320,
+                    "named_enemy_params_id": 920
+                },
+                {
+                    "comment": "Infected Hobgoblin",
+                    "enemy_id": "0x010160",
+                    "level": 55,
+                    "exp": 320,
                     "named_enemy_params_id": 920
                 }
             ]
+        },
+        {
+            "stage_id": {
+                "id": 335,
+                "group_id": 5
+            },
+            "enemies": []
         }
     ],
     "processes": [
@@ -116,6 +131,7 @@
                         "group_id": 1
                     },
                     "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 2762, "comment": "Spawns Gurdolin - Audience Chamber"},
                         {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
                     ],
                     "npc_id": "Joseph",
@@ -130,12 +146,13 @@
                         "group_id": 1,
                         "layer_no": 1
                     },
-                    "flags": [
-                        {"type": "QstLayout", "action": "Set", "value": 2762, "comment": "Spawns Gurdolin, Lise and Elliot"},
-                        {"type": "QstLayout", "action": "Set", "value": 2640, "comment": "Spawns Gurdolin, Lise and Elliot"}
-                    ],
                     "npc_id": "Gurdolin3",
-                    "message_id": 14938
+                    "message_id": 14938,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16175, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16176, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 1, "Param2": 14937, "comment": "White Dragon"}
+                    ]
                 },
                 {
                     "type": "PartyGather",
@@ -152,6 +169,9 @@
                     "flags": [
                         {"type": "QstLayout", "action": "Set", "value": 2641, "comment": "Spawns Fabio, Gerd and Gurdolin in Breya Coast"},
                         {"type": "QstLayout", "action": "Set", "value": 2977, "comment": "Spawns dead infected monster"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16177, "comment": "Gurdolin"}
                     ]
                 },
                 {
@@ -182,15 +202,23 @@
                         "layer_no": 1
                     },
                     "flags": [
-                        {"type": "QstLayout", "action": "Set", "value": 2642, "comment": "Gurdolin"}
+                        {"type": "QstLayout", "action": "Set", "value": 2642, "comment": "Gurdolin - Bloodbane Isle"},
+                        {"type": "QstLayout", "action": "Clear", "value": 2762, "comment": "Gurdolin - Audience Chamber"},
+                        {"type": "QstLayout", "action": "Clear", "value": 2641, "comment": "Spawns Fabio, Gerd and Gurdolin in Breya Coast"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkDel", "Param1": 12, "comment": "Fabio"}
                     ],
                     "npc_id": "Gurdolin3",
                     "message_id": 14960
                 },
                 {
                     "type": "PartyGather",
-                    "announce_type": "Update",
                     "checkpoint": true,
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16226, "comment": "Gurdolin"}
+                    ],
                     "stage_id": {
                         "id": 335
                     },
@@ -210,6 +238,9 @@
                 {
                     "type": "KillGroup",
                     "announce_type": "Update",
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 3123, "comment": "Instance barriers"}
+                    ],
                     "groups": [0]
                 },
                 {
@@ -221,7 +252,10 @@
                     "event_id": 15,
                     "jump_stage_id": {
                         "id": 3
-                    }
+                    },
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 3123, "comment": "Instance barriers"}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
@@ -244,7 +278,90 @@
                     "npc_id": "Joseph",
                     "message_id": 15007,
                     "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 2640, "comment": "Elliot and Lise"},
                         {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ],
+                    "result_commands": [
+                        {"type": "TutorialDialog", "Param1": 266, "comment": "About Infected: Small Enemies"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16298, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16299, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16300, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 1, "Param2": 16301, "comment": "White Dragon"}
+                    ]
+                }
+            ]
+        },
+        {
+            "comment": "Process 1",
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "StageNoWithoutMarker", "Param1": 100},
+                        {"type": "IsMyquestLayoutFlagOn", "Param1": 2641}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 2762, "comment": "Gurdolin - Audience Chamber"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16180, "comment": "Gurdolin"}
+                    ]
+                }
+            ]
+        },
+        {
+            "comment": "Process 2",
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "StageNoWithoutMarker", "Param1": 100},
+                        {"type": "IsMyquestLayoutFlagOn", "Param1": 2641}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 12, "Param2": 14945, "comment": "Fabio"}
+                    ],
+                    "check_commands": [
+                        {"type": "TalkNpcWithoutMarker", "Param1": 100, "Param2": 12, "comment": "Fabio"}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 12, "Param2": 16178, "comment": "Fabio"}
+                    ]
+                }
+            ]
+        },
+        {
+            "comment": "Process 3",
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "StageNoWithoutMarker", "Param1": 100},
+                        {"type": "IsMyquestLayoutFlagOn", "Param1": 2641}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 14946, "comment": "Gerd"}
+                    ],
+                    "check_commands": [
+                        {"type": "TalkNpcWithoutMarker", "Param1": 100, "Param2": 7, "comment": "Gerd"}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16179, "comment": "Gerd"}
                     ]
                 }
             ]

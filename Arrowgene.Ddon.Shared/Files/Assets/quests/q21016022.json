@@ -136,7 +136,7 @@
         },
         {
           "comment": "Infected Snow Harpy (Severe)",
-          "enemy_id": "0x011067",
+          "enemy_id": "0x010612",
           "infection_type": 2,
           "level": 80,
           "exp": 4035,
@@ -144,7 +144,7 @@
         },
         {
           "comment": "Infected Snow Harpy (Severe)",
-          "enemy_id": "0x011067",
+          "enemy_id": "0x010612",
           "infection_type": 2,
           "level": 80,
           "exp": 4035,
@@ -152,7 +152,7 @@
         },
         {
           "comment": "Infected Snow Harpy (Severe)",
-          "enemy_id": "0x011067",
+          "enemy_id": "0x010612",
           "infection_type": 2,
           "level": 80,
           "exp": 4035,
@@ -160,7 +160,7 @@
         },
         {
           "comment": "Infected Snow Harpy (Severe)",
-          "enemy_id": "0x011067",
+          "enemy_id": "0x010612",
           "infection_type": 2,
           "level": 80,
           "exp": 4035,
@@ -223,7 +223,7 @@
           "index": 2
         },
         {
-          "comment": "Severely Infected Pixie Stymphalides (Severe)",
+          "comment": "Severely Infected Stymphalides (Severe)",
           "enemy_id": "0x010614",
           "infection_type": 2,
           "level": 80,
@@ -231,7 +231,7 @@
           "index": 6
         },
         {
-          "comment": "Severely Infected Pixie Stymphalides (Severe)",
+          "comment": "Severely Infected Stymphalides (Severe)",
           "enemy_id": "0x010614",
           "infection_type": 2,
           "level": 80,
@@ -239,7 +239,7 @@
           "index": 7
         },
         {
-          "comment": "Severely Infected Pixie Stymphalides (Severe)",
+          "comment": "Severely Infected Stymphalides (Severe)",
           "enemy_id": "0x010614",
           "infection_type": 2,
           "level": 80,
@@ -247,7 +247,7 @@
           "index": 8
         },
         {
-          "comment": "Severely Infected Pixie Stymphalides (Severe)",
+          "comment": "Severely Infected Stymphalides (Severe)",
           "enemy_id": "0x010614",
           "infection_type": 2,
           "level": 80,

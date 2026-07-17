@@ -68,7 +68,7 @@
                     "type": "Raw",
                     "announce_type": "CheckpointAndUpdate",
                     "check_commands": [
-                        {"type": "TalkNpc", "Param1": 930, "Param2": 2600},
+                        {"type": "TalkNpc", "Param1": 930, "Param2": 2501},
                         {"type": "WeatherEq", "Param1": 2}
                     ],
                     "result_commands": [
