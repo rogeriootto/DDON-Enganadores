@@ -46,36 +46,43 @@
                 "id": 1,
                 "group_id": 48
             },
+            "starting_index": 14,
             "enemies": [
                 {
                     "comment": "Infected Direwolf",
                     "enemy_id": "0x010209",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 320,
+                    "named_enemy_params_id": 922
                 },
                 {
                     "comment": "Infected Direwolf",
                     "enemy_id": "0x010209",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 320,
+                    "named_enemy_params_id": 922
                 },
                 {
                     "comment": "Infected Direwolf",
                     "enemy_id": "0x010209",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 320,
+                    "named_enemy_params_id": 922
                 },
                 {
                     "comment": "Infected Direwolf",
                     "enemy_id": "0x010209",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 320,
+                    "named_enemy_params_id": 922
                 },
                 {
-                    "comment": "Infected Direwolf",
+                    "comment": "Infected Direwolf (Severe)",
                     "enemy_id": "0x010209",
+                    "infection_type": 2,
                     "level": 55,
-                    "exp": 6476
+                    "exp": 320,
+                    "named_enemy_params_id": 922
                 }
             ]
         },
@@ -84,67 +91,61 @@
                 "id": 1,
                 "group_id": 58
             },
-            "starting_index": 1,
+            "starting_index": 8,
             "enemies": [
                 {
                     "comment": "Infected Snow Harpy",
                     "enemy_id": "0x010612",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 384,
+                    "named_enemy_params_id": 923
                 },
                 {
                     "comment": "Infected Snow Harpy",
                     "enemy_id": "0x010612",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 384,
+                    "named_enemy_params_id": 923
                 },
                 {
                     "comment": "Infected Snow Harpy",
                     "enemy_id": "0x010612",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 384,
+                    "named_enemy_params_id": 923
                 },
                 {
                     "comment": "Infected Snow Harpy",
                     "enemy_id": "0x010612",
                     "level": 55,
-                    "exp": 6476
+                    "exp": 384,
+                    "named_enemy_params_id": 923
                 },
                 {
-                    "comment": "Infected Snow Harpy",
+                    "comment": "Infected Snow Harpy (Severe)",
                     "enemy_id": "0x010612",
+                    "infection_type": 2,
                     "level": 55,
-                    "exp": 6476
+                    "exp": 384,
+                    "named_enemy_params_id": 923
                 }
             ]
         },
         {
             "stage_id": {
                 "id": 1,
-                "group_id": 56
+                "group_id": 57
             },
+            "starting_index": 2,
             "enemies": [
                 {
-                    "comment": "Infected Gorecyclops",
+                    "comment": "Infected Gorecyclops (Slight)",
                     "enemy_id": "0x015012",
                     "infection_type": 1,
                     "level": 55,
-                    "exp": 64760,
-                    "is_boss": true
-                },
-                {
-                    "comment": "Infected Hobgoblin",
-                    "enemy_id": "0x010160",
-                    "start_think_tbl_no": 1,
-                    "level": 55,
-                    "exp": 6476
-                },
-                {
-                    "comment": "Infected Hobgoblin Fighter",
-                    "enemy_id": "0x010161",
-                    "start_think_tbl_no": 1,
-                    "level": 55,
-                    "exp": 6476
+                    "exp": 6400,
+                    "is_boss": true,
+                    "named_enemy_params_id": 924
                 }
             ]
         }
@@ -162,7 +163,7 @@
                     },
                     "flags": [
                         {"type": "WorldManageLayout", "action": "Clear", "value": 8630, "quest_id": 70034001, "comment": "Spawns Gurdolin, Lise and Elliot"},
-                        {"type": "QstLayout", "action": "Set", "value": 2738, "comment": "Spawns Gurdolin, Lise and Elliot"}
+                        {"type": "QstLayout", "action": "Set", "value": 2738, "comment": "Spawns Elliot"}
                     ],
                     "npc_id": "Elliot0",
                     "message_id": 15080
@@ -174,7 +175,19 @@
                         "id": 2
                     },
                     "npc_id": "Heinz2",
-                    "message_id": 15081
+                    "message_id": 15081,
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 3847, "comment": "Spawns Cecily and Lise"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16330, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16331, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16332, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16555, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16556, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 1016, "Param2": 16334, "comment": "Duke"},
+                        {"type": "QstTalkChg", "Param1": 1017, "Param2": 16335, "comment": "Logan"}
+                    ]
                 },
                 {
                     "type": "NewTalkToNpc",
@@ -188,6 +201,9 @@
                     "flags": [
                         {"type": "QstLayout", "action": "Set", "value": 2739, "comment": "Spawns Gerd"}
                     ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 8, "Param2": 16333, "comment": "Heinz"}
+                    ],
                     "npc_id": "Gerd1",
                     "message_id": 15082
                 },
@@ -195,7 +211,10 @@
                     "type": "DiscoverEnemy",
                     "checkpoint": true,
                     "announce_type": "Update",
-                    "groups": [ 0 ]
+                    "groups": [ 0 ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16336, "comment": "Gerd"}
+                    ]
                 },
                 {
                     "type": "KillGroup",
@@ -246,14 +265,37 @@
                         {"type": "QstLayout", "action": "Set", "value": 3051, "comment": "Spawns Gerd"},
                         {"type": "MyQst", "action": "Set", "value": 1339, "comment": "Starts NPC Battle State Machine"}
                     ],
-                    "groups": [ 2 ]
+                    "groups": [ 2 ],
+                    "result_commands": [
+                        {"type": "PlayMessage", "Param1": 15089, "Param2": 5, "comment": "Gerd: You monsters, be still!"},
+                        {"type": "PlayMessage", "Param1": 15090, "Param2": 15, "comment": "Gerd: Knights! Follow me!"},
+                        {"type": "PlayMessage", "Param1": 15098, "Param2": 15, "comment": "Travers: The Knights of the White Dragon stand at the ready!"},
+                        {"type": "PlayMessage", "Param1": 15101, "Param2": 15, "comment": "White Knight 1: Hey there!"},
+                        {"type": "PlayMessage", "Param1": 15104, "Param2": 15, "comment": "White Knight 2: Fighting alongside the leader's right hand is an incredible honor!"},
+                        {"type": "PlayMessage", "Param1": 15091, "Param2": 15, "comment": "Gerd: Arisen! Battle with all your might!"},
+                        {"type": "PlayMessage", "Param1": 15092, "Param2": 15, "comment": "Gerd: Good, good!"},
+                        {"type": "PlayMessage", "Param1": 15093, "Param2": 15, "comment": "Gerd: Onwards!"},
+                        {"type": "PlayMessage", "Param1": 15099, "Param2": 15, "comment": "Travers: Don't be scared!"},
+                        {"type": "PlayMessage", "Param1": 15103, "Param2": 15, "comment": "White Knight 1: Don't underestimate the knights!"},
+                        {"type": "PlayMessage", "Param1": 15106, "Param2": 15, "comment": "White Knight 2: I discovered my life's calling on the field of battle!"},
+                        {"type": "PlayMessage", "Param1": 15094, "Param2": 15, "comment": "Gerd: Attack with your heart!"},
+                        {"type": "PlayMessage", "Param1": 15095, "Param2": 15, "comment": "Gerd: Don't falter!"},
+                        {"type": "PlayMessage", "Param1": 15102, "Param2": 15, "comment": "White Knight 1: Look this way, over here!"},
+                        {"type": "PlayMessage", "Param1": 15096, "Param2": 15, "comment": "Gerd: Forward! Onwards!"},
+                        {"type": "PlayMessage", "Param1": 15097, "Param2": 15, "comment": "Gerd: Finish them off and earn your renown!"},
+                        {"type": "PlayMessage", "Param1": 15100, "Param2": 15, "comment": "Travers: Commander! Are you watching me?"},
+                        {"type": "PlayMessage", "Param1": 15105, "Param2": 15, "comment": "White Knight 2: This fight is one I will never forget for all my days."}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
                     "stage_id": {
                         "id": 1
                     },
-                    "event_id": 130
+                    "event_id": 130,
+                    "result_commands": [
+                        {"type": "StopMessage"}
+                    ]
                 },
                 {
                     "type": "NewTalkToNpc",
@@ -265,25 +307,46 @@
                         "layer_no": 1
                     },
                     "flags": [
-                        {"type": "MyQst", "action": "Clear", "value": 1199, "comment": "Starts NPC Battle State Machine"},
+                        {"type": "MyQst", "action": "Set", "value": 1199, "comment": "Ends NPC Battle State Machine"},
                         {"type": "QstLayout", "action": "Clear", "value": 3050, "comment": "Spawns Travers and WhiteKnights"},
                         {"type": "QstLayout", "action": "Clear", "value": 3051, "comment": "Spawns Gerd"},
                         {"type": "QstLayout", "action": "Set", "value": 3124, "comment": "Spawns Gerd after battle"}
+                    ],
+                    "result_commands": [
+                        {"type": "TutorialDialog", "Param1": 275, "comment": "About Infected: Large Enemies"}
                     ],
                     "npc_id": "Gerd1",
                     "message_id": 15126
                 },
                 {
-                    "type": "NewTalkToNpc",
+                    "type": "IsStageNo",
                     "checkpoint": true,
                     "announce_type": "Update",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 8, "Param2": 16337, "comment": "Heinz"},
+                        {"type": "QstTalkChg", "Param1": 1016, "Param2": 16338, "comment": "Duke"},
+                        {"type": "QstTalkChg", "Param1": 1017, "Param2": 16339, "comment": "Logan"}
+                    ]
+                },
+                {
+                    "type": "NewTalkToNpc",
                     "stage_id": {
                         "id": 3,
                         "group_id": 2,
                         "layer_no": 1
                     },
                     "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 3847, "comment": "Spawns Cecily and Lise"},
+                        {"type": "QstLayout", "action": "Clear", "value": 3124, "comment": "Spawns Gerd after battle"},
                         {"type": "QstLayout", "action": "Set", "value": 2769, "comment": "Spawns Gerd in Audience Chamber"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 15128, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16340, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16341, "comment": "Klaus"}
                     ],
                     "npc_id": "Gerd1",
                     "message_id": 15127
@@ -296,7 +359,10 @@
                         "id": 3
                     },
                     "npc_id": "Joseph",
-                    "message_id": 15129
+                    "message_id": 15129,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16342, "comment": "Gerd"}
+                    ]
                 }
             ]
         }

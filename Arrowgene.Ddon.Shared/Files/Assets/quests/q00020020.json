@@ -42,13 +42,15 @@
                 "id": 1,
                 "group_id": 83
             },
+            "starting_index": 12,
             "enemies": [
                 {
                     "comment": "Zuhl",
                     "enemy_id": "0x020402",
-                    "level": 53,
-                    "exp": 62540,
-                    "is_boss": true
+                    "level": 55,
+                    "exp": 6880,
+                    "is_boss": true,
+                    "named_enemy_params_id": 921
                 }
             ]
         }
@@ -66,7 +68,7 @@
                     },
                     "flags": [
                         {"type": "WorldManageLayout", "action": "Clear", "value": 8630, "quest_id": 70034001, "comment": "Spawns Gurdolin, Lise and Elliot"},
-                        {"type": "QstLayout", "action": "Set", "value": 2692, "comment": "Spawns Gurdolin, Lise and Elliot"}
+                        {"type": "QstLayout", "action": "Set", "value": 2692, "comment": "Spawns Gurdolin and Lise"}
                     ],
                     "npc_id": "Lise0",
                     "message_id": 15008
@@ -76,6 +78,16 @@
                     "announce_type": "Accept",
                     "flags": [
                         {"type": "QstLayout", "action": "Set", "value": 3026, "comment": "Elliot and Cecily"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16302, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16303, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16304, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16552, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 14, "Param2": 16305, "comment": "Mayleaf"},
+                        {"type": "QstTalkChg", "Param1": 1003, "Param2": 16306, "comment": "Pamela"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16307, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16308, "comment": "Elliot"}
                     ],
                     "stage_id": {
                         "id": 350
@@ -93,15 +105,35 @@
                     },
                     "flags": [
                         {"type": "QstLayout", "action": "Clear", "value": 3026, "comment": "Elliot and Cecily"},
-                        {"type": "QstLayout", "action": "Set", "value": 3440, "comment": "Elliot and Cecily (in the house)"},
-                        {"type": "QstLayout", "action": "Set", "value": 2764, "comment": "Elliot and Cecily (in breya coast)"}
+                        {"type": "QstLayout", "action": "Set", "value": 3440, "comment": "Elliot and Cecily (in the house)"}
                     ],
                     "event_id": 0
                 },
                 {
-                    "type": "NewTalkToNpc",
+                    "type": "Raw",
                     "announce_type": "Update",
                     "checkpoint": true,
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 2764, "comment": "Elliot and Cecily (in breya coast)"}
+                    ],
+                    "check_commands": [
+                        [{"type": "StageNoWithoutMarker", "Param1": 100}],
+                        [{"type": "NewTalkNpc", "Param1": 100, "Param2": 1, "Param3": 2, "Param4": 20020}, {"type": "DummyNotProgress"}]
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16314, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16315, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 14, "Param2": 16316, "comment": "Mayleaf"}
+                    ]
+                },
+                {
+                    "type": "NewTalkToNpc",
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 3440, "comment": "Elliot and Cecily (in the house)"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 15023, "comment": "Cecily"}
+                    ],
                     "stage_id": {
                         "id": 1,
                         "group_id": 1,
@@ -114,8 +146,9 @@
                     "type": "PartyGather",
                     "announce_type": "Update",
                     "checkpoint": true,
-                    "flags": [
-                        {"type": "QstLayout", "action": "Clear", "value": 3440, "comment": "Elliot and Cecily (in the house)"}
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16317, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16318, "comment": "Cecily"}
                     ],
                     "stage_id": {
                         "id": 1
@@ -136,14 +169,31 @@
                 {
                     "type": "KillGroup",
                     "announce_type": "Update",
-                    "groups": [0]
+                    "groups": [0],
+                    "result_commands": [
+                        {"type": "PlayMessage", "Param1": 15030, "Param2": 10, "comment": "Zuhl: It's you! I can't stand you!"},
+                        {"type": "PlayMessage", "Param1": 15031, "Param2": 10, "comment": "Zuhl: Move aside! You're a nuisance!"},
+                        {"type": "PlayMessage", "Param1": 15032, "Param2": 12, "comment": "Zuhl: I sense that woman nearby! Where is she?"},
+                        {"type": "PlayMessage", "Param1": 15033, "Param2": 13, "comment": "Zuhl: You lot, it's no use resisting!"},
+                        {"type": "PlayMessage", "Param1": 15034, "Param2": 15, "comment": "Zuhl: Whoa whoa whoa!"},
+                        {"type": "PlayMessage", "Param1": 15035, "Param2": 15, "comment": "Zuhl: Did you forget how terrifying I am?"},
+                        {"type": "PlayMessage", "Param1": 15036, "Param2": 15, "comment": "Zuhl: I will show no mercy, you know that, right?"},
+                        {"type": "PlayMessage", "Param1": 15037, "Param2": 15, "comment": "Zuhl: You are still weak, aren't you?"},
+                        {"type": "PlayMessage", "Param1": 15038, "Param2": 15, "comment": "Zuhl: I am the calamity... I'm not so easily erased."},
+                        {"type": "PlayMessage", "Param1": 15039, "Param2": 15, "comment": "Zuhl: You... you're hiding a woman, aren't you?"},
+                        {"type": "PlayMessage", "Param1": 15040, "Param2": 15, "comment": "Zuhl: The girl... where is she?"},
+                        {"type": "PlayMessage", "Param1": 15041, "Param2": 15, "comment": "Zuhl: Black Knight... grant me your power, come to me..."}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
                     "stage_id": {
                         "id": 1
                     },
-                    "event_id": 115
+                    "event_id": 115,
+                    "result_commands": [
+                        {"type": "StopMessage"}
+                    ]
                 },
                 {
                     "type": "PartyGather",
@@ -156,7 +206,11 @@
                         "x": -204091,
                         "y": 3345,
                         "z": -74870
-                    }
+                    },
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16321, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16322, "comment": "Cecily"}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
@@ -178,7 +232,11 @@
                         "z": -29
                     },
                     "flags": [
-                        {"type": "QstLayout", "action": "Clear", "value": 2692, "comment": "Spawns Gurdolin, Lise and Elliot"}
+                        {"type": "QstLayout", "action": "Clear", "value": 2692, "comment": "Spawns Gurdolin and Lise"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16323, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16324, "comment": "Cecily"}
                     ]
                 },
                 {
@@ -199,13 +257,19 @@
                         "id": 3
                     },
                     "flags": [
-                        {"type": "QstLayout", "action": "Set", "value": 3027, "comment": "Spawns Cici, Gurdolin, Lise and Elliot"}
+                        {"type": "QstLayout", "action": "Clear", "value": 2764, "comment": "Elliot and Cecily (in breya coast)"},
+                        {"type": "QstLayout", "action": "Set", "value": 3027, "comment": "Spawns Cici, Gurdolin, Lise and Elliot"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16326, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16327, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16553, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16554, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16328, "comment": "Klaus"}
                     ],
                     "npc_id": "Joseph",
-                    "message_id": 15078,
-                    "flags": [
-                        {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
-                    ]
+                    "message_id": 15078
                 },
                 {
                     "type": "TalkToNpc",
@@ -215,7 +279,10 @@
                         "id": 3
                     },
                     "npc_id": "Klaus0",
-                    "message_id": 15079
+                    "message_id": 15079,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16329, "comment": "Joseph"}
+                    ]
                 }
             ]
         }

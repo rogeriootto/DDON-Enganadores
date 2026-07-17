@@ -68,7 +68,7 @@
                     "type": "Raw",
                     "announce_type": "CheckpointAndUpdate",
                     "check_commands": [
-                        {"type": "TalkNpc", "Param1": 910, "Param2": 2600},
+                        {"type": "TalkNpc", "Param1": 910, "Param2": 4509},
                         {"type": "IngameTimeRangeEq", "Param1": 4, "Param2": 7}
                     ],
                     "result_commands": [
@@ -84,7 +84,7 @@
                     ],
                     "check_commands": [
                         {"type": "HaveItemAllBag", "Param1": 16002, "Param2": 5}
-                    ]
+                    ]	
                 },
                 {
                     "type": "DeliverItems",

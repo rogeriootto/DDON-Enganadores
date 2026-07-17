@@ -67,7 +67,7 @@
                     "type": "Raw",
                     "announce_type": "CheckpointAndUpdate",
                     "check_commands": [
-                        {"type": "TalkNpc", "Param1": 910, "Param2": 2600},
+                        {"type": "TalkNpc", "Param1": 910, "Param2": 4509},
                         {"type": "IngameTimeRangeNotEq", "Param1": 2, "Param2": 22}
                     ],
                     "result_commands": [

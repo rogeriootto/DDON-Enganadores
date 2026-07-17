@@ -43,13 +43,15 @@
                 "id": 1,
                 "group_id": 313
             },
+            "starting_index": 5,
             "enemies": [
                 {
                     "comment": "Zuhl",
                     "enemy_id": "0x020402",
                     "level": 57,
-                    "exp": 67060,
-                    "is_boss": true
+                    "exp": 7072,
+                    "is_boss": true,
+                    "named_enemy_params_id": 929
                 }
             ]
         }
@@ -80,9 +82,13 @@
                         "id": 3
                     },
                     "npc_id": "Joseph",
-                    "message_id": 15210
+                    "message_id": 15210,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16365, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16563, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16366, "comment": "Klaus"}
+                    ]
                 },
-
                 {
                     "type": "PartyGather",
                     "announce_type": "Update",
@@ -94,7 +100,10 @@
                         "x": -146041,
                         "y": 13242,
                         "z": -302402
-                    }
+                    },
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16367, "comment": "Joseph"}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
@@ -106,14 +115,37 @@
                 {
                     "type": "KillGroup",
                     "announce_type": "Update",
-                    "groups": [ 0 ]
+                    "groups": [ 0 ],
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 3656, "comment": "Instance barriers"}
+                    ],
+                    "result_commands": [
+                        {"type": "PlayMessage", "Param1": 15237, "Param2": 10, "comment": "Zuhl: I have no use for you!"},
+                        {"type": "PlayMessage", "Param1": 15238, "Param2": 10, "comment": "Zuhl: These annoying pests!"},
+                        {"type": "PlayMessage", "Param1": 15239, "Param2": 15, "comment": "Zuhl: Arisen of that stricken dragon, get twisted!"},
+                        {"type": "PlayMessage", "Param1": 15240, "Param2": 15, "comment": "Zuhl: Bring out the woman! I'll say it over and over!"},
+                        {"type": "PlayMessage", "Param1": 15241, "Param2": 15, "comment": "Zuhl: I'm being lenient, but you'd better listen!"},
+                        {"type": "PlayMessage", "Param1": 15242, "Param2": 15, "comment": "Zuhl: Oh, things are starting to get exciting!"},
+                        {"type": "PlayMessage", "Param1": 15243, "Param2": 15, "comment": "Zuhl: O Lady! Come here!"},
+                        {"type": "PlayMessage", "Param1": 15244, "Param2": 15, "comment": "Zuhl: Ah... This is getting tedious."},
+                        {"type": "PlayMessage", "Param1": 15245, "Param2": 15, "comment": "Zuhl: I'm about to get serious, you bastards!"},
+                        {"type": "PlayMessage", "Param1": 15246, "Param2": 15, "comment": "Zuhl: Why do you need her so bad?"},
+                        {"type": "PlayMessage", "Param1": 15247, "Param2": 15, "comment": "Zuhl: You lot just don't get it..."},
+                        {"type": "PlayMessage", "Param1": 15248, "Param2": 15, "comment": "Zuhl: Tremble... Flee before me... Do not take me lightly!"}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
                     "stage_id": {
                         "id": 1
                     },
-                    "event_id": 140
+                    "event_id": 140,
+                    "result_commands": [
+                        {"type": "StopMessage"}
+                    ],
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 3656, "comment": "Instance barriers"}
+                    ]
                 },
                 {
                     "type": "TalkToNpc",
@@ -122,8 +154,18 @@
                     "stage_id": {
                         "id": 3
                     },
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 3098, "comment": "Lise and Cecily"}
+                    ],
                     "npc_id": "Joseph",
-                    "message_id": 15254
+                    "message_id": 15254,
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16368, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16369, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16370, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16564, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16371, "comment": "Klaus"}
+                    ]
                 }
             ]
         }
