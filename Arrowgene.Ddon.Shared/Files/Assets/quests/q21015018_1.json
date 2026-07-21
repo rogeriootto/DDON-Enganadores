@@ -1,0 +1,444 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Cruel Winged Shadow",
+    "quest_id": 21015018,
+    "base_level": 80,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "FaranaPlains",
+    "news_image": 262,
+    "order_conditions": [{"type": "AreaRank", "Param1": 15, "Param2": 13}],
+    "variant_index": 1,
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 48420
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5106
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 665
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "UnappraisedWindTrinketGeneral",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 371,
+                "group_id": 77
+            },
+            "enemies": [
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 371,
+                "group_id": 77
+            },
+            "enemies": [
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Pixie Jabber",
+                    "enemy_id": "0x010155",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 397,
+                "group_id": 1
+            },
+            "starting_index": 7,
+            "enemies": [
+                {
+                    "comment": "Wyrm",
+                    "enemy_id": "0x015701",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Siren",
+                    "enemy_id": "0x010605",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Siren",
+                    "enemy_id": "0x010605",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Siren",
+                    "enemy_id": "0x010605",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Siren",
+                    "enemy_id": "0x010605",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Siren",
+                    "enemy_id": "0x010605",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Siren",
+                    "enemy_id": "0x010605",
+                    "level": 80,
+                    "exp": 4035
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 397,
+                "group_id": 1
+            },
+            "starting_index": 7,
+            "enemies": [
+                {
+                    "comment": "Drake",
+                    "enemy_id": "0x015700",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Strix",
+                    "enemy_id": "0x010610",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Strix",
+                    "enemy_id": "0x010610",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Strix",
+                    "enemy_id": "0x010610",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Strix",
+                    "enemy_id": "0x010610",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Wounded Strix",
+                    "enemy_id": "0x010610",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 2100
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Strix",
+                    "enemy_id": "0x010610",
+                    "level": 80,
+                    "exp": 4035
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 15, "Param1": 13},
+                        {"type": "StageNo", "Param1": 120}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 120, "Param2": 18, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 120, "Param2": 77, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4619}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 120, "Param2": 1, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4619},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 901, "Param2": 1, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 901, "Param2": 1, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}

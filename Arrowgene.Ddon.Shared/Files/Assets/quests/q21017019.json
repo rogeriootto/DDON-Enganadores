@@ -1,0 +1,317 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Frozen Blaze",
+    "quest_id": 21017019,
+    "base_level": 78,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "KingalCanyon",
+    "news_image": 615,
+    "order_conditions": [{"type": "AreaRank", "Param1": 17, "Param2": 13}],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 44220
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5073
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 555
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "FrostMetal",
+                    "num": 1
+                },
+                {
+                    "item_id": "DarkMetal",
+                    "num": 1
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 373,
+                "group_id": 48
+            },
+            "enemies": [
+                {
+                    "comment": "Living Armor",
+                    "enemy_id": "0x010306",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Living Armor",
+                    "enemy_id": "0x010306",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 373,
+                "group_id": 48
+            },
+            "enemies": [
+                {
+                    "comment": "Skull Lord",
+                    "enemy_id": "0x010313",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Skull Lord",
+                    "enemy_id": "0x010313",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 422,
+                "group_id": 9
+            },
+            "starting_index": 5,
+            "enemies": [
+                {
+                    "comment": "Frost Machina",
+                    "enemy_id": "0x015851",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Living Armor",
+                    "enemy_id": "0x010306",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 1900
+                },
+                {
+                    "comment": "Wounded Living Armor",
+                    "enemy_id": "0x010306",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 1900
+                },
+                {
+                    "comment": "Frost Skeleton Brute",
+                    "enemy_id": "0x010321",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Frost Skeleton Brute",
+                    "enemy_id": "0x010321",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Frost Skeleton Brute",
+                    "enemy_id": "0x010321",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 422,
+                "group_id": 9
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Gigant Machina",
+                    "enemy_id": "0x015850",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Skull Lord",
+                    "enemy_id": "0x010313",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 1900
+                },
+                {
+                    "comment": "Wounded Skull Lord",
+                    "enemy_id": "0x010313",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 1900
+                },
+                {
+                    "comment": "Flame Skeleton Brute",
+                    "enemy_id": "0x010320",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Flame Skeleton Brute",
+                    "enemy_id": "0x010320",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Flame Skeleton Brute",
+                    "enemy_id": "0x010320",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 17, "Param1": 13},
+                        {"type": "StageNo", "Param1": 122}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 122, "Param2": 28, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 122, "Param2": 48, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4678}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 122, "Param2": 0, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4678},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 829, "Param2": 9, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 829, "Param2": 9, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}
