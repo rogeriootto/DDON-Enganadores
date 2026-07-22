@@ -1,0 +1,437 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "[Hard] Save the Island",
+  "quest_id": 21000063,
+  "base_level": 70,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "BloodbaneIsle",
+  "news_image": 900,
+  "order_conditions": [{"type": "AreaRank", "Param1": 13, "Param2": 14}],
+  "rewards": [
+    {
+      "type": "exp",
+      "amount": 16020
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 2309
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "item_id": "CrestOfHerculeanPowerShock0",
+          "num": 1
+        },
+        {
+          "item_id": "CrestOfSuperiorMagickShock0",
+          "num": 1
+        },
+        {
+          "item_id": "Panacea",
+          "num": 3
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "stage_id": {
+        "id": 337,
+        "group_id": 2
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Ogre",
+          "enemy_id": "0x015500",
+          "level": 70,
+          "exp": 7675,
+          "is_boss": true,
+          "index": 4
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 7
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535,
+          "index": 8
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535,
+          "index": 9
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535,
+          "index": 10
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 408,
+        "group_id": 3
+      },
+      "starting_index": 3,
+      "enemies": [
+        {
+          "comment": "Flame Corpse Punisher",
+          "enemy_id": "0x010513",
+          "level": 70,
+          "exp": 1535
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535
+        },
+        {
+          "comment": "Infected Hobgoblin",
+          "enemy_id": "0x010160",
+          "level": 70,
+          "exp": 1535
+        },
+        {
+          "comment": "Flame Corpse Punisher",
+          "enemy_id": "0x010513",
+          "level": 70,
+          "exp": 1535
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 408,
+        "group_id": 13
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Infected Gorecyclops - Severe",
+          "enemy_id": "0x015012",
+          "level": 70,
+          "exp": 7675,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Infected Sling Hobgoblin",
+          "enemy_id": "0x010162",
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Infected Sling Hobgoblin",
+          "enemy_id": "0x010162",
+          "level": 70,
+          "exp": 1535,
+          "index": 7
+        },
+        {
+          "comment": "Infected Sling Hobgoblin",
+          "enemy_id": "0x010162",
+          "level": 70,
+          "exp": 1535,
+          "index": 8
+        },
+        {
+          "comment": "Infected Sling Hobgoblin",
+          "enemy_id": "0x010162",
+          "level": 70,
+          "exp": 1535,
+          "index": 9
+        },
+        {
+          "comment": "Infected Sling Hobgoblin - Severe",
+          "enemy_id": "0x010162",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 10
+        },
+        {
+          "comment": "Infected Sling Hobgoblin - Severe",
+          "enemy_id": "0x010162",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 11
+        },
+        {
+          "comment": "Infected Sling Hobgoblin - Severe",
+          "enemy_id": "0x010162",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 12
+        },
+        {
+          "comment": "Infected Sling Hobgoblin - Severe",
+          "enemy_id": "0x010162",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 13
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 408,
+        "group_id": 14
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Infected Griffin - Severe",
+          "enemy_id": "0x015306",
+          "set_type": 3,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 38375,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 7
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 8
+        },
+        {
+          "comment": "Infected Direwolf",
+          "enemy_id": "0x010209",
+          "level": 70,
+          "exp": 1535,
+          "index": 9
+        },
+        {
+          "comment": "Infected Direwolf",
+          "enemy_id": "0x010209",
+          "level": 70,
+          "exp": 1535,
+          "index": 10
+        },
+        {
+          "comment": "Infected Direwolf",
+          "enemy_id": "0x010209",
+          "level": 70,
+          "exp": 1535,
+          "index": 11
+        },
+        {
+          "comment": "Infected Direwolf",
+          "enemy_id": "0x010209",
+          "level": 70,
+          "exp": 1535,
+          "index": 12
+        },
+        {
+          "comment": "Infected Direwolf",
+          "enemy_id": "0x010209",
+          "level": 70,
+          "exp": 1535,
+          "index": 13
+        }
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "blocks": [
+        {
+          "type": "NpcTalkAndOrder",
+          "stage_id": {
+            "id": 317
+          },
+          "npc_id": "Bertrand",
+          "message_id": 17458
+        },
+        {
+          "type": "SeekOutEnemiesAtMarkedLocation",
+          "announce_type": "Accept",
+          "result_commands": [
+            {
+              "comment": "Idle dialogue",
+              "type": "QstTalkChg",
+              "Param1": 549,
+              "Param2": 17459
+            }
+          ],
+          "groups": [0]
+        },
+        {
+          "type": "KillGroup",
+          "announce_type": "Update",
+          "reset_group": false,
+          "groups": [ 0 ]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [1],
+          "check_flags": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "check_flags": [3, 4, 5]
+        },
+        {
+          "type": "TalkToNpc",
+          "stage_id": {
+            "id": 317
+          },
+          "npc_id": "Bertrand",
+          "message_id": 17460
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [1]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [1]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [3]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [2]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [4]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [3]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [3]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [5]
+        }
+      ]
+    }
+  ]
+}

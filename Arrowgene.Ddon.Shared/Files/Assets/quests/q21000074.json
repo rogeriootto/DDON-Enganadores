@@ -1,0 +1,465 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "[Hard] For Youthful Strength",
+  "quest_id": 21000074,
+  "base_level": 70,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "BloodbaneIsle",
+  "news_image": 900,
+  "order_conditions": [{"type": "AreaRank", "Param1": 13, "Param2": 14}],
+  "rewards": [
+    {
+      "type": "exp",
+      "amount": 18420
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 2309
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "item_id": "CrestOfHerculeanPowerBlinding0",
+          "num": 1
+        },
+        {
+          "item_id": "CrestOfSuperiorMagickBlinding0",
+          "num": 1
+        },
+        {
+          "item_id": "Panacea",
+          "num": 3
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "stage_id": {
+        "id": 335,
+        "group_id": 8
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 5
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 12
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 13
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 14
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 15
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 16
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 17
+        },
+        {
+          "comment": "Infected Direwolf - Slight",
+          "enemy_id": "0x010209",
+          "infection_type": 1,
+          "level": 70,
+          "exp": 1535,
+          "index": 18
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 319,
+        "group_id": 2
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Chimera",
+          "enemy_id": "0x015200",
+          "level": 70,
+          "exp": 7675,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Electric Slime",
+          "enemy_id": "0x010907",
+          "level": 70,
+          "exp": 1535,
+          "index": 5
+        },
+        {
+          "comment": "Electric Slime",
+          "enemy_id": "0x010907",
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Electric Slime",
+          "enemy_id": "0x010907",
+          "level": 70,
+          "exp": 1535,
+          "index": 7
+        },
+        {
+          "comment": "Electric Slime",
+          "enemy_id": "0x010907",
+          "level": 70,
+          "exp": 1535,
+          "index": 8
+        },
+        {
+          "comment": "Electric Slime",
+          "enemy_id": "0x010907",
+          "level": 70,
+          "exp": 1535,
+          "index": 9
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 319,
+        "group_id": 5
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Infected Gorecyclops - Severe",
+          "enemy_id": "0x015012",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 7675,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Infected Snow Harpy - Severe",
+          "enemy_id": "0x010612",
+          "set_type": 3,
+          "start_think_tbl_no": 2,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 2
+        },
+        {
+          "comment": "Infected Snow Harpy - Severe",
+          "enemy_id": "0x010612",
+          "set_type": 3,
+          "start_think_tbl_no": 2,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 3
+        },
+        {
+          "comment": "Infected Snow Harpy - Severe",
+          "enemy_id": "0x010612",
+          "set_type": 3,
+          "start_think_tbl_no": 2,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 4
+        },
+        {
+          "comment": "Infected Snow Harpy - Severe",
+          "enemy_id": "0x010612",
+          "start_think_tbl_no": 2,
+          "set_type": 3,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 5
+        },
+        {
+          "comment": "Infected Snow Harpy - Severe",
+          "enemy_id": "0x010612",
+          "set_type": 3,
+          "start_think_tbl_no": 2,
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 319,
+        "group_id": 6
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Frost Machina",
+          "enemy_id": "0x015851",
+          "level": 70,
+          "exp": 38375,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 2
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 3
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 4
+        },
+        {
+          "comment": "Infected Hobgoblin Fighter - Severe",
+          "enemy_id": "0x010161",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 5
+        },
+        {
+          "comment": "Infected Hobgoblin - Severe",
+          "enemy_id": "0x010160",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 6
+        },
+        {
+          "comment": "Infected Hobgoblin - Severe",
+          "enemy_id": "0x010160",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 7
+        },
+        {
+          "comment": "Infected Hobgoblin - Severe",
+          "enemy_id": "0x010160",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 8
+        },
+        {
+          "comment": "Infected Hobgoblin - Severe",
+          "enemy_id": "0x010160",
+          "infection_type": 2,
+          "level": 70,
+          "exp": 1535,
+          "index": 9
+        }
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "blocks": [
+        {
+          "type": "NpcTalkAndOrder",
+          "stage_id": {
+            "id": 317
+          },
+          "npc_id": "Bertrand",
+          "message_id": 17465
+        },
+        {
+          "type": "SeekOutEnemiesAtMarkedLocation",
+          "announce_type": "Accept",
+          "result_commands": [
+            {
+              "comment": "Idle dialogue",
+              "type": "QstTalkChg",
+              "Param1": 549,
+              "Param2": 17466
+            }
+          ],
+          "groups": [0]
+        },
+        {
+          "type": "KillGroup",
+          "announce_type": "Update",
+          "reset_group": false,
+          "groups": [ 0 ]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [1],
+          "check_flags": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "check_flags": [3, 4, 5]
+        },
+        {
+          "type": "TalkToNpc",
+          "stage_id": {
+            "id": 317
+          },
+          "npc_id": "Bertrand",
+          "message_id": 17467
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [1]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [1]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [3]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [2]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [4]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [3]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [3]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [5]
+        }
+      ]
+    }
+  ]
+}

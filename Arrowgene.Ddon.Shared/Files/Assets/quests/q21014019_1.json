@@ -1,0 +1,308 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Brethren Hiding Poison",
+    "quest_id": 21014019,
+    "base_level": 78,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "ElanWaterGrove",
+    "news_image": 615,
+    "order_conditions": [{"type": "AreaRank", "Param1": 14, "Param2": 13}],
+    "variant_index": 1,
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 44220
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5073
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 555
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "TransparentCoarseSand",
+                    "num": 3
+                },
+                {
+                    "item_id": "ProtectedBeastsGreenFur",
+                    "num": 1
+                },
+                {
+                    "item_id": "Panacea",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 47
+            },
+            "enemies": [
+                {
+                    "comment": "Troll",
+                    "enemy_id": "0x015040",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 47
+            },
+            "enemies": [
+                {
+                    "comment": "Mole Troll",
+                    "enemy_id": "0x015041",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 439,
+                "group_id": 5
+            },
+            "starting_index": 9,
+            "enemies": [
+                {
+                    "comment": "Mole Troll",
+                    "enemy_id": "0x015041",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Troll",
+                    "enemy_id": "0x015040",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 6180,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 439,
+                "group_id": 5
+            },
+            "starting_index": 9,
+            "enemies": [
+                {
+                    "comment": "Troll",
+                    "enemy_id": "0x015040",
+                    "level": 78,
+                    "exp": 18425,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Mole Troll",
+                    "enemy_id": "0x015041",
+                    "named_enemy_params_id": 1480,
+                    "level": 78,
+                    "exp": 6180,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                },
+                {
+                    "comment": "Green Guardian",
+                    "enemy_id": "0x010210",
+                    "level": 78,
+                    "exp": 3685
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 14, "Param1": 13},
+                        {"type": "StageNo", "Param1": 121}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 25, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 47, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4583}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 121, "Param2": 1, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4583},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 818, "Param2": 5, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 818, "Param2": 5, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}
