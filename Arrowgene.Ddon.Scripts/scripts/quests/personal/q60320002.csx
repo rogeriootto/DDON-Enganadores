@@ -13,7 +13,6 @@ public class ScriptedQuest : IQuest
     public override bool IsDiscoverable => false;
     public override StageInfo StageInfo => Stage.EliGuardTower;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
-    public override bool Enabled => false;
 
     private class EnemyGroupId
     {

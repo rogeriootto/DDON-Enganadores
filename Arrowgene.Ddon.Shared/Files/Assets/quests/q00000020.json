@@ -66,10 +66,9 @@
                 {
                     "comment" : "Iris",
                     "enemy_id": "0x011040",
-                    "level": 48,
-                    "exp": 57340,
                     "hm_present_no": 74,
-                    "is_boss": true,
+                    "level": 49,
+                    "exp": 0,
                     "index": 0
                 },
                 {
@@ -77,7 +76,8 @@
                     "enemy_id": "0x015103",
                     "named_enemy_params_id": 171,
                     "level": 48,
-                    "exp": 5734,
+                    "exp": 4554,
+                    "is_boss": true,
                     "index": 3
                 },
                 {
@@ -85,7 +85,8 @@
                     "enemy_id": "0x015103",
                     "named_enemy_params_id": 171,
                     "level": 48,
-                    "exp": 5734,
+                    "exp": 4554,
+                    "is_boss": true,
                     "index": 4
                 }
             ]
@@ -140,6 +141,16 @@
                     },
                     "npc_id": "Leo0",
                     "message_id": 8315,
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 1, "Param2": 466},
+                        {"type": "CallMessage", "Param1": 5, "Param2": 16184},
+						{"type": "QstTalkChg", "Param1": 4, "Param2": 8309, "comment": "Joseph"},
+						{"type": "QstTalkChg", "Param1": 3, "Param2": 8310, "comment": "Klaus"},
+						{"type": "QstTalkChg", "Param1": 7, "Param2": 8311, "comment": "Gerd"},
+						{"type": "QstTalkChg", "Param1": 14, "Param2": 8312, "comment": "Mayleaf"},
+						{"type": "QstTalkChg", "Param1": 1003, "Param2": 8313, "comment": "Pamela"},
+						{"type": "QstTalkChg", "Param1": 8, "Param2": 8314, "comment": "Heinz"}
+                    ],
                     "contents_release": [
                         {
                             "type": "None",
@@ -148,47 +159,29 @@
                     ]
                 },
                 {
-                    "type": "OmInteractEvent",
+                    "type": "Raw",
                     "checkpoint": true,
                     "announce_type": "Update",
                     "comment": "Interact with main door",
                     "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 1, "comment": "Start Subprocess for marking door Main Door"},
                         {"type": "MyQst", "action": "Set", "value": 116, "comment": "Start Leo follow FSM"}
                     ],
-                    "quest_type": "WorldManageQuest",
-                    "quest_id": 70003001,
-                    "interact_type": "Release",
-                    "stage_id": {
-                        "id": 77,
-                        "group_id": 13,
-                        "layer_no": 1
-                    }
+                    "check_commands": [
+                        {"type": "QuestOmReleaseTouch", "Param1": 411, "Param2": 13, "Param3": 1, "Param4": 70003001}
+                    ]
                 },
                 {
-                    "type": "OmInteractEvent",
+                    "type": "Raw",
                     "checkpoint": true,
                     "announce_type": "Update",
                     "comment": "Interact with side door",
-                    "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 2, "comment": "Signal to subprocess main door was touched"}
-                    ],
-                    "quest_type": "WorldManageQuest",
-                    "quest_id": 70003001,
-                    "interact_type": "Touch",
-                    "stage_id": {
-                        "id": 77,
-                        "group_id": 5,
-                        "layer_no": 2
-                    }
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 411, "Param2": 5, "Param3": 2, "Param4": 70003001}
+                    ]
                 },
                 {
                     "type": "CollectItem",
                     "checkpoint": true,
-                    "checkpoint_flags": [
-                        {"type": "MyQst", "action": "Clear", "value": 1, "comment": "Start Subprocess for marking Alchemy Door"},
-                        {"type": "MyQst", "action": "Clear", "value": 2, "comment": "Signal to subprocess main door was touched"}
-                    ],
                     "announce_type": "Update",
                     "comment": "Find key for side door",
                     "stage_id": {
@@ -196,13 +189,15 @@
                         "group_id": 3,
                         "layer_no": 1
                     },
+                    "result_commands": [
+                        {"type": "PlayMessage", "Param1": 8325, "Param2": 0}
+                    ],
                     "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 3, "comment": "Signal to subprocess door was touched"},
                         {"type": "QstLayout", "action": "Set", "value": 906, "comment": "Spawns glitter in military facility"}
                     ]
                 },
                 {
-                    "type": "OmInteractEvent",
+                    "type": "Raw",
                     "checkpoint": true,
                     "announce_type": "Update",
                     "comment": "Open side door",
@@ -210,55 +205,36 @@
                         {"id": 1029, "amount": 1}
                     ],
                     "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 4, "comment": "Signal to subprocess glitter was found"},
                         {"type": "QstLayout", "action": "Clear", "value": 906, "comment": "Spawns glitter for door"}
                     ],
-                    "quest_type": "WorldManageQuest",
-                    "quest_id": 70003001,
-                    "interact_type": "UsedKey",
-                    "stage_id": {
-                        "id": 77,
-                        "group_id": 5,
-                        "layer_no": 2
-                    }
+                    "check_commands": [
+                        {"type": "HasUsedKey", "Param1": 411, "Param2": 5, "Param3": 2, "Param4": 70003001}
+                    ]
                 },
                 {
-                    "type": "OmInteractEvent",
+                    "type": "Raw",
                     "checkpoint": true,
                     "consume_items": [
                         {"id": 1029, "amount": 1}
                     ],
-                    "checkpoint_flags": [
-                        {"type": "WorldManageLayout", "action": "Clear", "value": 1119, "quest_id": 70003001, "comment": "Alchemy Research Door Closed"},
-                        {"type": "WorldManageLayout", "action": "Set", "value": 1120, "quest_id": 70003001, "comment": "Alchemy Research Door Open"},
-                        {"type": "MyQst", "action": "Clear", "value": 4, "comment": "Signal to subprocess glitter was found"}
-                    ],
                     "announce_type": "Update",
                     "comment": "Pull Lever",
-                    "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 5, "comment": "Signal to subprocess to mark lever"}
+                    "result_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0, "comment": "Handles alchemy door on stage exit"}
                     ],
-                    "quest_type": "WorldManageQuest",
-                    "quest_id": 70003001,
-                    "interact_type": "Release",
-                    "stage_id": {
-                        "id": 77,
-                        "group_id": 1,
-                        "layer_no": 1
-                    }
+                    "check_commands": [
+                        {"type": "QuestOmReleaseTouch", "Param1": 411, "Param2": 1, "Param3": 1, "Param4": 70003001}
+                    ]
                 },
                 {
                     "type": "PartyGather",
                     "announce_type": "Update",
                     "checkpoint": true,
                     "checkpoint_flags": [
-                        {"type": "MyQst", "action": "Clear", "value": 5, "comment": "Signal to subprocess lever was pulled"},
-                        {"type": "WorldManageLayout", "action": "Clear", "value": 1104, "quest_id": 70003001, "comment": "Large Front Door Closed"},
-                        {"type": "WorldManageLayout", "action": "Set", "value": 1105, "quest_id": 70003001, "comment": "Large Front Door Open"},
                         {"type": "WorldManageLayout", "action": "Clear", "value": 2458, "quest_id": 70003001, "comment": "Quest Specified Message"}
                     ],
                     "flags": [
-                        {"type": "MyQst", "action": "Set", "value": 6, "comment": "Signal to subprocess lever was pulled"}
+                        {"type": "MyQst", "action": "Set", "value": 1, "comment": "Handles large door on stage exit"}
                     ],
                     "stage_id": {
                         "id": 77
@@ -267,7 +243,10 @@
                         "x": -80,
                         "y": -271,
                         "z": 1642
-                    }
+                    },
+                    "result_commands": [
+                        {"type": "PlayCameraEvent", "Param1": 411, "Param2": 90}
+                    ]
                 },
                 {
                     "type": "PlayEvent",
@@ -300,6 +279,9 @@
                     },
                     "start_pos_no": 1,
                     "event_id": 5,
+                    "flags": [
+                        {"type": "MyQst", "action": "Set", "value": 799, "comment": "Ends Leo's FSM"}
+                    ],
                     "consume_items": [
                         {"id": 1051, "amount": 1}
                     ]
@@ -313,6 +295,14 @@
                         {"type": "QstLayout", "action": "Set", "value": 1024, "comment": "Spawns Iris"},
                         {"type": "QstLayout", "action": "Clear", "value": 1248, "comment": "Spawns Gerd"},
                         {"type": "QstLayout", "action": "Set", "value": 1249, "comment": "Spawns Gerd and Heinz in audience chamber"}
+                    ],
+                    "result_commands": [
+						{"type": "QstTalkChg", "Param1": 8, "Param2": 8340, "comment": "Heinz"},
+						{"type": "QstTalkChg", "Param1": 7, "Param2": 8341, "comment": "Gerd"},
+						{"type": "QstTalkChg", "Param1": 14, "Param2": 11703, "comment": "Mayleaf"},
+						{"type": "QstTalkChg", "Param1": 1003, "Param2": 11704, "comment": "Pamela"},
+						{"type": "QstTalkChg", "Param1": 3, "Param2": 8310, "comment": "Klaus"},
+						{"type": "QstTalkChg", "Param1": 4, "Param2": 16174, "comment": "Joseph"}
                     ],
                     "stage_id": {
                         "id": 3
@@ -333,71 +323,78 @@
             ]
         },
         {
-            "comment": "Process 1 (Marks Large Door)",
+            "comment": "Process 1 - Alchemy Research Door",
             "blocks": [
                 {
-                    "type": "MyQstFlags",
-                    "comment": "Wait for player to talk with Leo",
-                    "check_flags": [1]
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0},
+                        {"type": "StageNoNotEq", "Param1": 411}
+                    ]
                 },
                 {
                     "type": "Raw",
-                    "flags": [],
-                    "check_commands": [
-                        [
-                            {"type": "IsOpenDoorOmQuestSet", "Param1": 411, "Param2": 2, "Param3": 1, "Param4": 70003001}
-                        ],
-                        [
-                            {"type": "MyQstFlagOn", "Param1": 2}
-                        ]
-                    ],
-                    "result_commands": []
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 1119, "quest_id": 70003001, "comment": "Alchemy Research Door Closed"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 1120, "quest_id": 70003001, "comment": "Alchemy Research Door Open"}
+                    ]
                 }
             ]
         },
         {
-            "comment": "Process 2 (Marks Small Door)",
+            "comment": "Process 2 - Large Door",
             "blocks": [
                 {
-                    "type": "MyQstFlags",
-                    "comment": "Wait for player to interact with the first door",
-                    "check_flags": [2]
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 1},
+                        {"type": "StageNoNotEq", "Param1": 411}
+                    ]
                 },
                 {
                     "type": "Raw",
-                    "flags": [],
-                    "check_commands": [
-                        [
-                            {"type": "IsOpenDoorOmQuestSet", "Param1": 411, "Param2": 5, "Param3": 2, "Param4": 70003001}
-                        ],
-                        [
-                            {"type": "MyQstFlagOn", "Param1": 3}
-                        ]
-                    ],
-                    "result_commands": []
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 1104, "quest_id": 70003001, "comment": "Large Front Door Closed"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 1105, "quest_id": 70003001, "comment": "Large Front Door Open"}
+                    ]
                 }
             ]
         },
         {
-            "comment": "Process 3 (Marks Lever)",
+            "comment": "Process 3 - Leo extra dialogue",
             "blocks": [
                 {
-                    "type": "MyQstFlags",
-                    "comment": "Wait for player to pull Lever",
-                    "check_flags": [5]
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 116}
+                    ]
                 },
                 {
                     "type": "Raw",
-                    "flags": [],
-                    "check_commands": [
-                        [
-                            {"type": "IsOpenDoorOmQuestSet", "Param1": 411, "Param2": 1, "Param3": 1, "Param4": 70003001}
-                        ],
-                        [
-                            {"type": "MyQstFlagOn", "Param1": 6}
-                        ]
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 5, "Param2": 8316}
                     ],
-                    "result_commands": []
+                    "check_commands": [
+                        {"type": "NewTalkNpcWithoutMarker", "Param1": 5, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 5, "Param2": 8317}
+                    ],
+                    "check_commands": [
+                        {"type": "NewTalkNpcWithoutMarker", "Param1": 5, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 5, "Param2": 8318}
+                    ],
+                    "check_commands": [
+                        {"type": "NewTalkNpcWithoutMarker", "Param1": 5, "Param2": 1}
+                    ]
                 }
             ]
         }

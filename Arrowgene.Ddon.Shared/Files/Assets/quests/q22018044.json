@@ -30,101 +30,355 @@
       "amount": 37800
     },
     {
-      "type": "random",
+      "type": "select",
       "loot_pool": [
         {
-          "comment": "Blazing Lizard Pelt",
-          "item_id": 21262,
-          "num": 1,
-          "chance": 0.6
+          "comment": "Royal Crest Medal (Megadosys District)",
+          "item_id": 18820,
+          "num": 5
         },
         {
-          "comment": "Cursed Spine",
-          "item_id": 19651,
-          "num": 1,
-          "chance": 0.4
+          "comment": "Superior Healing Remedy",
+          "item_id": 7555,
+          "num": 10
+        },
+        {
+          "comment": "Superior Strong Gala Extract",
+          "item_id": 9364,
+          "num": 10
         }
       ]
     }
   ],
   "enemy_groups": [
     {
-      "comment": "GroupId: 7 - Gigant Machina, Flame Skeleton Brutes, Pyro Slimes",
+      "comment": "Random Group 1 - Gigant Machina, Flame Skeleton Brutes, Pyro Slimes",
       "stage_id": {
         "id": 518,
-        "group_id": 7
+        "group_id": 29
       },
+      "starting_index": 5,
       "enemies": [
         {
+          "comment": "Gigant Machina",
           "enemy_id": "0x015850",
           "level": 95,
-          "exp": 44000,
-          "is_boss": true,
-          "comment": "Gigant Machina"
+          "exp": 21000,
+          "is_boss": true
         },
         {
+          "comment": "Flame Skeleton Brute",
           "enemy_id": "0x010320",
           "level": 95,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Flame Skeleton Brute"
+          "exp": 4200
         },
         {
+          "comment": "Flame Skeleton Brute",
           "enemy_id": "0x010320",
           "level": 95,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Flame Skeleton Brute"
+          "exp": 4200
         },
         {
+          "comment": "Pyro Slime",
           "enemy_id": "0x010905",
           "level": 95,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Pyro Slime"
+          "exp": 4200
         },
         {
+          "comment": "Pyro Slime",
           "enemy_id": "0x010905",
           "level": 95,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Pyro Slime"
+          "exp": 4200
+        },
+        {
+          "comment": "Pyro Slime",
+          "enemy_id": "0x010905",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Pyro Slime",
+          "enemy_id": "0x010905",
+          "level": 95,
+          "exp": 4200
+        }
+      ]
+    },
+    {
+      "comment": "Random Group 2 - Frost Machina, Frost Skeleton Brutes, Freezing Slimes",
+      "stage_id": {
+        "id": 518,
+        "group_id": 29
+      },
+      "starting_index": 5,
+      "enemies": [
+        {
+          "comment": "Frost Machina",
+          "enemy_id": "0x015851",
+          "level": 95,
+          "exp": 21000,
+          "is_boss": true
+        },
+        {
+          "comment": "Frost Skeleton Brute",
+          "enemy_id": "0x010321",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Frost Skeleton Brute",
+          "enemy_id": "0x010321",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Freezing Slime",
+          "enemy_id": "0x010906",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Freezing Slime",
+          "enemy_id": "0x010906",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Freezing Slime",
+          "enemy_id": "0x010906",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Freezing Slime",
+          "enemy_id": "0x010906",
+          "level": 95,
+          "exp": 4200
+        }
+      ]
+    },
+    {
+      "comment": "Random Group 3 - Gigant Machina, Skeleton Sorcerers, Ghosts",
+      "stage_id": {
+        "id": 518,
+        "group_id": 29
+      },
+      "starting_index": 5,
+      "enemies": [
+        {
+          "comment": "Gigant Machina",
+          "enemy_id": "0x015850",
+          "level": 95,
+          "exp": 21000,
+          "is_boss": true
+        },
+        {
+          "comment": "Skeleton Sorcerer",
+          "enemy_id": "0x010309",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Skeleton Sorcerer",
+          "enemy_id": "0x010309",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Ghost",
+          "enemy_id": "0x015620",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Ghost",
+          "enemy_id": "0x015620",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Ghost",
+          "enemy_id": "0x015620",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Ghost",
+          "enemy_id": "0x015620",
+          "level": 95,
+          "exp": 4200
+        }
+      ]
+    },
+    {
+      "comment": "Random Group 4 - Frost Machina, Greater Goblins, Snow Harpies",
+      "stage_id": {
+        "id": 518,
+        "group_id": 29
+      },
+      "starting_index": 5,
+      "enemies": [
+        {
+          "comment": "Frost Machina",
+          "enemy_id": "0x015851",
+          "level": 95,
+          "exp": 21000,
+          "is_boss": true
+        },
+        {
+          "comment": "Greater Goblin",
+          "enemy_id": "0x010130",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Greater Goblin",
+          "enemy_id": "0x010130",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Snow Harpy",
+          "enemy_id": "0x010601",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Snow Harpy",
+          "enemy_id": "0x010601",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Snow Harpy",
+          "enemy_id": "0x010601",
+          "level": 95,
+          "exp": 4200
+        },
+        {
+          "comment": "Snow Harpy",
+          "enemy_id": "0x010601",
+          "level": 95,
+          "exp": 4200
         }
       ]
     }
   ],
-  "blocks": [
+  "processes": [
     {
-      "type": "Raw",
-      "check_commands": [{"type": "IsMainQuestClear", "Param1": 30200}]
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [{"type": "IsMainQuestClear", "Param1": 30200}]
+        },
+        {
+          "type": "NpcTalkAndOrder",
+          "stage_id": {
+            "id": 487
+          },
+          "npc_id": "Muget",
+          "message_id": 27965
+        },
+        {
+          "type": "Raw",
+          "announce_type": "Accept",
+          "result_commands": [
+            {"type": "MyQstFlagOn", "Param1": 0},
+            {"type": "QstTalkChg", "Param1": 3255, "Param2": 27966}
+          ],
+          "check_commands": [
+            {"type": "IsEnemyFound", "Param1": 463, "Param2": 29, "Param3": -1}
+          ]
+        },
+        {
+          "type": "Raw",
+          "announce_type": "Update",
+          "check_commands": [
+            {"type": "DieEnemy", "Param1": 463, "Param2": 29, "Param3": -1}
+          ]
+        },
+        {
+          "type": "TalkToNpc",
+          "stage_id": {
+            "id": 487
+          },
+          "announce_type": "CheckpointAndUpdate",
+          "npc_id": "Muget",
+          "message_id": 27967
+        }
+      ]
     },
     {
-      "type": "NpcTalkAndOrder",
-      "stage_id": {
-        "id": 487
-      },
-      "npc_id": "Muget",
-      "message_id": 27964
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [
+            {"type": "MyQstFlagOn", "Param1": 0}
+          ]
+        },
+        {
+          "type": "Raw",
+          "result_commands": [
+            {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 4}
+          ]
+        }
+      ]
     },
     {
-      "type": "DiscoverEnemy",
-      "announce_type": "Accept",
-      "groups": [0]
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [
+            {"type": "RandomEq", "Param1": 1, "Param2": 1}
+          ]
+        },
+        {
+          "type": "SpawnGroup",
+          "groups": [0]
+        }
+      ]
     },
     {
-      "type": "KillGroup",
-      "announce_type": "Update",
-      "reset_group": false,
-      "groups": [0]
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [
+            {"type": "RandomEq", "Param1": 1, "Param2": 2}
+          ]
+        },
+        {
+          "type": "SpawnGroup",
+          "groups": [1]
+        }
+      ]
     },
     {
-      "type": "TalkToNpc",
-      "stage_id": {
-        "id": 487
-      },
-      "announce_type": "Update",
-      "npc_id": "Muget",
-      "message_id": 27968
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [
+            {"type": "RandomEq", "Param1": 1, "Param2": 3}
+          ]
+        },
+        {
+          "type": "SpawnGroup",
+          "groups": [2]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "Raw",
+          "check_commands": [
+            {"type": "RandomEq", "Param1": 1, "Param2": 4}
+          ]
+        },
+        {
+          "type": "SpawnGroup",
+          "groups": [3]
+        }
+      ]
     }
   ]
 }

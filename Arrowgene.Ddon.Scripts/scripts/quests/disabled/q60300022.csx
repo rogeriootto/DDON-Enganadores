@@ -35,7 +35,7 @@ public class ScriptedQuest : IQuest
         var process0 = AddNewProcess(0);
         process0.AddNpcTalkAndOrderBlock(Stage.FortressCityMegadoResidentialLevel1, NpcId.Toyugaru, 28160);
         process0.AddIsStageNoBlock(QuestAnnounceType.Accept, Stage.OldHeroicSpiritShrine)
-            .AddWorldManageUnlock(QuestFlags.FortressCityMegadoRoyalPalaceLevel.OldEpitaphRoadShrine)
+            .AddWorldManageUnlock(QuestFlags.FortressCityMegadoResidentialLevel.OldEpitaphRoadShrine)
             .AddResultCmdQstTalkChg(NpcId.Toyugaru, 28161);
         process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
             .AddResultCmdQstTalkChg(NpcId.Morgan, 28291)

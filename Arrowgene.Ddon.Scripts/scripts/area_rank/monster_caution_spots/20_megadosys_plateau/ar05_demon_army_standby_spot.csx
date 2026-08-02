@@ -13,83 +13,45 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
     public override void Initialize()
     {
-        var enemies = new List<InstancedEnemy>()
-        {
-            LibDdon.Enemy.Create(EnemyId.SquadLeaderDwarfOrc, 93, 4200, 0),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 1),
-            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 2),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 3),
-            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 4),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 5),
-            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 6),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 7),
-            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 8),
-        };
+        var dropsTableBluntSoldier = LibDdon.Enemy.GetDropsTable(EnemyId.BluntSoldierDwarfOrc, 93).Clone()
+            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
+            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
+            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
 
-        var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
+        var dropsTableRangedSoldier = LibDdon.Enemy.GetDropsTable(EnemyId.RangedSoldierDwarfOrc, 93).Clone()
+            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
+            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
+            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
+            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
+
+        var dropsTableSquadLeader = LibDdon.Enemy.GetDropsTable(EnemyId.SquadLeaderDwarfOrc, 93).Clone()
             .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.UNCOMMON);
-        enemies[0].SetDropsTable(dropsTable);
 
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[1]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[1].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[2]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[2].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[3]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[3].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[4]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[4].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[5]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[5].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[6]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[6].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[7]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[7].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[8]).Clone()
-            .AddDrop(ItemId.AlchemySealerStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.AlchemySealerStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.RoseMegadosys, 1, 1, DropRate.RARE);
-        enemies[8].SetDropsTable(dropsTable);
-
-        AddEnemies(enemies);
+        AddEnemies(new List<InstancedEnemy>()
+        {
+            LibDdon.Enemy.Create(EnemyId.SquadLeaderDwarfOrc, 93, 4200, 0)
+                .SetDropsTable(dropsTableSquadLeader),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 1)
+                .SetDropsTable(dropsTableRangedSoldier),
+            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 2)
+                .SetDropsTable(dropsTableBluntSoldier),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 3)
+                .SetDropsTable(dropsTableRangedSoldier),
+            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 4)
+                .SetDropsTable(dropsTableBluntSoldier),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 5)
+                .SetDropsTable(dropsTableRangedSoldier),
+            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 6)
+                .SetDropsTable(dropsTableBluntSoldier),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 7)
+                .SetDropsTable(dropsTableRangedSoldier),
+            LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 93, 4200, 8)
+                .SetDropsTable(dropsTableBluntSoldier),
+        });
     }
 }
 
