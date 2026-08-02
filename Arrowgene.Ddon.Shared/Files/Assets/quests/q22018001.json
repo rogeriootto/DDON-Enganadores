@@ -1,18 +1,18 @@
 {
   "state_machine": "GenericStateMachine",
   "type": "World",
-  "comment": "Investing for Independence",
-  "quest_id": 22018018,
-  "base_level": 85,
+  "comment": "The Fiends' Early Harvest",
+  "quest_id": 22018001,
+  "base_level": 80,
   "minimum_item_rank": 0,
   "discoverable": true,
-  "area_id": "FeryanaWilderness",
+  "area_id": "RathniteFoothills",
   "news_image": 902,
   "rewards": [
     {
       "type": "wallet",
       "wallet_type": "Gold",
-      "amount": 11000
+      "amount": 10227
     },
     {
       "type": "wallet",
@@ -47,76 +47,59 @@
           "num": 3
         }
       ]
-    },
-    {
-      "type": "random",
-      "loot_pool": [
-        {
-          "comment": "Superior Strong Gala Extract",
-          "item_id": 9364,
-          "num": 1,
-          "chance": 0.6
-        },
-        {
-          "comment": "Blazing Ore",
-          "item_id": 18142,
-          "num": 2,
-          "chance": 0.6
-        }
-      ]
     }
   ],
   "enemy_groups": [
     {
-      "comment": "GroupId: 24 - Skeleton Mages, Sludgemen, Bounty Mole Troll",
+      "comment": "GroupId: 32 - Bounty Cragger, Sirens",
       "stage_id": {
-        "id": 463,
-        "group_id": 24
+        "id": 461,
+        "group_id": 32
       },
       "starting_index": 4,
       "enemies": [
         {
-          "comment": "Sludgeman",
-          "enemy_id": "0x010510",
-          "level": 85,
-          "exp": 4200
-        },
-        {
-          "comment": "Sludgeman",
-          "enemy_id": "0x010510",
-          "level": 85,
-          "exp": 4200
-        },
-        {
-          "comment": "Mole Troll",
-          "enemy_id": "0x015041",
+          "comment": "Cragger",
+          "enemy_id": "0x015508",
           "named_enemy_params_id": 2112,
-          "level": 85,
+          "level": 80,
           "exp": 294000,
           "is_boss": true
         },
         {
-          "comment": "Skeleton Mage",
-          "enemy_id": "0x010308",
-          "level": 85,
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
           "exp": 4200
         },
         {
-          "comment": "Skeleton Mage",
-          "enemy_id": "0x010308",
-          "level": 85,
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
           "exp": 4200
         },
         {
-          "comment": "Skeleton Mage",
-          "enemy_id": "0x010308",
-          "level": 85,
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
           "exp": 4200
         },
         {
-          "comment": "Skeleton Mage",
-          "enemy_id": "0x010308",
-          "level": 85,
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
           "exp": 4200
         }
       ]
@@ -126,17 +109,17 @@
     {
       "type": "NpcTalkAndOrder",
       "stage_id": {
-        "id": 520
+        "id": 511
       },
-      "npc_id": "Artin",
-      "message_id": 23594
+      "npc_id": "Bruno",
+      "message_id": 23459
     },
     {
       "type": "DiscoverEnemy",
       "announce_type": "Accept",
       "groups": [0],
       "result_commands": [
-        {"type": "QstTalkChg", "Param1": 3055, "Param2": 23595, "comment": "Extra dialogue - Artin"}
+        {"type": "QstTalkChg", "Param1": 2801, "Param2": 23460, "comment": "Extra dialogue - Bruno"}
       ]
     },
     {
@@ -148,11 +131,11 @@
     {
       "type": "TalkToNpc",
       "stage_id": {
-        "id": 520
+        "id": 511
       },
       "announce_type": "CheckpointAndUpdate",
-      "npc_id": "Artin",
-      "message_id": 23596
+      "npc_id": "Bruno",
+      "message_id": 23461
     }
   ]
 }

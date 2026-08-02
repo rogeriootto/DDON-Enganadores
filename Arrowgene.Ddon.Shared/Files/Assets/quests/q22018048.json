@@ -161,7 +161,7 @@
         },
         {
             "type": "TalkToNpc",
-            "announce_type": "Update",
+            "announce_type": "CheckpointAndUpdate",
             "stage_id": {
                 "id": 487
             },

@@ -62,50 +62,44 @@
           "enemy_id": "0x015870",
           "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 147000,
+          "exp": 294000,
           "is_boss": true
         },
         {
           "comment": "Ancestor Orc - Fighter",
           "enemy_id": "0x015831",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         },
         {
           "comment": "Ancestor Orc - Fighter",
           "enemy_id": "0x015831",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         },
         {
           "comment": "Ancestor Orc - Fighter",
           "enemy_id": "0x015831",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         },
         {
           "comment": "Ancestor Orc - Blunt",
           "enemy_id": "0x015832",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         },
         {
           "comment": "Ancestor Orc - Blunt",
           "enemy_id": "0x015832",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         },
         {
           "comment": "Ancestor Orc - Blunt",
           "enemy_id": "0x015832",
-          "named_enemy_params_id": 2112,
           "level": 90,
-          "exp": 29400
+          "exp": 4200
         }
       ]
     }
