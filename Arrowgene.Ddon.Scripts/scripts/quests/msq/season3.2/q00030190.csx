@@ -86,23 +86,23 @@ public class ScriptedQuest : IQuest
         {
             LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 92, 4200, 0)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 92, 4200, 1)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.HeavySoldierDwarfOrc, 92, 4200, 2)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 92, 4200, 3)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 92, 4200, 4)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
         });
 
@@ -110,31 +110,31 @@ public class ScriptedQuest : IQuest
         {
             LibDdon.Enemy.Create(EnemyId.WarReadyOgreLightArmor, 92, 21000, 5)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 6)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 7)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 8)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 9)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 10)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.WarReadySaurianLightArmor, 92, 4200, 11)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
         });
 
@@ -142,23 +142,23 @@ public class ScriptedQuest : IQuest
         {
             LibDdon.Enemy.Create(EnemyId.SquadLeaderDwarfOrc, 92, 4200, 12)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 92, 4200, 13)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 92, 4200, 14)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 92, 4200, 15)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 92, 4200, 16)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
         });
 
@@ -166,11 +166,11 @@ public class ScriptedQuest : IQuest
         {
             LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 92, 4200, 17)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
             LibDdon.Enemy.Create(EnemyId.BluntSoldierDwarfOrc, 92, 4200, 20)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
         });
 
@@ -178,7 +178,7 @@ public class ScriptedQuest : IQuest
         {
             LibDdon.Enemy.Create(EnemyId.WarReadyNightmareLightArmor, 92, 21000, 0)
                 .SetIsManualSet(true)
-                .SetStartThinkTblNo(1)
+                .SetStartThinkTblNo(9)
                 .SetEnemyTargetTypesId(TargetTypesId.Normal),
         });
 

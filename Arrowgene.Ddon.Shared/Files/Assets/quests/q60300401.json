@@ -8,14 +8,8 @@
     "minimum_item_rank": 0,
     "discoverable": false,
     "stage_id": { "id": 584 },
-    "enabled": false,
-    "order_conditions": [
-        {
-            "type": "MinimumVocationLevel",
-            "Param1": 11,
-            "Param2": 18
-        }
-    ],
+    "adventure_guide_category": "VocationQuest",
+    "order_conditions": [{"type": "MinimumVocationLevel", "Param1": 11, "Param2": 18}, {"type": "MainQuestCompleted", "Param1": 30150}],
     "rewards": [
         {
             "type": "wallet",
@@ -43,6 +37,14 @@
     ],
     "blocks": [
         {
+            "type": "Raw",
+            "check_commands": [
+                {"type": "PlJobEq", "Param1": 11},
+                {"type": "JobLevelNotLess", "Param1": 1, "Param2": 18},
+                {"type": "IsMainQuestClear", "Param1": 30150}
+            ]
+        },
+        {
             "type": "NpcTalkAndOrder",
             "stage_id": {
                 "id": 584,
@@ -59,7 +61,10 @@
             },
             "announce_type": "Accept",
             "npc_id": "Kirsty0",
-            "message_id": 28179
+            "message_id": 28179,
+            "result_commands": [
+                {"type": "QstTalkChg", "Param1": 3202, "Param2": 28178}
+            ]
         }
     ]
 }

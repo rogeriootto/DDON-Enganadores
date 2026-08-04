@@ -17,9 +17,6 @@
             "Param1": 20170
         }
     ],
-    "contents_release": [
-        { "type": "MorrowForestWorldQuests", "flag_info": "NpcFunctions.MorrowForestAreaInfo" }
-    ],
     "rewards": [
         {
             "type": "exp",
@@ -302,6 +299,18 @@
                     "checkpoint": true,
                     "npc_id": "Joseph",
                     "message_id": 15708
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "contents_release": [
+                        {
+                            "type": "MorrowForestWorldQuests",
+                            "flag_info": "NpcFunctions.MorrowForestAreaInfo"
+                        }
+                    ]
                 }
             ]
         }

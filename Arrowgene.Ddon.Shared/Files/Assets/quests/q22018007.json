@@ -1,0 +1,148 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Time Restriction: Evening Harvest",
+    "quest_id": 22018007,
+    "base_level": 80,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "RathniteFoothills",
+    "order_conditions": [{"type": "AreaRank", "Param1": 18, "Param2": 7}, {"type": "MainQuestCompleted", "Param1": 30040}],
+    "news_image": 330,
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 12846
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 750
+        },
+        {
+            "type": "exp",
+            "amount": 8400
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalRathniteDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 10
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 10
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [{"type": "IsMainQuestClear", "Param1": 30040}]
+                },
+                {
+                    "type": "NpcTalkAndOrder",
+                    "stage_id": {
+                        "id": 467
+                    },
+                    "npc_id": "Endale",
+                    "message_id": 23520
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "check_commands": [
+                        {"type": "StageNo", "Param1": 443},
+                        {"type": "IngameTimeRangeNotEq", "Param1": 4, "Param2": 18}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 2800, "Param2": 23521}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "check_commands": [
+                        {"type": "TalkNpc", "Param1": 443, "Param2": 2800},
+                        {"type": "IngameTimeRangeNotEq", "Param1": 4, "Param2": 18}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 2800, "Param2": 23522}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "result_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0},
+                        {"type": "QstTalkChg", "Param1": 2800, "Param2": 23523}
+                    ],
+                    "check_commands": [
+                        {"type": "HaveItemAllBag", "Param1": 17885, "Param2": 5, "comment": "Blaze Grass"}
+                    ]
+                },
+                {
+                    "type": "DeliverItems",
+                    "announce_type": "CheckpointAndUpdate",
+                    "stage_id": {
+                        "id": 467
+                    },
+                    "npc_id": "Endale",
+                    "items": [
+                        {"id": 17885, "amount": 5, "comment": "Blaze Grass"}
+                    ],
+                    "message_id": 23524
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "MyQstFlags",
+                    "check_flags": [0]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "IngameTimeRangeNotEq", "Param1": 4, "Param2": 18},
+                        {"type": "StageNoWithoutMarker", "Param1": 130}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOn", "Param1": 5544},
+                        {"type": "QstLayoutFlagOn", "Param1": 6178},
+                        {"type": "QstLayoutFlagOn", "Param1": 6179},
+                        {"type": "QstLayoutFlagOn", "Param1": 6524},
+                        {"type": "QstLayoutFlagOn", "Param1": 6182},
+                        {"type": "PlayMessage", "Param1": 25030, "Param2": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "IngameTimeRangeEq", "Param1": 4, "Param2": 18}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOff", "Param1": 5544},
+                        {"type": "QstLayoutFlagOff", "Param1": 6178},
+                        {"type": "QstLayoutFlagOff", "Param1": 6179},
+                        {"type": "QstLayoutFlagOff", "Param1": 6524},
+                        {"type": "QstLayoutFlagOff", "Param1": 6182},
+                        {"type": "PlayMessage", "Param1": 25031, "Param2": 0}
+                    ]
+                }
+            ]
+        }
+    ]
+}

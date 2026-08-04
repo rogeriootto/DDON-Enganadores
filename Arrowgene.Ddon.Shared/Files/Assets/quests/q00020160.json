@@ -156,12 +156,19 @@
                     ]
                 },
                 {
-                    "type": "IsStageNo",
+                    "type": "Raw",
                     "announce_type": "Update",
                     "checkpoint": true,
-                    "stage_id": {
-                        "id": 371
-                    }
+                    "check_commands": [
+                        {"type": "SceHitIn", "Param1": 121, "Param2": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        [{"type": "StageNoWithoutMarker", "Param1": 120}],
+                        [{"type": "SceHitIn", "Param1": 120, "Param2": 1}, {"type": "DummyNotProgress"}]
+                    ]
                 },
                 {
                     "type": "DiscoverEnemy",

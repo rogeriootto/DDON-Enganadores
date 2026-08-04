@@ -13,6 +13,7 @@ public class ScriptedQuest : IQuest
     public override ushort RecommendedLevel => 1;
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
+    public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.TheWhiteDragonTemple0;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.VocationQuest;
 
@@ -24,7 +25,8 @@ public class ScriptedQuest : IQuest
 
     private class EnemyGroupId
     {
-        public const uint Encounter = 10;
+        public const uint Set7418 = 7418;
+        public const uint Set7419 = 7419;
     }
 
     private class NamedParamId
@@ -37,7 +39,7 @@ public class ScriptedQuest : IQuest
     {
         // クエスト指定メッセージOM"
         // GroupNo=2, UnitNo=0
-        public const uint QuestSpecifiedMessageOM = 7417;
+        public const uint HighSceptersMark = 7417;
 
         // Wilson: GroupNo=0, UnitNo=0
         public const uint WilsonAndBarris = 7416;
@@ -46,11 +48,8 @@ public class ScriptedQuest : IQuest
     private class MyQstFlag
     {
         // NPC State Machine
-        public const uint BarrisFSM0 = 2011;
-        public const uint BarrisFSM1 = 4339;
-        public const uint BarrisFSM2 = 4349;
-
-        public const uint DespawnGroup0 = 1;
+        public const uint BarrisFSMStart = 4339;
+        public const uint BarrisFSMEnd = 4349;
     }
 
     public override bool AcceptRequirementsMet(GameClient client)
@@ -78,24 +77,23 @@ public class ScriptedQuest : IQuest
     protected override void InitializeEnemyGroups()
     {
         // 4 goblins
-        AddEnemies(EnemyGroupId.Encounter + 0, Stage.TrainingChapel, 0, QuestEnemyPlacementType.Manual, new()
+        AddEnemies(EnemyGroupId.Set7418, Stage.TrainingChapel, 0, QuestEnemyPlacementType.Manual, new()
         {
             LibDdon.Enemy.Create(EnemyId.GoblinFighter0, 1, 0, 0)
+                .SetRepopCount(50)
                 .SetNamedEnemyParams(NamedParamId.Training),
             LibDdon.Enemy.Create(EnemyId.GoblinFighter0, 1, 0, 1)
+                .SetRepopCount(50)
                 .SetNamedEnemyParams(NamedParamId.Training),
             LibDdon.Enemy.Create(EnemyId.GoblinFighter0, 1, 0, 2)
+                .SetRepopCount(50)
                 .SetNamedEnemyParams(NamedParamId.Training),
             LibDdon.Enemy.Create(EnemyId.GoblinFighter0, 1, 0, 3)
+                .SetRepopCount(50)
                 .SetNamedEnemyParams(NamedParamId.Training),
         });
 
-        AddEnemies(EnemyGroupId.Encounter + 1, Stage.TrainingChapel, 0, QuestEnemyPlacementType.Manual, new()
-        {
-            // Empty Group to despawn enemies
-        });
-
-        AddEnemies(EnemyGroupId.Encounter + 2, Stage.TrainingChapel, 1, QuestEnemyPlacementType.Manual, new()
+        AddEnemies(EnemyGroupId.Set7419, Stage.TrainingChapel, 1, QuestEnemyPlacementType.Manual, new()
         {
             LibDdon.Enemy.Create(EnemyId.Cyclops0, 3, 0, 0)
                 .SetIsBoss(true)
@@ -109,59 +107,72 @@ public class ScriptedQuest : IQuest
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddCheckCmdPlJobEq(JobId.HighScepter);
         process0.AddNpcTalkAndOrderBlock(Stage.TheWhiteDragonTemple0, NpcId.Renton0, 28056);
-        process0.AddNewTalkToNpcBlock(QuestAnnounceType.Accept, Stage.TrainingChapel, 0, 0, NpcId.Wilson, 28058)
+        process0.AddNewTalkToNpcBlock(QuestAnnounceType.Accept, Stage.TrainingChapel, 0, 0, NpcId.Wilson, 28060)
+            .AddResultCmdQstTalkChg(NpcId.Renton0, 28057)
             .AddResultCmdResetTutorialFlag()
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.WilsonAndBarris);
-        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 0)
-            .AddResultCmdTutorialEnemyInvincibility(true)
+        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Set7418)
+            .AddResultCmdPlayMessage(28089, 0)
+            .AddResultCmdQstTalkChg(NpcId.Wilson, 28058)
             .AddResultCmdTutorialDialog(TutorialId.AdvancedTacticsHighScepter)
-            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.BarrisFSM0)
-            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.BarrisFSM1);
-        // process0.AddNoProgressBlock();
+            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.BarrisFSMStart);
         process0.AddRawBlock(QuestAnnounceType.None)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(106); // Attack an enemy with Quadruple Slash
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28090, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(107); // Activate Will Marker
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28091, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(108); // Activate Ruin Shot
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28092, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(109); // Avoid an attack with Dodge Counter Slash
-        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 2)
-            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.DespawnGroup0)
+        process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Set7419)
+            .AddResultCmdPlayMessage(28244, 0)
+            .AddResultCmdTutorialEnemyInvincibility(true)
             .AddResultCmdTutorialDialog(TutorialId.FightingLargeEnemies)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(113); // Attack a marked foe with Magick Glyph to grow it
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28245, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(114); // Accumulate magick
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28093, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(110); // Move away from an enemy with Back Leap
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28094, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(111); // Attack an enemy with Ruin Blade
         process0.AddRawBlock(QuestAnnounceType.Update)
+            .AddResultCmdPlayMessage(28095, 0)
             .AddResultCmdResetTutorialFlag()
             .AddCheckCmdIsTutorialFlagOn(112); // Move toward an enemy with Return Shift
-        process0.AddDestroyGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter + 2, false)
+        process0.AddDestroyGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Set7419, false)
+            .AddResultCmdPlayMessage(28096, 0)
             .AddResultCmdTutorialEnemyInvincibility(false);
         process0.AddOmInteractEventBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TrainingChapel, 2, 0, OmQuestType.MyQuest, OmInteractType.Touch)
+            .AddResultCmdPlayMessage(28097, 0)
             .AddResultCmdTutorialDialog(TutorialId.TacticalRoleoftheHighScepter)
-            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.QuestSpecifiedMessageOM);
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.HighSceptersMark);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.TheWhiteDragonTemple0, NpcId.Renton0, 28062)
-            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.QuestSpecifiedMessageOM);
-        process0.AddIsStageNoBlock(QuestAnnounceType.None, Stage.TheWhiteDragonTemple0, false)
-            .AddResultCmdReleaseAnnounce(ContentsRelease.HighScepterWarSkillAugmentation, TutorialId.InheritanceSkillsOfBattleTechniques);
-        process0.AddProcessEndBlock(true);
+            .AddResultCmdQstTalkChg(NpcId.Wilson, 28061)
+            .AddResultCmdQstTalkChg(NpcId.Barris, 28088)
+            .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, MyQstFlag.BarrisFSMEnd)
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Clear, QstLayoutFlag.HighSceptersMark);
+        process0.AddProcessEndBlock(true)
+            .AddResultCmdReleaseAnnounce(ContentsRelease.HighScepterWarSkillAugmentation)
+            .AddResultCmdReleaseAnnounce(ContentsRelease.WarSkillAugmentation, TutorialId.InheritanceSkillsOfBattleTechniques);
 
         var process1 = AddNewProcess(1);
-        process1.AddMyQstFlagsBlock(QuestAnnounceType.None)
-            .AddMyQstCheckFlag(MyQstFlag.DespawnGroup0);
-        process1.AddSpawnGroupBlock(QuestAnnounceType.None, EnemyGroupId.Encounter + 1, true);
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCmdIsMyquestLayoutFlagOn(7419);
+        process1.AddRemoveGroupBlock(QuestAnnounceType.None, EnemyGroupId.Set7418);
         process1.AddProcessEndBlock(false);
     }
 }

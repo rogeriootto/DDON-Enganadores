@@ -17,9 +17,6 @@
             "Param1": 20180
         }
     ],
-    "contents_release": [
-        { "type": "KingalCanyonWorldQuests", "flag_info": "NpcFunctions.KingalCanyonAreaInfo" }
-    ],
     "rewards": [
         {
             "type": "exp",
@@ -88,14 +85,6 @@
                             "value": 3957,
                             "comment": "Cecily, Gurdolin, Lise and Elliot"
                         }
-                    ],
-                    "contents_release": [
-                        {
-                            "flag_info": "FaranaPlains.KingalCanyonBorderCheckpoint"
-                        },
-                        {
-                            "flag_info": "KingalCanyon.GlyndwrGates"
-                        }
                     ]
                 },
                 {
@@ -109,12 +98,27 @@
                     "message_id": 18528
                 },
                 {
-                    "type": "IsStageNo",
+                    "type": "Raw",
                     "announce_type": "Update",
                     "checkpoint": true,
-                    "stage_id": {
-                        "id": 373
-                    }
+                    "check_commands": [
+                        {"type": "SceHitIn", "Param1": 120, "Param2": 0}
+                    ],
+                    "contents_release": [
+                        {
+                            "flag_info": "FaranaPlains.KingalCanyonBorderCheckpoint"
+                        },
+                        {
+                            "flag_info": "KingalCanyon.GlyndwrGates"
+                        }
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        [{"type": "StageNoWithoutMarker", "Param1": 122}],
+                        [{"type": "IsReleaseWarpPointAnyone", "Param1": 20}, {"type": "DummyNotProgress"}]
+                    ]
                 },
                 {
                     "type": "Raw",
@@ -265,6 +269,10 @@
                         {
                             "type": "None",
                             "flag_info": "KingalCanyon.ShadoleanGreatTemple"
+                        },
+                        {
+                            "type": "KingalCanyonWorldQuests",
+                            "flag_info": "NpcFunctions.KingalCanyonAreaInfo"
                         }
                     ]
                 }

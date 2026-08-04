@@ -294,7 +294,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             }
 
             // Until S3.
-            if (spot.AreaId >= QuestAreaId.MegadosysPlateau)
+            if (spot.AreaId >= QuestAreaId.UrtecaMountains)
             {
                 return true;
             }
