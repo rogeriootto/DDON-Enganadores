@@ -483,13 +483,11 @@ skillAugmentation.AddNode(84)
     .Location(3, 34)
     .BloodOrbCost(5600)
     .HasUnlockDependencies(81)
-    .HasSpecialConditionDependencies(9)
     .Unlocks(OrbGainParamType.JobPhysicalDefence, 1);
 skillAugmentation.AddNode(85)
     .Location(4, 34)
     .BloodOrbCost(5600)
     .HasUnlockDependencies(81)
-    .HasSpecialConditionDependencies(7)
     .Unlocks(OrbGainParamType.JobHpMax, 30);
 skillAugmentation.AddNode(86)
     .Location(5, 34)
