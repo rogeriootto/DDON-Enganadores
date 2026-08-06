@@ -19,27 +19,16 @@ public class ScriptedQuest : IQuest
         process0.AddNoProgressBlock();
         process0.AddProcessEndBlock(false);
 
+		// Area Master Doris: Eli Guard Tower (until AR7)
         var process1 = AddNewProcess(1);
         process1.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.IsTutorialQuestClear(60318011)
-			]);
-        process1.AddRawBlock(QuestAnnounceType.None)
-            .AddQuestFlag(QuestFlagType.WorldManageQuest, QuestFlagAction.Set, 3284, (QuestId)70030001)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.DummyNotProgress()
-			]);
-
-        var process2 = AddNewProcess(2);
-        process2.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.IsTutorialQuestClear(60319011)
-			]);
-        process2.AddRawBlock(QuestAnnounceType.None)
-            .AddQuestFlag(QuestFlagType.WorldManageQuest, QuestFlagAction.Set, 3286, (QuestId)70031001)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.DummyNotProgress()
-			]);
+			.AddCheckCmdIsMainQuestClear(QuestId.TheRoadToTheRoyalCapital);
+		process1.AddRawBlock(QuestAnnounceType.None)
+            .AddQuestFlag(QuestFlagAction.Set, QuestFlags.EliGuardTower.Doris)
+			.AddCheckCmdCheckAreaRank(QuestAreaId.MegadosysPlateau, 7)
+			.AddCheckCmdStageNoNotEq(Stage.EliGuardTower); // Don't despawn her in front of the player
+        process1.AddProcessEndBlock(false)
+            .AddQuestFlag(QuestFlagAction.Clear, QuestFlags.EliGuardTower.Doris);
     }
 }
 

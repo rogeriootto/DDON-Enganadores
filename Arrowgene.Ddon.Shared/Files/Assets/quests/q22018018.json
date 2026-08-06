@@ -73,55 +73,51 @@
         "id": 463,
         "group_id": 24
       },
+      "starting_index": 4,
       "enemies": [
         {
-          "enemy_id": "0x010308",
-          "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Skeleton Mage"
-        },
-        {
-          "enemy_id": "0x010308",
-          "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Skeleton Mage"
-        },
-        {
-          "enemy_id": "0x010308",
-          "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Skeleton Mage"
-        },
-        {
-          "enemy_id": "0x010308",
-          "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Skeleton Mage"
-        },
-        {
+          "comment": "Sludgeman",
           "enemy_id": "0x010510",
           "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Sludgeman"
+          "exp": 4200
         },
         {
+          "comment": "Sludgeman",
           "enemy_id": "0x010510",
           "level": 85,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Sludgeman"
+          "exp": 4200
         },
         {
+          "comment": "Mole Troll",
           "enemy_id": "0x015041",
+          "named_enemy_params_id": 2112,
           "level": 85,
-          "exp": 44000,
-          "is_boss": true,
-          "comment": "Mole Troll"
+          "exp": 294000,
+          "is_boss": true
+        },
+        {
+          "comment": "Skeleton Mage",
+          "enemy_id": "0x010308",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Skeleton Mage",
+          "enemy_id": "0x010308",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Skeleton Mage",
+          "enemy_id": "0x010308",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Skeleton Mage",
+          "enemy_id": "0x010308",
+          "level": 85,
+          "exp": 4200
         }
       ]
     }
@@ -138,7 +134,10 @@
     {
       "type": "DiscoverEnemy",
       "announce_type": "Accept",
-      "groups": [0]
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 3055, "Param2": 23595, "comment": "Extra dialogue - Artin"}
+      ]
     },
     {
       "type": "KillGroup",
@@ -151,9 +150,9 @@
       "stage_id": {
         "id": 520
       },
-      "announce_type": "Update",
+      "announce_type": "CheckpointAndUpdate",
       "npc_id": "Artin",
-      "message_id": 23597
+      "message_id": 23596
     }
   ]
 }

@@ -17,9 +17,6 @@
             "Param1": 20030
         }
     ],
-    "contents_release": [
-        { "type": "BloodbaneIsleWorldQuests", "flag_info": "NpcFunctions.BloodbaneAreaInfo"}
-    ],
     "rewards": [
         {
             "type": "exp",
@@ -309,6 +306,12 @@
                     "result_commands": [
                         {"type": "CallGeneralAnnounce", "Param1": 1, "Param2": 696, "comment": "Area Master for Bloodbane Isle has been unlocked."},
                         {"type": "PlayMessage", "Param1": 18174, "Param2": 0, "comment": "Area Master for Bloodbane Isle has been unlocked. Talk to Bertrand at the Expedition Garrison."}
+                    ],
+                    "contents_release": [
+                        {
+                            "type": "BloodbaneIsleWorldQuests",
+                            "flag_info": "NpcFunctions.BloodbaneAreaInfo"
+                        }
                     ]
                 }
             ]

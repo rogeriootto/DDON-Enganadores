@@ -82,20 +82,23 @@
       "message_id": 27953
     },
     {
-      "type": "DeliverItems",
-      "stage_id": {
-        "id": 487
-      },
-      "npc_id": "Fred",
+      "type": "NewDeliverItems",
       "announce_type": "Accept",
+      "stage_id": {
+        "id": 464,
+        "group_id": 0,
+        "layer_no": 0
+      },
+      "npc_id": "Hester",
       "items": [
-        {
-          "id": 21244,
-          "amount": 9,
-          "comment": "Spirit Purifier Stone Shards"
-        }
+        {"id": 21244, "amount": 9, "comment": "Spirit Purifier Stone Shards"}
       ],
-      "message_id": 27956
+      "message_id": 27956,
+      "result_commands": [
+        {"type": "QstLayoutFlagOn", "Param1": 7358, "comment": "Spawns Hester"},
+        {"type": "QstTalkChg", "Param1": 3263, "Param2": 27954, "comment": "Extra dialogue - Fred"},
+        {"type": "QstTalkChg", "Param1": 590, "Param2": 27955, "comment": "Extra dialogue - Hester"}
+      ]
     }
   ]
 }

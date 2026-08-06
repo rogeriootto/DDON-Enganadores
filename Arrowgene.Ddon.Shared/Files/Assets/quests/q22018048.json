@@ -1,0 +1,172 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "A Foreign Investigation",
+    "quest_id": 22018048,
+    "base_level": 95,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "MegadosysPlateau",
+    "order_conditions": [{"type": "AreaRank", "Param1": 20, "Param2": 8}, {"type": "MainQuestCompleted", "Param1": 30200}],
+    "news_image": 679,
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5500
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 665
+        },
+        {
+            "type": "exp",
+            "amount": 37800
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "AreaPoints",
+            "amount": 500
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalMegadosysDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "CrackedAmulet",
+                    "num": 3
+                },
+                {
+                    "item_id": "CursedLetter",
+                    "num": 1
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 518,
+                "group_id": 26
+            },
+            "enemies": []
+        },
+        {
+            "stage_id": {
+                "id": 518,
+                "group_id": 26
+            },
+            "starting_index": 5,
+            "enemies": [
+                {
+                    "comment": "Empress Ghost",
+                    "enemy_id": "0x010211",
+                    "level": 95,
+                    "exp": 21000,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Bearded Grigori",
+                    "enemy_id": "0x015920",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Bearded Grigori",
+                    "enemy_id": "0x015920",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Grudge Ghost",
+                    "enemy_id": "0x015622",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Grudge Ghost",
+                    "enemy_id": "0x015622",
+                    "level": 95,
+                    "exp": 4200
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Raw",
+            "check_commands": [
+                {"type": "IsMainQuestClear", "Param1": 30200}
+            ]
+        },
+        {
+            "type": "NpcTalkAndOrder",
+            "stage_id": {
+                "id": 487
+            },
+            "npc_id": "Eddys",
+            "message_id": 28023
+        },
+        {
+            "type": "SpawnGroup",
+            "announce_type": "Accept",
+            "groups": [0],
+            "result_commands": [
+                {"type": "QstTalkChg", "Param1": 3261, "Param2": 28024, "comment": "Extra dialogue - Eddys"}
+            ],
+            "check_commands": [
+                {"type": "StageNo", "Param1": 463}
+            ]
+        },
+        {
+            "type": "NewTalkToNpc",
+            "stage_id": {
+                "id": 518,
+                "group_id": 0,
+                "layer_no": 0
+            },
+            "npc_id": "Revento",
+            "message_id": 28030,
+            "result_commands": [
+                {"type": "QstLayoutFlagOn", "Param1": 7405, "comment": "Spawns Levente NPC"}
+            ]
+        },
+        {
+            "type": "KillGroup",
+            "announce_type": "Update",
+            "groups": [1],
+            "result_commands": [
+                {"type": "PlayMessage", "Param1": 28027, "Param2": 0},
+                {"type": "MyQstFlagOn", "Param1": 4335, "comment": "Levente FSM"}
+            ]
+        },
+        {
+            "type": "NewTalkToNpc",
+            "announce_type": "Update",
+            "stage_id": {
+                "id": 518,
+                "group_id": 2,
+                "layer_no": 0
+            },
+            "npc_id": "Revento",
+            "message_id": 28025,
+            "result_commands": [
+                {"type": "QstLayoutFlagOff", "Param1": 7405, "comment": "Clears Levente NPC"},
+                {"type": "QstLayoutFlagOn", "Param1": 7409, "comment": "Spawns Levente (Alive) NPC"}
+            ]
+        },
+        {
+            "type": "TalkToNpc",
+            "announce_type": "CheckpointAndUpdate",
+            "stage_id": {
+                "id": 487
+            },
+            "npc_id": "Eddys",
+            "message_id": 28021
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "The Fiends' Early Harvest",
+  "quest_id": 22018001,
+  "base_level": 80,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "RathniteFoothills",
+  "news_image": 902,
+  "rewards": [
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 10227
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "AreaPoints",
+      "amount": 500
+    },
+    {
+      "type": "exp",
+      "amount": 56000
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "comment": "Superior Healing Remedy",
+          "item_id": 7555,
+          "num": 3
+        },
+        {
+          "comment": "Superior Strong Gala Extract",
+          "item_id": 9364,
+          "num": 3
+        },
+        {
+          "comment": "Panacea",
+          "item_id": 41,
+          "num": 3
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "comment": "GroupId: 32 - Bounty Cragger, Sirens",
+      "stage_id": {
+        "id": 461,
+        "group_id": 32
+      },
+      "starting_index": 4,
+      "enemies": [
+        {
+          "comment": "Cragger",
+          "enemy_id": "0x015508",
+          "named_enemy_params_id": 2112,
+          "level": 80,
+          "exp": 294000,
+          "is_boss": true
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4200
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "NpcTalkAndOrder",
+      "stage_id": {
+        "id": 511
+      },
+      "npc_id": "Bruno",
+      "message_id": 23459
+    },
+    {
+      "type": "DiscoverEnemy",
+      "announce_type": "Accept",
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 2801, "Param2": 23460, "comment": "Extra dialogue - Bruno"}
+      ]
+    },
+    {
+      "type": "KillGroup",
+      "announce_type": "Update",
+      "reset_group": false,
+      "groups": [0]
+    },
+    {
+      "type": "TalkToNpc",
+      "stage_id": {
+        "id": 511
+      },
+      "announce_type": "CheckpointAndUpdate",
+      "npc_id": "Bruno",
+      "message_id": 23461
+    }
+  ]
+}

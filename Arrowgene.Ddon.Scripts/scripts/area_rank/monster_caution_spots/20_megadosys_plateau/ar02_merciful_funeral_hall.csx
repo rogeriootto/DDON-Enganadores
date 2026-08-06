@@ -13,48 +13,32 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
     public override void Initialize()
     {
-        var enemies = new List<InstancedEnemy>()
-        {
-            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 0),
-            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 1),
-            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 2),
-            LibDdon.Enemy.Create(EnemyId.DeathKnight, 92, 21000, 0)
-                .SetIsBoss(true),
-        };
-
-        var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
+        var dropsTableGrudgeGhost = LibDdon.Enemy.GetDropsTable(EnemyId.GrudgeGhost, 92).Clone()
             .AddDrop(ItemId.CursedExorciserStone, 1, 1, DropRate.VERY_RARE)
             .AddDrop(ItemId.CursedExorciserStoneShard, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
             .AddDrop(ItemId.GiantCaterpillar, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.FlameMushroom, 1, 1, DropRate.RARE);
-        enemies[0].SetDropsTable(dropsTable);
 
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[1]).Clone()
-            .AddDrop(ItemId.CursedExorciserStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.CursedExorciserStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.GiantCaterpillar, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.FlameMushroom, 1, 1, DropRate.RARE);
-        enemies[1].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[2]).Clone()
-            .AddDrop(ItemId.CursedExorciserStone, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.CursedExorciserStoneShard, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.GiantCaterpillar, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.FlameMushroom, 1, 1, DropRate.RARE);
-        enemies[2].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[3]).Clone()
+        var dropsTableDeathKnight = LibDdon.Enemy.GetDropsTable(EnemyId.DeathKnight, 92).Clone()
             .AddDrop(ItemId.CursedExorciserStone, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.CursedExorciserStoneShard, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.GiantCaterpillar, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.FlameMushroom, 1, 1, DropRate.UNCOMMON);
-        enemies[3].SetDropsTable(dropsTable);
 
-        AddEnemies(enemies);
+        AddEnemies(new List<InstancedEnemy>()
+        {
+            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 0)
+                .SetDropsTable(dropsTableGrudgeGhost),
+            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 1)
+                .SetDropsTable(dropsTableGrudgeGhost),
+            LibDdon.Enemy.Create(EnemyId.GrudgeGhost, 92, 4200, 2)
+                .SetDropsTable(dropsTableGrudgeGhost),
+            LibDdon.Enemy.Create(EnemyId.DeathKnight, 92, 21000, 0)
+                .SetDropsTable(dropsTableDeathKnight)
+                .SetIsBoss(true),
+        });
     }
 }
 

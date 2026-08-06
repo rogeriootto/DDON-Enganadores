@@ -236,8 +236,8 @@ public class ScriptedQuest : IQuest
             .AddCheckCmdIsTutorialQuestClear((QuestId)60319010);
         process0.AddNpcTalkAndOrderBlock(Stage.LookoutCastle1, NpcId.Nayajiku, 23902);
         process0.AddRawBlock(QuestAnnounceType.Accept)
+            .AddWorldManageUnlock(QuestFlags.FeryanaWilderness.OldTekiaGrotto)
 			.AddResultCommands([
-				QuestManager.ResultCommand.WorldManageQuestFlagOn(3286, 70031001),
 				QuestManager.ResultCommand.QstTalkChg(NpcId.Nayajiku, 23903)
 			])
 			.AddCheckCommands([
@@ -297,73 +297,75 @@ public class ScriptedQuest : IQuest
         var process1 = AddNewProcess(1);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddCheckCommands([
-				QuestManager.CheckCommand.MyQstFlagOn(3372)
+				QuestManager.CheckCommand.MyQstFlagOn(3372),
+				QuestManager.CheckCommand.MyQstFlagOff(3377)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25738, 595)
+				QuestManager.ResultCommand.PlayMessage(25738, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.IsEnemyFoundWithoutMarker(1063, 3, -1)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25739, 595)
+				QuestManager.ResultCommand.PlayMessage(25739, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.IsEnemyFoundWithoutMarker(1063, 4, -1)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25744, 595)
+				QuestManager.ResultCommand.PlayMessage(25744, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.SceHitInWithoutMarker(1063, 0)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25740, 595)
+				QuestManager.ResultCommand.PlayMessage(25740, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(3374)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25741, 595)
+				QuestManager.ResultCommand.PlayMessage(25741, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(3375)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25914, 595)
+				QuestManager.ResultCommand.PlayMessage(25914, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.IsEnemyFoundWithoutMarker(1063, 9, 0)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25742, 595)
+				QuestManager.ResultCommand.PlayMessage(25742, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(3376)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25743, 595)
+				QuestManager.ResultCommand.PlayMessage(25743, 0)
 			])
 			.AddCheckCommands([
 				QuestManager.CheckCommand.MyQstFlagOn(3377)
 			]);
         process1.AddRawBlock(QuestAnnounceType.None)
 			.AddResultCommands([
-				QuestManager.ResultCommand.PlayMessage(25736, 595)
+				QuestManager.ResultCommand.PlayMessage(25736, 0)
 			]);
 
         var process2 = AddNewProcess(2);
 		process2.AddRawBlock(QuestAnnounceType.None)
 			.AddCheckCommands([
-				QuestManager.CheckCommand.StageNo(1063)
+				QuestManager.CheckCommand.StageNo(1063),
+				QuestManager.CheckCommand.MyQstFlagOff(3377)
 			]);
         process2.AddSpawnGroupsBlock(QuestAnnounceType.None, [EnemyGroupId.Group2, EnemyGroupId.Group3, EnemyGroupId.Group4, EnemyGroupId.Group5])
 			.AddCheckCommands([

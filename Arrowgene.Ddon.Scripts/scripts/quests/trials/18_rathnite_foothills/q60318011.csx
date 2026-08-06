@@ -16,9 +16,9 @@ public class ScriptedQuest : IQuest
 
     private class EnemyGroupId
     {
-		public const uint Empty1 = 0;
-		public const uint Empty2 = 1;
-		public const uint Empty3 = 2;
+        public const uint Empty1 = 0;
+        public const uint Empty2 = 1;
+        public const uint Empty3 = 2;
         public const uint Encounter1 = 10;
         public const uint Encounter2 = 11;
         public const uint Encounter3 = 12;
@@ -28,7 +28,7 @@ public class ScriptedQuest : IQuest
     private class NamedParamId
     {
         public const uint BaseDefense  = 1828;
-		public const uint DefenceOfficer = 1829;
+        public const uint DefenceOfficer = 1829;
         public const uint ArtilleryOfficer  = 1838;
     }
 
@@ -114,7 +114,7 @@ public class ScriptedQuest : IQuest
             LibDdon.Enemy.Create(EnemyId.SquadLeaderDwarfOrc, 83, 21000, 0)
                 .SetNamedEnemyParams(NamedParamId.DefenceOfficer),
             LibDdon.Enemy.Create(EnemyId.WarReadyGorecyclopsLightArmor0, 83, 105000, 2)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
         });
 
         // Catoblepas
@@ -135,7 +135,7 @@ public class ScriptedQuest : IQuest
             LibDdon.Enemy.Create(EnemyId.SwordSoldierDwarfOrc, 85, 4200, 8)
                 .SetNamedEnemyParams(NamedParamId.BaseDefense),
             LibDdon.Enemy.Create(EnemyId.Catoblepas, 83, 84563, 9)
-				.SetIsBoss(true),
+                .SetIsBoss(true),
         });
     }
 
@@ -152,42 +152,42 @@ public class ScriptedQuest : IQuest
             .AddResultCmdQstTalkChg(NpcId.Endale, 23898);
 
         // 2. Ask Ozgur about the strength of the Liberation Army
-		process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
+        process0.AddRawBlock(QuestAnnounceType.CheckpointAndUpdate)
             .AddResultCmdQstTalkChg(NpcId.Ozgur, 23900)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.MyQstFlagOn(1)
-			])
-			.AddCheckCommands([
-				QuestManager.CheckCommand.MyQstFlagOn(2)
-			])
-			.AddCheckCommands([
-				QuestManager.CheckCommand.TalkNpc(631, NpcId.Ozgur),
-				QuestManager.CheckCommand.DummyNotProgress()
-			]);
+            .AddCheckCommands([
+                QuestManager.CheckCommand.MyQstFlagOn(1)
+            ])
+            .AddCheckCommands([
+                QuestManager.CheckCommand.MyQstFlagOn(2)
+            ])
+            .AddCheckCommands([
+                QuestManager.CheckCommand.TalkNpc(631, NpcId.Ozgur),
+                QuestManager.CheckCommand.DummyNotProgress()
+            ]);
 
         // 3. Head into enemy territory and strike with a surprise attack
         process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter1)
             .AddResultCmdQstTalkChg(NpcId.Ozgur, 25529)
-            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.AlliedAlways)
-            .AddQuestFlag(QuestFlagType.WorldManageQuest, QuestFlagAction.Set, 3284, (QuestId)70030001);
+            .AddWorldManageUnlock(QuestFlags.RathniteFoothillsLakeside.DemonArmyWarMachineGate)
+            .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.AlliedAlways);
 
         // 4. Destroy enemy artillery
-		process0.AddRawBlock(QuestAnnounceType.Update)
+        process0.AddRawBlock(QuestAnnounceType.Update)
             .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, 3293)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.CannonOm1)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, QstLayoutFlag.CannonOm2)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.IsOmBrokenQuest(131, 1, 0)
-			])
-			.AddCheckCommands([
-				QuestManager.CheckCommand.IsOmBrokenQuest(131, 2, 0)
-			]);
+            .AddCheckCommands([
+                QuestManager.CheckCommand.IsOmBrokenQuest(131, 1, 0)
+            ])
+            .AddCheckCommands([
+                QuestManager.CheckCommand.IsOmBrokenQuest(131, 2, 0)
+            ]);
 
         // 5. Defeat the leader of the reinforcements
         process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter2)
             .AddQuestFlag(QuestFlagType.MyQst, QuestFlagAction.Set, 3294);
-		process0.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCmdDieEnemy(Stage.RathniteFoothillsLakeside0, 50, 1);
+        process0.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCmdDieEnemy(Stage.RathniteFoothillsLakeside0, 50, 1);
 
         // 6. Head to the enemy's main stronghold deeper in
         process0.AddDiscoverGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter3)
@@ -211,65 +211,61 @@ public class ScriptedQuest : IQuest
             .AddResultCmdMyQstFlagOn(3);
         process0.AddProcessEndBlock(true);
 
-		// Branch 1 - Meirova
+        // Branch 1 - Meirova
         var process1 = AddNewProcess(1);
-		process1.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCmdTalkNpcChoice(Stage.RothgillTravelersInn, NpcId.Ozgur, 0);
-		process1.AddRawBlock(QuestAnnounceType.None)
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCmdTalkNpcChoice(Stage.RothgillTravelersInn, NpcId.Ozgur, 0);
+        process1.AddRawBlock(QuestAnnounceType.None)
             .AddResultCmdMyQstFlagOn(1)
             .AddCheckCmdMyQstFlagOn(3293);
-		process1.AddRawBlock(QuestAnnounceType.None)
+        process1.AddRawBlock(QuestAnnounceType.None)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, 5638)
-			.AddResultCmdPlayMessage(25530,31)
+            .AddResultCmdPlayMessage(25530, 0)
             .AddCheckCmdMyQstFlagOn(3294);
-		process1.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25534,31)
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25534,0 )
             .AddCheckCmdMyQstFlagOn(3295);
-		process1.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25536,31)
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25536, 0)
             .AddCheckCmdMyQstFlagOn(3297);
-		process1.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25538,31)
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25538, 0)
             .AddCheckCmdMyQstFlagOn(3);
-		process1.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25540,31)
+        process1.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25540, 0)
             .AddResultCmdQstTalkChg(NpcId.Meirova0, 25545);
 
-		// Branch 2 - Lise
+        // Branch 2 - Lise
         var process2 = AddNewProcess(2);
-		process2.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCmdTalkNpcChoice(Stage.RothgillTravelersInn, NpcId.Ozgur, 1);
-		process2.AddRawBlock(QuestAnnounceType.None)
+        process2.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCmdTalkNpcChoice(Stage.RothgillTravelersInn, NpcId.Ozgur, 1);
+        process2.AddRawBlock(QuestAnnounceType.None)
             .AddResultCmdMyQstFlagOn(2)
             .AddCheckCmdMyQstFlagOn(3293);
-		process2.AddRawBlock(QuestAnnounceType.None)
+        process2.AddRawBlock(QuestAnnounceType.None)
             .AddQuestFlag(QuestFlagType.QstLayout, QuestFlagAction.Set, 6339)
-			.AddResultCmdPlayMessage(25531,13)
+            .AddResultCmdPlayMessage(25531, 0)
             .AddCheckCmdMyQstFlagOn(3294);
-		process2.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25535,13)
+        process2.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25535, 0)
             .AddCheckCmdMyQstFlagOn(3295);
-		process2.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25537,13)
+        process2.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25537, 0)
             .AddCheckCmdMyQstFlagOn(3297);
-		process2.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25539,13)
+        process2.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25539, 0)
             .AddCheckCmdMyQstFlagOn(3);
-		process2.AddRawBlock(QuestAnnounceType.None)
-			.AddResultCmdPlayMessage(25541,13)
+        process2.AddRawBlock(QuestAnnounceType.None)
+            .AddResultCmdPlayMessage(25541, 0)
             .AddResultCmdQstTalkChg(NpcId.Lise0, 25546);
 
-		// Send empty groups
-		var process3 = AddNewProcess(3);
-		process3.AddRawBlock(QuestAnnounceType.None)
-			.AddCheckCommands([
-				QuestManager.CheckCommand.MyQstFlagOn(1),
-				QuestManager.CheckCommand.StageNo(131)
-			])
-			.AddCheckCommands([
-				QuestManager.CheckCommand.MyQstFlagOn(2),
-				QuestManager.CheckCommand.StageNo(131)
-			]);
+        // Send empty groups
+        var process3 = AddNewProcess(3);
+        process3.AddRawBlock(QuestAnnounceType.None)
+            .AddCheckCommands([
+                QuestManager.CheckCommand.WorldManageQuestFlagOn(3284, 70030001),
+                QuestManager.CheckCommand.StageNo(131)
+            ]);
         process3.AddSpawnGroupsBlock(QuestAnnounceType.None, [EnemyGroupId.Empty1, EnemyGroupId.Empty2, EnemyGroupId.Empty3]);
     }
 }

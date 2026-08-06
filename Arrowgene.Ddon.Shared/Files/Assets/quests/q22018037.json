@@ -74,48 +74,44 @@
         "id": 504,
         "group_id": 1
       },
+      "starting_index": 2,
       "enemies": [
         {
+          "comment": "Bolt Skeleton Brute",
+          "enemy_id": "0x010323",
+          "level": 93,
+          "exp": 4200
+        },
+        {
+          "comment": "Bolt Skeleton Brute",
+          "enemy_id": "0x010323",
+          "level": 93,
+          "exp": 4200
+        },
+        {
+          "comment": "Misery Ghost",
+          "enemy_id": "0x015621",
+          "level": 93,
+          "exp": 4200
+        },
+        {
+          "comment": "Misery Ghost",
+          "enemy_id": "0x015621",
+          "level": 93,
+          "exp": 4200
+        },
+        {
+          "comment": "Medusa",
           "enemy_id": "0x015610",
           "level": 93,
-          "exp": 44000,
-          "is_boss": true,
-          "comment": "Medusa"
+          "exp": 21000,
+          "is_boss": true
         },
         {
-          "enemy_id": "0x010323",
-          "level": 93,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Bolt Skeleton Brute"
-        },
-        {
-          "enemy_id": "0x010323",
-          "level": 93,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Bolt Skeleton Brute"
-        },
-        {
+          "comment": "Misery Ghost",
           "enemy_id": "0x015621",
           "level": 93,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Misery Ghost"
-        },
-        {
-          "enemy_id": "0x015621",
-          "level": 93,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Misery Ghost"
-        },
-        {
-          "enemy_id": "0x015621",
-          "level": 93,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Misery Ghost"
+          "exp": 4200
         }
       ]
     }
@@ -136,7 +132,10 @@
     {
       "type": "DiscoverEnemy",
       "announce_type": "Accept",
-      "groups": [0]
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 3201, "Param2": 27935, "comment": "Extra dialogue - Lucas"}
+      ]
     },
     {
       "type": "KillGroup",
@@ -149,9 +148,9 @@
       "stage_id": {
         "id": 584
       },
-      "announce_type": "Update",
+      "announce_type": "CheckpointAndUpdate",
       "npc_id": "Lucas",
-      "message_id": 27937
+      "message_id": 27936
     }
   ]
 }

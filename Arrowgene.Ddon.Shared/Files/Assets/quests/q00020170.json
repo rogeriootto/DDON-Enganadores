@@ -17,9 +17,6 @@
             "Param1": 20160
         }
     ],
-    "contents_release": [
-        { "type": "FaranaPlainsWorldQuests", "flag_info": "NpcFunctions.FaranaPlainsAreaInfo" }
-    ],
     "rewards": [
         {
             "type": "exp",
@@ -284,6 +281,18 @@
                     "checkpoint": true,
                     "npc_id": "Joseph",
                     "message_id": 15678
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "contents_release": [
+                        {
+                            "type": "FaranaPlainsWorldQuests",
+                            "flag_info": "NpcFunctions.FaranaPlainsAreaInfo"
+                        }
+                    ]
                 }
             ]
         }

@@ -12,61 +12,34 @@ public class MonsterSpotInfo : IMonsterSpotInfo
 
     public override void Initialize()
     {
-        var enemies = new List<InstancedEnemy>()
-        {
-            LibDdon.Enemy.Create(EnemyId.WarReadyNightmareLightArmor, 93, 21000, 9)
-                .SetIsBoss(true),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 10),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 11),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 12),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 13),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 14),
-            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 15),
-        };
-
-        var dropsTable = LibDdon.Enemy.GetDropsTable(enemies[0]).Clone()
+        var dropsTableWarReadyNightmare = LibDdon.Enemy.GetDropsTable(EnemyId.WarReadyNightmareLightArmor, 93).Clone()
             .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.UNCOMMON)
             .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.RARE);
-        enemies[0].SetDropsTable(dropsTable);
 
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[1]).Clone()
+        var dropsTableRangedSoldierDwarfOrc = LibDdon.Enemy.GetDropsTable(EnemyId.RangedSoldierDwarfOrc, 93).Clone()
             .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
             .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
             .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[1].SetDropsTable(dropsTable);
 
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[2]).Clone()
-            .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[2].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[3]).Clone()
-            .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[3].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[4]).Clone()
-            .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[4].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[5]).Clone()
-            .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[5].SetDropsTable(dropsTable);
-
-        dropsTable = LibDdon.Enemy.GetDropsTable(enemies[6]).Clone()
-            .AddDrop(ItemId.LowGradeReinforcedArmor, 1, 1, DropRate.VERY_RARE)
-            .AddDrop(ItemId.BattleArmorFragment, 1, 1, DropRate.RARE)
-            .AddDrop(ItemId.GiantAnimalSkull, 1, 1, DropRate.VERY_RARE);
-        enemies[6].SetDropsTable(dropsTable);
-
-        AddEnemies(enemies);
+        AddEnemies(new List<InstancedEnemy>()
+        {
+            LibDdon.Enemy.Create(EnemyId.WarReadyNightmareLightArmor, 93, 21000, 9)
+                .SetDropsTable(dropsTableWarReadyNightmare)
+                .SetIsBoss(true),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 10)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 11)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 12)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 13)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 14)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+            LibDdon.Enemy.Create(EnemyId.RangedSoldierDwarfOrc, 93, 4200, 15)
+                .SetDropsTable(dropsTableRangedSoldierDwarfOrc),
+        });
     }
 }
 

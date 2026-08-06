@@ -396,7 +396,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             public static QuestFlagInfo OpenLeverDoor { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(1672, QuestId.Q70000001, StageInfo);
         }
 
-        public static class BloodbaneIsle0
+        public static class BloodbaneIsle
         {
             private static StageInfo StageInfo = Stage.BloodbaneIsle0;
 
@@ -850,12 +850,12 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// <summary>
             /// Opens gates leading to The King's Hidden Chamber
             /// </summary>
-            public static QuestFlagInfo TheKingsHiddenChamberGates { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4402, QuestId.Q70032001);
+            public static QuestFlagInfo TheKingsHiddenChamber { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4402, QuestId.Q70032001);
 
             /// <summary>
-            /// Unknown what it does, but a world quest checks for it
+            /// Unlocks World Quest "Flames of Darkness"
             /// </summary>
-            public static QuestFlagInfo Q70032001Unk1 { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4580, QuestId.Q70032001);
+            public static QuestFlagInfo FlamesOfDarkness { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4580, QuestId.Q70032001);
 
             /// <summary>
             /// Spawns closed well for Eli Guard Tower
@@ -893,9 +893,30 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             public static QuestFlagInfo Doris { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7497, QuestId.Q70032001, StageInfo);
 
             /// <summary>
+            /// Spawns substory quest giver Mephis
+            /// </summary>
+            public static QuestFlagInfo Mephis { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7747, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
             /// Activates warp to Megado Corridor
             /// </summary>
             public static QuestFlagInfo MegadoCorridor { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(5185, QuestId.Q70034001);
+
+            /// <summary>
+            /// Activates warp to Darkness Shrouded Megado Corridor
+            /// Uses the same door as Megado Corridor, so only one should be active at any time
+            /// </summary>
+            public static QuestFlagInfo DarknessShroudedMegadoCorridor { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(5216, QuestId.Q70034001);
+
+            /// <summary>
+            /// Spawns door to Marquise Kurt's Residence
+            /// </summary>
+            public static QuestFlagInfo MarquiseKurtsResidence { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7654, QuestId.Q70032001, StageInfo);
+
+            /// <summary>
+            /// Unlocks door to Old Epitaph Road Shrine
+            /// </summary>
+            public static QuestFlagInfo OldEpitaphRoadShrine { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4451, QuestId.Q70032001);
         }
 
         public static class FortressCityMegadoRoyalPalaceLevel
@@ -911,11 +932,6 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Activates warp to Urteca Mountains
             /// </summary>
             public static QuestFlagInfo UrtecaMountainsWarp { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7827, QuestId.Q70033001, StageInfo);
-
-            /// <summary>
-            /// Unlocks door to Old Epitaph Road Shrine
-            /// </summary>
-            public static QuestFlagInfo OldEpitaphRoadShrine { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4451, QuestId.Q70032001);
         }
 
         public static class OldHeroicSpiritShrine
@@ -1005,9 +1021,9 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             public static QuestFlagInfo RockBridge { get; private set; } = QuestFlagInfo.WorldManageLayoutFlag(7888, QuestId.Q70033001, StageInfo);
 
             /// <summary>
-            /// Opens gate to the lava room in the middle of the map
+            /// Opens gate leading to the rock bridge, required for S3.3 MSQ
             /// </summary>
-            public static QuestFlagInfo LavaRoomGateOpen { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4914, QuestId.Q70033001);
+            public static QuestFlagInfo BridgeGate { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(4914, QuestId.Q70033001);
         }
 
         public static class FirefallMountainCampsite

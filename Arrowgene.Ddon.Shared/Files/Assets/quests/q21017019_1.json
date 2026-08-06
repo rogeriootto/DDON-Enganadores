@@ -187,7 +187,7 @@
                 {
                     "type": "Raw",
                     "check_commands": [
-                        {"type": "CheckAreaRank", "Param1": 17, "Param1": 13},
+                        {"type": "CheckAreaRank", "Param1": 17, "Param2": 13},
                         {"type": "StageNo", "Param1": 122}
                     ]
                 },

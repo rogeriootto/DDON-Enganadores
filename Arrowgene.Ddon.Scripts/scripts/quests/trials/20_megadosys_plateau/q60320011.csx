@@ -13,7 +13,6 @@ public class ScriptedQuest : IQuest
     public override bool IsDiscoverable => false;
     public override StageInfo StageInfo => Stage.FortressCityMegadoResidentialLevel1;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.AreaTrialOrMission;
-    public override bool Enabled => false;
 
     protected override void InitializeState()
     {
@@ -39,13 +38,13 @@ public class ScriptedQuest : IQuest
             .AddCheckCmdIsTutorialQuestClear(QuestId.MegadosysPlateauTrialShadowOfHeresy);
         process0.AddNpcTalkAndOrderBlock(Stage.FortressCityMegadoResidentialLevel1, NpcId.Doris, 28298);
         process0.AddIsStageNoBlock(QuestAnnounceType.Accept, Stage.TheKingsRoomofConcealment0)
-            .AddWorldManageUnlock(QuestFlags.MegadosysPlateau.TheKingsHiddenChamberGates)
+            .AddWorldManageUnlock(QuestFlags.MegadosysPlateau.TheKingsHiddenChamber)
             .AddResultCmdQstTalkChg(NpcId.Doris, 28299);
         process0.AddRawBlock(QuestAnnounceType.Update)
             .AddCheckCmdEmDieForRandomDungeon(Stage.TheKingsRoomofConcealment0, EnemyId.Ifrit2ndForm, 1);
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.FortressCityMegadoResidentialLevel1, NpcId.Doris, 28300);
         process0.AddProcessEndBlock(true)
-            .AddResultCmdAchievementBanner(6, 9); // This should show the achievement name, but how?
+            .AddResultCmdReleaseAnnounce(ContentsRelease.ExtremeMissions, flagInfo: QuestFlags.NpcFunctions.DorisExm);
     }
 }
 

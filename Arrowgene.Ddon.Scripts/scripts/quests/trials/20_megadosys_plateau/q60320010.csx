@@ -14,7 +14,6 @@ public class ScriptedQuest : IQuest
     public override bool? EnableCancel => true;
     public override StageInfo StageInfo => Stage.FortressCityMegadoResidentialLevel1;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.AreaTrialOrMission;
-    public override bool Enabled => false;
 
     protected override void InitializeState()
     {
@@ -131,7 +130,7 @@ public class ScriptedQuest : IQuest
         process0.AddTalkToNpcBlock(QuestAnnounceType.CheckpointAndUpdate, Stage.FortressCityMegadoResidentialLevel1, NpcId.Doris, 28279);
         process0.AddProcessEndBlock(true)
             .AddResultCmdAchievementBanner(6, 9)
-            .AddWorldManageUnlock(QuestFlags.MegadosysPlateau.Q70032001Unk1); // Figure out what this does later
+            .AddWorldManageUnlock(QuestFlags.MegadosysPlateau.FlamesOfDarkness);
     }
 }
 

@@ -52,60 +52,57 @@
   ],
   "enemy_groups": [
     {
+      "comment": "GroupId: 16 - Empty",
+      "stage_id": {
+        "id": 597,
+        "group_id": 16
+      },
+      "starting_index": 4,
+      "enemies": []
+    },
+    {
       "comment": "GroupId: 16 - Witch, Harpies, Giant Geo Saurians",
       "stage_id": {
         "id": 597,
         "group_id": 16
       },
+      "starting_index": 4,
       "enemies": [
         {
+          "comment": "Witch",
           "enemy_id": "0x015604",
           "level": 90,
-          "exp": 44000,
-          "is_boss": false,
-          "comment": "Witch"
+          "exp": 21000
         },
         {
-          "enemy_id": "0x010600",
-          "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Harpy"
-        },
-        {
-          "enemy_id": "0x010600",
-          "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Harpy"
-        },
-        {
-          "enemy_id": "0x010600",
-          "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Harpy"
-        },
-        {
-          "enemy_id": "0x010600",
-          "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Harpy"
-        },
-        {
+          "comment": "Giant Geo Saurian",
           "enemy_id": "0x010421",
           "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Giant Geo Saurian"
+          "exp": 4200
         },
         {
+          "comment": "Giant Geo Saurian",
           "enemy_id": "0x010421",
           "level": 90,
-          "exp": 18000,
-          "is_boss": false,
-          "comment": "Giant Geo Saurian"
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
         }
       ]
     }
@@ -113,7 +110,9 @@
   "blocks": [
     {
       "type": "Raw",
-      "check_commands": [{"type": "IsMainQuestClear", "Param1": 30150}]
+      "check_commands": [
+        {"type": "IsMainQuestClear", "Param1": 30150}
+      ]
     },
     {
       "type": "NpcTalkAndOrder",
@@ -124,45 +123,61 @@
       "message_id": 27945
     },
     {
-      "type": "NewTalkToNpc",
-      "stage_id": {
-        "id": 597
-      },
+      "type": "SpawnGroup",
       "announce_type": "Accept",
-      "npc_id": "Revento",
-      "message_id": 27952,
       "groups": [0],
-      "flags": [
-        {
-          "type": "QstLayout",
-          "action": "Set",
-          "value": 7352
-        }
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 4513, "Param2": 27946, "comment": "Extra dialogue - Eddys"}
+      ],
+      "check_commands": [
+        {"type": "StageNo", "Param1": 1006}
       ]
     },
     {
-      "type": "KillGroup",
-      "announce_type": "Update",
-      "reset_group": false,
-      "groups": [0]
-    },
-    {
-      "type": "TalkToNpc",
+      "type": "NewTalkToNpc",
       "stage_id": {
-        "id": 597
+        "id": 597,
+        "group_id": 0,
+        "layer_no": 0
       },
-      "announce_type": "Update",
       "npc_id": "Revento",
-      "message_id": 0
+      "message_id": 27952,
+      "result_commands": [
+        {"type": "QstLayoutFlagOn", "Param1": 7352, "comment": "Spawns Levente NPC"}
+      ]
+    },
+    {
+        "type": "KillGroup",
+        "announce_type": "Update",
+        "groups": [1],
+        "result_commands": [
+          {"type": "PlayMessage", "Param1": 27949, "Param2": 0},
+          {"type": "MyQstFlagOn", "Param1": 4314, "comment": "Levente FSM"}
+        ]
+    },
+    {
+        "type": "NewTalkToNpc",
+        "announce_type": "Update",
+        "stage_id": {
+            "id": 597,
+            "group_id": 2,
+            "layer_no": 0
+        },
+        "npc_id": "Revento",
+        "message_id": 27947,
+        "result_commands": [
+          {"type": "QstLayoutFlagOff", "Param1": 7352, "comment": "Clears Levente NPC"},
+          {"type": "QstLayoutFlagOn", "Param1": 7356, "comment": "Spawns Levente (Alive) NPC"}
+        ]
     },
     {
       "type": "TalkToNpc",
+      "announce_type": "CheckpointAndUpdate",
       "stage_id": {
         "id": 464
       },
-      "announce_type": "Update",
       "npc_id": "Kirsty0",
-      "message_id": 27944
+      "message_id": 27943
     }
   ]
 }

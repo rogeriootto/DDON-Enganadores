@@ -247,6 +247,12 @@
                         "id": 371
                     },
                     "event_id": 35,
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Set", "value": 4372, "quest_id": 70023001, "comment": "Stage 880 warp - Vegasa"},
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 4373, "quest_id": 70023001, "comment": "Stage 881 warp - Vegasa"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 4507, "quest_id": 70023001, "comment": "Stage 880 warp - Gathering Area"},
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 4508, "quest_id": 70023001, "comment": "Stage 881 warp - Gathering Area"}
+                    ],
                     "contents_release": [
                         {"flag_info": "FaranaPlains.VegasaCorridorSouth"},
                         {"flag_info": "MorrowForest.VegasaCorridorWest"},
@@ -287,6 +293,9 @@
                 {
                     "type": "DiscoverEnemy",
                     "announce_type": "Update",
+                    "flags": [
+                        {"type": "WorldManageQuest", "action": "Set", "value": 2564, "quest_id": 70023001, "comment": "Unlocks Hollow of Gatherings"}
+                    ],
                     "checkpoint": true,
                     "groups": [ 3 ]
                 },
@@ -376,36 +385,6 @@
                     "message_id": 15844
                 }
             ]
-        },
-        {
-            "comment": "Forces player to correct stage. Flags are set currently to force player to StageNo 881 but the quest takes place on StageNo 880",
-            "blocks": [
-                {
-                    "type": "IsStageNo",
-                    "show_marker": false,
-                    "stage_id": {
-                        "id": 383
-                    }
-                },
-                {
-                    "type": "Raw",
-                    "check_commands": [
-                        {"type": "StageNo", "Param1": 880}
-                    ],
-                    "result_commands": [
-                        {"type": "StageJump", "Param1": 880, "Param2": 0}
-                    ]
-                },
-                {
-                    "type": "ReturnCheckPoint",
-                    "stage_id": {
-                        "id": 382
-                    },
-                    "process_no": 1,
-                    "block_no": 1
-                }
-            ]
         }
-
     ]
 }

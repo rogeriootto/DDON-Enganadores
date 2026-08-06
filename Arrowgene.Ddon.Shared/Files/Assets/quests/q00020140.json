@@ -42,10 +42,12 @@
                 "id": 337,
                 "group_id": 1
             },
+            "starting_index": 1,
             "enemies": [
                 {
                     "comment": "Altered Zuhl",
                     "enemy_id": "0x020403",
+                    "named_enemy_params_id": 943,
                     "level": 66,
                     "exp": 217000,
                     "is_boss": true

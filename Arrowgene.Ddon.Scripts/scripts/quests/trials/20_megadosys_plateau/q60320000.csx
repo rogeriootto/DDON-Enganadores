@@ -13,7 +13,6 @@ public class ScriptedQuest : IQuest
     public override bool IsDiscoverable => false;
     public override StageInfo StageInfo => Stage.EliGuardTower;
     public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.AreaTrialOrMission;
-    public override bool Enabled => false;
 
     protected override void InitializeState()
     {
@@ -103,7 +102,7 @@ public class ScriptedQuest : IQuest
             .AddResultCmdQstLayoutFlagOff(7491)
             .AddResultCmdQstLayoutFlagOff(7492);
         process0.AddSpawnGroupBlock(QuestAnnounceType.Update, EnemyGroupId.Encounter)
-            .AddResultCmdWorldManageLayoutFlagOn(7946, QuestId.Q70032001)
+            .AddResultCmdWorldManageLayoutFlagOn(7946, QuestId.Q70032001) // Player cannons
             .AddResultCmdQstLayoutFlagOff(7486)
             .AddResultCmdQstLayoutFlagOn(7495)
             .AddCheckCommands([

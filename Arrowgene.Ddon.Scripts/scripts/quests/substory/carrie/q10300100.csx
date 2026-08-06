@@ -12,7 +12,6 @@ public class ScriptedQuest : IQuest
     public override byte MinimumItemRank => 0;
     public override bool IsDiscoverable => true;
     public override StageInfo StageInfo => Stage.FortThinesGreatDiningHall;
-    public override QuestAdventureGuideCategory? AdventureGuideCategory => QuestAdventureGuideCategory.QuestUsefulForAdventure;
 
     private class QstLayoutFlag
     {
