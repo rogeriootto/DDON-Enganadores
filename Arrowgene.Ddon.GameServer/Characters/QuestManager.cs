@@ -2809,10 +2809,10 @@ namespace Arrowgene.Ddon.GameServer.Characters
                 return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsReleaseWarpPointAnyoneNoMarker, Param01 = waypointId, Param02 = param02, Param03 = param03, Param04 = param04 };
             }
 
-            /** @brief Checks if the substory clock is within [minHour, maxHour]. Min/max order does not matter. */
-            public static CDataQuestCommand IsSubstoryIngameHourInRange(int minHour, int maxHour, int param03 = 0, int param04 = 0)
+            /** @brief Checks if the substory quest's mission progress is within [minValue, maxValue]. Min/max order does not matter. */
+            public static CDataQuestCommand IsSubstoryProgressInRange(int minValue, int maxValue, int param03 = 0, int param04 = 0)
             {
-                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryIngameHourInRange, Param01 = minHour, Param02 = maxHour, Param03 = param03, Param04 = param04 };
+                return new CDataQuestCommand() { Command = (ushort)QuestCheckCommand.IsSubstoryProgressInRange, Param01 = minValue, Param02 = maxValue, Param03 = param03, Param04 = param04 };
             }
 
             /** @brief Kill-group completion check gated on content mode. Marker vs no-marker determined by this+0x82 at runtime. */
