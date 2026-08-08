@@ -816,9 +816,9 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return checkCommands;
         }
 
-        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryIngameHourInRange(this List<CDataQuestCommand> checkCommands, int minHour, int maxHour)
+        public static List<CDataQuestCommand> AddCheckCmdIsSubstoryProgressInRange(this List<CDataQuestCommand> checkCommands, int minValue, int maxValue)
         {
-            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryIngameHourInRange(minHour, maxHour));
+            checkCommands.Add(QuestManager.CheckCommand.IsSubstoryProgressInRange(minValue, maxValue));
             return checkCommands;
         }
 
@@ -957,6 +957,12 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
         public static List<CDataQuestCommand> AddCheckCmdTouchClanBoard(this List<CDataQuestCommand> checkCommands)
         {
             checkCommands.Add(QuestManager.CheckCommand.TouchClanBoard());
+            return checkCommands;
+        }
+
+        public static List<CDataQuestCommand> AddCheckCmdIsOrderJobTutorialQuest(this List<CDataQuestCommand> checkCommands)
+        {
+            checkCommands.Add(QuestManager.CheckCommand.IsOrderJobTutorialQuest());
             return checkCommands;
         }
     }
