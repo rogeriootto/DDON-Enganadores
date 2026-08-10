@@ -1709,7 +1709,9 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new S2CQuestSetNavigationQuestRes.Serializer());
             Create(new S2CQuestSetPriorityQuestNtc.Serializer());
             Create(new S2CQuestSetPriorityQuestRes.Serializer());
-            Create(new S2CQuestSubstoryStartAnnounceNtc.Serializer());
+            Create(new S2CQuestSubstoryMissionStartNtc.Serializer());
+            Create(new S2CQuestSubstoryMissionCompleteNtc.Serializer());
+            Create(new S2CQuestSubstoryMissionAllCompleteNtc.Serializer());
             Create(new S2CQuestTimeGainQuestPlayStartNtc.Serializer());
             Create(new S2CQuestTimerNtc.Serializer());
             Create(new S2CQuestAddPackageQuestPointRes.Serializer());
