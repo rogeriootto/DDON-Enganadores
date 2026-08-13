@@ -903,10 +903,10 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
             return questBlock;
         }
 
-        public static QuestBlock AddCheckCmdIsSubstoryIngameHourInRange(this QuestBlock questBlock, int minHour, int maxHour, int commandListIndex = 0)
+        public static QuestBlock AddCheckCmdIsSubstoryProgressInRange(this QuestBlock questBlock, int minValue, int maxValue, int commandListIndex = 0)
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
-            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryIngameHourInRange(minHour, maxHour);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsSubstoryProgressInRange(minValue, maxValue);
             return questBlock;
         }
 
@@ -1068,6 +1068,13 @@ namespace Arrowgene.Ddon.GameServer.Quests.Extensions
         {
             ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
             questBlock.CheckCommands[commandListIndex].AddCheckCmdTouchClanBoard();
+            return questBlock;
+        }
+
+        public static QuestBlock AddCheckCmdIsOrderJobTutorialQuest(this QuestBlock questBlock, int commandListIndex = 0)
+        {
+            ValidateIndexAndUpdateCommandList(questBlock.CheckCommands, commandListIndex);
+            questBlock.CheckCommands[commandListIndex].AddCheckCmdIsOrderJobTutorialQuest();
             return questBlock;
         }
     }

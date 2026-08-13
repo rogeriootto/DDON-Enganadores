@@ -4294,22 +4294,25 @@ GetDominionPoint(int param01 = 0, int param02 = 0, int param03 = 0, int param04 
 IsReleaseWarpPointAnyoneNoMarker(int waypointId, int param02 = 0, int param03 = 0, int param04 = 0);
 ```
 
-### IsSubstoryIngameHourInRange (241)
+### IsSubstoryProgressInRange (241)
 
 | Field | Value |
 |-------|-------|
 | Address | `0x00636EF0` |
 | Table index | 241 |
-| Key callees | `FUN_009cfdf0` / `FUN_009d0160` / `FUN_00bdee50(0xb)` / `FUN_00597d20` (substory clock); multiplier `DAT_01aeaa98` converts raw time to hours |
+| Key callees | `FUN_009cfdf0` / `FUN_009d0160` / `FUN_00bdee50(0xb)` / `FUN_00597d20` (substory mission); multiplier `DAT_01aeaa98` converts float to int |
 
 ```
 /**
- * @brief Checks if the substory clock is within [minHour, maxHour].
- * Parameters are sorted internally so order does not matter.
- * @param minHour Minimum hour (inclusive)
- * @param maxHour Maximum hour (inclusive)
+ * @brief Checks if the substory quest's mission progress (via FUN_00597d20) is within [minValue, maxValue].
+ * Obtains substory mission ID (seqNo) from quest context, then scans S2C_QUEST_GET_PACKAGE_QUEST_LIST_RES for a match.
+ * Retrieves Unk1 (current progress) and Unk2 (maximum progress), divides them, multiplies the result by 100 and converts the result to int.
+ * Then, checks if progress is within [param01, param02].
+ * NOTE: The result command that activates the progress UI also reads from the same packet.
+ * @param minValue Minimum progress range (inclusive)
+ * @param maxValue Maximum progress value (inclusive)
  */
-IsSubstoryIngameHourInRange(int minHour, int maxHour, int param03 = 0, int param04 = 0);
+IsSubstoryProgressInRange(int minValue, int maxValue, int param03 = 0, int param04 = 0);
 ```
 
 ### IsQuestClearCountNotLess (245)

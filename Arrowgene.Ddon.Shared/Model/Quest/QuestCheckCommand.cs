@@ -405,10 +405,13 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         IsReleaseWarpPointAnyoneNoMarker = 240, // 0x00636C10 (cQuestProcess* this, s32 waypointId, s32 param02, s32 param03, s32 param04)
 
         /// <summary>
-        /// Checks if the substory clock (via FUN_00597d20) is within [minHour, maxHour]. Converts raw time to hours
-        /// using DAT_01aeaa98 multiplier. Parameters are sorted internally so min/max order does not matter.
+        /// Checks if the substory quest's mission progress (via FUN_00597d20) is within [minValue, maxValue].
+        /// Obtains substory mission ID (seqNo) from quest context, then scans S2C_QUEST_GET_PACKAGE_QUEST_LIST_RES for a match.
+        /// Retrieves Unk1 (current progress) and Unk2 (maximum progress), divides them, multiplies the result by 100 and converts the result to int.
+        /// Then, checks if progress is within [param01, param02].
+        /// NOTE: The result command that activates the progress UI also reads from the same packet.
         /// </summary>
-        IsSubstoryIngameHourInRange = 241, // 0x00636EF0 (cQuestProcess* this, s32 minHour, s32 maxHour, s32 param03, s32 param04)
+        IsSubstoryProgressInRange = 241, // 0x00636EF0 (cQuestProcess* this, s32 minValue, s32 maxValue, s32 param03, s32 param04)
 
         /// <summary>
         /// Kill-group completion check gated on content mode.
