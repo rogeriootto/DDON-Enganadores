@@ -1,0 +1,2 @@
+﻿#Id,Name,Brief,MaxLoginNum,IpAddress,Port,IsHide,RpcPort,RpcAuth,LoginId,PreventLogin
+10,Engana Dogma Online,Brief,1000,100.94.30.9,52000,false,52099,AuthToken,1,FALSE

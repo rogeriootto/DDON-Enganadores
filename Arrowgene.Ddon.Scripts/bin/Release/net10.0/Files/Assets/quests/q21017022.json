@@ -1,0 +1,346 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "[Hard] A Disastrous Encounter",
+  "quest_id": 21017022,
+  "base_level": 80,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "KingalCanyon",
+  "news_image": 900,
+  "order_conditions": [{"type": "AreaRank", "Param1": 17, "Param2": 15}, {"type": "MainQuestCompleted", "Param1": 20250}],
+  "rewards": [
+    {
+      "type": "exp",
+      "amount": 48420
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 5138
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 940
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "item_id": "UnappraisedMoonTrinketKing",
+          "num": 2
+        },
+        {
+          "item_id": "SuperiorStrongGalaExtract",
+          "num": 3
+        },
+        {
+          "item_id": "Panacea",
+          "num": 3
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "stage_id": {
+        "id": 373,
+        "group_id": 27
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Grigori",
+          "enemy_id": "0x015900",
+          "level": 80,
+          "exp": 4035,
+          "index": 4
+        },
+        {
+          "comment": "Grigori",
+          "enemy_id": "0x015900",
+          "level": 80,
+          "exp": 4035,
+          "index": 5
+        },
+        {
+          "comment": "Grigori",
+          "enemy_id": "0x015900",
+          "level": 80,
+          "exp": 4035,
+          "index": 6
+        },
+        {
+          "comment": "Bearded Grigori",
+          "enemy_id": "0x015920",
+          "level": 80,
+          "exp": 4035,
+          "index": 7
+        },
+        {
+          "comment": "Grimwarg",
+          "enemy_id": "0x010205",
+          "level": 80,
+          "exp": 4035,
+          "index": 9
+        },
+        {
+          "comment": "Grimwarg",
+          "enemy_id": "0x010205",
+          "level": 80,
+          "exp": 4035,
+          "index": 10
+        },
+        {
+          "comment": "Grimwarg",
+          "enemy_id": "0x010205",
+          "level": 80,
+          "exp": 4035,
+          "index": 11
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 385,
+        "group_id": 20
+      },
+      "enemies": [
+        {
+          "comment": "Scourge - Severe",
+          "enemy_id": "0x020601",
+          "infection_type": 2,
+          "level": 80,
+          "exp": 100875,
+          "is_boss": true
+        },
+        {
+          "comment": "Bearded Grigori",
+          "enemy_id": "0x015920",
+          "level": 80,
+          "exp": 4035
+        },
+        {
+          "comment": "Bearded Grigori",
+          "enemy_id": "0x015920",
+          "level": 80,
+          "exp": 4035
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 385,
+        "group_id": 15
+      },
+      "placement_type": "manual",
+      "enemies": [
+        {
+          "comment": "Manticore",
+          "enemy_id": "0x015210",
+          "level": 80,
+          "exp": 20175,
+          "is_boss": true,
+          "index": 0
+        },
+        {
+          "comment": "Severely Infected Demon",
+          "enemy_id": "0x015910",
+          "level": 80,
+          "exp": 4035,
+          "index": 2
+        },
+        {
+          "comment": "Severely Infected Demon",
+          "enemy_id": "0x015910",
+          "level": 80,
+          "exp": 4035,
+          "index": 3
+        },
+        {
+          "comment": "Severely Infected Demon",
+          "enemy_id": "0x015910",
+          "level": 80,
+          "exp": 4035,
+          "index": 4
+        }
+      ]
+    },
+    {
+      "stage_id": {
+        "id": 385,
+        "group_id": 23
+      },
+      "starting_index": 6,
+      "enemies": [
+        {
+          "comment": "Eliminator Slay",
+          "enemy_id": "0x010530",
+          "level": 80,
+          "exp": 4035
+        },
+        {
+          "comment": "Eliminator Slay",
+          "enemy_id": "0x010530",
+          "level": 80,
+          "exp": 4035
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4035
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4035
+        },
+        {
+          "comment": "Siren",
+          "enemy_id": "0x010605",
+          "level": 80,
+          "exp": 4035
+        }
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "blocks": [
+        {
+          "type": "NpcTalkAndOrder",
+          "stage_id": {
+            "id": 377
+          },
+          "npc_id": "Ciaran",
+          "message_id": 19993
+        },
+        {
+          "type": "SeekOutEnemiesAtMarkedLocation",
+          "announce_type": "Accept",
+          "result_commands": [
+            {
+              "comment": "Idle dialogue",
+              "type": "QstTalkChg",
+              "Param1": 2700,
+              "Param2": 19994
+            }
+          ],
+          "groups": [0]
+        },
+        {
+          "type": "KillGroup",
+          "announce_type": "Update",
+          "reset_group": false,
+          "groups": [ 0 ]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [1],
+          "check_flags": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "check_flags": [3, 4, 5]
+        },
+        {
+          "type": "TalkToNpc",
+          "stage_id": {
+            "id": 377
+          },
+          "npc_id": "Ciaran",
+          "message_id": 19995
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [1]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [1]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [3]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [2]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [2]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [4]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "type": "MyQstFlags",
+          "check_flags": [1]
+        },
+        {
+          "type": "DiscoverEnemy",
+          "groups": [3]
+        },
+        {
+          "type": "KillGroup",
+          "reset_group": false,
+          "result_commands": [
+            {
+              "type": "MyQstFlagOn",
+              "Param1": 2
+            }
+          ],
+          "groups": [3]
+        },
+        {
+          "type": "MyQstFlags",
+          "announce_type": "Update",
+          "set_flags": [5]
+        }
+      ]
+    }
+  ]
+}

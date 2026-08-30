@@ -1,0 +1,166 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Fury in the Fog",
+    "quest_id": 22018041,
+    "base_level": 92,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "MegadosysPlateau",
+    "news_image": 339,
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 37800
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5500
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 555
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalMegadosysDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "GoremanticoresWhiteBeard",
+                    "num": 1
+                },
+                {
+                    "item_id": "WarDemonsAncestorNasalCartilage",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 464,
+                "group_id": 200
+            },
+            "enemies": [
+                {
+                    "comment": "Ancestor Orc - Tosser",
+                    "enemy_id": "0x015833",
+                    "level": 92,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Ancestor Orc - Blunt",
+                    "enemy_id": "0x015832",
+                    "level": 92,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Ancestor Orc - Blunt",
+                    "enemy_id": "0x015832",
+                    "level": 92,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Ancestor Orc - Fighter",
+                    "enemy_id": "0x015831",
+                    "level": 92,
+                    "exp": 4200
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 464,
+                "group_id": 34
+            },
+			"starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Goremanticore",
+                    "enemy_id": "0x015211",
+                    "level": 92,
+                    "exp": 21000,
+					"is_boss": true
+                },
+                {
+                    "comment": "Injured Ancestor Orc - Blunt",
+                    "enemy_id": "0x015832",
+					"named_enemy_params_id": 1480,
+                    "level": 92,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Eliminator",
+                    "enemy_id": "0x010508",
+                    "level": 92,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Eliminator",
+                    "enemy_id": "0x010508",
+                    "level": 92,
+                    "exp": 4200
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 20, "Param1": 1},
+                        {"type": "StageNo", "Param1": 133}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 133, "Param2": 14, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "KillGroup",
+                    "announce_type": "Accept",
+                    "groups": [0],
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 7368}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 133, "Param2": 0, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "DiscoverEnemy",
+                    "announce_type": "Update",
+                    "groups": [1],
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 7368}
+					]
+                },
+                {
+                    "type": "KillGroup",
+                    "announce_type": "Update",
+					"reset_group": false,
+                    "groups": [1]
+                }
+            ]
+        }
+    ]
+}

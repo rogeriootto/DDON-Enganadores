@@ -1,0 +1,228 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "A Disturbing Portent",
+    "quest_id": 22018043,
+    "base_level": 95,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "MegadosysPlateau",
+    "order_conditions": [{"type": "AreaRank", "Param1": 20, "Param2": 8}, {"type": "MainQuestCompleted", "Param1": 30200}],
+    "news_image": 679,
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 50400
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5500
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 665
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "AreaPoints",
+            "amount": 500
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalMegadosysDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "LargeDemonsStripedPelt",
+                    "num": 1
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 10
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 517,
+                "group_id": 50
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Axe Soldier Dwarf Orc",
+                    "enemy_id": "0x015821",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Blunt Soldier Dwarf Orc",
+                    "enemy_id": "0x015822",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Blunt Soldier Dwarf Orc",
+                    "enemy_id": "0x015822",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "War-Ready Giant Saurian",
+                    "enemy_id": "0x010471",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "War-Ready Giant Saurian",
+                    "enemy_id": "0x010471",
+                    "level": 95,
+                    "exp": 4200
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 517,
+                "group_id": 77
+            },
+            "starting_index": 4,
+            "enemies": [
+                {
+                    "comment": "Fodden",
+                    "enemy_id": "0x015042",
+                    "level": 95,
+                    "exp": 21000,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Grigori",
+                    "enemy_id": "0x015900",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Grigori",
+                    "enemy_id": "0x015900",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "Grigori",
+                    "enemy_id": "0x015900",
+                    "level": 95,
+                    "exp": 4200
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 518,
+                "group_id": 11
+            },
+            "starting_index": 5,
+            "enemies": [
+                {
+                    "comment": "Cockatrice",
+                    "enemy_id": "0x015301",
+                    "level": 95,
+                    "exp": 21000,
+                    "is_boss": true
+                },
+                {
+                    "comment": "War-Ready Gorecyclops",
+                    "enemy_id": "0x015060",
+                    "infection_type": 3,
+                    "level": 95,
+                    "exp": 21000,
+                    "is_boss": true
+                },
+                {
+                    "comment": "War-Ready Grimwarg",
+                    "enemy_id": "0x010230",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "War-Ready Grimwarg",
+                    "enemy_id": "0x010230",
+                    "level": 95,
+                    "exp": 4200
+                },
+                {
+                    "comment": "War-Ready Grimwarg",
+                    "enemy_id": "0x010230",
+                    "level": 95,
+                    "exp": 4200
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Raw",
+            "check_commands": [
+                {"type": "IsMainQuestClear", "Param1": 30200}
+            ]
+        },
+        {
+            "type": "NpcTalkAndOrder",
+            "stage_id": {
+                "id": 487
+            },
+            "npc_id": "Jan",
+            "message_id": 27961
+        },
+        {
+            "type": "SeekOutEnemiesAtMarkedLocation",
+            "announce_type": "Accept",
+            "result_commands": [
+                {"type": "QstTalkChg", "Param1": 3259, "Param2": 27962}
+            ],
+            "groups": [0]
+        },
+        {
+            "type": "KillGroup",
+            "announce_type": "Update",
+            "reset_group": false,
+            "groups": [0]
+        },
+        {
+            "type": "SeekOutEnemiesAtMarkedLocation",
+            "announce_type": "Update",
+            "groups": [1]
+        },
+        {
+            "type": "KillGroup",
+            "announce_type": "Update",
+            "reset_group": false,
+            "groups": [1]
+        },
+        {
+            "type": "SeekOutEnemiesAtMarkedLocation",
+            "announce_type": "Update",
+            "groups": [2]
+        },
+        {
+            "type": "KillGroup",
+            "announce_type": "Update",
+            "reset_group": false,
+            "groups": [2]
+        },
+        {
+            "type": "TalkToNpc",
+            "stage_id": {
+                "id": 487
+            },
+            "announce_type": "CheckpointAndUpdate",
+            "npc_id": "Jan",
+            "message_id": 27963
+        }
+    ]
+}

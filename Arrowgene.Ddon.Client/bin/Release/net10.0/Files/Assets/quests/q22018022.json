@@ -1,0 +1,146 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Time Restriction: Gathering Under Clear Skies",
+    "quest_id": 22018022,
+    "base_level": 88,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "FeryanaWilderness",
+    "order_conditions": [{"type": "ClearPersonalQuest", "Param1": 60319001}, {"type": "AreaRank", "Param1": 19, "Param2": 7}],
+    "news_image": 335,
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5500
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 555
+        },
+        {
+            "type": "exp",
+            "amount": 37800
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalFeryanaDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 10
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 10
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [{"type": "IsMainQuestClear", "Param1": 30130}]
+                },
+                {
+                    "type": "NpcTalkAndOrder",
+                    "stage_id": {
+                        "id": 478
+                    },
+                    "npc_id": "Nayajiku",
+                    "message_id": 23530
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "check_commands": [
+                        {"type": "StageNo", "Param1": 451},
+                        {"type": "WeatherEq", "Param1": 1}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 3050, "Param2": 23531}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "check_commands": [
+                        {"type": "TalkNpc", "Param1": 451, "Param2": 3050},
+                        {"type": "WeatherEq", "Param1": 1}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 3050, "Param2": 23532}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "result_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 2821},
+                        {"type": "QstTalkChg", "Param1": 3050, "Param2": 23533}
+                    ],
+                    "check_commands": [
+                        {"type": "HaveItemAllBag", "Param1": 18142, "Param2": 5, "comment": "Blazing Ore"}
+                    ]
+                },
+                {
+                    "type": "DeliverItems",
+                    "announce_type": "CheckpointAndUpdate",
+                    "stage_id": {
+                        "id": 478
+                    },
+                    "npc_id": "Nayajiku",
+                    "items": [
+                        {"id": 18142, "amount": 5, "comment": "Blazing Ore"}
+                    ],
+                    "message_id": 23534
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "MyQstFlags",
+                    "check_flags": [2821]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "WeatherEq", "Param1": 1},
+                        {"type": "StageNoWithoutMarker", "Param1": 132}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOn", "Param1": 6186},
+                        {"type": "QstLayoutFlagOn", "Param1": 6187},
+                        {"type": "QstLayoutFlagOn", "Param1": 6188},
+                        {"type": "QstLayoutFlagOn", "Param1": 6189},
+                        {"type": "PlayMessage", "Param1": 25306, "Param2": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "WeatherNotEq", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOff", "Param1": 6186},
+                        {"type": "QstLayoutFlagOff", "Param1": 6187},
+                        {"type": "QstLayoutFlagOff", "Param1": 6188},
+                        {"type": "QstLayoutFlagOff", "Param1": 6189},
+                        {"type": "PlayMessage", "Param1": 25307, "Param2": 0}
+                    ]
+                }
+            ]
+        }
+    ]
+}

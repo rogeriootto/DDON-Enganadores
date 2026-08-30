@@ -1,0 +1,171 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "Eyes That Speak of a Deep Bond",
+  "quest_id": 22018024,
+  "base_level": 85,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "FeryanaWilderness",
+  "order_conditions": [{"type": "AreaRank", "Param1": 19, "Param2": 2}],
+  "news_image": 676,
+  "rewards": [
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 5500
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "AreaPoints",
+      "amount": 500
+    },
+    {
+      "type": "exp",
+      "amount": 25200
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "comment": "Royal Crest Medal (Feryana District)",
+          "item_id": 18819,
+          "num": 5
+        },
+        {
+          "comment": "Cursed Letter",
+          "item_id": 17878,
+          "num": 1
+        },
+        {
+          "comment": "Superior Healing Remedy",
+          "item_id": 7555,
+          "num": 10
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "comment": "GroupId: 4 - Empty",
+      "stage_id": {
+        "id": 499,
+        "group_id": 4
+      },
+      "starting_index": 8,
+      "enemies": []
+    },
+    {
+      "comment": "GroupId: 4 - Witch, Eliminator and Acid Blobs",
+      "stage_id": {
+        "id": 499,
+        "group_id": 4
+      },
+      "starting_index": 8,
+      "enemies": [
+        {
+          "comment": "Witch",
+          "enemy_id": "0x015604",
+          "level": 85,
+          "exp": 21000
+        },
+        {
+          "comment": "Acid Blob",
+          "enemy_id": "0x010911",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Acid Blob",
+          "enemy_id": "0x010911",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Acid Blob",
+          "enemy_id": "0x010911",
+          "level": 85,
+          "exp": 4200
+        },
+        {
+          "comment": "Eliminator",
+          "enemy_id": "0x010508",
+          "level": 85,
+          "exp": 4200
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "NpcTalkAndOrder",
+      "stage_id": {
+        "id": 520
+      },
+      "npc_id": "Shekel",
+      "message_id": 23555
+    },
+    {
+      "type": "SpawnGroup",
+      "announce_type": "Accept",
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 3053, "Param2": 23556, "comment": "Extra dialogue - Shekel"}
+      ],
+      "check_commands": [
+        {"type": "StageNo", "Param1": 1093}
+      ]
+    },
+    {
+      "type": "NewTalkToNpc",
+      "stage_id": {
+        "id": 499,
+        "group_id": 0,
+        "layer_no": 0
+      },
+      "npc_id": "Dudley",
+      "message_id": 24221,
+      "result_commands": [
+        {"type": "QstLayoutFlagOn", "Param1": 5480, "comment": "Spawns Dudley NPC"}
+      ]
+    },
+    {
+      "type": "KillGroup",
+      "announce_type": "Update",
+      "groups": [1],
+      "result_commands": [
+        {"type": "PlayMessage", "Param1": 23623, "Param2": 0},
+        {"type": "MyQstFlagOn", "Param1": 2870, "comment": "Dudley FSM"}
+      ]
+    },
+    {
+      "type": "NewTalkToNpc",
+      "announce_type": "Update",
+      "stage_id": {
+        "id": 499,
+        "group_id": 2,
+        "layer_no": 0
+      },
+      "npc_id": "Dudley",
+      "message_id": 23557,
+      "result_commands": [
+        {"type": "QstLayoutFlagOff", "Param1": 5480, "comment": "Clears Dudley NPC"},
+        {"type": "QstLayoutFlagOn", "Param1": 5483, "comment": "Spawns Dudley (Alive) NPC"}
+      ]
+    },
+    {
+      "type": "TalkToNpc",
+      "announce_type": "CheckpointAndUpdate",
+      "stage_id": {
+        "id": 520
+      },
+      "npc_id": "Shekel",
+      "message_id": 23553
+    }
+  ]
+}

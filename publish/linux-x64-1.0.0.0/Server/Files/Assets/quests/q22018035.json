@@ -1,0 +1,144 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "Indomitable Proof",
+  "quest_id": 22018035,
+  "base_level": 90,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "MegadosysPlateau",
+  "news_image": 902,
+  "rewards": [
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 11000
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "AreaPoints",
+      "amount": 500
+    },
+    {
+      "type": "exp",
+      "amount": 56000
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "comment": "Superior Healing Remedy",
+          "item_id": 7555,
+          "num": 3
+        },
+        {
+          "comment": "Superior Strong Gala Extract",
+          "item_id": 9364,
+          "num": 3
+        },
+        {
+          "comment": "Panacea",
+          "item_id": 41,
+          "num": 3
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "stage_id": {
+        "id": 589,
+        "group_id": 4
+      },
+      "starting_index": 6,
+      "enemies": [
+        {
+          "comment": "Progenitor",
+          "enemy_id": "0x015870",
+          "named_enemy_params_id": 2112,
+          "level": 90,
+          "exp": 294000,
+          "is_boss": true
+        },
+        {
+          "comment": "Ancestor Orc - Fighter",
+          "enemy_id": "0x015831",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Ancestor Orc - Fighter",
+          "enemy_id": "0x015831",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Ancestor Orc - Fighter",
+          "enemy_id": "0x015831",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Ancestor Orc - Blunt",
+          "enemy_id": "0x015832",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Ancestor Orc - Blunt",
+          "enemy_id": "0x015832",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Ancestor Orc - Blunt",
+          "enemy_id": "0x015832",
+          "level": 90,
+          "exp": 4200
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Raw",
+      "check_commands": [{"type": "IsMainQuestClear", "Param1": 30140}]
+    },
+    {
+      "type": "NpcTalkAndOrder",
+      "stage_id": {
+        "id": 584
+      },
+      "npc_id": "Lucas",
+      "message_id": 27924
+    },
+    {
+      "type": "DiscoverEnemy",
+      "announce_type": "Accept",
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 3201, "Param2": 27925, "comment": "Extra dialogue - Lucas"}
+      ]
+    },
+    {
+      "type": "KillGroup",
+      "announce_type": "Update",
+      "reset_group": false,
+      "groups": [0]
+    },
+    {
+      "type": "TalkToNpc",
+      "stage_id": {
+        "id": 584
+      },
+      "announce_type": "CheckpointAndUpdate",
+      "npc_id": "Lucas",
+      "message_id": 27926
+    }
+  ]
+}

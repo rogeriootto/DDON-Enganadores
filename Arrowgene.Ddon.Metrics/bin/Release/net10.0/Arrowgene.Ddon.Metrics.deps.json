@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Arrowgene.Ddon.Metrics/1.0.0.0": {
+        "dependencies": {
+          "Arrowgene.Networking": "2.1.7"
+        },
+        "runtime": {
+          "Arrowgene.Ddon.Metrics.dll": {}
+        }
+      },
+      "Arrowgene.Logging/1.2.1": {
+        "runtime": {
+          "lib/netstandard2.1/Arrowgene.Logging.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "Arrowgene.Networking/2.1.7": {
+        "dependencies": {
+          "Arrowgene.Logging": "1.2.1"
+        },
+        "runtime": {
+          "lib/net10.0/Arrowgene.Networking.dll": {
+            "assemblyVersion": "2.1.7.0",
+            "fileVersion": "2.1.7.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Arrowgene.Ddon.Metrics/1.0.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Arrowgene.Logging/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0GJvZjX1qjzHvP1BgGN3KUiHNoUGWcKnF+5/S9lyYBQIMbcQKaVHSOx4hZ8xeCbDz1ZuNOM4r4vU2fkTEYA99w==",
+      "path": "arrowgene.logging/1.2.1",
+      "hashPath": "arrowgene.logging.1.2.1.nupkg.sha512"
+    },
+    "Arrowgene.Networking/2.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W4iNIz/Hy8GnO79rTcTJVPPd9kd680rMuUMLG1Hpxz1F51UZtJIerxkgMn8UX6rP8PBR5QaDa3njnQdxdW2ArQ==",
+      "path": "arrowgene.networking/2.1.7",
+      "hashPath": "arrowgene.networking.2.1.7.nupkg.sha512"
+    }
+  }
+}

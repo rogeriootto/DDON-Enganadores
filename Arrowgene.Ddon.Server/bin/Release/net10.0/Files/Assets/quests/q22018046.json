@@ -1,0 +1,148 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Time Restriction: Early Dawn Bug Hunting",
+    "quest_id": 22018046,
+    "base_level": 93,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "MegadosysPlateau",
+    "order_conditions": [{"type": "MainQuestCompleted", "Param1": 30200}],
+    "news_image": 338,
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 13750
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 555
+        },
+        {
+            "type": "exp",
+            "amount": 8400
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "RoyalCrestMedalMegadosysDistrict",
+                    "num": 5
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 10
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 10
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [{"type": "IsMainQuestClear", "Param1": 30200}]
+                },
+                {
+                    "type": "NpcTalkAndOrder",
+                    "stage_id": {
+                        "id": 487
+                    },
+                    "npc_id": "Doris",
+                    "message_id": 27980
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "check_commands": [
+                        {"type": "StageNo", "Param1": 461},
+                        {"type": "IngameTimeRangeEq", "Param1": 5, "Param2": 10}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 3200, "Param2": 27981}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "check_commands": [
+                        {"type": "TalkNpc", "Param1": 461, "Param2": 3200},
+                        {"type": "IngameTimeRangeEq", "Param1": 5, "Param2": 10}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 3200, "Param2": 27982}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "CheckpointAndUpdate",
+                    "result_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0},
+                        {"type": "QstTalkChg", "Param1": 3200, "Param2": 27983}
+                    ],
+                    "check_commands": [
+                        {"type": "HaveItemAllBag", "Param1": 21215, "Param2": 5, "comment": "Giant Caterpillar"}
+                    ]
+                },
+                {
+                    "type": "DeliverItems",
+                    "announce_type": "CheckpointAndUpdate",
+                    "stage_id": {
+                        "id": 487
+                    },
+                    "npc_id": "Doris",
+                    "items": [
+                        {"id": 21215, "amount": 5, "comment": "Giant Caterpillar"}
+                    ],
+                    "message_id": 27984
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "MyQstFlags",
+                    "check_flags": [0]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "IngameTimeRangeEq", "Param1": 5, "Param2": 10},
+                        {"type": "StageNoWithoutMarker", "Param1": 133}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOn", "Param1": 7392},
+                        {"type": "QstLayoutFlagOn", "Param1": 7393},
+                        {"type": "QstLayoutFlagOn", "Param1": 7394},
+                        {"type": "QstLayoutFlagOn", "Param1": 7502},
+                        {"type": "QstLayoutFlagOn", "Param1": 7509},
+                        {"type": "PlayMessage", "Param1": 27985, "Param2": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "IngameTimeRangeNotEq", "Param1": 5, "Param2": 10}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "QstLayoutFlagOff", "Param1": 7392},
+                        {"type": "QstLayoutFlagOff", "Param1": 7393},
+                        {"type": "QstLayoutFlagOff", "Param1": 7394},
+                        {"type": "QstLayoutFlagOff", "Param1": 7502},
+                        {"type": "QstLayoutFlagOff", "Param1": 7509},
+                        {"type": "PlayMessage", "Param1": 27986, "Param2": 0}
+                    ]
+                }
+            ]
+        }
+    ]
+}

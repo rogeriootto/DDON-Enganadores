@@ -1,0 +1,183 @@
+{
+  "state_machine": "GenericStateMachine",
+  "type": "World",
+  "comment": "An Intruder in Too Deep",
+  "quest_id": 22018039,
+  "base_level": 90,
+  "minimum_item_rank": 0,
+  "discoverable": true,
+  "area_id": "MegadosysPlateau",
+  "order_conditions": [{"type": "AreaRank", "Param1": 20, "Param2": 2}, {"type": "MainQuestCompleted", "Param1": 30150}],
+  "news_image": 677,
+  "rewards": [
+    {
+      "type": "wallet",
+      "wallet_type": "Gold",
+      "amount": 5500
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "RiftPoints",
+      "amount": 300
+    },
+    {
+      "type": "wallet",
+      "wallet_type": "AreaPoints",
+      "amount": 500
+    },
+    {
+      "type": "exp",
+      "amount": 25200
+    },
+    {
+      "type": "select",
+      "loot_pool": [
+        {
+          "comment": "Royal Crest Medal (Megadosys District)",
+          "item_id": 18820,
+          "num": 5
+        },
+        {
+          "comment": "Strong Heat-Resistant Scale",
+          "item_id": 21223,
+          "num": 3
+        },
+        {
+          "comment": "Cursed Letter",
+          "item_id": 17878,
+          "num": 1
+        }
+      ]
+    }
+  ],
+  "enemy_groups": [
+    {
+      "comment": "GroupId: 16 - Empty",
+      "stage_id": {
+        "id": 597,
+        "group_id": 16
+      },
+      "starting_index": 4,
+      "enemies": []
+    },
+    {
+      "comment": "GroupId: 16 - Witch, Harpies, Giant Geo Saurians",
+      "stage_id": {
+        "id": 597,
+        "group_id": 16
+      },
+      "starting_index": 4,
+      "enemies": [
+        {
+          "comment": "Witch",
+          "enemy_id": "0x015604",
+          "level": 90,
+          "exp": 21000
+        },
+        {
+          "comment": "Giant Geo Saurian",
+          "enemy_id": "0x010421",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Giant Geo Saurian",
+          "enemy_id": "0x010421",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
+        },
+        {
+          "comment": "Harpy",
+          "enemy_id": "0x010600",
+          "level": 90,
+          "exp": 4200
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Raw",
+      "check_commands": [
+        {"type": "IsMainQuestClear", "Param1": 30150}
+      ]
+    },
+    {
+      "type": "NpcTalkAndOrder",
+      "stage_id": {
+        "id": 464
+      },
+      "npc_id": "Kirsty0",
+      "message_id": 27945
+    },
+    {
+      "type": "SpawnGroup",
+      "announce_type": "Accept",
+      "groups": [0],
+      "result_commands": [
+        {"type": "QstTalkChg", "Param1": 4513, "Param2": 27946, "comment": "Extra dialogue - Eddys"}
+      ],
+      "check_commands": [
+        {"type": "StageNo", "Param1": 1006}
+      ]
+    },
+    {
+      "type": "NewTalkToNpc",
+      "stage_id": {
+        "id": 597,
+        "group_id": 0,
+        "layer_no": 0
+      },
+      "npc_id": "Revento",
+      "message_id": 27952,
+      "result_commands": [
+        {"type": "QstLayoutFlagOn", "Param1": 7352, "comment": "Spawns Levente NPC"}
+      ]
+    },
+    {
+        "type": "KillGroup",
+        "announce_type": "Update",
+        "groups": [1],
+        "result_commands": [
+          {"type": "PlayMessage", "Param1": 27949, "Param2": 0},
+          {"type": "MyQstFlagOn", "Param1": 4314, "comment": "Levente FSM"}
+        ]
+    },
+    {
+        "type": "NewTalkToNpc",
+        "announce_type": "Update",
+        "stage_id": {
+            "id": 597,
+            "group_id": 2,
+            "layer_no": 0
+        },
+        "npc_id": "Revento",
+        "message_id": 27947,
+        "result_commands": [
+          {"type": "QstLayoutFlagOff", "Param1": 7352, "comment": "Clears Levente NPC"},
+          {"type": "QstLayoutFlagOn", "Param1": 7356, "comment": "Spawns Levente (Alive) NPC"}
+        ]
+    },
+    {
+      "type": "TalkToNpc",
+      "announce_type": "CheckpointAndUpdate",
+      "stage_id": {
+        "id": 464
+      },
+      "npc_id": "Kirsty0",
+      "message_id": 27943
+    }
+  ]
+}

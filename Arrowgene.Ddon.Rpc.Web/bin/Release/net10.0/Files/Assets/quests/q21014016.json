@@ -1,0 +1,359 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Simian Relatives",
+    "quest_id": 21014016,
+    "base_level": 75,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "ElanWaterGrove",
+    "news_image": 282,
+    "order_conditions": [{"type": "AreaRank", "Param1": 14, "Param2": 11}],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 32820
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 4494
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 300
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "ThickShell",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 42
+            },
+            "enemies": [
+                {
+                    "comment": "Brute Ape",
+                    "enemy_id": "0x015504",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Brute Ape",
+                    "enemy_id": "0x015504",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Brute Ape",
+                    "enemy_id": "0x015504",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Brute Ape",
+                    "enemy_id": "0x015504",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Brute Ape",
+                    "enemy_id": "0x015504",
+                    "level": 75,
+                    "exp": 2375
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 42
+            },
+            "enemies": [
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x015507",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x015507",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x015507",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x015507",
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x015507",
+                    "level": 75,
+                    "exp": 2375
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 451,
+                "group_id": 6
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Dread Ape",
+                    "enemy_id": "0x015502",
+                    "level": 75,
+                    "exp": 11875,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Spineback",
+                    "enemy_id": "0x015506",
+                    "level": 75,
+                    "exp": 11875,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Brute Ape",
+                    "enemy_id": "0x015504",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Brute Ape",
+                    "enemy_id": "0x015504",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Brute Ape",
+                    "enemy_id": "0x015504",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Brute Ape",
+                    "enemy_id": "0x015504",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 451,
+                "group_id": 6
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Silver Roar",
+                    "enemy_id": "0x015505",
+                    "level": 75,
+                    "exp": 11875,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Spineback",
+                    "enemy_id": "0x015506",
+                    "level": 75,
+                    "exp": 11875,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Wounded Little Spine",
+                    "enemy_id": "0x015507",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Little Spine",
+                    "enemy_id": "0x015507",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Little Spine",
+                    "enemy_id": "0x015507",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                },
+                {
+                    "comment": "Wounded Little Spine",
+                    "enemy_id": "0x015507",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 2375
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 14, "Param2": 11},
+                        {"type": "StageNo", "Param1": 121}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 6, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 42, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4570}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 121, "Param2": 0, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4570},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 819, "Param2": 6, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 819, "Param2": 6, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}

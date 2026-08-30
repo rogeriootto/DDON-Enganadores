@@ -1,0 +1,282 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "Main",
+    "comment": "Gallant Footsteps",
+    "quest_id": 20190,
+    "next_quest": 20200,
+    "base_level": 70,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "order_conditions": [
+        {
+            "type": "MinimumLevel",
+            "Param1": 70
+        },
+        {
+            "type": "MainQuestCompleted",
+            "Param1": 20180
+        }
+    ],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 450000
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 52000
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 4200
+        },
+        {
+            "type": "fixed",
+            "loot_pool": [
+                {
+                    "item_id": 13484,
+                    "num": 1
+                },
+                {
+                    "item_id": 14189,
+                    "num": 1
+                }
+            ]
+        }
+    ],
+    "enemy_groups": [],
+    "processes": [
+        {
+            "comment": "Process 0",
+            "blocks": [
+                {
+                    "type": "NpcTalkAndOrder",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "npc_id": "Joseph",
+                    "message_id": 15709,
+                    "flags": [
+                        {
+                            "type": "WorldManageLayout",
+                            "action": "Clear",
+                            "value": 8630,
+                            "quest_id": 70034001,
+                            "comment": "Spawns Gurdolin, Lise and Elliot"
+                        }
+                    ]
+                },
+                {
+                    "type": "NewTalkToNpc",
+                    "stage_id": {
+                        "id": 374,
+                        "group_id": 0,
+                        "layer_no": 0
+                    },
+                    "announce_type": "Accept",
+                    "npc_id": "Cecily0",
+                    "message_id": 15710,
+                    "flags": [
+                        {
+                            "type": "QstLayout",
+                            "action": "Set",
+                            "value": 3957,
+                            "comment": "Cecily, Gurdolin, Lise and Elliot"
+                        }
+                    ]
+                },
+                {
+                    "type": "TalkToNpc",
+                    "stage_id": {
+                        "id": 340
+                    },
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "npc_id": "Arthfael",
+                    "message_id": 18528
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "check_commands": [
+                        {"type": "SceHitIn", "Param1": 120, "Param2": 0}
+                    ],
+                    "contents_release": [
+                        {
+                            "flag_info": "FaranaPlains.KingalCanyonBorderCheckpoint"
+                        },
+                        {
+                            "flag_info": "KingalCanyon.GlyndwrGates"
+                        }
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        [{"type": "StageNoWithoutMarker", "Param1": 122}],
+                        [{"type": "IsReleaseWarpPointAnyone", "Param1": 20}, {"type": "DummyNotProgress"}]
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "check_commands": [
+                        {
+                            "type": "IsReleaseWarpPointAnyone",
+                            "Param1": 20
+                        }
+                    ]
+                },
+                {
+                    "type": "TalkToNpc",
+                    "stage_id": {
+                        "id": 377
+                    },
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "npc_id": "Ciaran",
+                    "message_id": 18530
+                },
+                {
+                    "type": "IsStageNo",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 376
+                    },
+                    "flags": [
+                        {"type": "MyQst", "action": "Set", "value": 1704, "comment": "Unlocks Shadolean gate"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 6750, "quest_id": 70030001, "comment": "Shadolean - Main quest"},
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 6751, "quest_id": 70030001, "comment": "Shadolean - Post main quest"}
+                    ]
+                },
+                {
+                    "type": "NewTalkToNpc",
+                    "stage_id": {
+                        "id": 376,
+                        "group_id": 1,
+                        "layer_no": 0
+                    },
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "npc_id": "Cecily0",
+                    "message_id": 15711,
+                    "flags": [
+                        {
+                            "type": "QstLayout",
+                            "action": "Clear",
+                            "value": 3957,
+                            "comment": "Cecily, Gurdolin, Lise and Elliot"
+                        },
+                        {
+                            "type": "QstLayout",
+                            "action": "Set",
+                            "value": 3958,
+                            "comment": "Cecily, Gurdolin, Elliot and Lise"
+                        }
+                    ]
+                },
+                {
+                    "type": "PartyGather",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 376
+                    },
+                    "location": {
+                        "x": -43,
+                        "y": -390,
+                        "z": -11989
+                    },
+                    "flags": [
+                        {
+                            "type": "QstLayout",
+                            "action": "Set",
+                            "value": 3965,
+                            "comment": "Gearóid, Gearóid's Escort Guard, Cecily, Gurdolin, Elliot, Lise"
+                        },
+                        {
+                            "type": "QstLayout",
+                            "action": "Set",
+                            "value": 4796,
+                            "comment": "Dead Enemies"
+                        }
+                    ]
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 376
+                    },
+                    "event_id": 0
+                },
+                {
+                    "type": "NewTalkToNpc",
+                    "stage_id": {
+                        "id": 374,
+                        "group_id": 1,
+                        "layer_no": 0
+                    },
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "npc_id": "Cecily0",
+                    "message_id": 15721,
+                    "flags": [
+                        {
+                            "type": "MyQst",
+                            "action": "Clear",
+                            "value": 1,
+                            "comment": "Spawns party gather to hack around door locked by area rank"
+                        },
+                        {
+                            "type": "QstLayout",
+                            "action": "Clear",
+                            "value": 3958,
+                            "comment": "Cecily, Gurdolin, Elliot and Lise"
+                        },
+                        {
+                            "type": "QstLayout",
+                            "action": "Set",
+                            "value": 3960,
+                            "comment": "Cecily, Lise, Elliot and Gurdolin"
+                        }
+                    ]
+                },
+                {
+                    "type": "TalkToNpc",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "npc_id": "Joseph",
+                    "message_id": 15722
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 6750, "quest_id": 70030001, "comment": "Shadolean - Main quest"},
+                        {"type": "WorldManageLayout", "action": "Set", "value": 6751, "quest_id": 70030001, "comment": "Shadolean - Post main quest"}
+                    ],
+                    "contents_release": [
+                        {
+                            "type": "None",
+                            "flag_info": "KingalCanyon.ShadoleanGreatTemple"
+                        },
+                        {
+                            "type": "KingalCanyonWorldQuests",
+                            "flag_info": "NpcFunctions.KingalCanyonAreaInfo"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

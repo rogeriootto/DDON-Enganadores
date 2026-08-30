@@ -1,0 +1,447 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "Main",
+    "comment": "The Fate of Lestania",
+    "quest_id": 20070,
+    "next_quest": 20080,
+    "base_level": 57,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "order_conditions": [
+        {"type": "MinimumLevel", "Param1": 57},
+        {"type": "MainQuestCompleted", "Param1": 20060}
+    ],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 148000
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 30000
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 2400
+        },
+        {
+            "type": "fixed",
+            "loot_pool": [
+                {
+                    "item_id": 11759,
+                    "num": 1
+                }
+            ]
+        }
+    ],
+    "enemy_groups": [
+        {
+            "stage_id": {
+                "id": 1,
+                "group_id": 296
+            },
+            "starting_index": 15,
+            "enemies": [
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 384,
+                    "named_enemy_params_id": 930
+                },
+                {
+                    "comment": "Infected Direwolf (Severe)",
+                    "enemy_id": "0x010209",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 930
+                },
+                {
+                    "comment": "Infected Direwolf (Severe)",
+                    "enemy_id": "0x010209",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 930
+                },
+                {
+                    "comment": "Infected Direwolf (Severe)",
+                    "enemy_id": "0x010209",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 930
+                },
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 384,
+                    "named_enemy_params_id": 930
+                },
+                {
+                    "comment": "Infected Direwolf (Severe)",
+                    "enemy_id": "0x010209",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 930
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 1,
+                "group_id": 422
+            },
+            "starting_index": 14,
+            "enemies": [
+                {
+                    "comment": "Infected Hobgoblin (Severe)",
+                    "enemy_id": "0x010160",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 931
+                },
+                {
+                    "comment": "Infected Hobgoblin (Severe)",
+                    "enemy_id": "0x010160",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 931
+                },
+                {
+                    "comment": "Infected Hobgoblin (Severe)",
+                    "enemy_id": "0x010160",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 931
+                },
+                {
+                    "comment": "Infected Hobgoblin (Severe)",
+                    "enemy_id": "0x010160",
+                    "infection_type": 2,
+                    "level": 55,
+                    "exp": 320,
+                    "named_enemy_params_id": 931
+                },
+                {
+                    "comment": "Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "level": 55,
+                    "exp": 432,
+                    "named_enemy_params_id": 931
+                },
+                {
+                    "comment": "Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "level": 55,
+                    "exp": 432,
+                    "named_enemy_params_id": 931
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 76,
+                "group_id": 10
+            },
+            "starting_index": 5,
+            "enemies": [
+                {
+                    "comment": "Frost Skeleton Brute",
+                    "enemy_id": "0x010321",
+                    "start_think_tbl_no": 1,
+                    "level": 60,
+                    "exp": 510,
+                    "named_enemy_params_id": 932
+                },
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "start_think_tbl_no": 1,
+                    "infection_type": 2,
+                    "level": 60,
+                    "exp": 408,
+                    "named_enemy_params_id": 932
+                },
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "start_think_tbl_no": 1,
+                    "infection_type": 2,
+                    "level": 60,
+                    "exp": 408,
+                    "named_enemy_params_id": 932
+                },
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "start_think_tbl_no": 1,
+                    "infection_type": 2,
+                    "level": 60,
+                    "exp": 408,
+                    "named_enemy_params_id": 932
+                },
+                {
+                    "comment": "Infected Snow Harpy (Severe)",
+                    "enemy_id": "0x010612",
+                    "start_think_tbl_no": 1,
+                    "infection_type": 2,
+                    "level": 60,
+                    "exp": 408,
+                    "named_enemy_params_id": 932
+                },
+                {
+                    "comment": "Frost Skeleton Brute",
+                    "enemy_id": "0x010321",
+                    "start_think_tbl_no": 1,
+                    "level": 60,
+                    "exp": 510,
+                    "named_enemy_params_id": 932
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 76,
+                "group_id": 4
+            },
+            "starting_index": 28,
+            "enemies": [
+                {
+                    "comment": "Infected Griffin (Slight)",
+                    "enemy_id": "0x015306",
+                    "infection_type": 1,
+                    "level": 57,
+                    "exp": 8200,
+                    "is_boss": true,
+                    "named_enemy_params_id": 933
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "comment": "Process 0",
+            "blocks": [
+                {
+                    "type": "NpcTalkAndOrder",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 8630, "quest_id": 70034001, "comment": "Spawns Gurdolin, Lise and Elliot"},
+                        {"type": "QstLayout", "action": "Set", "value": 2758, "comment": "Spawns Audience Chamber NPCs"}
+                    ],
+                    "npc_id": "Joseph",
+                    "message_id": 0
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "event_id": 125,
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ]
+                },
+                {
+                    "type": "DiscoverEnemy",
+                    "announce_type": "Accept",
+                    "groups": [ 0 ],
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16372, "comment": "Gerd"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16373, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16374, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 20, "Param2": 16565, "comment": "Cecily"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16566, "comment": "Elliot"},
+                        {"type": "QstTalkChg", "Param1": 13, "Param2": 16567, "comment": "Lise"},
+                        {"type": "QstTalkChg", "Param1": 501, "Param2": 16568, "comment": "Gurdolin"},
+                        {"type": "QstTalkChg", "Param1": 8, "Param2": 16375, "comment": "Heinz"},
+                        {"type": "QstTalkChg", "Param1": 1016, "Param2": 16376, "comment": "Duke"},
+                        {"type": "QstTalkChg", "Param1": 1017, "Param2": 16376, "comment": "Logan"},
+                        {"type": "QstTalkChg", "Param1": 12, "Param2": 16378, "comment": "Fabio"},
+                        {"type": "QstTalkChg", "Param1": 11, "Param2": 16379, "comment": "Vanessa"}
+                    ]
+                },
+                {
+                    "type": "KillGroup",
+                    "reset_group": false,
+                    "announce_type": "Update",
+                    "groups": [ 0 ]
+                },
+                {
+                    "type": "DiscoverEnemy",
+                    "checkpoint": true,
+                    "announce_type": "Update",
+                    "groups": [ 1 ]
+                },
+                {
+                    "type": "KillGroup",
+                    "reset_group": false,
+                    "announce_type": "Update",
+                    "groups": [ 1 ]
+                },
+                {
+                    "type": "PartyGather",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "location": {
+                        "x": -113,
+                        "y": 9164,
+                        "z": -369
+                    },
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 2758, "comment": "Spawns Audience Chamber NPCs"},
+                        {"type": "QstLayout", "action": "Set", "value": 3101, "comment": "Spawns Elliot and Gerd"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16380, "comment": "Gerd"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16381, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16382, "comment": "Elliot"}
+                    ]
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "event_id": 130,
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ]
+                },
+                {
+                    "type": "TalkToNpc",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 63
+                    },
+                    "npc_id": "Theodor",
+                    "message_id": 15272,
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 7, "Param2": 16383, "comment": "Gerd"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16384, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16385, "comment": "Klaus"},
+                        {"type": "QstTalkChg", "Param1": 21, "Param2": 16386, "comment": "Elliot"}
+                    ]
+                },
+                {
+                    "type": "DiscoverEnemy",
+                    "checkpoint": true,
+                    "announce_type": "Update",
+                    "groups": [ 2 ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 10, "Param2": 16387, "comment": "Theodor"}
+                    ]
+                },
+                {
+                    "type": "KillGroup",
+                    "reset_group": false,
+                    "announce_type": "Update",
+                    "groups": [ 2 ]
+                },
+                {
+                    "type": "PartyGather",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 76
+                    },
+                    "location": {
+                        "x": 3773,
+                        "y": -180,
+                        "z": -22550
+                    }
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 76
+                    },
+                    "event_id": 20
+                },
+                {
+                    "type": "KillGroup",
+                    "announce_type": "Update",
+                    "groups": [ 3 ],
+                    "flags": [
+                        {"type": "QstLayout", "action": "Set", "value": 3122, "comment": "Instance barriers"}
+                    ]
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 76
+                    },
+                    "event_id": 25,
+                    "bgm_stop": true
+                },
+                {
+                    "type": "PartyGather",
+                    "announce_type": "Update",
+                    "checkpoint": true,
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "location": {
+                        "x": -817,
+                        "y": 9163,
+                        "z": 0
+                    },
+                    "flags": [
+                        {"type": "QstLayout", "action": "Clear", "value": 3122, "comment": "Instance barriers"},
+                        {"type": "QstLayout", "action": "Clear", "value": 3101, "comment": "Spawns Elliot and Gerd"}
+                    ],
+                    "result_commands": [
+                        {"type": "QstTalkChg", "Param1": 10, "Param2": 16394, "comment": "Theodor"},
+                        {"type": "QstTalkChg", "Param1": 8, "Param2": 16395, "comment": "Heinz"},
+                        {"type": "QstTalkChg", "Param1": 1016, "Param2": 16396, "comment": "Duke"},
+                        {"type": "QstTalkChg", "Param1": 1017, "Param2": 16397, "comment": "Logan"},
+                        {"type": "QstTalkChg", "Param1": 4, "Param2": 16398, "comment": "Joseph"},
+                        {"type": "QstTalkChg", "Param1": 3, "Param2": 16399, "comment": "Klaus"}
+                    ]
+                },
+                {
+                    "type": "PlayEvent",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Clear", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ],
+                    "event_id": 135
+                },
+                {
+                    "type": "IsStageNo",
+                    "stage_id": {
+                        "id": 3
+                    },
+                    "flags": [
+                        {"type": "WorldManageLayout", "action": "Set", "value": 7390, "quest_id": 70032001, "comment": "The White Dragon (Full)"}
+                    ]
+                }
+            ]
+        }
+    ]
+}

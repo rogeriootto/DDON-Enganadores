@@ -1,0 +1,307 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Elanic Contrast",
+    "quest_id": 21014018,
+    "base_level": 80,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "ElanWaterGrove",
+    "news_image": 282,
+    "order_conditions": [{"type": "AreaRank", "Param1": 14, "Param2": 14}],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 48420
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 5106
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 665
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "SanctoSap",
+                    "num": 1
+                },
+                {
+                    "item_id": "ThousandYearMoss",
+                    "num": 1
+                },
+                {
+                    "item_id": "TransparentCoarseSand",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 44
+            },
+            "enemies": [
+                {
+                    "comment": "White Griffin",
+                    "enemy_id": "0x015320",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 372,
+                "group_id": 44
+            },
+            "enemies": [
+                {
+                    "comment": "Black Griffin",
+                    "enemy_id": "0x015303",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 439,
+                "group_id": 1
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Phindymian Ent",
+                    "enemy_id": "0x015032",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Wounded White Griffin",
+                    "enemy_id": "0x015320",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 10500,
+                    "is_boss": true
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 439,
+                "group_id": 1
+            },
+            "starting_index": 3,
+            "enemies": [
+                {
+                    "comment": "Phindymian Ent",
+                    "enemy_id": "0x015032",
+                    "level": 80,
+                    "exp": 20175,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Little Spine",
+                    "enemy_id": "0x010324",
+                    "level": 80,
+                    "exp": 4035
+                },
+                {
+                    "comment": "Wounded Black Griffin",
+                    "enemy_id": "0x015303",
+                    "named_enemy_params_id": 1480,
+                    "level": 80,
+                    "exp": 10500,
+                    "is_boss": true
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 14, "Param2": 14},
+                        {"type": "StageNo", "Param1": 121}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 20, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 121, "Param2": 44, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4594}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 121, "Param2": 0, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4594},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 818, "Param2": 1, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 818, "Param2": 1, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}

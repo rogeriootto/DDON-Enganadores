@@ -1,0 +1,13 @@
+/src/Arrowgene.Ddon.Metrics/bin/Release/net10.0/Arrowgene.Ddon.Metrics.deps.json
+/src/Arrowgene.Ddon.Metrics/bin/Release/net10.0/Arrowgene.Ddon.Metrics.dll
+/src/Arrowgene.Ddon.Metrics/bin/Release/net10.0/Arrowgene.Ddon.Metrics.pdb
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.csproj.AssemblyReference.cache
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.GeneratedMSBuildEditorConfig.editorconfig
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.AssemblyInfoInputs.cache
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.AssemblyInfo.cs
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.csproj.CoreCompileInputs.cache
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.sourcelink.json
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.dll
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/refint/Arrowgene.Ddon.Metrics.dll
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/Arrowgene.Ddon.Metrics.pdb
+/src/Arrowgene.Ddon.Metrics/obj/Release/net10.0/ref/Arrowgene.Ddon.Metrics.dll

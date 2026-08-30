@@ -1,0 +1,336 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Lightning Scorching the Waterway",
+    "quest_id": 21015016,
+    "base_level": 75,
+    "minimum_item_rank": 0,
+    "discoverable": true,
+    "area_id": "FaranaPlains",
+    "news_image": 526,
+    "order_conditions": [{"type": "AreaRank", "Param1": 15, "Param2": 11}],
+    "rewards": [
+        {
+            "type": "exp",
+            "amount": 32830
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 4494
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 300
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "UnappraisedWindTrinketSoldier",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorHealingRemedy",
+                    "num": 3
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 371,
+                "group_id": 73
+            },
+            "enemies": [
+                {
+                    "comment": "Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "level": 75,
+                    "exp": 2735
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 371,
+                "group_id": 73
+            },
+            "starting_index": 2,
+            "enemies": [
+                {
+                    "comment": "Blue Newt",
+                    "enemy_id": "0x010460",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Blue Newt",
+                    "enemy_id": "0x010460",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Blue Newt",
+                    "enemy_id": "0x010460",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Blue Newt",
+                    "enemy_id": "0x010460",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Blue Newt",
+                    "enemy_id": "0x010460",
+                    "level": 75,
+                    "exp": 2735
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 440,
+                "group_id": 1
+            },
+            "starting_index": 4,
+            "enemies": [
+                {
+                    "comment": "Lindwurm",
+                    "enemy_id": "0x015303",
+                    "level": 75,
+                    "exp": 68375,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Bolt Corpse Torturer",
+                    "enemy_id": "0x010518",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Bolt Corpse Torturer",
+                    "enemy_id": "0x010518",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Bolt Corpse Torturer",
+                    "enemy_id": "0x010518",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Wounded Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 540
+                },
+                {
+                    "comment": "Wounded Bolt Grimwarg",
+                    "enemy_id": "0x010211",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 540
+                }
+            ]
+        },
+        {
+            "stage_id": {
+                "id": 440,
+                "group_id": 1
+            },
+            "starting_index": 4,
+            "enemies": [
+                {
+                    "comment": "Lindwurm",
+                    "enemy_id": "0x015303",
+                    "level": 75,
+                    "exp": 68375,
+                    "is_boss": true
+                },
+                {
+                    "comment": "Bolt Skeleton Brute",
+                    "enemy_id": "0x010322",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Bolt Skeleton Brute",
+                    "enemy_id": "0x010322",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Bolt Skeleton Brute",
+                    "enemy_id": "0x010322",
+                    "level": 75,
+                    "exp": 2735
+                },
+                {
+                    "comment": "Wounded Blue Newt",
+                    "enemy_id": "0x010460",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 308
+                },
+                {
+                    "comment": "Wounded Blue Newt",
+                    "enemy_id": "0x010460",
+                    "named_enemy_params_id": 1480,
+                    "level": 75,
+                    "exp": 308
+                }
+            ]
+        }
+    ],
+    "processes": [
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "CheckAreaRank", "Param1": 15, "Param2": 11},
+                        {"type": "StageNo", "Param1": 120}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 120, "Param2": 33, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Accept",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100035},
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ],
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 120, "Param2": 73, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 815},
+                        {"type": "QstLayoutFlagOn", "Param1": 4606}
+                    ],
+                    "check_commands": [
+                        {"type": "QuestOmSetTouch", "Param1": 120, "Param2": 0, "Param3": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "result_commands": [
+                        {"type": "CallGeneralAnnounce", "Param1": 0, "Param2": 100036},
+                        {"type": "QstLayoutFlagOff", "Param1": 4606},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ],
+                    "check_commands": [
+                        {"type": "IsEnemyFoundForOrder", "Param1": 831, "Param2": 1, "Param3": -1}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "announce_type": "Update",
+                    "check_commands": [
+                        {"type": "DieEnemy", "Param1": 831, "Param2": 1, "Param3": -1}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "MyQstFlagOn", "Param1": 0}
+                    ]
+                },
+                {
+                    "type": "Raw",
+                    "result_commands": [
+                        {"type": "SetRandom", "Param1": 1, "Param2": 1, "Param3": 2}
+                    ]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [0]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [1]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 1},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [2]
+                }
+            ]
+        },
+        {
+            "blocks": [
+                {
+                    "type": "Raw",
+                    "check_commands": [
+                        {"type": "RandomEq", "Param1": 1, "Param2": 2},
+                        {"type": "MyQstFlagOn", "Param1": 1}
+                    ]
+                },
+                {
+                    "type": "SpawnGroup",
+                    "groups": [3]
+                }
+            ]
+        }
+    ]
+}

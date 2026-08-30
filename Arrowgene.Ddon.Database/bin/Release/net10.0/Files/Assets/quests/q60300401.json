@@ -1,0 +1,70 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "Tutorial",
+    "comment": "Seeking the Master: High Scepter",
+    "quest_id": 60300401,
+    "next_quest": 0,
+    "base_level": 18,
+    "minimum_item_rank": 0,
+    "discoverable": false,
+    "stage_id": { "id": 584 },
+    "adventure_guide_category": "VocationQuest",
+    "order_conditions": [{"type": "MinimumVocationLevel", "Param1": 11, "Param2": 18}, {"type": "MainQuestCompleted", "Param1": 30150}],
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 1000
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 300
+        },
+        {
+            "type": "exp",
+            "amount": 2500
+        },
+        {
+            "type": "fixed",
+            "loot_pool": [
+                {
+                    "item_id": 20047,
+                    "num": 1
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Raw",
+            "check_commands": [
+                {"type": "PlJobEq", "Param1": 11},
+                {"type": "JobLevelNotLess", "Param1": 1, "Param2": 18},
+                {"type": "IsMainQuestClear", "Param1": 30150}
+            ]
+        },
+        {
+            "type": "NpcTalkAndOrder",
+            "stage_id": {
+                "id": 584,
+                "group_id": 1
+            },
+            "npc_id": "Umit",
+            "message_id": 28177
+        },
+        {
+            "type": "TalkToNpc",
+            "stage_id": {
+                "id": 464,
+                "group_id": 1
+            },
+            "announce_type": "Accept",
+            "npc_id": "Kirsty0",
+            "message_id": 28179,
+            "result_commands": [
+                {"type": "QstTalkChg", "Param1": 3202, "Param2": 28178}
+            ]
+        }
+    ]
+}
