@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 # https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish?tabs=netcore2x
 read -r VERSION<ddon.version
 mkdir ./release
